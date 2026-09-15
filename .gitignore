@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Temporary files and logs
+*.log
+*.tmp
+*.tmp.png
+
+# Large video render outputs (keep source assets and diagnostic frames)
+output/*.mp4
+output/*.wav
+test_audio.wav
+
+# External reference clones
+bang-motion-repo/
+
+# IDE / OS
+.vscode/
+.DS_Store
+Thumbs.db

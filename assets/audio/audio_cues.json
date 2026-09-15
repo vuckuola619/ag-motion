@@ -1,0 +1,56 @@
+{
+  "total_duration": 60.0,
+  "sample_rate": 24000,
+  "language": "en",
+  "voice": "am_adam",
+  "cues": [
+    {
+      "id": "beat_1",
+      "title": "The Age of Dinosaurs",
+      "start": 0.5,
+      "end": 9.57,
+      "duration": 9.07,
+      "text": "Sixty-six million years ago, dinosaurs ruled the Earth as undisputed apex predators, an unbroken reign spanning over one hundred and sixty million years."
+    },
+    {
+      "id": "beat_2",
+      "title": "The Chicxulub Impactor",
+      "start": 10.2,
+      "end": 17.43,
+      "duration": 7.23,
+      "text": "From deep space, a mountain-sized asteroid ten kilometers wide hurtled toward Earth at forty-five thousand miles per hour."
+    },
+    {
+      "id": "beat_3",
+      "title": "Cataclysmic Impact & Megatsunami",
+      "start": 20.2,
+      "end": 27.99,
+      "duration": 7.79,
+      "text": "The impact in the Yucatan unleashed the fury of one hundred million megatons, triggering apocalyptic megatsunamis hundreds of meters high."
+    },
+    {
+      "id": "beat_4",
+      "title": "The Deccan Traps Supervolcanoes",
+      "start": 30.2,
+      "end": 38.26,
+      "duration": 8.06,
+      "text": "Shockwaves fractured the Earth's mantle, triggering the Deccan Traps supervolcanoes and pumping billions of tons of toxic sulfur into the skies."
+    },
+    {
+      "id": "beat_5",
+      "title": "Nuclear Winter & Ecosystem Collapse",
+      "start": 40.2,
+      "end": 48.41,
+      "duration": 8.21,
+      "text": "A suffocating blanket of soot blotted out the sun for a decade. Global temperatures plummeted, photosynthesis halted, and the food chain collapsed."
+    },
+    {
+      "id": "beat_6",
+      "title": "The Iridium Boundary & Rise of Mammals",
+      "start": 50.2,
+      "end": 58.01,
+      "duration": 7.81,
+      "text": "Seventy-five percent of all species vanished forever, leaving a thin layer of cosmic iridium... and sparking the dawn of the age of mammals."
+    }
+  ]
+}

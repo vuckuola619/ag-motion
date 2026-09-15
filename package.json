@@ -1,0 +1,25 @@
+{
+  "name": "ag-motion",
+  "version": "1.0.0",
+  "description": "Cinematic 60-Second Web Motion Graphics Explainer Engine (White Catalog Style)",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "test:snapshots": "node pipeline/test_snapshots.mjs",
+    "render": "node pipeline/render_mp4.mjs"
+  },
+  "keywords": [
+    "motion-graphics",
+    "gsap",
+    "puppeteer",
+    "ffmpeg",
+    "explainer-video",
+    "bang-motion",
+    "white-catalog"
+  ],
+  "author": "vuckuola619",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  }
+}
