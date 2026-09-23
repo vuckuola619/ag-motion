@@ -1,0 +1,1474 @@
+<!doctype html>
+<html lang="en">
+<!-- Made with the Bang Motion skill by Bang Tutorial (https://github.com/bangtutorial/bang-motion) -->
+<!-- Style 3: White Catalog Explainer — English Edition (60s Documentary Edition) -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explainer: Extinction of the Dinosaurs — Bang Motion White Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Caveat:wght@600;700&family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f172a;
+  --ink-soft: #1e293b;
+  --mute: #64748b;
+  --mute-light: #94a3b8;
+  --red: #e11d48;
+  --red-dark: #9f1239;
+  --yel: #fbbf24;
+  --amber: #f59e0b;
+  --grid: rgba(15, 23, 42, 0.055);
+  --paper: #ffffff;
+  --surface: #f8fafc;
+  --border: rgba(15, 23, 42, 0.12);
+  --blue: #2563eb;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #090b10;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+#stage {
+  position: absolute;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--paper);
+  font-family: "Archivo", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
+  transform-origin: center center;
+}
+
+#world {
+  position: absolute;
+  inset: 0;
+  transform-origin: 540px 960px;
+  will-change: transform;
+}
+
+#filters {
+  position: fixed;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Background paper grid across the vast horizontal runway */
+.paper {
+  position: absolute;
+  left: -2000px;
+  top: -1500px;
+  width: 24000px;
+  height: 6000px;
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(var(--grid) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--grid) 1.5px, transparent 1.5px);
+  background-size: 120px 120px;
+}
+
+/* Typography styles - Strict Anti-Slop Layout & Hierarchy */
+.t { position: absolute; opacity: 0; }
+.w {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 0.10em;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* 1. Header series tag */
+.series-tag {
+  position: absolute;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  opacity: 0;
+  z-index: 3;
+}
+
+/* 2. Ghost background numbers (Low contrast watermark) */
+.ghost {
+  position: absolute;
+  font-weight: 900;
+  font-size: 180px;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: rgba(15, 23, 42, 0.042);
+  text-align: center;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* 3. Category Name Badge */
+.name {
+  position: absolute;
+  font-family: "Inter", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--mute);
+  opacity: 0;
+  white-space: nowrap;
+  text-align: center;
+  z-index: 3;
+}
+
+/* 4. Cutout photographic & scientific sprites */
+.cut {
+  position: absolute;
+  opacity: 0;
+  will-change: transform, filter;
+  filter: drop-shadow(0 26px 36px rgba(15, 23, 42, 0.16)) drop-shadow(0 6px 14px rgba(15, 23, 42, 0.08));
+  z-index: 10;
+}
+
+.cut img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Archival polaroid photo / video card */
+.cut.card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0 24px 44px rgba(15, 23, 42, 0.16), 0 4px 12px rgba(15, 23, 42, 0.06);
+  border: 1px solid var(--border);
+}
+
+.cut.card img,
+.cut.card video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Specimen tag overlay */
+.spec-tag {
+  position: absolute;
+  padding: 5px 12px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  color: #f8fafc;
+  font: 700 14px/1.2 "JetBrains Mono", monospace;
+  letter-spacing: 0.12em;
+  border-radius: 4px;
+  opacity: 0;
+  z-index: 14;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* 5. Stamp Badges (Black & Yellow) */
+.stampblk {
+  position: absolute;
+  padding: 9px 20px;
+  background: var(--ink);
+  color: #ffffff;
+  font: 700 24px/1.2 "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  white-space: nowrap;
+  border-radius: 6px;
+  z-index: 18;
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.14);
+}
+
+.stampblk.y {
+  background: var(--yel);
+  color: var(--ink);
+}
+
+/* 6. Handwritten editorial note */
+.hand {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: 52px;
+  color: var(--red);
+  opacity: 0;
+  white-space: nowrap;
+  z-index: 19;
+  transform: rotate(-3deg);
+}
+
+/* 7. Primary Headline */
+.line {
+  position: absolute;
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  opacity: 0;
+  z-index: 25;
+}
+
+.hl {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.08em;
+  color: #000000;
+}
+
+.hl i {
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  top: 0.60em;
+  bottom: 0.06em;
+  background: var(--yel);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: -1;
+  border-radius: 4px;
+}
+
+/* 8. Archival Document Specimen Card */
+.doc {
+  position: absolute;
+  width: 880px;
+  padding: 22px 26px;
+  background: #ffffff;
+  border: 2px solid rgba(15, 23, 42, 0.20);
+  box-shadow: 0 24px 38px rgba(15, 23, 42, 0.12), 0 6px 14px rgba(15, 23, 42, 0.05);
+  opacity: 0;
+  z-index: 20;
+  will-change: transform, filter;
+  border-radius: 8px;
+}
+
+.doc h6 {
+  margin: 0 0 8px;
+  font: 800 17px/1.2 "Inter", sans-serif;
+  letter-spacing: 0.16em;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+
+.doc pre {
+  margin: 0;
+  font: 600 22px/1.42 "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.03em;
+  white-space: pre-wrap;
+  color: var(--ink);
+}
+
+.doc .stamp {
+  position: absolute;
+  right: 24px;
+  top: -22px;
+  padding: 5px 16px;
+  border: 5px solid var(--red);
+  border-radius: 8px;
+  color: var(--red);
+  font: 900 30px/1 "Archivo", sans-serif;
+  letter-spacing: 0.08em;
+  transform: rotate(-8deg);
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 16px rgba(225, 29, 72, 0.2);
+}
+
+/* 9. Geological Stratum & Telemetry Gauge (Fills lower canvas, eliminating white void) */
+.gauge-bar {
+  position: absolute;
+  width: 880px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 700 15px/1.2 "JetBrains Mono", monospace;
+  color: var(--ink-soft);
+  opacity: 0;
+  z-index: 20;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.gauge-bar .g-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gauge-bar .g-lbl {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+
+.gauge-bar .g-val {
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.gauge-bar .g-val.red { color: var(--red); }
+.gauge-bar .g-val.amber { color: var(--amber); }
+
+/* 10. Archival Ledger Barcode & Verification Strip */
+.arch-footer {
+  position: absolute;
+  width: 880px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: var(--surface);
+  border: 1px dashed rgba(15, 23, 42, 0.22);
+  border-radius: 8px;
+  font-family: "JetBrains Mono", monospace;
+  opacity: 0;
+  z-index: 20;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+}
+
+.arch-footer .f-code {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.arch-footer .barcode {
+  width: 130px;
+  height: 26px;
+  background: repeating-linear-gradient(
+    90deg,
+    #0f172a 0px,
+    #0f172a 2px,
+    transparent 2px,
+    transparent 4px,
+    #0f172a 4px,
+    #0f172a 7px,
+    transparent 7px,
+    transparent 9px,
+    #0f172a 9px,
+    #0f172a 11px,
+    transparent 11px,
+    transparent 13px,
+    #0f172a 13px,
+    #0f172a 16px,
+    transparent 16px,
+    transparent 18px
+  );
+}
+
+.arch-footer .f-id {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+.arch-footer .f-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+
+/* Runway timeline markers between scenes (Makes glide transitions cinematic & dynamic) */
+.runway-track {
+  position: absolute;
+  top: 960px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.runway-ruler {
+  width: 140px;
+  height: 14px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--mute-light) 0px,
+    var(--mute-light) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+  border-bottom: 2px solid var(--border);
+}
+
+.runway-label {
+  font: 800 14px/1 "JetBrains Mono", monospace;
+  letter-spacing: 0.16em;
+  color: var(--mute-light);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* 11. Outro Resolution Card (Beat 6 Climax) */
+.outro {
+  position: absolute;
+  width: 880px;
+  padding: 34px 36px;
+  background: #ffffff;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  box-shadow: 0 32px 64px rgba(15, 23, 42, 0.22);
+  opacity: 0;
+  z-index: 35;
+}
+
+.outro .top-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--red);
+  color: #ffffff;
+  font: 800 16px/1.2 "Inter", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.outro h3 {
+  margin: 0 0 12px;
+  font: 900 46px/1.15 "Archivo", sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.outro p {
+  margin: 0 0 18px;
+  font: 500 24px/1.45 "Inter", sans-serif;
+  color: #334155;
+}
+
+.outro .meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px dashed rgba(15, 23, 42, 0.2);
+  border-radius: 8px;
+  font: 700 18px/1.3 "JetBrains Mono", monospace;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.outro .loop-hint {
+  font: 700 22px/1.3 "Caveat", cursive;
+  color: var(--red-dark);
+  text-align: center;
+}
+
+/* Subtle outer vignette */
+.vig {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 70%, rgba(15, 23, 42, 0.05) 100%);
+  z-index: 40;
+}
+
+/* Review Scrubber Bar (?debug=1) */
+#dbg {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: none;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 22px;
+  border-radius: 16px;
+  background: rgba(14, 18, 26, 0.94);
+  backdrop-filter: blur(12px);
+  color: #f1f5f9;
+  font: 14px/1.2 "Inter", system-ui, sans-serif;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+#dbg button {
+  background: var(--red);
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#dbg input[type="range"] {
+  width: 380px;
+  cursor: pointer;
+}
+
+#dbg span {
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, monospace;
+  font-size: 15px;
+  min-width: 7ch;
+}
+</style>
+</head>
+<body>
+
+<svg id="filters">
+  <defs></defs>
+</svg>
+
+<div id="stage">
+  <div id="world">
+    <div class="paper"></div>
+
+    <!-- =========================================================================
+         SCENE 1: THE AGE OF DINOSAURS (Xc = 540, Y = 960)
+         Safe Horizontal Zone: 100px to 980px (Width: 880px)
+         ========================================================================= -->
+    <div class="series-tag" id="stag1" style="left: 100px; top: 200px">EXTINCTION ARCHIVE // DOSSIER #01</div>
+    <div class="ghost" id="ghost1" style="left: 100px; top: 220px; width: 880px">66 MA</div>
+    <div class="name" id="name1" style="left: 100px; top: 360px; width: 880px">LATE CRETACEOUS · APEX BIOMASS</div>
+
+    <!-- Hero Fossil Sprite: T-Rex Skull -->
+    <div class="cut" id="cutTrex" style="left: 140px; top: 390px; width: 800px; height: 460px">
+      <img src="assets/episode1_dinosaurus/images/trex_fossil.png" alt="T-Rex Fossil Specimen">
+    </div>
+
+    <!-- Secondary Sprite: Long-Neck Sauropod -->
+    <div class="cut" id="cutSauropod" style="left: 660px; top: 610px; width: 280px; height: 240px">
+      <img src="assets/episode1_dinosaurus/images/sauropod_fossil.png" alt="Sauropod Skeleton">
+    </div>
+
+    <div class="spec-tag" id="tag1" style="left: 140px; top: 760px">SPECIMEN: B-REX // LENGTH: 12.3M</div>
+
+    <!-- Badge Tag & Editorial Note (top: 920px) -->
+    <div class="stampblk y" id="sb1" style="left: 100px; top: 920px">165 MILLION YEARS OF REIGN</div>
+    <div class="hand" id="hand1" style="left: 580px; top: 910px; width: 400px; text-align: right">Uncontested!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line1" style="left: 100px; top: 1000px; width: 880px">
+      66 million years ago, dinosaurs were the <span class="hl"><i></i>absolute rulers</span> of Earth.
+    </div>
+
+    <!-- Archival Evidence Document (top: 1220px) -->
+    <div class="doc" id="doc1" style="left: 100px; top: 1220px">
+      <h6>GEOLOGICAL SURVEY // ARCHIVE SPECIMEN #01</h6>
+      <pre>TAXON: TYRANNOSAURUS REX (OSBORN 1905)
+STRATUM: HELL CREEK FORMATION (MONTANA)
+STATUS: DOMINANT TERRESTRIAL APEX APPARATUS
+BITE FORCE: 35,000 NEWTONS // ZERO PREDATORS</pre>
+      <span class="stamp" id="stamp1">DOMINANT</span>
+    </div>
+
+    <!-- Stratum & Telemetry Gauge (top: 1470px) -->
+    <div class="gauge-bar" id="gauge1" style="left: 100px; top: 1470px">
+      <div class="g-col">
+        <span class="g-lbl">CHRONOLOGY</span>
+        <span class="g-val">MAASTRICHTIAN ERA</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">GLOBAL TEMP</span>
+        <span class="g-val">+28°C TROPICAL</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">GLOBAL BIOMASS</span>
+        <span class="g-val">100% THRIVING</span>
+      </div>
+    </div>
+
+    <!-- Archival Verification Footer Strip (top: 1585px) -->
+    <div class="arch-footer" id="footer1" style="left: 100px; top: 1585px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // K-PG-66038-HELLCREEK</span>
+      </div>
+      <div class="f-meta">
+        <span>MAASTRICHTIAN STRATUM // 66.0 MA</span>
+        <span>SMITHSONIAN PALEO ARCHIVE #01</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 1 -> 2) -->
+    <div class="runway-track" style="left: 1290px; top: 960px">
+      <div class="runway-ruler"></div>
+      <div class="runway-label">// CHRONO: -66 MA ➔ IMPACT VECTOR</div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 2: THE CHICXULUB IMPACTOR (Xc = 2540, Y = 960)
+         Safe Horizontal Zone: 2100px to 2980px (Width: 880px)
+         ========================================================================= -->
+    <div class="series-tag" id="stag2" style="left: 2100px; top: 200px">EXTINCTION ARCHIVE // DOSSIER #02</div>
+    <div class="ghost" id="ghost2" style="left: 2100px; top: 220px; width: 880px">10 KM</div>
+    <div class="name" id="name2" style="left: 2100px; top: 360px; width: 880px">DEEP SPACE TRAJECTORY // HYPERSONIC ENTRY</div>
+
+    <!-- Realistic Atmospheric Penetration Archival Photo Card -->
+    <div class="cut card" id="cardAsteroidEntry" style="left: 2120px; top: 390px; width: 560px; height: 430px">
+      <img src="assets/episode1_dinosaurus/images/asteroid_entry_realistic.png" alt="Asteroid Entering Earth Atmosphere">
+    </div>
+
+    <!-- Museum Specimen Chondrite Meteorite Cutout -->
+    <div class="cut" id="cutChondrite" style="left: 2700px; top: 460px; width: 280px; height: 320px">
+      <img src="assets/episode1_dinosaurus/images/meteorite_chondrite.png" alt="Carbonaceous Chondrite Meteorite Specimen">
+    </div>
+
+    <div class="spec-tag" id="tag2" style="left: 2140px; top: 760px">IMPACTOR: CHONDRITE // MASS: 1.0×10¹⁵ KG</div>
+
+    <!-- Badge Tag & Editorial Note (top: 920px) -->
+    <div class="stampblk" id="sb2" style="left: 2100px; top: 920px">VELOCITY: 45,000 MPH</div>
+    <div class="hand" id="hand2" style="left: 2580px; top: 910px; width: 400px; text-align: right">60° Angle of Death!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line2" style="left: 2100px; top: 1000px; width: 880px">
+      A massive 10-kilometer asteroid <span class="hl"><i></i>plunged from space</span> toward Earth.
+    </div>
+
+    <!-- Archival Evidence Document (top: 1220px) -->
+    <div class="doc" id="doc2" style="left: 2100px; top: 1220px">
+      <h6>DEEP SPACE TRACKING // IMPACT RADAR TELEMETRY</h6>
+      <pre>IMPACTOR MASS: ~1.0 × 10¹⁵ KG (CARBONACEOUS)
+KINETIC ENERGY: 100,000,000 MEGATONS TNT
+ATMOSPHERE TRANSIT TIME: < 3.0 SECONDS
+ENTRY ANGLE: 60° (MAXIMUM VAPORIZATION)</pre>
+      <span class="stamp" id="stamp2">HYPERSONIC</span>
+    </div>
+
+    <!-- Stratum & Telemetry Gauge (top: 1470px) -->
+    <div class="gauge-bar" id="gauge2" style="left: 2100px; top: 1470px">
+      <div class="g-col">
+        <span class="g-lbl">COLLISION TIME</span>
+        <span class="g-val red">T - 00:00:03</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">SHOCK ENERGY</span>
+        <span class="g-val red">100M MEGATONS</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">TARGET ZONE</span>
+        <span class="g-val">YUCATAN BASIN</span>
+      </div>
+    </div>
+
+    <!-- Archival Verification Footer Strip (top: 1585px) -->
+    <div class="arch-footer" id="footer2" style="left: 2100px; top: 1585px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // ASTEROID-CHX-02</span>
+      </div>
+      <div class="f-meta">
+        <span>DEEP SPACE TRACKING // CHONDRITE</span>
+        <span>KINETIC IMPACT ENERGY: 100M MT</span>
+      </div>
+    </div>
+
+    <!-- Runway Kinetic Track (Scene 2 -> 3) -->
+    <div class="runway-track" style="left: 3290px; top: 960px">
+      <div class="runway-ruler"></div>
+      <div class="runway-label">// KINETIC: 45,000 MPH ➔ GROUND ZERO</div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 3: CATACLYSMIC IMPACT & MEGATSUNAMI (Xc = 4540, Y = 960)
+         Safe Horizontal Zone: 4100px to 4980px (Width: 880px)
+         ========================================================================= -->
+    <div class="series-tag" id="stag3" style="left: 4100px; top: 200px">EXTINCTION ARCHIVE // DOSSIER #03</div>
+    <div class="ghost" id="ghost3" style="left: 4100px; top: 220px; width: 880px">100 MT</div>
+    <div class="name" id="name3" style="left: 4100px; top: 360px; width: 880px">YUCATAN IMPACT EVENT // CRATER DIAMETER 180 KM</div>
+
+    <!-- Realistic Megatsunami Wave Archival Photo Card -->
+    <div class="cut card" id="cardMegatsunami" style="left: 4120px; top: 390px; width: 550px; height: 430px">
+      <img src="assets/episode1_dinosaurus/images/megatsunami_wave_realistic.png" alt="1,000-Foot Megatsunami Wall">
+    </div>
+
+    <!-- Chicxulub Satellite Geological Bathymetry Card -->
+    <div class="cut card" id="cardCraterAerial" style="left: 4690px; top: 430px; width: 290px; height: 350px">
+      <img src="assets/episode1_dinosaurus/images/chicxulub_crater_aerial.png" alt="Chicxulub Crater Satellite View">
+    </div>
+
+    <div class="spec-tag" id="tag3" style="left: 4140px; top: 760px">CRATER: 180 KM WIDE // 20 KM DEEP</div>
+
+    <!-- Badge Tag & Editorial Note (top: 920px) -->
+    <div class="stampblk y" id="sb3" style="left: 4100px; top: 920px">TSUNAMI SURGE: 1,000+ FEET</div>
+    <div class="hand" id="hand3" style="left: 4580px; top: 910px; width: 400px; text-align: right">Magnitude >11!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line3" style="left: 4100px; top: 1000px; width: 880px">
+      The impact detonated with <span class="hl"><i></i>unimaginable fury,</span> unleashing megatsunamis.
+    </div>
+
+    <!-- Archival Evidence Document (top: 1220px) -->
+    <div class="doc" id="doc3" style="left: 4100px; top: 1220px">
+      <h6>HYDRODYNAMIC TSUNAMI LOG // CARIBBEAN BASIN</h6>
+      <pre>TRANSIENT CAVITY: 20 KM DEPTH IN CRUST
+TSUNAMI RUN-UP: 300+ METERS CONTINENTAL SURGE
+CRUSTAL MELT: 10,000 KM³ TEKTITE GLASS VAPORIZED
+SEISMIC MAGNITUDE: > 11.0 (GLOBAL LIQUEFACTION)</pre>
+      <span class="stamp" id="stamp3">GROUND ZERO</span>
+    </div>
+
+    <!-- Stratum & Telemetry Gauge (top: 1470px) -->
+    <div class="gauge-bar" id="gauge3" style="left: 4100px; top: 1470px">
+      <div class="g-col">
+        <span class="g-lbl">WAVE VELOCITY</span>
+        <span class="g-val red">500 MPH</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">FIREBALL TEMP</span>
+        <span class="g-val red">> 10,000°C</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">SHOCK FRONTAL</span>
+        <span class="g-val">GLOBAL PROPAGATION</span>
+      </div>
+    </div>
+
+    <!-- Archival Verification Footer Strip (top: 1585px) -->
+    <div class="arch-footer" id="footer3" style="left: 4100px; top: 1585px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // YUCATAN-TSUNAMI-03</span>
+      </div>
+      <div class="f-meta">
+        <span>TRANSIENT CAVITY: 20 KM DEPTH</span>
+        <span>GLOBAL SEISMIC RIDGE LOG #03</span>
+      </div>
+    </div>
+
+    <!-- Runway Seismic Track (Scene 3 -> 4) -->
+    <div class="runway-track" style="left: 5290px; top: 960px">
+      <div class="runway-ruler"></div>
+      <div class="runway-label">// SEISMIC: MAGNITUDE >11 ➔ MANTLE RUPTURE</div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 4: THE DECCAN TRAPS SUPERVOLCANOES (Xc = 6540, Y = 960)
+         Safe Horizontal Zone: 6100px to 6980px (Width: 880px)
+         ========================================================================= -->
+    <div class="series-tag" id="stag4" style="left: 6100px; top: 200px">EXTINCTION ARCHIVE // DOSSIER #04</div>
+    <div class="ghost" id="ghost4" style="left: 6100px; top: 220px; width: 880px">DECCAN</div>
+    <div class="name" id="name4" style="left: 6100px; top: 360px; width: 880px">CONTINENTAL FLOOD BASALTS // GLOBAL FIRESTORM</div>
+
+    <!-- Deccan Volcano Hero Sprite (left side) -->
+    <div class="cut" id="cutVolcano" style="left: 6120px; top: 390px; width: 480px; height: 430px">
+      <img src="assets/episode1_dinosaurus/images/deccan_volcano.png" alt="Deccan Traps Volcano">
+    </div>
+
+    <!-- Archival Inset: Global Firestorm Skies (right side) -->
+    <div class="cut card" id="cutFirestorm" style="left: 6620px; top: 430px; width: 340px; height: 280px">
+      <img src="assets/episode1_dinosaurus/images/firestorm_sky.png" alt="Global Firestorm">
+    </div>
+
+    <div class="spec-tag" id="tag4" style="left: 6140px; top: 760px">BASALT PROVINCE: 500,000 KM² // INDIA</div>
+
+    <!-- Badge Tag & Editorial Note (top: 920px) -->
+    <div class="stampblk" id="sb4" style="left: 6100px; top: 920px">ERUPTION: 240,000 CU MILES</div>
+    <div class="hand" id="hand4" style="left: 6560px; top: 910px; width: 420px; text-align: right">Molten Rain!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line4" style="left: 6100px; top: 1000px; width: 880px">
+      Shockwaves fractured Earth's mantle, triggering <span class="hl"><i></i>supervolcanoes</span> in Deccan.
+    </div>
+
+    <!-- Archival Evidence Document (top: 1220px) -->
+    <div class="doc" id="doc4" style="left: 6100px; top: 1220px">
+      <h6>VOLCANIC GAS ANALYSIS // DECCAN TRAPS PROVINCE</h6>
+      <pre>MAGMA DISCHARGE: > 1,000,000 KM³ BASALT
+SO2 INJECTION: 10,000 GIGATONS STRATOSPHERE
+GLOBAL ACID RAIN: CENTURIES OF CONTINENTAL RUNOFF
+ATMOSPHERIC TOXICITY: DEADLY CO2 & MERCURY LEVELS</pre>
+      <span class="stamp" id="stamp4">CATACLYSM</span>
+    </div>
+
+    <!-- Stratum & Telemetry Gauge (top: 1470px) -->
+    <div class="gauge-bar" id="gauge4" style="left: 6100px; top: 1470px">
+      <div class="g-col">
+        <span class="g-lbl">MANTLE RUPTURE</span>
+        <span class="g-val red">ANTIPODAL SEISMIC</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">SO2 AEROSOL</span>
+        <span class="g-val red">10,000 GT</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">ACID RAIN pH</span>
+        <span class="g-val amber">pH 2.0 (CORROSIVE)</span>
+      </div>
+    </div>
+
+    <!-- Archival Verification Footer Strip (top: 1585px) -->
+    <div class="arch-footer" id="footer4" style="left: 6100px; top: 1585px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // DECCAN-TRAPS-04</span>
+      </div>
+      <div class="f-meta">
+        <span>STRATOSPHERIC SO2: 10,000 GT</span>
+        <span>GLOBAL ACIDIFICATION LOG #04</span>
+      </div>
+    </div>
+
+    <!-- Runway Climatic Track (Scene 4 -> 5) -->
+    <div class="runway-track" style="left: 7290px; top: 960px">
+      <div class="runway-ruler"></div>
+      <div class="runway-label">// CLIMATE: 10,000 GT SO2 ➔ SUNLIGHT 0%</div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 5: NUCLEAR WINTER & BIOSPHERE COLLAPSE (Xc = 8540, Y = 960)
+         Safe Horizontal Zone: 8100px to 8980px (Width: 880px)
+         ========================================================================= -->
+    <div class="series-tag" id="stag5" style="left: 8100px; top: 200px">EXTINCTION ARCHIVE // DOSSIER #05</div>
+    <div class="ghost" id="ghost5" style="left: 8100px; top: 220px; width: 880px">-25°C</div>
+    <div class="name" id="name5" style="left: 8100px; top: 360px; width: 880px">IMPACT WINTER // PHOTOSYNTHETIC SHUTDOWN</div>
+
+    <!-- Sun Blackout Soot Cloud Sprite (left) -->
+    <div class="cut" id="cutSun" style="left: 8120px; top: 390px; width: 440px; height: 440px">
+      <img src="assets/episode1_dinosaurus/images/sun_blackout.png" alt="Sun Blackout Soot Cloud">
+    </div>
+
+    <!-- Fern Spike Botanical Fossil (right) -->
+    <div class="cut" id="cutFern" style="left: 8540px; top: 400px; width: 420px; height: 430px">
+      <img src="assets/episode1_dinosaurus/images/fern_fossil.png" alt="Fern Spike Botanical Survivor">
+    </div>
+
+    <div class="spec-tag" id="tag5" style="left: 8140px; top: 760px">BOTANICAL RECORD: FERN SPIKE MONOPOLY</div>
+
+    <!-- Badge Tag & Editorial Note (top: 920px) -->
+    <div class="stampblk y" id="sb5" style="left: 8100px; top: 920px">SUN BLOCKED FOR 10+ YEARS</div>
+    <div class="hand" id="hand5" style="left: 8560px; top: 910px; width: 420px; text-align: right">Biosphere Collapse!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line5" style="left: 8100px; top: 1000px; width: 880px">
+      A dense shroud of soot choked the globe. <span class="hl"><i></i>Photosynthesis ceased.</span>
+    </div>
+
+    <!-- Archival Evidence Document (top: 1220px) -->
+    <div class="doc" id="doc5" style="left: 8100px; top: 1220px">
+      <h6>PALEO-CLIMATE MODEL // K-Pg COLLAPSE PHASE</h6>
+      <pre>SURFACE TEMPERATURE DROP: -20°C TO -25°C
+SOLAR IRRADIANCE: < 1% AT GROUND LEVEL
+PRIMARY PRODUCERS: TOTAL PHYTOPLANKTON DIE-OFF
+SURVIVAL FLORA: DISASTER FERNS (>90% SPORES)</pre>
+      <span class="stamp" id="stamp5">WINTER STRIKE</span>
+    </div>
+
+    <!-- Stratum & Telemetry Gauge (top: 1470px) -->
+    <div class="gauge-bar" id="gauge5" style="left: 8100px; top: 1470px">
+      <div class="g-col">
+        <span class="g-lbl">SUNLIGHT</span>
+        <span class="g-val red">0% (TOTAL DARKNESS)</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">SURFACE TEMP</span>
+        <span class="g-val red">-25°C FREEZING</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">FOOD WEB</span>
+        <span class="g-val red">100% COLLAPSED</span>
+      </div>
+    </div>
+
+    <!-- Archival Verification Footer Strip (top: 1585px) -->
+    <div class="arch-footer" id="footer5" style="left: 8100px; top: 1585px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // NUCLEAR-WINTER-05</span>
+      </div>
+      <div class="f-meta">
+        <span>SOLAR IRRADIANCE: <1% NOMINAL</span>
+        <span>FERN SPORE MONOPOLY #05</span>
+      </div>
+    </div>
+
+    <!-- Runway Horizon Track (Scene 5 -> 6) -->
+    <div class="runway-track" style="left: 9290px; top: 960px">
+      <div class="runway-ruler"></div>
+      <div class="runway-label">// BOUNDARY: K-Pg LAYER ➔ DAWN OF MAMMALS</div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 6: THE IRIDIUM BOUNDARY & DAWN OF MAMMALS (Xc = 10540, Y = 960)
+         Safe Horizontal Zone: 10100px to 10980px (Width: 880px)
+         ========================================================================= -->
+    <div class="series-tag" id="stag6" style="left: 10100px; top: 200px">EXTINCTION ARCHIVE // FINAL DOSSIER</div>
+    <div class="ghost" id="ghost6" style="left: 10100px; top: 220px; width: 880px">75%</div>
+    <div class="name" id="name6" style="left: 10100px; top: 360px; width: 880px">K-Pg IRIDIUM BOUNDARY // DAWN OF MAMMALS</div>
+
+    <!-- Geological Core Specimen: K-Pg Iridium Layer -->
+    <div class="cut" id="cutIridium" style="left: 10120px; top: 390px; width: 430px; height: 440px">
+      <img src="assets/episode1_dinosaurus/images/iridium_layer.png" alt="K-Pg Iridium Layer Geological Sample">
+    </div>
+
+    <!-- Prehistoric Mammal Survivor Sprite -->
+    <div class="cut" id="cutMammal" style="left: 10520px; top: 400px; width: 440px; height: 430px">
+      <img src="assets/episode1_dinosaurus/images/mammal_survivor.png" alt="Prehistoric Mammal Survivor">
+    </div>
+
+    <div class="spec-tag" id="tag6" style="left: 10140px; top: 760px">EVIDENCE: COSMIC IRIDIUM // 30× BACKGROUND</div>
+
+    <!-- Badge Tag & Editorial Note (top: 920px) -->
+    <div class="stampblk" id="sb6" style="left: 10100px; top: 920px">75% OF ALL SPECIES EXTINCT</div>
+    <div class="hand" id="hand6" style="left: 10560px; top: 910px; width: 420px; text-align: right">A New Dawn!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line6" style="left: 10100px; top: 1000px; width: 880px">
+      Dinosaurs perished forever. The <span class="hl"><i></i>dawn of mammals</span> had begun.
+    </div>
+
+    <!-- Archival Evidence Document (top: 1220px) -->
+    <div class="doc" id="doc6" style="left: 10100px; top: 1220px">
+      <h6>PALEONTOLOGICAL RECORD // EXTINCTION EVENT #05</h6>
+      <pre>CHRONOLOGY: 66.038 ± 0.025 MILLION YEARS AGO
+NON-AVIAN DINOSAURS: 100% EXTINCT GLOBALLY
+SURVIVOR TRAITS: BURROWING, SEED-EATING, NOCTURNAL
+HEIRS OF EARTH: MAMMALIA (LINEAGE UNBROKEN)</pre>
+      <span class="stamp" id="stamp6">EXTINCT</span>
+    </div>
+
+    <!-- Stratum & Telemetry Gauge (top: 1470px) -->
+    <div class="gauge-bar" id="gauge6" style="left: 10100px; top: 1470px">
+      <div class="g-col">
+        <span class="g-lbl">ERA TRANSITION</span>
+        <span class="g-val">MESOZOIC → CENOZOIC</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">EXTINCTION LOSS</span>
+        <span class="g-val red">75% ALL LIFE</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">DOMINANT CLADE</span>
+        <span class="g-val" style="color: var(--blue)">MAMMALIA (MAN)</span>
+      </div>
+    </div>
+
+    <!-- Archival Verification Footer Strip (top: 1585px) -->
+    <div class="arch-footer" id="footer6" style="left: 10100px; top: 1585px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // IRIDIUM-MAMMAL-06</span>
+      </div>
+      <div class="f-meta">
+        <span>MESOZOIC-CENOZOIC BOUNDARY</span>
+        <span>LINEAGE MAMMALIA CONFIRMED #06</span>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         EPIC RESOLUTION OUTRO CARD (Climax 55.6s - 60.0s)
+         Authoritative, Cinematic Conclusion
+         ========================================================================= -->
+    <div class="outro" id="outroCard" style="left: 10100px; top: 500px">
+      <div class="top-tag">OFFICIAL DOSSIER CLOSED // CASE RESOLVED</div>
+      <h3>The Legacy of 66 Million Years</h3>
+      <p>Without the Chicxulub asteroid that extinguished the dinosaurs, mammals would never have inherited the Earth... and humanity would not exist.</p>
+      <div class="meta-grid">
+        <div>CASUALTIES: 75% OF ALL SPECIES</div>
+        <div>SURVIVORS: BURROWING MAMMALS</div>
+        <div>SMOKING GUN: IRIDIUM CLAY</div>
+        <div>OUTCOME: THE AGE OF MAN</div>
+      </div>
+      <div class="loop-hint">What if the asteroid had missed by 5 minutes? Comment below! 👇</div>
+    </div>
+
+  </div>
+
+  <div class="vig"></div>
+
+  <!-- Review scrubber bar (?debug=1) -->
+  <div id="dbg">
+    <button id="dPlay">Pause</button>
+    <input id="dScrub" type="range" min="0" max="1000" value="0">
+    <span id="dClock">00.00s</span>
+  </div>
+</div>
+
+<audio id="vo" src="assets/episode1_dinosaurus/audio/vo_dinosaurus.mp3" preload="auto"></audio>
+
+<!-- GSAP Animation Engine -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+const W = 1080, H = 1920, TOTAL_DUR = 60.0;
+
+function fit() {
+  const scale = Math.min(window.innerWidth / W, window.innerHeight / H);
+  $('#stage').style.transform = `scale(${scale})`;
+}
+window.addEventListener('resize', fit);
+fit();
+
+/* ---------- Directional SVG Motion Blur Engine ---------- */
+const defs = $('#filters defs');
+let fc = 0;
+function makeBlur() {
+  const id = 'mb' + (fc++), NS = 'http://www.w3.org/2000/svg';
+  const f = document.createElementNS(NS, 'filter');
+  f.id = id;
+  f.setAttribute('x', '-50%');
+  f.setAttribute('y', '-50%');
+  f.setAttribute('width', '200%');
+  f.setAttribute('height', '200%');
+  const g = document.createElementNS(NS, 'feGaussianBlur');
+  g.setAttribute('stdDeviation', '0 0');
+  f.appendChild(g);
+  defs.appendChild(f);
+  return { url: `url(#${id})`, node: g };
+}
+
+function blurTween(tl, targets, at, from, to, dur, { ease = 'power3.out', ax = 1, ay = 0.08 } = {}) {
+  const b = makeBlur(), o = { v: from };
+  tl.set(targets, { filter: b.url }, at);
+  tl.to(o, {
+    v: to,
+    duration: dur,
+    ease,
+    onUpdate() {
+      b.node.setAttribute('stdDeviation', `${(o.v * ax).toFixed(2)} ${(o.v * ay).toFixed(2)}`);
+    }
+  }, at);
+  tl.set(targets, { filter: 'none' }, at + dur);
+}
+const VERT = { ax: 0.08, ay: 1 }, HORZ = { ax: 1, ay: 0.08 };
+
+/* ---------- Per-word sentence splitter ---------- */
+$$('.line').forEach(el => {
+  const out = [];
+  el.childNodes.forEach(n => {
+    if (n.nodeType === 3) {
+      n.textContent.split(/\s+/).filter(Boolean).forEach(w => {
+        const s = document.createElement('span');
+        s.className = 'w';
+        s.textContent = w;
+        out.push(s);
+      });
+    } else {
+      const s = document.createElement('span');
+      s.className = 'w';
+      s.appendChild(n.cloneNode(true));
+      out.push(s);
+    }
+  });
+  el.textContent = '';
+  out.forEach(s => el.appendChild(s));
+});
+
+const tl = gsap.timeline({ paused: true });
+const rig = $('#world');
+const words = el => $$('.w', el);
+
+/* ---------- Kinetic Typography Helpers ---------- */
+const say = (sel, at, { dur = 0.46, st = 0.05, mode = 'scale' } = {}) => {
+  const el = $(sel), ws = words(el);
+  tl.set(el, { opacity: 1 }, at);
+  if (mode === 'scale') {
+    tl.fromTo(ws, { opacity: 0, scale: 0.80, rotate: -2 }, { opacity: 1, scale: 1, rotate: 0, duration: dur, ease: 'back.out(1.5)', stagger: st, immediateRender: false }, at);
+  } else {
+    tl.fromTo(ws, { opacity: 0, yPercent: 45, scaleY: 1.15 }, { opacity: 1, yPercent: 0, scaleY: 1, duration: dur, ease: 'power4.out', stagger: st, immediateRender: false }, at);
+  }
+  blurTween(tl, el, at, 16, 0, dur + st * ws.length, VERT);
+  $$('.hl i', el).forEach((h, i) => {
+    tl.fromTo(h, { scaleX: 0 }, { scaleX: 1, duration: 0.38, ease: 'power3.out', immediateRender: false }, at + st * ws.length + 0.10 + i * 0.15);
+  });
+};
+
+/* ---------- Cutout Sprite Entrances with Organic Floating Physics ---------- */
+const fly = (sel, at, { from = { x: 0, y: 320, rotate: 3, scale: 0.92 }, dur = 0.85, ease = 'power4.out', float = true, rot = 0 } = {}) => {
+  const el = $(sel);
+  tl.fromTo(el, { opacity: 0, ...from }, { opacity: 1, x: 0, y: 0, rotate: rot, scale: 1, duration: dur, ease, immediateRender: false }, at);
+  blurTween(tl, el, at, 22, 0, dur * 0.7, Math.abs(from.x || 0) > Math.abs(from.y || 0) ? HORZ : VERT);
+  if (float) {
+    tl.to(el, { y: -12, rotate: rot + 0.7, scale: 1.01, duration: 2.2 + ((at * 7) % 1) * 0.4, ease: 'sine.inOut', yoyo: true, repeat: 6 }, at + dur);
+  }
+};
+
+const label = (sel, at) => tl.fromTo($(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.38, ease: 'power3.out', immediateRender: false }, at);
+const slam = (sel, at) => tl.fromTo($(sel), { opacity: 0, scale: 2.0 }, { opacity: 1, scale: 1, duration: 0.24, ease: 'power4.in', immediateRender: false }, at);
+const block = (sel, at) => {
+  tl.set($(sel), { opacity: 1 }, at);
+  tl.fromTo($(sel), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power3.out', immediateRender: false }, at);
+};
+
+/* ---------- Camera Coordinates Calculation with Dynamic Zoom Rig ---------- */
+function camProps(x, y = 960, z = 1.0) {
+  return {
+    x: 540 - x * z,
+    y: 960 - y * z,
+    scale: z,
+    transformOrigin: '540px 960px'
+  };
+}
+
+/*
+ * CINEMATIC GLIDING CAMERA TRANSITION ("geser alus" + dynamic zoom)
+ * Solves "motion transisi nya kok jd flat? ga ada zoom in atau geser alus":
+ * 1. Pull back slightly (scale 1.05 -> 0.94) to frame both scenes as camera glides
+ * 2. Glides smoothly across X to next stage
+ * 3. Pushes into next scene (scale 0.94 -> 1.04)
+ * 4. Applies horizontal directional motion blur during transit
+ */
+const glideTransition = (startTime, fromX, toX, dur = 0.85) => {
+  const midX = (fromX + toX) / 2;
+  // Phase 1: Pull back & glide halfway
+  tl.to(rig, {
+    x: 540 - midX * 0.95,
+    y: 960 - 960 * 0.95,
+    scale: 0.95,
+    duration: dur * 0.45,
+    ease: 'power2.in'
+  }, startTime);
+
+  // Phase 2: Glide into destination & push forward
+  tl.to(rig, {
+    x: 540 - toX * 1.04,
+    y: 960 - 960 * 1.04,
+    scale: 1.04,
+    duration: dur * 0.55,
+    ease: 'power2.out'
+  }, startTime + dur * 0.45);
+
+  // Directional motion blur spike during the high-speed transit
+  blurTween(tl, rig, startTime + dur * 0.15, 0, 26, dur * 0.35, HORZ);
+  blurTween(tl, rig, startTime + dur * 0.50, 26, 0, dur * 0.35, HORZ);
+};
+
+/* Slow organic reading push-in during hold (keeps camera alive, never frozen) */
+const readPush = (startTime, targetX, fromZ = 1.04, toZ = 1.08, dur = 8.5) => {
+  tl.to(rig, {
+    x: 540 - targetX * toZ,
+    y: 960 - 960 * toZ,
+    scale: toZ,
+    duration: dur,
+    ease: 'sine.inOut'
+  }, startTime);
+};
+
+/* ==========================================================================
+   60-SECOND MASTER CHOREOGRAPHY (ENGLISH DOCUMENTARY EDITION)
+   Rich visual density, zero blank spaces, smooth cinematic camera glides.
+   ========================================================================== */
+
+// Initial camera at Scene 1 (starting with a subtle intimate push)
+tl.set(rig, camProps(540, 960, 1.04), 0);
+readPush(0.2, 540, 1.04, 1.08, 9.1);
+
+/* --- BEAT 1 (0.0s - 10.0s): The Age of Dinosaurs (Xc = 540) --- */
+label('#stag1', 0.2);
+tl.fromTo('#ghost1', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.3);
+label('#name1', 0.4);
+
+// T-Rex Skull enters
+fly('#cutTrex', 0.5, { from: { x: 0, y: 350, rotate: -2, scale: 0.92 }, dur: 0.85 });
+
+// Headline words enter right with the narrator's voice ("Sixty-six million years ago...")
+say('#line1', 0.8, { dur: 0.44, st: 0.04 });
+
+// Sauropod specimen enters under snout
+fly('#cutSauropod', 1.2, { from: { x: 180, y: 0, rotate: 3, scale: 0.84 }, dur: 0.75 });
+label('#tag1', 1.6);
+
+block('#sb1', 1.9);
+label('#hand1', 2.2);
+
+// Archival evidence document enters smoothly
+fly('#doc1', 2.6, { from: { x: 0, y: 160, rotate: 2, scale: 0.95 }, dur: 0.70, rot: -1 });
+slam('#stamp1', 3.3);
+
+// Stratum & Telemetry Gauge anchors the lower canvas
+fly('#gauge1', 3.8, { from: { x: 0, y: 120, rotate: 0, scale: 0.96 }, dur: 0.65, float: false });
+
+// Archival verification barcode footer
+label('#footer1', 4.3);
+
+/* --- Smooth Glide Transition to BEAT 2 (9.3s -> 10.15s) --- */
+glideTransition(9.3, 540, 2540, 0.85);
+readPush(10.15, 2540, 1.04, 1.08, 8.5);
+
+/* --- BEAT 2 (10.0s - 20.0s): The Chicxulub Impactor (Xc = 2540) --- */
+label('#stag2', 10.1);
+tl.fromTo('#ghost2', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 10.2);
+label('#name2', 10.3);
+
+fly('#cardAsteroidEntry', 10.4, { from: { x: -100, y: 180, rotate: -2, scale: 0.90 }, dur: 0.80, rot: -1 });
+say('#line2', 10.7, { dur: 0.44, st: 0.04 });
+
+fly('#cutChondrite', 11.1, { from: { x: 120, y: 140, rotate: 6, scale: 0.85 }, dur: 0.75, rot: 3 });
+label('#tag2', 11.6);
+
+block('#sb2', 11.9);
+label('#hand2', 12.2);
+
+fly('#doc2', 12.6, { from: { x: 0, y: 160, rotate: -2, scale: 0.95 }, dur: 0.70, rot: 1 });
+slam('#stamp2', 13.3);
+
+fly('#gauge2', 13.8, { from: { x: 0, y: 120, rotate: 0, scale: 0.96 }, dur: 0.65, float: false });
+label('#footer2', 14.3);
+
+/* --- Smooth Glide Transition to BEAT 3 (19.3s -> 20.15s) --- */
+glideTransition(19.3, 2540, 4540, 0.85);
+readPush(20.15, 4540, 1.04, 1.08, 8.5);
+
+/* --- BEAT 3 (20.0s - 30.0s): Cataclysmic Impact & Megatsunami (Xc = 4540) --- */
+label('#stag3', 20.1);
+tl.fromTo('#ghost3', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 20.2);
+label('#name3', 20.3);
+
+fly('#cardMegatsunami', 20.4, { from: { x: -100, y: 180, rotate: 2, scale: 0.90 }, dur: 0.80, rot: 1 });
+say('#line3', 20.7, { dur: 0.44, st: 0.04 });
+
+fly('#cardCraterAerial', 21.1, { from: { x: 120, y: 140, rotate: -3, scale: 0.85 }, dur: 0.75, rot: -1 });
+label('#tag3', 21.6);
+
+block('#sb3', 21.9);
+label('#hand3', 22.2);
+
+fly('#doc3', 22.6, { from: { x: 0, y: 160, rotate: 2, scale: 0.95 }, dur: 0.70, rot: -1 });
+slam('#stamp3', 23.3);
+
+fly('#gauge3', 23.8, { from: { x: 0, y: 120, rotate: 0, scale: 0.96 }, dur: 0.65, float: false });
+label('#footer3', 24.3);
+
+/* --- Smooth Glide Transition to BEAT 4 (29.3s -> 30.15s) --- */
+glideTransition(29.3, 4540, 6540, 0.85);
+readPush(30.15, 6540, 1.04, 1.08, 8.5);
+
+/* --- BEAT 4 (30.0s - 40.0s): The Deccan Supervolcanoes (Xc = 6540) --- */
+label('#stag4', 30.1);
+tl.fromTo('#ghost4', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 30.2);
+label('#name4', 30.3);
+
+fly('#cutVolcano', 30.4, { from: { x: -140, y: 260, rotate: 2, scale: 0.92 }, dur: 0.85 });
+say('#line4', 30.7, { dur: 0.44, st: 0.04 });
+
+fly('#cutFirestorm', 31.1, { from: { x: 180, y: 160, rotate: -3, scale: 0.90 }, dur: 0.75, rot: -2 });
+label('#tag4', 31.6);
+
+block('#sb4', 31.9);
+label('#hand4', 32.2);
+
+fly('#doc4', 32.6, { from: { x: 0, y: 160, rotate: -2, scale: 0.95 }, dur: 0.70, rot: 1 });
+slam('#stamp4', 33.3);
+
+fly('#gauge4', 33.8, { from: { x: 0, y: 120, rotate: 0, scale: 0.96 }, dur: 0.65, float: false });
+label('#footer4', 34.3);
+
+/* --- Smooth Glide Transition to BEAT 5 (39.3s -> 40.15s) --- */
+glideTransition(39.3, 6540, 8540, 0.85);
+readPush(40.15, 8540, 1.04, 1.08, 8.5);
+
+/* --- BEAT 5 (40.0s - 50.0s): Nuclear Winter & Biosphere Collapse (Xc = 8540) --- */
+label('#stag5', 40.1);
+tl.fromTo('#ghost5', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 40.2);
+label('#name5', 40.3);
+
+fly('#cutSun', 40.4, { from: { x: -180, y: 200, rotate: -3, scale: 0.90 }, dur: 0.80 });
+say('#line5', 40.7, { dur: 0.44, st: 0.04 });
+
+fly('#cutFern', 41.1, { from: { x: 180, y: 200, rotate: 3, scale: 0.90 }, dur: 0.80 });
+label('#tag5', 41.6);
+
+block('#sb5', 41.9);
+label('#hand5', 42.2);
+
+fly('#doc5', 42.6, { from: { x: 0, y: 160, rotate: 2, scale: 0.95 }, dur: 0.70, rot: -1 });
+slam('#stamp5', 43.3);
+
+fly('#gauge5', 43.8, { from: { x: 0, y: 120, rotate: 0, scale: 0.96 }, dur: 0.65, float: false });
+label('#footer5', 44.3);
+
+/* --- Smooth Glide Transition to BEAT 6 (49.3s -> 50.15s) --- */
+glideTransition(49.3, 8540, 10540, 0.85);
+readPush(50.15, 10540, 1.04, 1.08, 5.0);
+
+/* --- BEAT 6 (50.0s - 60.0s): The Iridium Boundary & Rise of Mammals (Xc = 10540) --- */
+label('#stag6', 50.1);
+tl.fromTo('#ghost6', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 50.2);
+label('#name6', 50.3);
+
+fly('#cutIridium', 50.4, { from: { x: -180, y: 200, rotate: -3, scale: 0.90 }, dur: 0.80 });
+say('#line6', 50.7, { dur: 0.44, st: 0.04 });
+
+fly('#cutMammal', 51.1, { from: { x: 180, y: 200, rotate: 3, scale: 0.90 }, dur: 0.80 });
+label('#tag6', 51.5);
+
+block('#sb6', 51.8);
+label('#hand6', 52.1);
+
+fly('#doc6', 52.5, { from: { x: 0, y: 160, rotate: 2, scale: 0.95 }, dur: 0.65, rot: 0 });
+slam('#stamp6', 53.1);
+
+fly('#gauge6', 53.6, { from: { x: 0, y: 120, rotate: 0, scale: 0.96 }, dur: 0.60, float: false });
+label('#footer6', 54.0);
+
+/* --- EPIC RESOLUTION OUTRO DOSSIER (55.4s - 60.0s) ---
+   Smooth transition to final conclusion card with zero clutter */
+tl.to(['#line6', '#sb6', '#hand6', '#doc6', '#gauge6', '#cutIridium', '#cutMammal', '#tag6'], { opacity: 0, duration: 0.30, ease: 'power2.out' }, 55.3);
+
+tl.fromTo('#outroCard', 
+  { opacity: 0, scale: 0.88, y: 40 },
+  { opacity: 1, scale: 1.0, y: 0, duration: 0.65, ease: 'back.out(1.4)' },
+  55.6
+);
+blurTween(tl, '#outroCard', 55.6, 16, 0, 0.45, VERT);
+
+// Gentle zoom hold to 60.0s while keeping Xc = 10540 dead center!
+tl.to(rig, {
+  x: 540 - 10540 * 1.03,
+  y: 960 - 960 * 1.03,
+  scale: 1.03,
+  duration: 4.4,
+  ease: 'sine.out'
+}, 55.6);
+tl.to({}, { duration: 0.4 }, 60.0);
+
+tl.eventCallback('onComplete', () => {
+  tl.play(0);
+  const a = $('#vo');
+  if (a) { a.currentTime = 0; a.play().catch(() => {}); }
+});
+
+/* ---------- Frame-Accurate Export & Scrub Engine ---------- */
+window.BANG_MOTION = {
+  tl,
+  DURATION: TOTAL_DUR,
+  ready: true,
+  seekFrame: async function(t) {
+    tl.seek(t);
+  }
+};
+window.OPENER = window.BANG_MOTION; // Bang Motion export compatibility
+
+/* ---------- Audio & Autoplay Controller ---------- */
+const vo = $('#vo');
+let userInteracted = false;
+const urlParams = new URLSearchParams(window.location.search);
+const isClean = urlParams.get('clean') === '1';
+
+function startPlayback() {
+  if (isClean) {
+    tl.pause(0);
+    return;
+  }
+  tl.play();
+  if (vo) {
+    vo.currentTime = 0;
+    vo.play().catch(() => {
+      // Browser autoplay policy requires click
+    });
+  }
+}
+
+window.addEventListener('load', () => {
+  startPlayback();
+});
+
+window.addEventListener('click', () => {
+  if (!userInteracted && vo && !isClean) {
+    userInteracted = true;
+    if (vo.paused) {
+      vo.currentTime = tl.time();
+      vo.play().catch(() => {});
+    }
+  }
+});
+
+/* ---------- Keyboard Controls (Space = Pause/Play, R = Restart) ---------- */
+window.addEventListener('keydown', e => {
+  if (e.code === 'Space') {
+    e.preventDefault();
+    if (tl.paused()) {
+      tl.play();
+      if (vo) vo.play().catch(() => {});
+    } else {
+      tl.pause();
+      if (vo) vo.pause();
+    }
+  } else if (e.key === 'r' || e.key === 'R') {
+    tl.play(0);
+    if (vo) { vo.currentTime = 0; vo.play().catch(() => {}); }
+  }
+});
+
+/* ---------- Debug Scrub Bar Controller (?debug=1) ---------- */
+if (urlParams.get('debug') === '1') {
+  const dbg = $('#dbg');
+  const dPlay = $('#dPlay');
+  const dScrub = $('#dScrub');
+  const dClock = $('#dClock');
+
+  dbg.style.display = 'flex';
+
+  dPlay.addEventListener('click', () => {
+    if (tl.paused()) {
+      tl.play();
+      if (vo) vo.play().catch(() => {});
+      dPlay.textContent = 'Pause';
+    } else {
+      tl.pause();
+      if (vo) vo.pause();
+      dPlay.textContent = 'Play';
+    }
+  });
+
+  dScrub.addEventListener('input', () => {
+    tl.pause();
+    if (vo) vo.pause();
+    dPlay.textContent = 'Play';
+    const t = (dScrub.value / 1000) * TOTAL_DUR;
+    tl.seek(t);
+    if (vo) vo.currentTime = t;
+  });
+
+  tl.eventCallback('onUpdate', () => {
+    const t = tl.time();
+    dScrub.value = (t / TOTAL_DUR) * 1000;
+    dClock.textContent = `${t.toFixed(2)}s`;
+
+    const vid1 = $('#simVideo');
+    if (vid1 && t >= 11.2 && t <= 20.0) {
+      vid1.currentTime = (t - 11.2) % (vid1.duration || 6.0);
+    }
+    const vid2 = $('#tsunamiVideo');
+    if (vid2 && t >= 21.2 && t <= 30.0) {
+      vid2.currentTime = (t - 21.2) % (vid2.duration || 6.0);
+    }
+  });
+}
+</script>
+</body>
+</html>

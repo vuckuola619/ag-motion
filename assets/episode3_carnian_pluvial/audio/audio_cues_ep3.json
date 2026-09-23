@@ -1,0 +1,64 @@
+{
+  "total_duration": 70.0,
+  "sample_rate": 24000,
+  "language": "en",
+  "voice": "am_adam",
+  "cues": [
+    {
+      "id": "ep3_beat_1",
+      "title": "The Arid Pangea Dustbowl",
+      "start": 0.6,
+      "end": 11.33,
+      "duration": 10.73,
+      "text": "Two hundred and thirty-four million years ago, the supercontinent of Pangea was a baking, bone-dry wasteland. Dinosaurs were tiny, rare, and pushed to the sidelines of a scorched planet."
+    },
+    {
+      "id": "ep3_beat_2",
+      "title": "Wrangellia Oceanic Super-Volcano",
+      "start": 11.2,
+      "end": 22.55,
+      "duration": 11.35,
+      "text": "Until catastrophic flood basalts ruptured the ocean floor in Wrangellia. Billions of tons of greenhouse gases superheated the atmosphere, turning Earth's oceans into giant boiling evaporators."
+    },
+    {
+      "id": "ep3_beat_3",
+      "title": "The Two-Million-Year Deluge",
+      "start": 22.2,
+      "end": 32.31,
+      "duration": 10.11,
+      "text": "Then, the skies broke. Moisture saturated the atmosphere until torrential rains fell across every corner of the supercontinent. A storm that did not stop for two million years."
+    },
+    {
+      "id": "ep3_beat_4",
+      "title": "The Amber Spike & Conifer Swamps",
+      "start": 33.2,
+      "end": 44.17,
+      "duration": 10.97,
+      "text": "Rivers drowned the deserts in thick mud. Sweltering conifer forests exploded across the land, weeping massive tears of resin\u2014leaving behind the oldest amber deposits in Earth's history."
+    },
+    {
+      "id": "ep3_beat_5",
+      "title": "The Carnian Extinction",
+      "start": 44.2,
+      "end": 54.06,
+      "duration": 9.86,
+      "text": "For ancient desert reptiles, it was the end of the world. Unable to digest the tough new conifer leaves, dominant plant-eaters collapsed and starved in the endless deluge."
+    },
+    {
+      "id": "ep3_beat_6",
+      "title": "The Dawn of the Dinosaur Empire",
+      "start": 55.2,
+      "end": 66.02,
+      "duration": 10.82,
+      "text": "From the mud emerged the ultimate opportunists: early dinosaurs. Agile, fast, and adaptable, they surged from less than five percent of land animals to ruling the entire planet."
+    },
+    {
+      "id": "ep3_beat_7_outro",
+      "title": "Resolution: The Storm Created Giants",
+      "start": 64.8,
+      "end": 72.33,
+      "duration": 7.53,
+      "text": "Two million years of rain reshaped the biosphere forever. Without the great Triassic storm, dinosaurs would never have ruled the Earth."
+    }
+  ]
+}

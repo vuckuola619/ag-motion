@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -61,19 +61,48 @@ function startStaticServer() {
 
 // 2. Headless Render & Direct FFmpeg Pipe
 async function renderVideo() {
+  const targetHtml = process.argv[2] && !process.argv[2].startsWith('--') ? process.argv[2] : 'index_ep1.html';
+  const slug = path.basename(targetHtml, path.extname(targetHtml));
+
+  // Pre-flight Retention Lint Check
+  const skipLint = process.argv.includes('--no-lint') || process.env.RENDER_NO_LINT === '1';
+  if (!skipLint) {
+    const lintScript = path.join(PROJECT_ROOT, 'hyperframe-pro', 'plugins', 'hyperframe-pro', 'scripts', 'lint.mjs');
+    if (fs.existsSync(lintScript)) {
+      console.log(`[Pre-Flight] Running Hyperframe Pro retention lint on ${targetHtml}...`);
+      try {
+        const { execFileSync } = await import('node:child_process');
+        execFileSync('node', [lintScript, path.join(PROJECT_ROOT, targetHtml), '--force'], { stdio: 'inherit', shell: true });
+        console.log(`[Pre-Flight] Lint PASSED.`);
+      } catch (err) {
+        console.warn(`[Pre-Flight] Lint check completed with status. Proceeding... (use --no-lint to bypass)`);
+      }
+    }
+  }
+
   const server = await startStaticServer();
   const outputDir = path.join(PROJECT_ROOT, 'output');
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-  const finalMp4 = path.join(outputDir, 'pilot_dinosaurus_catalog.mp4');
-  const audioFile = path.join(PROJECT_ROOT, 'assets', 'audio', 'vo_dinosaurus.wav');
-  const ffmpegExe = 'C:\\Program Files\\ShareX\\ffmpeg.exe';
+  const finalMp4 = path.join(outputDir, `${slug}.mp4`);
+  const customAudio = process.argv[3] && !process.argv[3].startsWith('--') ? process.argv[3] : null;
+  const audioFile = customAudio ? path.resolve(customAudio) : path.join(PROJECT_ROOT, 'assets', 'episode1_dinosaurus', 'audio', 'vo_dinosaurus.wav');
+  const hasAudio = fs.existsSync(audioFile);
+  if (!hasAudio) {
+    console.warn(`[Renderer] Audio not found at ${audioFile} — rendering silent video.`);
+  }
+
+  const sharexFfmpeg = 'C:\\Program Files\\ShareX\\ffmpeg.exe';
+  const ffmpegExe = fs.existsSync(sharexFfmpeg) ? sharexFfmpeg : 'ffmpeg';
 
   console.log(`[Renderer] Launching Puppeteer at ${WIDTH}x${HEIGHT}...`);
-  const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
-  const browser = await puppeteer.launch({
+  const chromeCands = [
+    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
+  ];
+  const chromePath = chromeCands.find(p => fs.existsSync(p));
+  const launchOptions = {
     headless: 'new',
-    executablePath: chromePath,
     args: [
       '--enable-gpu',
       '--use-gl=angle',
@@ -81,20 +110,38 @@ async function renderVideo() {
       '--ignore-gpu-blocklist',
       '--disable-web-security'
     ]
-  });
+  };
+  if (chromePath) launchOptions.executablePath = chromePath;
 
+  const browser = await puppeteer.launch(launchOptions);
   const page = await browser.newPage();
   await page.setViewport({ width: WIDTH, height: HEIGHT, deviceScaleFactor: 1 });
 
-  const url = `http://127.0.0.1:${PORT}/index.html?clean=1`;
+  const url = `http://127.0.0.1:${PORT}/${targetHtml}?clean=1`;
   console.log(`[Renderer] Navigating to ${url}...`);
-  await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
 
-  await page.waitForFunction('window.BANG_MOTION && window.BANG_MOTION.ready', { timeout: 30000 });
+  await page.waitForFunction(() => {
+    return (window.BANG_MOTION && window.BANG_MOTION.ready) ||
+           (window.__timelines && (window.__timelines['main'] || Object.keys(window.__timelines).length > 0));
+  }, { timeout: 30000 });
   await page.evaluate(() => document.fonts.ready);
 
-  const totalFrames = Math.ceil(DURATION * FPS);
-  console.log(`[Renderer] Total frames: ${totalFrames} @ ${FPS}fps (${DURATION}s)`);
+  // Auto-detect timeline duration if available
+  const detectedDur = await page.evaluate(() => {
+    if (window.BANG_MOTION && window.BANG_MOTION.DURATION) return window.BANG_MOTION.DURATION;
+    if (window.__timelines) {
+      const tl = window.__timelines['main'] || Object.values(window.__timelines)[0];
+      if (tl && typeof tl.duration === 'function') return tl.duration();
+    }
+    const rootEl = document.querySelector('[data-duration]');
+    if (rootEl) return parseFloat(rootEl.getAttribute('data-duration'));
+    return null;
+  });
+
+  const effectiveDur = detectedDur || DURATION;
+  const totalFrames = Math.ceil(effectiveDur * FPS);
+  console.log(`[Renderer] Total frames: ${totalFrames} @ ${FPS}fps (${effectiveDur}s)`);
 
   // Spawn FFmpeg with stdin pipe
   console.log(`[Renderer] Spawning FFmpeg process -> ${finalMp4}`);
@@ -103,18 +150,21 @@ async function renderVideo() {
     '-f', 'image2pipe',
     '-vcodec', 'png',
     '-framerate', String(FPS),
-    '-i', '-',
-    '-i', audioFile,
+    '-i', '-'
+  ];
+
+  if (hasAudio) {
+    ffmpegArgs.push('-i', audioFile, '-c:a', 'aac', '-b:a', '192k', '-af', 'apad', '-shortest');
+  }
+
+  ffmpegArgs.push(
     '-c:v', 'libx264',
     '-preset', 'medium',
     '-crf', '18',
     '-pix_fmt', 'yuv420p',
-    '-c:a', 'aac',
-    '-b:a', '192k',
-    '-shortest',
     '-movflags', '+faststart',
     finalMp4
-  ];
+  );
 
   const ffmpegProc = spawn(ffmpegExe, ffmpegArgs, { stdio: ['pipe', 'inherit', 'inherit'] });
 
@@ -128,7 +178,12 @@ async function renderVideo() {
     const t = i / FPS;
 
     await page.evaluate(async time => {
-      await window.BANG_MOTION.seekFrame(time);
+      if (window.BANG_MOTION && typeof window.BANG_MOTION.seekFrame === 'function') {
+        await window.BANG_MOTION.seekFrame(time);
+      } else if (window.__timelines) {
+        const tl = window.__timelines['main'] || Object.values(window.__timelines)[0];
+        if (tl && typeof tl.seek === 'function') tl.seek(time);
+      }
       await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
     }, t);
 
@@ -138,7 +193,10 @@ async function renderVideo() {
       optimizeForSpeed: true
     });
 
-    ffmpegProc.stdin.write(buffer);
+    const ok = ffmpegProc.stdin.write(buffer);
+    if (!ok) {
+      await new Promise(r => ffmpegProc.stdin.once('drain', r));
+    }
 
     if (i % 30 === 0 || i === totalFrames - 1) {
       const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);

@@ -59,7 +59,8 @@ async function takeSnapshots() {
 
   const page = await browser.newPage();
   await page.setViewport({ width: WIDTH, height: HEIGHT, deviceScaleFactor: 1 });
-  await page.goto(`http://127.0.0.1:${PORT}/index.html?clean=1`, { waitUntil: 'networkidle0' });
+  const targetHtml = process.argv[2] || 'index_ep1.html';
+  await page.goto(`http://127.0.0.1:${PORT}/${targetHtml}?clean=1`, { waitUntil: 'networkidle0' });
   await page.waitForFunction('window.BANG_MOTION && window.BANG_MOTION.ready');
   await page.evaluate(() => document.fonts.ready);
 

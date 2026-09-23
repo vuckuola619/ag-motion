@@ -1,0 +1,1549 @@
+<!doctype html>
+<html lang="en">
+<!-- Made with Bang Motion Engine (https://github.com/bangtutorial/bang-motion) -->
+<!-- Episode 4: The Day the Dinosaurs Died — The Chicxulub Asteroid Impact (70s Master English Edition) -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Day the Dinosaurs Died — Chicxulub Asteroid Impact (Bang Motion 9:16 Vertical)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Caveat:wght@600;700&family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0b1329;
+  --ink-soft: #1e293b;
+  --mute: #64748b;
+  --mute-light: #94a3b8;
+  --red: #dc2626;
+  --red-dark: #991b1b;
+  --yel: #fbbf24;
+  --amber: #d97706;
+  --ochre: #c2410c;
+  --fire-orange: #ea580c;
+  --blast-orange: #f97316;
+  --grid: rgba(11, 19, 41, 0.048);
+  --grid-major: rgba(11, 19, 41, 0.088);
+  --paper: #fbfcfd;
+  --surface: #ffffff;
+  --border: rgba(11, 19, 41, 0.12);
+  --blue: #2563eb;
+  --emerald: #059669;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #060911;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+#stage {
+  position: absolute;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--paper);
+  font-family: "Archivo", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.7);
+  transform-origin: center center;
+}
+
+#world {
+  position: absolute;
+  inset: 0;
+  transform-origin: 540px 960px;
+  will-change: transform;
+}
+
+/* Layer 1: Clean Museum Archival Studio Surface (No grid lines) */
+.runway-bg {
+  position: absolute;
+  left: -2000px;
+  top: -1500px;
+  width: 24000px;
+  height: 6000px;
+  background-color: #f8fafc;
+  background-image: radial-gradient(circle at 50% 35%, #ffffff 0%, #edf2f7 85%, #e2e8f0 100%);
+}
+
+/* Layer 3: Geological Topographic Isolines (Hidden per clean aesthetic) */
+.topo-svg {
+  display: none;
+}
+
+/* Layer 4: Geological Paleocoordinate Watermark */
+.paleo-watermark {
+  position: absolute;
+  top: 135px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--mute-light);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Runway Chrono Corridor Stratigraphy */
+.transit-ghost {
+  position: absolute;
+  top: 860px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: 72px;
+  letter-spacing: -1px;
+  color: rgba(11, 19, 41, 0.038);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.transit-stream {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.transit-code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: rgba(11, 19, 41, 0.28);
+}
+.transit-bar {
+  height: 2px;
+  background: linear-gradient(90deg, rgba(11, 19, 41, 0.08), rgba(220, 38, 38, 0.35), rgba(11, 19, 41, 0.08));
+}
+
+.runway-track {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  pointer-events: none;
+}
+.runway-ruler {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--mute-light) 0, var(--mute-light) 6px, transparent 6px, transparent 18px);
+}
+.runway-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(11, 19, 41, 0.40);
+  text-transform: uppercase;
+}
+
+/* Base Scene Typography & UI Components */
+.series-tag {
+  position: absolute;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--red);
+  text-transform: uppercase;
+}
+
+.ghost {
+  position: absolute;
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: 124px;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  color: rgba(11, 19, 41, 0.048);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.name {
+  position: absolute;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 6px;
+}
+
+.cut {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform, opacity;
+}
+.cut img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.18));
+}
+
+.card {
+  position: absolute;
+  background: var(--surface);
+  padding: 14px;
+  border-radius: 4px;
+  box-shadow: 0 20px 45px rgba(11, 19, 41, 0.12), 0 0 0 1px var(--border);
+  overflow: hidden;
+}
+.card img {
+  border-radius: 2px;
+  object-fit: cover;
+  filter: none;
+  transform-origin: center center;
+  will-change: transform;
+}
+.card .card-glint {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.45) 50%, transparent 65%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.spec-tag {
+  position: absolute;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--mute);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.stampblk {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+.stampblk.r { background: var(--red); }
+.stampblk.o { background: var(--fire-orange); }
+.stampblk.a { background: var(--amber); }
+.stampblk.b { background: var(--blue); }
+.stampblk.g { background: var(--emerald); }
+
+.hand {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1.1;
+  transform: rotate(-4deg);
+}
+
+.line.t {
+  position: absolute;
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: -1.2px;
+  color: var(--ink);
+}
+.line.t .hl {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.line.t .hl i {
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 2px;
+  height: 16px;
+  background: rgba(249, 115, 22, 0.35);
+  z-index: -1;
+  border-radius: 2px;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.doc {
+  position: absolute;
+  width: 880px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--red);
+  padding: 24px 30px;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(11, 19, 41, 0.04);
+}
+.doc h6 {
+  margin: 0 0 10px 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+.doc pre {
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  white-space: pre-wrap;
+}
+.doc .stamp {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  border: 3px solid var(--red);
+  color: var(--red);
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  transform: rotate(8deg);
+  border-radius: 3px;
+  opacity: 0;
+}
+
+/* Safe-Zone Adjusted Gauges and Footers (>380px clearance) */
+.gauge-bar {
+  position: absolute;
+  width: 880px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 14px 20px;
+  border-radius: 4px;
+}
+.gauge-bar .g-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.gauge-bar .g-lbl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+.gauge-bar .g-val {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--ink);
+}
+.gauge-bar .g-val.red { color: var(--red); }
+.gauge-bar .g-val.orange { color: var(--fire-orange); }
+.gauge-bar .g-val.amber { color: var(--amber); }
+.gauge-bar .g-val.blue { color: var(--blue); }
+.gauge-bar .g-val.green { color: var(--emerald); }
+
+.arch-footer {
+  position: absolute;
+  width: 880px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed var(--border);
+  padding-top: 12px;
+}
+.arch-footer .f-code {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.arch-footer .barcode {
+  width: 140px;
+  height: 24px;
+  background: repeating-linear-gradient(90deg, #0b1329 0, #0b1329 2px, transparent 2px, transparent 4px, #0b1329 4px, #0b1329 7px, transparent 7px, transparent 9px);
+}
+.arch-footer .f-id {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--mute);
+}
+.arch-footer .f-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--mute-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Live Countdown Runner Header */
+#countdownRunner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1080px;
+  height: 90px;
+  background: rgba(251, 252, 253, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 40px 14px 40px;
+}
+.gp-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(11, 19, 41, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.gp-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #f97316, #dc2626, #1e3a8a, #059669);
+  border-radius: 2px;
+}
+.gp-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--ink);
+}
+.gp-dossier { color: var(--red); }
+.gp-epochs {
+  position: relative;
+  width: 580px;
+  height: 18px;
+  text-align: center;
+}
+.gpe {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.gp-rate { color: var(--mute); font-size: 11px; }
+
+/* Atmospheric Burning Embers & Falling Ash Field */
+/* Atmospheric Cinematic Dust & Particle Atmosphere */
+#dustField {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+.dust-mote {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 200, 150, 0.7) 0%, rgba(249, 115, 22, 0.25) 50%, transparent 80%);
+  filter: blur(2px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.dust-mote.smoke {
+  background: radial-gradient(circle, rgba(148, 163, 184, 0.5) 0%, rgba(100, 116, 139, 0.2) 60%, transparent 80%);
+  filter: blur(4px);
+}
+
+/* Ground Zero Shockwave Ring at 10.4s */
+#shockwaveRing {
+  position: absolute;
+  left: 540px;
+  top: 960px;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.8), inset 0 0 40px rgba(249, 115, 22, 0.5);
+  pointer-events: none;
+  z-index: 55;
+  opacity: 0;
+  transform: scale(0.1);
+}
+
+/* Dynamic Climate Atmospheric Overlay */
+#atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  mix-blend-mode: multiply;
+  transition: background-color 0.8s ease;
+}
+
+/* Viewport Optical Speed Streak */
+#motionStreak {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.4) 20%, 
+    rgba(249, 115, 22, 0.15) 50%, 
+    rgba(255, 255, 255, 0.4) 80%, 
+    transparent 100%);
+  transform-origin: center center;
+}
+
+/* Outro Resolution Card */
+#outroCard {
+  position: absolute;
+  left: 10100px;
+  top: 500px;
+  width: 880px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 50px 60px;
+  box-shadow: 0 35px 80px rgba(11, 19, 41, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  z-index: 30;
+}
+.outro-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 24px;
+}
+.outro-series {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--red);
+  text-transform: uppercase;
+}
+.outro-title {
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--ink);
+}
+.outro-body {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.outro-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.os-box {
+  flex: 1;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 20px 16px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.os-num {
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--ink);
+}
+.os-num.red { color: var(--red); }
+.os-num.orange { color: var(--fire-orange); }
+.os-num.green { color: var(--emerald); }
+.os-lbl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+.outro-seal-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed var(--border);
+  padding-top: 24px;
+}
+.outro-seal {
+  width: 90px;
+  height: 90px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--ink);
+}
+.pt-stamp-seal {
+  border: 3px solid var(--emerald);
+  color: var(--emerald);
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: 2px;
+  padding: 10px 24px;
+  text-transform: uppercase;
+  transform: rotate(-5deg);
+  border-radius: 4px;
+}
+
+/* Scrubber Controls */
+#scrubberWrap {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+#scrubberWrap input[type="range"] {
+  width: 380px;
+  accent-color: #f97316;
+  cursor: pointer;
+}
+#scrubberWrap span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  min-width: 60px;
+}
+#scrubberWrap button {
+  background: #f97316;
+  border: none;
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+<div id="stage">
+  <div id="world">
+    <!-- Clean Studio Runway Surface -->
+    <div class="runway-bg"></div>
+
+    <!-- =========================================================================
+         SCENE 1: T-MINUS 10S · THE IMPACTOR APPROACHES (Xc = 540, Y = 960)
+         Duration: 00.0s – 10.4s | Safe Zone: 100px to 980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 100px">// ORBITAL TRAJECTORY // IMPACT VELOCITY: 20 KM/S // 66.00 MA</div>
+    <div class="series-tag" id="stag1" style="left: 100px; top: 200px">EXTINCTION ARCHIVE // DOSSIER #04</div>
+    <div class="ghost" id="ghost1" style="left: 100px; top: 220px; width: 880px">T-10S</div>
+    <div class="name" id="name1" style="left: 100px; top: 360px; width: 880px">CHICXULUB IMPACTOR · 10 KM MOUNTAIN OF ROCK</div>
+
+    <!-- Polaroid Card: Asteroid Entry (top: 390px) -->
+    <div class="cut card" id="cardAsteroid" style="left: 110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode4_chicxulub/images/asteroid_atmospheric_entry.png" alt="Asteroid Atmospheric Entry">
+    </div>
+
+    <!-- Hero Cutout 1: T-Rex Skull Specimen (top: 380px) -->
+    <div class="cut" id="cutTrex" style="left: 550px; top: 380px; width: 440px; height: 390px">
+      <img src="assets/episode4_chicxulub/images/trex_skull_specimen.png" alt="Tyrannosaurus Rex Skull Specimen">
+    </div>
+
+    <!-- Hero Cutout 2: Iridium Core Sample (top: 610px) -->
+    <div class="cut" id="cutCore" style="left: 110px; top: 610px; width: 220px; height: 170px">
+      <img src="assets/episode4_chicxulub/images/iridium_core_sample.png" alt="Iridium K-Pg Boundary Core Sample">
+    </div>
+
+    <div class="spec-tag" id="tag1" style="left: 110px; top: 760px">ATMOSPHERIC ENTRY: 45,000 MPH · PUNCHING HOLE THROUGH SKY</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk r" id="sb1" style="left: 100px; top: 920px">10 SECONDS REMAINING</div>
+    <div class="hand" id="hand1" style="left: 640px; top: 895px; width: 310px; text-align: right">Mountain of Rock!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line1" style="left: 100px; top: 1000px; width: 880px">
+      Sixty-six million years ago, <span class="hl"><i></i>a mountain of rock</span> tore through the sky.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc1" style="left: 100px; top: 1220px">
+      <h6>ORBITAL ASTEROID TRAJECTORY DOSSIER</h6>
+      <pre>OBJECT CLASSIFICATION: CARBONACEOUS CHONDRITE / CHICXULUB IMPACTER
+ESTIMATED DIAMETER: 10.5 KILOMETERS (6.5 MILES)
+ENTRY VELOCITY: 20 KILOMETERS / SECOND (45,000 MPH)
+COUNTDOWN STATUS: TEN SECONDS TO PLANETARY IMPACT</pre>
+      <span class="stamp" id="stamp1">IMPACT IMMINENT</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge1" style="left: 100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">IMPACTOR SIZE</span>
+        <span class="g-val red">10.5 KM DIAMETER</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">ENTRY SPEED</span>
+        <span class="g-val orange">72,000 KM/H</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">TARGET ZONE</span>
+        <span class="g-val">YUCATÁN SEA</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer1" style="left: 100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // K-PG-IMPACTOR-01</span>
+      </div>
+      <div class="f-meta">
+        <span>STRATIGRAPHIC BOUNDARY MARKER</span>
+        <span>RECORD: PRE-IMPACT CRETACEOUS FAUNA</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 1 -> 2) -->
+    <div class="transit-ghost" style="left: 1180px">GROUND ZERO // MINUTE ZERO</div>
+    <div class="runway-track" style="left: 1220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// KINETIC DETONATION: 100,000,000 MEGATONS TNT</div>
+    </div>
+    <div class="transit-stream" style="left: 1180px; top: 890px">
+      <span class="transit-code">CRATER EXCAVATION // -66.038 MA</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 2: MINUTE 0 · GROUND ZERO IMPACT (Xc = 2540, Y = 960)
+         Duration: 10.4s – 21.4s | Safe Zone: 2100px to 2980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 2100px">// CRATER EXCAVATION // YUCATÁN SHALLOW PLATFORM // 66.038 MA</div>
+    <div class="series-tag" id="stag2" style="left: 2100px; top: 200px">DOSSIER #04 // GROUND ZERO BLAST</div>
+    <div class="ghost" id="ghost2" style="left: 2100px; top: 220px; width: 880px">100M MT</div>
+    <div class="name" id="name2" style="left: 2100px; top: 360px; width: 880px">GROUND ZERO · 100 MILLION MEGATON FLASH</div>
+
+    <!-- Polaroid Card: Impact Flash (top: 390px) -->
+    <div class="cut card" id="cardImpact" style="left: 2110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode4_chicxulub/images/chicxulub_crater_impact.png" alt="Chicxulub Ground Zero Impact">
+    </div>
+
+    <!-- Hero Cutout 1: Shocked Quartz (top: 380px) -->
+    <div class="cut" id="cutQuartz" style="left: 2560px; top: 380px; width: 420px; height: 380px">
+      <img src="assets/episode4_chicxulub/images/shocked_quartz_specimen.png" alt="Shocked Quartz Mineral Specimen">
+    </div>
+
+    <!-- Hero Cutout 2: Fireball Ejecta Plume (top: 400px) -->
+    <div class="cut" id="cutPlume" style="left: 2120px; top: 400px; width: 280px; height: 360px">
+      <img src="assets/episode4_chicxulub/images/impact_fireball_plume.png" alt="Impact Fireball Ejecta Plume">
+    </div>
+
+    <div class="spec-tag" id="tag2" style="left: 2110px; top: 760px">KINETIC YIELD: 100 MILLION ATOMIC BOMBS · 20-MILE CRATER</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk o" id="sb2" style="left: 2100px; top: 920px">GROUND ZERO CRATER</div>
+    <div class="hand" id="hand2" style="left: 2620px; top: 895px; width: 310px; text-align: right">Crust Vaporized!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line2" style="left: 2100px; top: 1000px; width: 880px">
+      It struck Yucatán with the force of <span class="hl"><i></i>100 million nuclear bombs</span>.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc2" style="left: 2100px; top: 1220px">
+      <h6>CHICXULUB IMPACT DETONATION LOG</h6>
+      <pre>TOTAL ENERGY DISCHARGE: 4.2 × 10²³ JOULES (100,000,000 MEGATONS)
+CRUSTAL DISPLACEMENT: 180-KILOMETER CRATER EXCAVATED IN SECONDS
+PEAK RING GEOMETRY: 30 KILOMETERS OF BEDROCK INSTANTLY MELTED
+SHOCK PRESSURE: > 60 GIGAPASCALS (PLANAR DEFORMATION IN QUARTZ)</pre>
+      <span class="stamp" id="stamp2">VAPORIZED</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge2" style="left: 2100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">CRATER DIAMETER</span>
+        <span class="g-val red">180 KILOMETERS</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">ENERGY YIELD</span>
+        <span class="g-val red">100M MEGATONS</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">INITIAL TSUNAMI</span>
+        <span class="g-val orange">300M DISPLACEMENT</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer2" style="left: 2100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // CHICXULUB-BLAST-02</span>
+      </div>
+      <div class="f-meta">
+        <span>YUCATÁN CARBONATE PLATFORM DRILL</span>
+        <span>RECORD: TRANSIENT CAVITY COLLAPSE</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 2 -> 3) -->
+    <div class="transit-ghost" style="left: 3180px">MINUTE FIVE // THERMAL PULSE</div>
+    <div class="runway-track" style="left: 3220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// INFRARED RADIATION: INCANDESCENT BROILER OVEN</div>
+    </div>
+    <div class="transit-stream" style="left: 3180px; top: 890px">
+      <span class="transit-code">GLOBAL FIRE PULSE // RE-ENTERING EJECTA</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 3: MINUTE 5 · THE THERMAL RADIATION PULSE (Xc = 4540, Y = 960)
+         Duration: 21.4s – 32.3s | Safe Zone: 4100px to 4980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 4100px">// ATMOSPHERIC BROILER // INFRARED THERMAL PULSE // 1,500°C GLOW</div>
+    <div class="series-tag" id="stag3" style="left: 4100px; top: 200px">DOSSIER #04 // THE THERMAL INFERNO</div>
+    <div class="ghost" id="ghost3" style="left: 4100px; top: 220px; width: 880px">BROILER</div>
+    <div class="name" id="name3" style="left: 4100px; top: 360px; width: 880px">THERMAL PULSE · PLANETARY BROILER OVEN</div>
+
+    <!-- Polaroid Card: Global Wildfire (top: 390px) -->
+    <div class="cut card" id="cardWildfire" style="left: 4110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode4_chicxulub/images/incandescent_sky_wildfire.png" alt="Global Thermal Radiation Wildfire">
+    </div>
+
+    <!-- Hero Cutout: Burned Raptor Claw (top: 400px) -->
+    <div class="cut" id="cutClaw" style="left: 4560px; top: 400px; width: 420px; height: 370px">
+      <img src="assets/episode4_chicxulub/images/burned_dino_claw_bone.png" alt="Carbonized Dinosaur Claw Specimen">
+    </div>
+
+    <div class="spec-tag" id="tag3" style="left: 4110px; top: 760px">UPPER ATMOSPHERE: 1,500°C · CONTINENTAL FORESTS IGNITE</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk o" id="sb3" style="left: 4100px; top: 920px">ATMOSPHERE INCANDESCENT</div>
+    <div class="hand" id="hand3" style="left: 4620px; top: 895px; width: 310px; text-align: right">Giant Broiler Oven!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line3" style="left: 4100px; top: 1000px; width: 880px">
+      Within five minutes, a wall of <span class="hl"><i></i>infrared heat pulsed</span> around the globe.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc3" style="left: 4100px; top: 1220px">
+      <h6>GLOBAL THERMAL RADIATION LOG</h6>
+      <pre>INFRARED HEAT FLUX: 10 KILOWATTS / SQUARE METER
+ATMOSPHERIC TEMPERATURE: UPPER STRATOSPHERE EXCEEDED 1,500°C
+SPONTANEOUS COMBUSTION: 70% OF GLOBAL FORESTS IGNITED
+SURVIVAL PROBABILITY: BURROWING ANIMALS & AQUATIC ORGANISMS ONLY</pre>
+      <span class="stamp" id="stamp3">INCINERATED</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge3" style="left: 4100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">SKY TEMPERATURE</span>
+        <span class="g-val red">1,500°C BROILER</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">GLOBAL FIRES</span>
+        <span class="g-val orange">70% CANOPY LOST</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">SURFACE SURVIVAL</span>
+        <span class="g-val red">&lt; 1% EXPOSED</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer3" style="left: 4100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // THERMAL-PULSE-03</span>
+      </div>
+      <div class="f-meta">
+        <span>HELL CREEK CHARCOAL HORIZON</span>
+        <span>RECORD: CONTINENTAL PYRO-INCINERATION</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 3 -> 4) -->
+    <div class="transit-ghost" style="left: 5180px">HOUR ONE // GLASS DELUGE</div>
+    <div class="runway-track" style="left: 5220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// EJECTA FALLOUT: TEKTITES & MEGATSUNAMIS</div>
+    </div>
+    <div class="transit-stream" style="left: 5180px; top: 890px">
+      <span class="transit-code">CARIBBEAN MEGATSUNAMI // 300-METER SURGE</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 4: HOUR 1 · MOLTEN GLASS & MEGATSUNAMIS (Xc = 6540, Y = 960)
+         Duration: 32.3s – 43.0s | Safe Zone: 6100px to 6980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 6100px">// IMPACT EJECTA HORIZON // 300M MEGATSUNAMI // RAINING TEKTITES</div>
+    <div class="series-tag" id="stag4" style="left: 6100px; top: 200px">DOSSIER #04 // THE DUAL CATACLYSM</div>
+    <div class="ghost" id="ghost4" style="left: 6100px; top: 220px; width: 880px">TEKTITES</div>
+    <div class="name" id="name4" style="left: 6100px; top: 360px; width: 880px">EJECTA RE-ENTRY · BOILING GLASS & TSUNAMIS</div>
+
+    <!-- Polaroid Card: Megatsunami Wave (top: 390px) -->
+    <div class="cut card" id="cardTsunami" style="left: 6110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode4_chicxulub/images/megatsunami_inundation.png" alt="300-Meter Caribbean Megatsunami">
+    </div>
+
+    <!-- Hero Cutout: Tektites Glass (top: 400px) -->
+    <div class="cut" id="cutTektite" style="left: 6580px; top: 400px; width: 390px; height: 370px">
+      <img src="assets/episode4_chicxulub/images/tektite_glass_specimens.png" alt="Impact Tektite Glass Specimen">
+    </div>
+
+    <div class="spec-tag" id="tag4" style="left: 6110px; top: 760px">EJECTA FALLOUT: TRILLIONS OF BOILING GLASS TEKTITES</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk r" id="sb4" style="left: 6100px; top: 920px">RAINING MOLTEN GLASS</div>
+    <div class="hand" id="hand4" style="left: 6620px; top: 895px; width: 310px; text-align: right">300-Meter Waves!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line4" style="left: 6100px; top: 1000px; width: 880px">
+      Boiling glass tektites rained down, while <span class="hl"><i></i>thousand-foot tsunamis</span> struck.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc4" style="left: 6100px; top: 1220px">
+      <h6>IMPACT EJECTA & OCEAN SURGE MATRIX</h6>
+      <pre>BALLISTIC EJECTA MASS: 200,000 CUBIC KILOMETERS OF ROCK
+RE-ENTRY FORM: MICRO-TEKTITES & GLASS IMPACT SPHERULES
+TSUNAMI RUN-UP HEIGHT: 300 METERS (1,000 FEET)
+INUNDATION REACH: FLOODED 100 KM INLAND ACROSS GULF COAST</pre>
+      <span class="stamp" id="stamp4">DELUGE OF GLASS</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge4" style="left: 6100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">WAVE CREST</span>
+        <span class="g-val blue">300M (1,000 FT)</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">TEKTITE FALLOUT</span>
+        <span class="g-val orange">MACH 15 RE-ENTRY</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">COASTLINE STATUS</span>
+        <span class="g-val red">OBLITERATED</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer4" style="left: 6100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // TEKTITE-TSUNAMI-04</span>
+      </div>
+      <div class="f-meta">
+        <span>TANIS EVENT DEPOSIT SITE CORE</span>
+        <span>RECORD: FOSSILIZED IMPACT SEICHE WAVE</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 4 -> 5) -->
+    <div class="transit-ghost" style="left: 7180px">HOUR 24 // IMPACT WINTER</div>
+    <div class="runway-track" style="left: 7220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// CLIMATIC SHOCK: SOOT BLANKET ➔ DECADAL FREEZE</div>
+    </div>
+    <div class="transit-stream" style="left: 7180px; top: 890px">
+      <span class="transit-code">PHOTOSYNTHESIS SHUTDOWN // -30°C COLLAPSE</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 5: HOUR 24 · THE NUCLEAR ASH WINTER (Xc = 8540, Y = 960)
+         Duration: 43.0s – 53.8s | Safe Zone: 8100px to 8980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 8100px">// STRATOSPHERIC SOOT // DECADAL NUCLEAR WINTER // -30°C FREEZE</div>
+    <div class="series-tag" id="stag5" style="left: 8100px; top: 200px">DOSSIER #04 // THE PERPETUAL NIGHT</div>
+    <div class="ghost" id="ghost5" style="left: 8100px; top: 220px; width: 880px">-30°C</div>
+    <div class="name" id="name5" style="left: 8100px; top: 360px; width: 880px">IMPACT WINTER · DECADAL SUNLIGHT BLOCKADE</div>
+
+    <!-- Polaroid Card: Impact Winter (top: 390px) -->
+    <div class="cut card" id="cardWinter" style="left: 8110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode4_chicxulub/images/impact_winter_landscape.png" alt="The Decadal Impact Winter">
+    </div>
+
+    <!-- Hero Cutout: K-Pg Boundary Clay Slab (top: 400px) -->
+    <div class="cut" id="cutSlab" style="left: 8560px; top: 400px; width: 420px; height: 370px">
+      <img src="assets/episode4_chicxulub/images/kpg_boundary_clay_slab.png" alt="K-Pg Boundary Stratigraphic Slab">
+    </div>
+
+    <div class="spec-tag" id="tag5" style="left: 8110px; top: 760px">SOLAR RADIATION: 99.9% BLOCKED · DECADE-LONG ASH WINTER</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk b" id="sb5" style="left: 8100px; top: 920px">DECADE-LONG DARKNESS</div>
+    <div class="hand" id="hand5" style="left: 8640px; top: 895px; width: 310px; text-align: right">The Sky Went Black!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line5" style="left: 8100px; top: 1000px; width: 880px">
+      Within twenty-four hours, a choking <span class="hl"><i></i>blanket of soot</span> blotted out the sun.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc5" style="left: 8100px; top: 1220px">
+      <h6>STRATOSPHERIC IMPACT WINTER LOG</h6>
+      <pre>AEROSOL COMPOSITION: 15,000 MEGATONS SOOT + SULFUR DIOXIDE
+PHOTOSYNTHESIS HALT: GLOBAL VEGETATION COLLAPSED FOR 10 YEARS
+TEMPERATURE CRASH: CONTINENTAL TEMPERATURES PLUMMETED BY 30°C
+FOOD CHAIN COLLAPSE: TOTAL EXTINCTION OF LARGE HERBIVORES</pre>
+      <span class="stamp" id="stamp5">IMPACT WINTER</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge5" style="left: 8100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">TEMP DROP</span>
+        <span class="g-val blue">-30°C FREEZING</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">SUNLIGHT PENETRATION</span>
+        <span class="g-val red">0.1% NORMAL</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">PLANT SURVIVAL</span>
+        <span class="g-val red">PHOTOSYNTHESIS: ZERO</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer5" style="left: 8100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // IMPACT-WINTER-05</span>
+      </div>
+      <div class="f-meta">
+        <span>GLOBAL K-PG SOOT MARKER HORIZON</span>
+        <span>VERDICT: COMPLETE TROPHIC WEB COLLAPSE</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 5 -> 6) -->
+    <div class="transit-ghost" style="left: 9180px">DAY 1,000 // THE MAMMALIAN DAWN</div>
+    <div class="runway-track" style="left: 9220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// BIOSPHERE REBIRTH: PROTO-MAMMALS INHERIT THE EARTH</div>
+    </div>
+    <div class="transit-stream" style="left: 9180px; top: 890px">
+      <span class="transit-code">DAWN OF MAMMALS // THE REIGN BEGINS // -66.00 MA</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 6: DAY 1000 · THE MAMMALIAN DAWN (Xc = 10540, Y = 960)
+         Duration: 53.8s – 65.0s | Safe Zone: 10100px to 10980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 10100px">// PALEOGENE DAWN // -66.00 MA // MAMMALIAN ADAPTIVE EXPLOSION</div>
+    <div class="series-tag" id="stag6" style="left: 10100px; top: 200px">EXTINCTION ARCHIVE // RESOLUTION DOSSIER</div>
+    <div class="ghost" id="ghost6" style="left: 10100px; top: 220px; width: 880px">MAMMALS</div>
+    <div class="name" id="name6" style="left: 10100px; top: 360px; width: 880px">MAMMALIAN REBIRTH · THE ASHES TO EMPIRE</div>
+
+    <!-- Polaroid Card: Fern Spike Slab (top: 390px) -->
+    <div class="cut card" id="cardFern" style="left: 10110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode4_chicxulub/images/mammal_trackway_fern_slab.png" alt="Post-Extinction Fern Spike Slab">
+    </div>
+
+    <!-- Hero Cutout: Purgatorius Skeleton (top: 400px) -->
+    <div class="cut" id="cutMammal" style="left: 10560px; top: 400px; width: 420px; height: 370px">
+      <img src="assets/episode4_chicxulub/images/purgatorius_early_mammal.png" alt="Purgatorius Proto-Mammal Skeleton">
+    </div>
+
+    <div class="spec-tag" id="tag6" style="left: 10110px; top: 760px">SURVIVAL: BURROWING MAMMALIAN ROOTS · THE HUMAN LINEAGE</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk g" id="sb6" style="left: 10100px; top: 920px">BURROWING SURVIVORS</div>
+    <div class="hand" id="hand6" style="left: 10620px; top: 895px; width: 310px; text-align: right">Our Ancestors Rose!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line6" style="left: 10100px; top: 1000px; width: 880px">
+      Dinosaurs died out forever, but <span class="hl"><i></i>tiny burrowing mammals</span> rose from the ashes.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc6" style="left: 10100px; top: 1220px">
+      <h6>MAMMALIAN INHERITANCE DOSSIER</h6>
+      <pre>NON-AVIAN DINOSAUR STATUS: 100% GLOBALLY EXTINCT
+EARLY MAMMALIAN SURVIVORS: PURGATORIUS, MULTITUBERCULATES
+ADAPTIVE ADVANTAGE: BURROWING UNDERGROUND / OMNIVOROUS DIET
+EVOLUTIONARY TRAJECTORY: PAVED THE WAY FOR PRIMATES AND HUMANS</pre>
+      <span class="stamp" id="stamp6" style="border-color: var(--emerald); color: var(--emerald)">SURVIVED</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge6" style="left: 10100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">NON-AVIAN DINOS</span>
+        <span class="g-val red">0% SURVIVAL</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">MAMMAL EXPANSION</span>
+        <span class="g-val green">+1,200% RADIATION</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">FLORAL RECOVERY</span>
+        <span class="g-val green">FERN SPIKE 100%</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer6" style="left: 10100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // MAMMAL-DAWN-06</span>
+      </div>
+      <div class="f-meta">
+        <span>EARLY TERTIARY FAUNAL RECORD</span>
+        <span>STATUS: THE AGE OF MAMMALS CROWNED</span>
+      </div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 7: RESOLUTION & EPIC OUTRO CARD (Xc = 10540, Y = 960)
+         Duration: 64.8s – 70.0s | Centered Overlay on Stage
+         ========================================================================= -->
+    <div id="outroCard">
+      <div class="outro-head">
+        <div class="outro-series">// THE EXTINCTION ARCHIVES: DOSSIER #04</div>
+        <h2 class="outro-title">THE DAY THE DINOSAURS DIED: CHICXULUB IMPACT</h2>
+      </div>
+
+      <div class="outro-body">
+        In a single afternoon, a six-mile asteroid erased 160 million years of dinosaur supremacy. From the freezing nuclear winter emerged the ultimate survivors: tiny burrowing proto-mammals that would one day evolve into the human species.
+      </div>
+
+      <div class="outro-stats">
+        <div class="os-box">
+          <span class="os-num red">100M MT</span>
+          <span class="os-lbl">Kinetic Blast</span>
+        </div>
+        <div class="os-box">
+          <span class="os-num orange">75%</span>
+          <span class="os-lbl">Species Extinct</span>
+        </div>
+        <div class="os-box">
+          <span class="os-num green">66M YRS</span>
+          <span class="os-lbl">Age of Mammals</span>
+        </div>
+      </div>
+
+      <div class="outro-seal-wrap">
+        <div class="outro-seal">
+          <span>KINETIC</span>
+          <strong>K-PG IMPACT</strong>
+          <span>DOSSIER #04</span>
+        </div>
+        <div class="pt-stamp-seal">AGE OF MAMMALS</div>
+      </div>
+    </div>
+
+  </div><!-- /#world -->
+
+  <!-- Fixed Viewport Minute-by-Minute Countdown Runner Header -->
+  <div id="countdownRunner">
+    <div class="gp-track"><div class="gp-fill" id="gpFill"></div></div>
+    <div class="gp-meta">
+      <span class="gp-dossier">DOSSIER // K-PG-66</span>
+      <div class="gp-epochs">
+        <span class="gpe" id="gpe1">T-10S · THE IMPACTOR APPROACHES</span>
+        <span class="gpe" id="gpe2">MINUTE 0 · GROUND ZERO IMPACT (100M MT)</span>
+        <span class="gpe" id="gpe3">MINUTE 5 · THE THERMAL RADIATION INFERNO</span>
+        <span class="gpe" id="gpe4">HOUR 1 · RAINING GLASS & MEGATSUNAMIS</span>
+        <span class="gpe" id="gpe5">HOUR 24 · THE DECADAL ASH WINTER (-30°C)</span>
+        <span class="gpe" id="gpe6">DAY 1,000 · THE MAMMALIAN REBIRTH</span>
+        <span class="gpe" id="gpe7">GEOLOGICAL DOSSIER RESOLVED · AGE OF MAMMALS</span>
+      </div>
+      <span class="gp-rate">66.038 MA</span>
+    </div>
+  </div>
+
+  <!-- Atmospheric Drifting Dust & Particle Atmosphere -->
+  <div id="dustField"></div>
+
+  <!-- Ground Zero Shockwave Ring -->
+  <div id="shockwaveRing"></div>
+
+  <!-- Dynamic Climate Atmospheric Tint Overlay -->
+  <div id="atmosphere"></div>
+
+  <!-- Viewport Optical Speed Streak Overlay for Camera Transitions -->
+  <div id="motionStreak"></div>
+</div><!-- /#stage -->
+
+<!-- Audio Narration Element -->
+<audio id="vo" src="assets/episode4_chicxulub/audio/vo_chicxulub_cinematic.mp3" preload="auto"></audio>
+
+<!-- Debug Time Scrubber -->
+<div id="scrubberWrap">
+  <button id="scrubBtn">PAUSE</button>
+  <input type="range" id="scrubSlider" min="0" max="70" step="0.05" value="0">
+  <span id="scrubTime">00.00s</span>
+</div>
+
+<script>
+(function() {
+  const stage = document.getElementById("stage");
+  const world = document.getElementById("world");
+  const vo = document.getElementById("vo");
+  const gpFill = document.getElementById("gpFill");
+  const gpes = [1, 2, 3, 4, 5, 6, 7].map(i => document.getElementById("gpe" + i));
+  const atmosphere = document.getElementById("atmosphere");
+  const motionStreak = document.getElementById("motionStreak");
+  const dustField = document.getElementById("dustField");
+  const shockwave = document.getElementById("shockwaveRing");
+
+  // Master GSAP Timeline (Duration = 70.00s)
+  const tl = gsap.timeline({ paused: true });
+
+  // 1. Dynamic Drifting Dust Particles (Soft organic motes, NOT static dots!)
+  const DUST_COUNT = 24;
+  for (let i = 0; i < DUST_COUNT; i++) {
+    const mote = document.createElement("div");
+    const isSmoke = i % 4 === 0;
+    mote.className = "dust-mote" + (isSmoke ? " smoke" : "");
+    const size = isSmoke ? (14 + Math.random() * 22) : (4 + Math.random() * 8);
+    mote.style.width = size + "px";
+    mote.style.height = size + "px";
+    mote.style.left = (Math.random() * 1080) + "px";
+    mote.style.top = (Math.random() * 1920) + "px";
+    dustField.appendChild(mote);
+
+    const dur = 7 + Math.random() * 10;
+    const t0 = Math.random() * 45;
+    tl.to(mote, {
+      x: (Math.random() - 0.5) * 120,
+      y: -120 - Math.random() * 160,
+      opacity: 0.7,
+      duration: dur * 0.4,
+      ease: "sine.out"
+    }, t0);
+    tl.to(mote, {
+      opacity: 0,
+      duration: dur * 0.6,
+      ease: "sine.in"
+    }, t0 + dur * 0.4);
+  }
+
+  // 2. Fixed Viewport Progress Runner Fill
+  tl.to(gpFill, { width: "100%", duration: 70.0, ease: "none" }, 0);
+
+  // 3. Epoch Label Switches (Synchronized to new scene arrival times)
+  const epochTimes = [
+    { idx: 0, t: 0.0 },
+    { idx: 1, t: 10.4 },
+    { idx: 2, t: 21.0 },
+    { idx: 3, t: 31.4 },
+    { idx: 4, t: 41.8 },
+    { idx: 5, t: 52.6 },
+    { idx: 6, t: 62.5 }
+  ];
+
+  epochTimes.forEach((ep, i) => {
+    const nextT = i < epochTimes.length - 1 ? epochTimes[i+1].t : 70.0;
+    const gpe = gpes[ep.idx];
+    tl.to(gpe, { opacity: 1, duration: 0.35, ease: "power1.out" }, ep.t);
+    if (i < epochTimes.length - 1) {
+      tl.to(gpe, { opacity: 0, duration: 0.25, ease: "power1.in" }, nextT - 0.25);
+    }
+  });
+
+  // 4. Dynamic Climate Atmospheric Tint Overlay
+  tl.set(atmosphere, { backgroundColor: "rgba(30, 58, 138, 0.02)" }, 0);
+  // Ground Zero Flash at 10.4s: blinding nuclear blast
+  tl.to(atmosphere, { backgroundColor: "rgba(255, 255, 255, 0.98)", duration: 0.08, ease: "none" }, 10.4);
+  tl.to(atmosphere, { backgroundColor: "rgba(239, 68, 68, 0.16)", duration: 1.5, ease: "power2.out" }, 10.48);
+  // Minute 5: Thermal Infrared Broiler Oven
+  tl.to(atmosphere, { backgroundColor: "rgba(249, 115, 22, 0.18)", duration: 2.0, ease: "power2.inOut" }, 21.0);
+  // Hour 1: Boiling Glass & Oceanic Steam
+  tl.to(atmosphere, { backgroundColor: "rgba(217, 119, 6, 0.12)", duration: 2.0, ease: "power2.inOut" }, 31.4);
+  // Hour 24: Decadal Impact Winter Blackout
+  tl.to(atmosphere, { backgroundColor: "rgba(15, 23, 42, 0.32)", duration: 2.5, ease: "power2.inOut" }, 41.8);
+  // Day 1000: Green Fern Rebirth
+  tl.to(atmosphere, { backgroundColor: "rgba(5, 150, 105, 0.08)", duration: 2.0, ease: "power2.inOut" }, 52.6);
+  tl.to(atmosphere, { backgroundColor: "rgba(15, 23, 42, 0.03)", duration: 1.5, ease: "power2.inOut" }, 62.5);
+
+  // 5. Ground Zero Shockwave Ring at 10.4s
+  tl.fromTo(shockwave, 
+    { scale: 0.05, opacity: 1 }, 
+    { scale: 4.5, opacity: 0, duration: 1.2, ease: "power2.out" }, 
+    10.4
+  );
+
+  // 6. Unified Horizontal Runway Camera Rig with Overlapping Entrance Choreography
+  function glideCamera(fromX, toX, tStart, dur) {
+    tl.to(world, { x: 540 - toX, duration: dur, ease: "power3.inOut" }, tStart);
+    tl.to(world, { scale: 0.96, duration: dur * 0.45, ease: "power2.in" }, tStart);
+    tl.to(world, { scale: 1.0, duration: dur * 0.55, ease: "power2.out" }, tStart + dur * 0.45);
+
+    const sStart = tStart + 0.05;
+    const sPeak = tStart + dur * 0.45;
+    const sEnd = tStart + dur - 0.05;
+    tl.to(motionStreak, { opacity: 0.85, scaleX: 1.6, duration: sPeak - sStart, ease: "power2.in" }, sStart);
+    tl.to(motionStreak, { opacity: 0, scaleX: 1.0, duration: sEnd - sPeak, ease: "power2.out" }, sPeak);
+  }
+
+  // Camera positions (Xc for each scene)
+  const pos = [540, 2540, 4540, 6540, 8540, 10540];
+
+  // Ken Burns scale drift on polaroid cards (Active non-passive footage!)
+  tl.fromTo("#cardAsteroid img", { scale: 1.0 }, { scale: 1.08, duration: 9.5, ease: "none" }, 0.4);
+  tl.fromTo("#cardImpact img", { scale: 1.0 }, { scale: 1.08, duration: 10.0, ease: "none" }, 10.4);
+  tl.fromTo("#cardWildfire img", { scale: 1.0 }, { scale: 1.08, duration: 10.0, ease: "none" }, 21.0);
+  tl.fromTo("#cardTsunami img", { scale: 1.0 }, { scale: 1.08, duration: 10.0, ease: "none" }, 31.4);
+  tl.fromTo("#cardWinter img", { scale: 1.0 }, { scale: 1.08, duration: 10.0, ease: "none" }, 41.8);
+  tl.fromTo("#cardFern img", { scale: 1.0 }, { scale: 1.08, duration: 10.0, ease: "none" }, 52.6);
+
+  // Ambient floating / breathing on specimens (Active non-passive sprites!)
+  tl.to("#cutTrex", { y: "-=8", rotation: "+=1.5", duration: 3.5, ease: "sine.inOut", yoyo: true, repeat: 2 }, 1.2);
+  tl.to("#cutCore", { y: "+=6", rotation: "-=1.0", duration: 4.0, ease: "sine.inOut", yoyo: true, repeat: 2 }, 1.4);
+  tl.to("#cutQuartz", { y: "-=10", rotation: "-=2.0", duration: 3.5, ease: "sine.inOut", yoyo: true, repeat: 2 }, 11.2);
+  tl.to("#cutPlume", { scale: 1.06, y: "-=8", duration: 4.0, ease: "sine.inOut", yoyo: true, repeat: 2 }, 11.5);
+  tl.to("#cutClaw", { y: "-=8", rotation: "+=1.5", duration: 3.5, ease: "sine.inOut", yoyo: true, repeat: 2 }, 21.8);
+  tl.to("#cutTektite", { y: "-=10", rotation: "+=2.0", duration: 3.5, ease: "sine.inOut", yoyo: true, repeat: 2 }, 32.0);
+  tl.to("#cutSlab", { y: "-=6", rotation: "-=1.0", duration: 4.0, ease: "sine.inOut", yoyo: true, repeat: 2 }, 42.5);
+  tl.to("#cutMammal", { y: "-=8", rotation: "+=1.5", duration: 3.5, ease: "sine.inOut", yoyo: true, repeat: 2 }, 53.0);
+
+  // SCENE 1 (00.0s – 10.4s) | Xc = 540 | Voice: 0.8s – 10.04s
+  tl.set(world, { x: 0, y: 0, scale: 1 }, 0);
+  tl.from("#cardAsteroid", { y: 60, opacity: 0, duration: 1.0, ease: "power3.out" }, 0.4);
+  tl.from("#cutTrex", { x: 80, opacity: 0, rotation: 4, duration: 1.2, ease: "power3.out" }, 0.6);
+  tl.from("#cutCore", { y: 40, opacity: 0, duration: 0.9, ease: "power3.out" }, 0.8);
+  tl.from("#line1", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 0.8);
+  tl.to("#line1 .hl i", { scaleX: 1, duration: 0.6, ease: "power2.out" }, 1.4);
+  tl.from("#sb1", { scale: 0.7, opacity: 0, duration: 0.4, ease: "back.out(2)" }, 1.0);
+  tl.from("#hand1", { opacity: 0, rotation: -12, duration: 0.5, ease: "power2.out" }, 1.4);
+  tl.from("#doc1", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 1.8);
+  tl.to("#stamp1", { opacity: 1, scale: 1, rotation: 8, duration: 0.3, ease: "back.out(3)" }, 3.2);
+
+  // Transition 1 -> 2 (09.5s – 10.4s): Speech ends at 10.04s, lands at 10.4s
+  glideCamera(pos[0], pos[1], 9.5, 0.9);
+  tl.from("#cardImpact", { x: 140, opacity: 0, duration: 0.9, ease: "power3.out" }, 9.8);
+  tl.from("#cutQuartz", { x: 120, opacity: 0, duration: 0.9, ease: "power3.out" }, 10.0);
+  tl.from("#cutPlume", { y: 80, opacity: 0, duration: 0.9, ease: "power3.out" }, 10.2);
+
+  // SCENE 2 (10.4s – 21.0s) | Xc = 2540 | Voice: 11.2s – 18.62s
+  tl.from("#line2", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 11.2);
+  tl.to("#line2 .hl i", { scaleX: 1, duration: 0.6, ease: "power2.out" }, 11.8);
+  tl.from("#sb2", { scale: 0.7, opacity: 0, duration: 0.4, ease: "back.out(2)" }, 11.5);
+  tl.from("#hand2", { opacity: 0, rotation: -10, duration: 0.5, ease: "power2.out" }, 12.0);
+  tl.from("#doc2", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 12.4);
+  tl.to("#stamp2", { opacity: 1, scale: 1, rotation: 8, duration: 0.3, ease: "back.out(3)" }, 13.0);
+
+  // Transition 2 -> 3 (20.2s – 21.0s): Speech ends at 18.62s
+  glideCamera(pos[1], pos[2], 20.2, 0.8);
+  tl.from("#cardWildfire", { x: 140, opacity: 0, duration: 0.8, ease: "power3.out" }, 20.4);
+  tl.from("#cutClaw", { x: 120, opacity: 0, duration: 0.8, ease: "power3.out" }, 20.6);
+
+  // SCENE 3 (21.0s – 31.4s) | Xc = 4540 | Voice: 21.4s – 29.34s
+  tl.from("#line3", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 21.4);
+  tl.to("#line3 .hl i", { scaleX: 1, duration: 0.6, ease: "power2.out" }, 22.0);
+  tl.from("#sb3", { scale: 0.7, opacity: 0, duration: 0.4, ease: "back.out(2)" }, 21.6);
+  tl.from("#hand3", { opacity: 0, rotation: -12, duration: 0.5, ease: "power2.out" }, 22.2);
+  tl.from("#doc3", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 22.6);
+  tl.to("#stamp3", { opacity: 1, scale: 1, rotation: 8, duration: 0.3, ease: "back.out(3)" }, 23.6);
+
+  // Transition 3 -> 4 (30.4s – 31.4s): Speech ends at 29.34s
+  glideCamera(pos[2], pos[3], 30.4, 1.0);
+  tl.from("#cardTsunami", { x: 140, opacity: 0, duration: 0.9, ease: "power3.out" }, 30.7);
+  tl.from("#cutTektite", { x: 120, opacity: 0, duration: 0.9, ease: "power3.out" }, 30.9);
+
+  // SCENE 4 (31.4s – 41.8s) | Xc = 6540 | Voice: 31.6s – 39.17s
+  tl.from("#line4", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 31.6);
+  tl.to("#line4 .hl i", { scaleX: 1, duration: 0.6, ease: "power2.out" }, 32.2);
+  tl.from("#sb4", { scale: 0.7, opacity: 0, duration: 0.4, ease: "back.out(2)" }, 31.8);
+  tl.from("#hand4", { opacity: 0, rotation: -10, duration: 0.5, ease: "power2.out" }, 32.4);
+  tl.from("#doc4", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 32.8);
+  tl.to("#stamp4", { opacity: 1, scale: 1, rotation: 8, duration: 0.3, ease: "back.out(3)" }, 33.8);
+
+  // Transition 4 -> 5 (40.8s – 41.8s): Speech ends at 39.17s
+  glideCamera(pos[3], pos[4], 40.8, 1.0);
+  tl.from("#cardWinter", { x: 140, opacity: 0, duration: 0.9, ease: "power3.out" }, 41.1);
+  tl.from("#cutSlab", { x: 120, opacity: 0, duration: 0.9, ease: "power3.out" }, 41.3);
+
+  // SCENE 5 (41.8s – 52.6s) | Xc = 8540 | Voice: 42.0s – 49.42s
+  tl.from("#line5", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 42.0);
+  tl.to("#line5 .hl i", { scaleX: 1, duration: 0.6, ease: "power2.out" }, 42.6);
+  tl.from("#sb5", { scale: 0.7, opacity: 0, duration: 0.4, ease: "back.out(2)" }, 42.2);
+  tl.from("#hand5", { opacity: 0, rotation: -12, duration: 0.5, ease: "power2.out" }, 42.8);
+  tl.from("#doc5", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 43.2);
+  tl.to("#stamp5", { opacity: 1, scale: 1, rotation: 8, duration: 0.3, ease: "back.out(3)" }, 44.5);
+
+  // Transition 5 -> 6 (51.6s – 52.6s): Speech ends at 49.42s
+  glideCamera(pos[4], pos[5], 51.6, 1.0);
+  tl.from("#cardFern", { x: 140, opacity: 0, duration: 0.9, ease: "power3.out" }, 51.9);
+  tl.from("#cutMammal", { x: 120, opacity: 0, duration: 0.9, ease: "power3.out" }, 52.1);
+
+  // SCENE 6 (52.6s – 62.5s) | Xc = 10540 | Voice: 52.8s – 59.73s
+  tl.from("#line6", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 52.8);
+  tl.to("#line6 .hl i", { scaleX: 1, duration: 0.6, ease: "power2.out" }, 53.4);
+  tl.from("#sb6", { scale: 0.7, opacity: 0, duration: 0.4, ease: "back.out(2)" }, 53.0);
+  tl.from("#hand6", { opacity: 0, rotation: -10, duration: 0.5, ease: "power2.out" }, 53.5);
+  tl.from("#doc6", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 54.0);
+  tl.to("#stamp6", { opacity: 1, scale: 1, rotation: 8, duration: 0.3, ease: "back.out(3)" }, 54.8);
+
+  // SCENE 7: RESOLUTION OUTRO CARD (62.2s – 70.0s) | Voice: 63.2s – 69.24s
+  tl.to(["#cardFern", "#cutMammal", "#tag6", "#sb6", "#hand6", "#line6", "#doc6", "#gauge6", "#footer6", "#stag6", "#ghost6", "#name6"], { opacity: 0, duration: 0.35, ease: "power2.in" }, 62.2);
+  tl.to("#outroCard", { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: "back.out(1.4)" }, 62.5);
+  tl.from(".pt-stamp-seal", { scale: 1.6, opacity: 0, duration: 0.35, ease: "back.out(2)" }, 64.0);
+
+  // Auto-resize viewport fitting for preview
+  function fitStage() {
+    const scale = Math.min(window.innerWidth / 1080, window.innerHeight / 1920);
+    stage.style.transform = `scale(${scale})`;
+  }
+  window.addEventListener("resize", fitStage);
+  fitStage();
+
+  // Scrubber controls
+  const scrubSlider = document.getElementById("scrubSlider");
+  const scrubTime = document.getElementById("scrubTime");
+  const scrubBtn = document.getElementById("scrubBtn");
+  let isPlaying = false;
+
+  function updateScrubber(t) {
+    scrubSlider.value = t;
+    const mins = Math.floor(t / 60);
+    const secs = (t % 60).toFixed(2);
+    scrubTime.textContent = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  }
+
+  scrubSlider.addEventListener("input", e => {
+    const t = parseFloat(e.target.value);
+    tl.time(t);
+    if (vo) vo.currentTime = t;
+    updateScrubber(t);
+  });
+
+  scrubBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      tl.pause();
+      if (vo) vo.pause();
+      scrubBtn.textContent = "PLAY";
+      isPlaying = false;
+    } else {
+      tl.play();
+      if (vo) vo.play().catch(() => {});
+      scrubBtn.textContent = "PAUSE";
+      isPlaying = true;
+    }
+  });
+
+  // Animation frame loop for UI sync
+  function loop() {
+    if (isPlaying) {
+      updateScrubber(tl.time());
+      if (tl.time() >= 70.0) {
+        tl.pause();
+        if (vo) vo.pause();
+        isPlaying = false;
+        scrubBtn.textContent = "PLAY";
+      }
+    }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  // Check URL params for clean mode
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("clean") === "1") {
+    document.getElementById("scrubberWrap").style.display = "none";
+  }
+
+  // Global Engine Hook for Puppeteer Frame Grabber
+  window.BANG_MOTION = {
+    ready: true,
+    duration: 70.0,
+    seekFrame: function(timeInSeconds) {
+      return new Promise(resolve => {
+        tl.time(timeInSeconds);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(resolve);
+        });
+      });
+    }
+  };
+
+  console.log("[Bang Motion Ep4] Engine ready for playback and headless render.");
+})();
+</script>
+</body>
+</html>

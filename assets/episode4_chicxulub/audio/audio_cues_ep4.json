@@ -1,0 +1,65 @@
+[
+  {
+    "beat_id": "beat_1",
+    "title": "T-Minus 10s \u00b7 The Impactor Approaches",
+    "start": 0.8,
+    "end": 10.04,
+    "duration": 9.24,
+    "text": "Sixty-six million years ago, a mountain of rock six miles wide tore through the sky at forty-five thousand miles per hour. Dinosaurs had ten seconds left.",
+    "audio_file": "ep4_beat_1.wav"
+  },
+  {
+    "beat_id": "beat_2",
+    "title": "Minute 0 \u00b7 Ground Zero Impact",
+    "start": 11.2,
+    "end": 18.62,
+    "duration": 7.42,
+    "text": "It struck Yucat\u00e1n with the force of one hundred million atomic bombs, instantly vaporizing miles of Earth's crust into a glowing crater.",
+    "audio_file": "ep4_beat_2.wav"
+  },
+  {
+    "beat_id": "beat_3",
+    "title": "Minute 5 \u00b7 The Thermal Radiation Pulse",
+    "start": 21.4,
+    "end": 29.34,
+    "duration": 7.94,
+    "text": "Within five minutes, an infrared heat pulse swept the globe, turning the entire atmosphere into a 1,500-degree broiler oven.",
+    "audio_file": "ep4_beat_3.wav"
+  },
+  {
+    "beat_id": "beat_4",
+    "title": "Hour 1 \u00b7 Molten Glass & Megatsunamis",
+    "start": 31.6,
+    "end": 39.17,
+    "duration": 7.57,
+    "text": "Trillions of tons of molten glass tektites rained from orbit, while thousand-foot megatsunamis pulverized continental coastlines.",
+    "audio_file": "ep4_beat_4.wav"
+  },
+  {
+    "beat_id": "beat_5",
+    "title": "Hour 24 \u00b7 The Nuclear Ash Winter",
+    "start": 42.0,
+    "end": 49.42,
+    "duration": 7.42,
+    "text": "Within twenty-four hours, a choking blanket of soot blocked the sun, plunging the planet into a freezing, decade-long impact winter.",
+    "audio_file": "ep4_beat_5.wav"
+  },
+  {
+    "beat_id": "beat_6",
+    "title": "Day 1000 \u00b7 The Mammalian Dawn",
+    "start": 52.8,
+    "end": 59.73,
+    "duration": 6.93,
+    "text": "Non-avian dinosaurs died out forever. But deep underground, tiny burrowing proto-mammals survived to inherit the earth.",
+    "audio_file": "ep4_beat_6.wav"
+  },
+  {
+    "beat_id": "beat_7_outro",
+    "title": "Epilogue Outro Resolution",
+    "start": 63.2,
+    "end": 69.24,
+    "duration": 6.04,
+    "text": "In a single afternoon, the asteroid ended an empire. Without it, the human species would never have existed.",
+    "audio_file": "ep4_beat_7_outro.wav"
+  }
+]

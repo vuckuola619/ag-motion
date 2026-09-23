@@ -1,0 +1,1626 @@
+<!doctype html>
+<html lang="en">
+<!-- Made with Bang Motion Engine (https://github.com/bangtutorial/bang-motion) -->
+<!-- Episode 3: The 2-Million-Year Rainstorm — The Carnian Pluvial Event (70s Master Documentary Edition) -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 2-Million-Year Rainstorm — Carnian Pluvial Event (Bang Motion 9:16 Vertical)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Caveat:wght@600;700&family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0b1329;
+  --ink-soft: #1e293b;
+  --mute: #64748b;
+  --mute-light: #94a3b8;
+  --red: #dc2626;
+  --red-dark: #991b1b;
+  --yel: #fbbf24;
+  --amber: #d97706;
+  --ochre: #c2410c;
+  --storm-blue: #1e3a8a;
+  --emerald: #065f46;
+  --grid: rgba(11, 19, 41, 0.048);
+  --grid-major: rgba(11, 19, 41, 0.088);
+  --paper: #fbfcfd;
+  --surface: #ffffff;
+  --border: rgba(11, 19, 41, 0.12);
+  --blue: #2563eb;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #060911;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+#stage {
+  position: absolute;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--paper);
+  font-family: "Archivo", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.7);
+  transform-origin: center center;
+}
+
+#world {
+  position: absolute;
+  inset: 0;
+  transform-origin: 540px 960px;
+  will-change: transform;
+}
+
+/* Layer 1 & 2: Archival Paper & Millimetric Technical Grid */
+.runway-bg {
+  position: absolute;
+  left: -2000px;
+  top: -1500px;
+  width: 24000px;
+  height: 6000px;
+  background-color: var(--paper);
+  background-image: 
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    linear-gradient(var(--grid-major) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--grid-major) 1.5px, transparent 1.5px);
+  background-size: 60px 60px, 60px 60px, 240px 240px, 240px 240px;
+}
+
+/* Layer 3: Geological Topographic Isolines (SVG Vector Ribbon) */
+.topo-svg {
+  position: absolute;
+  left: -2000px;
+  top: -1000px;
+  width: 24000px;
+  height: 4000px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Layer 4: Geological Paleocoordinate Watermark */
+.paleo-watermark {
+  position: absolute;
+  top: 135px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--mute-light);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Runway Chrono Corridor Stratigraphy */
+.transit-ghost {
+  position: absolute;
+  top: 860px;
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: 72px;
+  letter-spacing: -1px;
+  color: rgba(11, 19, 41, 0.038);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.transit-stream {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.transit-code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: rgba(11, 19, 41, 0.28);
+}
+.transit-bar {
+  height: 2px;
+  background: linear-gradient(90deg, rgba(11, 19, 41, 0.08), rgba(30, 58, 138, 0.35), rgba(11, 19, 41, 0.08));
+}
+
+.runway-track {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  pointer-events: none;
+}
+.runway-ruler {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--mute-light) 0, var(--mute-light) 6px, transparent 6px, transparent 18px);
+}
+.runway-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--mute);
+  white-space: nowrap;
+}
+
+/* Typography Hierarchy */
+.series-tag {
+  position: absolute;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--red);
+  text-transform: uppercase;
+}
+
+.ghost {
+  position: absolute;
+  font-weight: 900;
+  font-size: 130px;
+  letter-spacing: -6px;
+  line-height: 0.88;
+  color: rgba(11, 19, 41, 0.045);
+  pointer-events: none;
+}
+
+.name {
+  position: absolute;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+/* Visual Elements: Polaroid Cards & Cutouts */
+.cut {
+  position: absolute;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+.cut img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.cut.card {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(11, 19, 41, 0.08);
+  box-shadow: 0 16px 45px rgba(11, 19, 41, 0.12), 0 2px 6px rgba(11, 19, 41, 0.06);
+}
+.cut.card img {
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.spec-tag {
+  position: absolute;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--mute);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 4px 10px;
+  border: 1px solid rgba(11, 19, 41, 0.1);
+  border-radius: 3px;
+}
+
+/* Stamp Blocks & Handwritten Cues */
+.stampblk {
+  position: absolute;
+  display: inline-block;
+  padding: 8px 18px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: #ffffff;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.stampblk.r { background: var(--red); }
+.stampblk.b { background: var(--storm-blue); }
+.stampblk.a { background: var(--amber); }
+.stampblk.g { background: var(--emerald); }
+
+.hand {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--red);
+  transform: rotate(-3.5deg);
+  white-space: nowrap;
+}
+
+/* Primary Kinetic Typography Headline */
+.line {
+  position: absolute;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -1.8px;
+  line-height: 1.12;
+  color: var(--ink);
+}
+.w {
+  display: inline-block;
+  margin-right: 0.26em;
+  white-space: pre;
+}
+.hl {
+  position: relative;
+  display: inline-block;
+  color: var(--ink);
+}
+.hl i {
+  position: absolute;
+  inset: 58% -4px 4% -4px;
+  background: var(--yel);
+  z-index: -1;
+  border-radius: 3px;
+  transform-origin: left center;
+}
+
+/* Archival Document Dossier Card */
+.doc {
+  position: absolute;
+  width: 880px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px 28px;
+  box-shadow: 0 10px 30px rgba(11, 19, 41, 0.05);
+}
+.doc h6 {
+  margin: 0 0 10px 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+.doc pre {
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: var(--ink-soft);
+  white-space: pre-wrap;
+}
+
+/* Rubber Stamp Mark */
+.stamp {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  border: 3px solid var(--red);
+  color: var(--red);
+  font-family: "Archivo", sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  padding: 5px 14px;
+  border-radius: 4px;
+  transform: rotate(-7.5deg);
+  text-transform: uppercase;
+  mask-image: linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.95));
+}
+
+/* Telemetry Gauge Bar */
+.gauge-bar {
+  position: absolute;
+  width: 880px;
+  display: flex;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.g-col {
+  flex: 1;
+  padding: 12px 16px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.g-col:last-child { border-right: none; }
+.g-lbl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+.g-val {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink);
+}
+.g-val.red { color: var(--red); }
+.g-val.blue { color: var(--storm-blue); }
+.g-val.amber { color: var(--amber); }
+.g-val.green { color: var(--emerald); }
+
+/* Archival Barcode Footer */
+.arch-footer {
+  position: absolute;
+  width: 880px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.f-code {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.barcode {
+  width: 140px;
+  height: 24px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0, var(--ink) 2px, transparent 2px, transparent 4px, var(--ink) 4px, var(--ink) 7px, transparent 7px, transparent 9px);
+}
+.f-id {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--mute);
+}
+.f-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--mute-light);
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Outro Card Styles */
+#outroCard {
+  position: absolute;
+  left: 10100px;
+  top: 360px;
+  width: 880px;
+  height: 1200px;
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 0 25px 70px rgba(11, 19, 41, 0.16);
+  padding: 50px 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 50;
+  opacity: 0;
+}
+.outro-head {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 25px;
+}
+.outro-series {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+.outro-title {
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 0;
+}
+.outro-body {
+  margin: 30px 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.outro-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.os-box {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px;
+  text-align: center;
+}
+.os-num {
+  font-family: "Archivo", sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--red);
+  display: block;
+}
+.os-num.blue { color: var(--storm-blue); }
+.os-num.green { color: var(--emerald); }
+.os-lbl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+.outro-seal-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed var(--border);
+  padding-top: 25px;
+}
+.outro-seal {
+  width: 100px;
+  height: 100px;
+  border: 3px double var(--storm-blue);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--storm-blue);
+  text-align: center;
+}
+.outro-seal strong {
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-family: "Archivo", sans-serif;
+}
+.pt-stamp-seal {
+  border: 3px solid var(--emerald);
+  color: var(--emerald);
+  font-family: "Archivo", sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  transform: rotate(5deg);
+  text-transform: uppercase;
+}
+
+/* Dynamic Extinction Climate Atmospheric Tinting Overlay */
+#atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 60;
+  transition: background-color 1s ease;
+  background-color: rgba(245, 158, 11, 0.04); /* Arid Desert Sunlight */
+}
+
+/* Viewport Optical Speed Streak for Transitions */
+#motionStreak {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 70;
+  opacity: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(30, 58, 138, 0.15) 30%, 
+    rgba(37, 99, 235, 0.28) 50%, 
+    rgba(30, 58, 138, 0.15) 70%, 
+    transparent 100%
+  );
+  transform-origin: center center;
+}
+#motionStreak::before {
+  content: '';
+  position: absolute;
+  top: 36%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.5), transparent);
+}
+#motionStreak::after {
+  content: '';
+  position: absolute;
+  top: 64%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.5), transparent);
+}
+
+/* Geological Epoch Progress Runner */
+#geoProgress {
+  position: absolute;
+  top: 34px;
+  left: 60px;
+  right: 60px;
+  z-index: 65;
+  pointer-events: none;
+}
+.gp-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(11, 19, 41, 0.08);
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.gp-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--amber), var(--red), var(--storm-blue), var(--emerald));
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+.gp-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+.gp-epochs {
+  position: relative;
+  height: 14px;
+  min-width: 320px;
+  text-align: center;
+}
+.gpe {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  font-weight: 800;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Atmospheric Falling Rain Field (Scene 3 -> 5) */
+#rainField {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 55;
+  opacity: 0;
+  overflow: hidden;
+}
+.rain-drop {
+  position: absolute;
+  width: 1.5px;
+  height: 35px;
+  background: linear-gradient(180deg, transparent, rgba(30, 58, 138, 0.45));
+  opacity: 0.7;
+}
+
+/* Debug Scrubber */
+#scrubberWrap {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 680px;
+  background: rgba(11, 19, 41, 0.94);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 30px;
+  display: none;
+  align-items: center;
+  gap: 16px;
+  z-index: 9999;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  font-family: "JetBrains Mono", monospace;
+  color: #fff;
+  font-size: 13px;
+}
+#scrubberWrap input[type=range] {
+  flex: 1;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+#scrubTime { min-width: 60px; font-weight: 700; }
+#scrubBtn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 700;
+}
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <div id="world">
+    <!-- Layer 1 & 2: Archival Paper & Technical Grid -->
+    <div class="runway-bg"></div>
+
+    <!-- Layer 3: Geological Topographic Isolines Ribbon -->
+    <svg class="topo-svg" viewBox="0 0 24000 4000" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M-2000 900 C 1500 650, 3500 1150, 6500 800 C 9500 450, 12500 1100, 15500 850 C 18500 600, 21500 1100, 24000 900" stroke="rgba(11, 19, 41, 0.055)" stroke-width="2" stroke-dasharray="8 8"/>
+      <path d="M-2000 1100 C 1200 1350, 4200 900, 7200 1250 C 10200 1600, 13200 1000, 16200 1300 C 19200 1600, 22200 1050, 24000 1200" stroke="rgba(11, 19, 41, 0.065)" stroke-width="1.8"/>
+      <path d="M-2000 1400 C 1800 1150, 4800 1600, 7800 1350 C 10800 1100, 13800 1650, 16800 1350 C 19800 1050, 22800 1500, 24000 1380" stroke="rgba(11, 19, 41, 0.050)" stroke-width="2"/>
+      <path d="M-2000 600 C 2200 850, 5200 500, 8200 750 C 11200 1000, 14200 550, 17200 800 C 20200 1050, 23200 650, 24000 720" stroke="rgba(11, 19, 41, 0.045)" stroke-width="1.5"/>
+    </svg>
+
+    <!-- =========================================================================
+         SCENE 1: THE ARID PANGEA DUSTBOWL (Xc = 540, Y = 960)
+         Duration: 00.0s – 10.4s | Safe Zone: 100px to 980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 100px">// GEO-DATUM: PANGEA ARID INTERIOR // PALEO-LAT: 28°N // 234.00 MA</div>
+    <div class="series-tag" id="stag1" style="left: 100px; top: 200px">EXTINCTION ARCHIVE // DOSSIER #03</div>
+    <div class="ghost" id="ghost1" style="left: 100px; top: 220px; width: 880px">234 MA</div>
+    <div class="name" id="name1" style="left: 100px; top: 360px; width: 880px">LATE TRIASSIC · THE SCORCHED PANGEA DESERT</div>
+
+    <!-- Archival Polaroid Card: Pangea Desert (top: 390px) -->
+    <div class="cut card" id="cardPangeaDesert" style="left: 110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode3_carnian_pluvial/images/pangea_desert_landscape.png" alt="Arid Pangea Desert Biome">
+    </div>
+
+    <!-- Hero Cutout: Hyperodapedon Rhynchosaur Skull (top: 400px) -->
+    <div class="cut" id="cutRhynchosaur" style="left: 560px; top: 400px; width: 420px; height: 370px">
+      <img src="assets/episode3_carnian_pluvial/images/rhynchosaur_skull.png" alt="Hyperodapedon Rhynchosaur Skull">
+    </div>
+
+    <!-- Secondary Cutout: Cracked Red Mudstone Specimen (top: 590px) -->
+    <div class="cut" id="cutCrackedEarth" style="left: 130px; top: 590px; width: 220px; height: 210px">
+      <img src="assets/episode3_carnian_pluvial/images/cracked_earth_specimen.png" alt="Triassic Red-Bed Core Sample">
+    </div>
+
+    <div class="spec-tag" id="tag1" style="left: 110px; top: 760px">FAUNA: RHYNCHOSAURS (90% HERBIVORE POPULATION)</div>
+
+    <!-- Stamp Badge & Handwritten Note (top: 920px) -->
+    <div class="stampblk" id="sb1" style="left: 100px; top: 920px">DINOSAURS: UNDER 5% OF LIFE</div>
+    <div class="hand" id="hand1" style="left: 600px; top: 910px; width: 310px; text-align: right">Bone-Dry Wasteland!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line1" style="left: 100px; top: 1000px; width: 880px">
+      Two hundred and thirty-four million years ago, <span class="hl"><i></i>Pangea was a baking,</span> bone-dry wasteland.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc1" style="left: 100px; top: 1220px">
+      <h6>PALEO-CLIMATE SEDIMENT LOG // DESICCATION BED</h6>
+      <pre>SUPERCONTINENT ENVIRONMENT: MEGABASIN MEGA-DESERT
+PRECIPITATION FREQUENCY: FLASH DROUGHTS / HYPER-ARID
+PREHISTORIC HERBIVORE RATIO: 92% BEAKED RHYNCHOSAURS
+EARLY DINOSAUR ABUNDANCE: &lt; 5% TOTAL FOSSIL BIOMASS</pre>
+      <span class="stamp" id="stamp1">ARID DESERT</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge1" style="left: 100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">PRECIPITATION</span>
+        <span class="g-val red">&lt; 100 MM / YR</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">SURFACE TEMP</span>
+        <span class="g-val red">48°C (SCORCHING)</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">DINO FAUNA RATIO</span>
+        <span class="g-val">3.8% (MARGINAL)</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer1" style="left: 100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // CARNIAN-ARID-01</span>
+      </div>
+      <div class="f-meta">
+        <span>CENTRAL PANGEAN RED-BED HORIZON</span>
+        <span>VERDICT: HYPER-ARID MEGA-MONSOON</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 1 -> 2) -->
+    <div class="transit-ghost" style="left: 1180px">SUBMARINE VOLCANISM // WRANGELLIA</div>
+    <div class="runway-track" style="left: 1220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// CRUSTAL RIFT: PANTHALASSA BASIN ➔ BASALT DISCHARGE</div>
+    </div>
+    <div class="transit-stream" style="left: 1180px; top: 890px">
+      <span class="transit-code">OCEANIC RIFT // FLOOD BASALT HORIZON // -233.5 MA</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 2: WRANGELLIA OCEANIC SUPER-VOLCANO (Xc = 2540, Y = 960)
+         Duration: 10.4s – 21.4s | Safe Zone: 2100px to 2980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 2100px">// PANTHALASSA OCEANIC PLATE // WRANGELLIA LIP // 233.50 MA</div>
+    <div class="series-tag" id="stag2" style="left: 2100px; top: 200px">DOSSIER #03 // SUBMARINE FLOOD BASALT</div>
+    <div class="ghost" id="ghost2" style="left: 2100px; top: 220px; width: 880px">CO2 SPIKE</div>
+    <div class="name" id="name2" style="left: 2100px; top: 360px; width: 880px">WRANGELLIA ERUPTION · OCEANIC EVAPORATION</div>
+
+    <!-- Polaroid Card: Wrangellia Basalt Plateau (top: 390px) -->
+    <div class="cut card" id="cardWrangellia" style="left: 2110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode3_carnian_pluvial/images/wrangellia_basalt_plateau.png" alt="Wrangellia Oceanic Super-Volcano">
+    </div>
+
+    <!-- Hero Cutout: Submarine Pillow Basalt Specimen (top: 400px) -->
+    <div class="cut" id="cutPillowBasalt" style="left: 2560px; top: 400px; width: 420px; height: 370px">
+      <img src="assets/episode3_carnian_pluvial/images/wrangellia_lava_pillow.png" alt="Submarine Pillow Basalt Specimen">
+    </div>
+
+    <!-- Specimen Cutout: Volcanic Steam Plume (top: 590px) -->
+    <div class="cut" id="cutSteamPlume" style="left: 2130px; top: 590px; width: 220px; height: 210px">
+      <img src="assets/episode3_carnian_pluvial/images/steam_plume_cutout.png" alt="Volcanic Steam & Ash Column">
+    </div>
+
+    <div class="spec-tag" id="tag2" style="left: 2110px; top: 760px">LAVA VOLUME: 1,000,000 KM³ SUBMARINE BASALT</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk r" id="sb2" style="left: 2100px; top: 920px">PLANETARY STEAM COOKER</div>
+    <div class="hand" id="hand2" style="left: 2620px; top: 895px; width: 310px; text-align: right">Oceans Boiling!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line2" style="left: 2100px; top: 1000px; width: 880px">
+      Until flood basalts ruptured the sea floor, <span class="hl"><i></i>boiling oceans</span> into vapor.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc2" style="left: 2100px; top: 1220px">
+      <h6>GREENHOUSE DISCHARGE & EVAPORATION LOG</h6>
+      <pre>SUBMARINE VOLCANIC PROVINCE: WRANGELLIA FLOOD BASALT
+CO2 EMISSION ESTIMATE: 40,000 GIGATONS
+ATMOSPHERIC HUMIDITY INCREASE: +400% GLOBAL AIR SATURATION
+THERMAL EVAPORATION RATE: PLANETARY SUPER-EVAPORATOR</pre>
+      <span class="stamp" id="stamp2">BOILING SEA</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge2" style="left: 2100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">BASALT DISCHARGE</span>
+        <span class="g-val red">1M KM³ PILLOW LAVA</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">ATMOSPHERIC CO2</span>
+        <span class="g-val red">2,500 PPM SPIKE</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">AIR SATURATION</span>
+        <span class="g-val amber">98% HUMIDITY</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer2" style="left: 2100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // WRANGELLIA-PULSE-02</span>
+      </div>
+      <div class="f-meta">
+        <span>OCEANIC CRUST DELAMINATION CORE</span>
+        <span>RECORD: RUNAWAY HYDROLOGICAL CHARGE</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 2 -> 3) -->
+    <div class="transit-ghost" style="left: 3180px">THE CLOUDBURST // 2,000,000 YEARS</div>
+    <div class="runway-track" style="left: 3220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// HYDROSPHERE: SUPERSATURATED ATMOSPHERE ➔ GLOBAL DELUGE</div>
+    </div>
+    <div class="transit-stream" style="left: 3180px; top: 890px">
+      <span class="transit-code">CARNIAN PLUVIAL INJECTION // -233.0 MA</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 3: THE 2-MILLION-YEAR DELUGE (Xc = 4540, Y = 960)
+         Duration: 21.4s – 32.3s | Safe Zone: 4100px to 4980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 4100px">// ATMOSPHERE MONITOR // GLOBAL PRECIPITATION SHOCK // 2,000,000 YEARS</div>
+    <div class="series-tag" id="stag3" style="left: 4100px; top: 200px">DOSSIER #03 // CARNIAN PLUVIAL EVENT</div>
+    <div class="ghost" id="ghost3" style="left: 4100px; top: 220px; width: 880px">2M YRS</div>
+    <div class="name" id="name3" style="left: 4100px; top: 360px; width: 880px">THE MEGA-MONSOON · UNCEASING GLOBAL DELUGE</div>
+
+    <!-- Polaroid Card: Carnian Monsoon Torrent (top: 390px) -->
+    <div class="cut card" id="cardCarnianRain" style="left: 4110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode3_carnian_pluvial/images/carnian_monsoon_sky.png" alt="The 2-Million-Year Torrential Monsoon">
+    </div>
+
+    <!-- Hero Cutout: Muddy Fluvial Torrent Cutout (top: 400px) -->
+    <div class="cut" id="cutMudCurrent" style="left: 4560px; top: 400px; width: 420px; height: 370px">
+      <img src="assets/episode3_carnian_pluvial/images/muddy_fluvial_delta.png" alt="Churning Fluvial Flood Current">
+    </div>
+
+    <div class="spec-tag" id="tag3" style="left: 4110px; top: 760px">STORM DURATION: TWO MILLION UNBROKEN YEARS</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk b" id="sb3" style="left: 4100px; top: 920px">THE SKY NEVER DRIED</div>
+    <div class="hand" id="hand3" style="left: 4620px; top: 895px; width: 310px; text-align: right">Endless Torrent!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line3" style="left: 4100px; top: 1000px; width: 880px">
+      Then the skies broke open, and it rained <span class="hl"><i></i>for two million years</span> without stopping.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc3" style="left: 4100px; top: 1220px">
+      <h6>PALEO-HYDROLOGICAL DELUGE MATRIX</h6>
+      <pre>GLOBAL PRECIPITATION SHOCK: CARNIAN PLUVIAL EPISODE
+AVERAGE RAINFALL SURGE: +600% OVER CONTINENTAL INTERIOR
+SEDIMENTARY DEPOSITION: RED DESERT GRAVELS ➔ THICK COAL SWAMPS
+STORM SYSTEM LONGEVITY: 2,000,000 CONTINUOUS YEARS</pre>
+      <span class="stamp" id="stamp3">DELUGE</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge3" style="left: 4100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">STORM DURATION</span>
+        <span class="g-val blue">2,000,000 YEARS</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">ANNUAL RAINFALL</span>
+        <span class="g-val blue">&gt; 3,500 MM / YR</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">DESERT STATUS</span>
+        <span class="g-val red">100% SUBMERGED</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer3" style="left: 4100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // PLUVIAL-DELUGE-03</span>
+      </div>
+      <div class="f-meta">
+        <span>PALEO-MONSOON CONVECTION CORE</span>
+        <span>RECORD: CONTINENTAL WATER INUNDATION</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 3 -> 4) -->
+    <div class="transit-ghost" style="left: 5180px">AMBER SPIKE // CONIFER REVOLUTION</div>
+    <div class="runway-track" style="left: 5220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// BOTANICAL SHIFT: DESERT RED-BEDS ➔ VOLTZIA RAINFOREST</div>
+    </div>
+    <div class="transit-stream" style="left: 5180px; top: 890px">
+      <span class="transit-code">RESIN EXPLOSION // THE FIRST FOSSIL AMBER // -232.8 MA</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 4: THE AMBER SPIKE & CONIFER SWAMPS (Xc = 6540, Y = 960)
+         Duration: 32.3s – 43.0s | Safe Zone: 6100px to 6980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 6100px">// PALEOBOTANICAL BED // VOLTZIALES GYMNOSPERM RADIATION // 232.80 MA</div>
+    <div class="series-tag" id="stag4" style="left: 6100px; top: 200px">DOSSIER #03 // THE FIRST FOSSIL AMBER</div>
+    <div class="ghost" id="ghost4" style="left: 6100px; top: 220px; width: 880px">AMBER</div>
+    <div class="name" id="name4" style="left: 6100px; top: 360px; width: 880px">CONIFER SWAMP INVASION · THE AMBER HORIZON</div>
+
+    <!-- Polaroid Card: Triassic Conifer Rainforest (top: 390px) -->
+    <div class="cut card" id="cardConiferForest" style="left: 6110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode3_carnian_pluvial/images/triassic_conifer_forest.png" alt="Carnian Conifer Swamp Forest">
+    </div>
+
+    <!-- Hero Cutout: Amber Droplet Specimen (top: 400px) -->
+    <div class="cut" id="cutAmberDroplet" style="left: 6580px; top: 400px; width: 390px; height: 370px">
+      <img src="assets/episode3_carnian_pluvial/images/carnian_amber_droplet.png" alt="Triassic Amber Droplet Specimen">
+    </div>
+
+    <div class="spec-tag" id="tag4" style="left: 6110px; top: 760px">FOSSIL RECORD: OLDEST AMBER DEPOSITS ON PLANET EARTH</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk a" id="sb4" style="left: 6100px; top: 920px">FORESTS WEEPING RESIN</div>
+    <div class="hand" id="hand4" style="left: 6620px; top: 895px; width: 310px; text-align: right">Earth's Oldest Amber!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line4" style="left: 6100px; top: 1000px; width: 880px">
+      Lush conifer forests exploded across the mud, <span class="hl"><i></i>weeping massive tears</span> of amber.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc4" style="left: 6100px; top: 1220px">
+      <h6>PALEOBOTANICAL & RESIN ISOTOPE LOG</h6>
+      <pre>CANOPY DOMINANCE: VOLTZIA CONIFER PHYTO-EXPLOSION
+TREE RESIN PRODUCTION: STRESS-INDUCED MEGA-DISCHARGE
+GEOLOGICAL RARITY: OLDEST MACRO-AMBER HORIZON IN RECORD
+CARBON SEQUESTRATION: MASSIVE PEAT AND COAL BASIN ACCUMULATION</pre>
+      <span class="stamp" id="stamp4">RESIN SPIKE</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge4" style="left: 6100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">FLORA TURNOVER</span>
+        <span class="g-val green">CONIFER TAKEOVER</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">FOSSIL AMBER</span>
+        <span class="g-val amber">OLDEST KNOWN</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">FOREST COVER</span>
+        <span class="g-val green">+850% EXPANSION</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer4" style="left: 6100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // AMBER-RESIN-04</span>
+      </div>
+      <div class="f-meta">
+        <span>DOLOMITES CARNIAN RESIN HORIZON</span>
+        <span>VERDICT: HUMID FLORAL REVOLUTION</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 4 -> 5) -->
+    <div class="transit-ghost" style="left: 7180px">MASS STARVATION // RHYNCHOSAUR EXTINCTION</div>
+    <div class="runway-track" style="left: 7220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// EXTINCTION EVENT: DESERT HERBIVORES ➔ DIGESTIVE FAILURE</div>
+    </div>
+    <div class="transit-stream" style="left: 7180px; top: 890px">
+      <span class="transit-code">FAUNAL COLLAPSE // THE END OF ANCIENT REPTILES // -232.5 MA</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 5: THE CARNIAN EXTINCTION (Xc = 8540, Y = 960)
+         Duration: 43.0s – 53.8s | Safe Zone: 8100px to 8980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 8100px">// STRATIGRAPHIC COLLAPSE // HYPERODAPEDON CASUALTY BED // 232.50 MA</div>
+    <div class="series-tag" id="stag5" style="left: 8100px; top: 200px">DOSSIER #03 // FAUNAL EXTINCTION PULSE</div>
+    <div class="ghost" id="ghost5" style="left: 8100px; top: 220px; width: 880px">COLLAPSE</div>
+    <div class="name" id="name5" style="left: 8100px; top: 360px; width: 880px">RHYNCHOSAUR DIE-OFF · DESERT KINGS FALL</div>
+
+    <!-- Polaroid Card: Drowned Rhynchosaur Bonebed (top: 390px) -->
+    <div class="cut card" id="cardBonebed" style="left: 8110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode3_carnian_pluvial/images/dying_rhynchosaur_fossil.png" alt="Carnian Bonebed Extinction Horizon">
+    </div>
+
+    <!-- Hero Cutout: Voltzia Conifer Leaf Mat Slab (top: 400px) -->
+    <div class="cut" id="cutLeafMat" style="left: 8560px; top: 400px; width: 420px; height: 370px">
+      <img src="assets/episode3_carnian_pluvial/images/fossil_leaf_mat.png" alt="Voltzia Conifer Leaf Mat Slab">
+    </div>
+
+    <div class="spec-tag" id="tag5" style="left: 8110px; top: 760px">CASUALTY: RHYNCHOSAURS & PRIMITIVE SYNAPSIDS STARVE</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk r" id="sb5" style="left: 8100px; top: 920px">DESERT DIET VANISHED</div>
+    <div class="hand" id="hand5" style="left: 8640px; top: 895px; width: 310px; text-align: right">Could Not Adapt!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line5" style="left: 8100px; top: 1000px; width: 880px">
+      Unable to eat the tough new conifers, <span class="hl"><i></i>ancient reptile kings</span> starved in the mud.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc5" style="left: 8100px; top: 1220px">
+      <h6>CARNIAN FAUNAL TURNOVER REPORT</h6>
+      <pre>HERBIVORE MORTALITY RATE: RHYNCHOSAURIA &gt; 95% EXTINCT
+CAUSE OF COLLAPSE: LOSS OF FERNS / INDIGESTIBLE RESIN CANOPY
+MARINE REEF LOSS: 80% CALCAREOUS SPONGE BIOHERMS DISSOLVED
+ECOLOGICAL VACANCY: PLANETARY NICHE WIPED OPEN FOR DINOSAURS</pre>
+      <span class="stamp" id="stamp5">STARVED</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge5" style="left: 8100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">RHYNCHOSAURS</span>
+        <span class="g-val red">&gt; 95% WIPED OUT</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">DESERT FLORA</span>
+        <span class="g-val red">0% SURVIVAL</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">ECOLOGICAL NICHE</span>
+        <span class="g-val blue">100% VACANT</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer5" style="left: 8100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // EXTINCTION-RHYNCHO-05</span>
+      </div>
+      <div class="f-meta">
+        <span>ISCHIGUALASTO BIO-ZONE COLLAPSE</span>
+        <span>VERDICT: MASSIVE DIETARY SELECTIVE PRESSURE</span>
+      </div>
+    </div>
+
+    <!-- Runway Chrono Track (Scene 5 -> 6) -->
+    <div class="transit-ghost" style="left: 9180px">THE DINOSAUR EXPLOSION // 5% TO 90%</div>
+    <div class="runway-track" style="left: 9220px; top: 960px">
+      <div class="runway-ruler" style="width: 320px"></div>
+      <div class="runway-label">// ADAPTIVE RADIATION: BIPEDAL PREDATORS ➔ GLOBAL DOMINANCE</div>
+    </div>
+    <div class="transit-stream" style="left: 9180px; top: 890px">
+      <span class="transit-code">DAWN OF DINOSAURS // THE CROWNING MOMENT // -232.0 MA</span>
+      <div class="transit-bar" style="width: 720px"></div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 6: THE DAWN OF THE DINOSAUR EMPIRE (Xc = 10540, Y = 960)
+         Duration: 53.8s – 65.0s | Safe Zone: 10100px to 10980px
+         ========================================================================= -->
+    <div class="paleo-watermark" style="left: 10100px">// TRIASSIC HORIZON // 232.00 MA // DINOSAUR DIVERSIFICATION EXPLOSION</div>
+    <div class="series-tag" id="stag6" style="left: 10100px; top: 200px">EXTINCTION ARCHIVE // RESOLUTION DOSSIER</div>
+    <div class="ghost" id="ghost6" style="left: 10100px; top: 220px; width: 880px">90% DINO</div>
+    <div class="name" id="name6" style="left: 10100px; top: 360px; width: 880px">THE ADAPTIVE RADIANCE · DINOSAURS TAKE THE EARTH</div>
+
+    <!-- Polaroid Card: Dinosaur Trackway Mudstone (top: 390px) -->
+    <div class="cut card" id="cardDinoTrack" style="left: 10110px; top: 390px; width: 540px; height: 380px">
+      <img src="assets/episode3_carnian_pluvial/images/dino_trackway_mudstone.png" alt="Carnian Dinosaur Trackway Slab">
+    </div>
+
+    <!-- Hero Cutout: Herrerasaurus Skeleton (top: 400px) -->
+    <div class="cut" id="cutHerrerasaurus" style="left: 10560px; top: 400px; width: 420px; height: 370px">
+      <img src="assets/episode3_carnian_pluvial/images/herrerasaurus_fossil_skeleton.png" alt="Herrerasaurus Early Dinosaur Skeleton">
+    </div>
+
+    <div class="spec-tag" id="tag6" style="left: 10110px; top: 760px">ADAPTATION: BIPEDAL AGILITY / DIVERSIFIED TEETH</div>
+
+    <!-- Stamp Badge & Note (top: 920px) -->
+    <div class="stampblk g" id="sb6" style="left: 10100px; top: 920px">5% ➔ 90% BIOMASS TAKEOVER</div>
+    <div class="hand" id="hand6" style="left: 10620px; top: 895px; width: 310px; text-align: right">The Empire Began!</div>
+
+    <!-- Primary Headline (top: 1000px) -->
+    <div class="line t" id="line6" style="left: 10100px; top: 1000px; width: 880px">
+      From the mud, <span class="hl"><i></i>early dinosaurs seized</span> the planet—ruling for 160 million years.
+    </div>
+
+    <!-- Archival Document Card (top: 1220px) -->
+    <div class="doc" id="doc6" style="left: 10100px; top: 1220px">
+      <h6>DINOSAUR RADIATION INDEX LOG</h6>
+      <pre>PRE-DELUGE POPULATION: &lt; 5% TOTAL TERRESTRIAL TETRAPODS
+POST-DELUGE POPULATION: &gt; 90% GLOBAL VERTEBRATE DOMINANCE
+LINEAGE DIVERSIFICATION: SAUROPODOMORPHS, THEROPODS, ORNITHISCHIANS
+REIGN LONGEVITY: 165,000,000 CONSECUTIVE YEARS OF DOMINANCE</pre>
+      <span class="stamp" id="stamp6" style="border-color: var(--emerald); color: var(--emerald)">CROWNED</span>
+    </div>
+
+    <!-- Telemetry Gauge Bar (top: 1410px) -->
+    <div class="gauge-bar" id="gauge6" style="left: 10100px; top: 1410px">
+      <div class="g-col">
+        <span class="g-lbl">PRE-STORM</span>
+        <span class="g-val">&lt; 5% BIOMASS</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">POST-STORM</span>
+        <span class="g-val green">&gt; 90% DOMINANCE</span>
+      </div>
+      <div class="g-col">
+        <span class="g-lbl">DYNASTY SPAN</span>
+        <span class="g-val green">165M YEARS</span>
+      </div>
+    </div>
+
+    <!-- Archival Barcode Footer (top: 1515px) -->
+    <div class="arch-footer" id="footer6" style="left: 10100px; top: 1515px">
+      <div class="f-code">
+        <div class="barcode"></div>
+        <span class="f-id">DOC-REF // DINO-DYNASTY-06</span>
+      </div>
+      <div class="f-meta">
+        <span>GLOBAL DINOSAUR TAKEOVER INDEX</span>
+        <span>STATUS: VERTEBRATE DYNASTY CROWNED</span>
+      </div>
+    </div>
+
+
+    <!-- =========================================================================
+         SCENE 7: RESOLUTION & EPIC OUTRO CARD (Xc = 10540, Y = 960)
+         Duration: 64.8s – 70.0s | Centered Overlay on Stage
+         ========================================================================= -->
+    <div id="outroCard">
+      <div class="outro-head">
+        <div class="outro-series">// THE EXTINCTION ARCHIVES: DOSSIER #03</div>
+        <h2 class="outro-title">THE CARNIAN PLUVIAL EVENT: THE 2-MILLION-YEAR RAINSTORM</h2>
+      </div>
+
+      <div class="outro-body">
+        Two million years of unceasing rain completely remade planet Earth. The deluge wiped out ancient desert rulers, drowned continents in lush conifer swamps, and gave rise to the most dominant creatures in planetary history: <strong>The Dinosaurs</strong>.
+      </div>
+
+      <div class="outro-stats">
+        <div class="os-box">
+          <span class="os-num blue">2M YRS</span>
+          <span class="os-lbl">Continuous Rain</span>
+        </div>
+        <div class="os-box">
+          <span class="os-num">95%</span>
+          <span class="os-lbl">Rhyncho Die-off</span>
+        </div>
+        <div class="os-box">
+          <span class="os-num green">90%</span>
+          <span class="os-lbl">Dino Domination</span>
+        </div>
+      </div>
+
+      <div class="outro-seal-wrap">
+        <div class="outro-seal">
+          <span>GEOLOGICAL</span>
+          <strong>TRIASSIC</strong>
+          <span>RECORD #03</span>
+        </div>
+        <div class="pt-stamp-seal">AGE OF DINOSAURS</div>
+      </div>
+    </div>
+
+  </div><!-- /#world -->
+
+  <!-- Fixed Viewport Geological Timeline Progress Runner -->
+  <div id="geoProgress">
+    <div class="gp-track"><div class="gp-fill" id="gpFill"></div></div>
+    <div class="gp-meta">
+      <span class="gp-dossier">DOSSIER // PT-234</span>
+      <div class="gp-epochs">
+        <span class="gpe" id="gpe1">234.00 MA · ARID PANGEA DESERT</span>
+        <span class="gpe" id="gpe2">233.50 MA · WRANGELLIA SUPER-VOLCANO</span>
+        <span class="gpe" id="gpe3">233.00 MA · THE 2-MILLION-YEAR DELUGE</span>
+        <span class="gpe" id="gpe4">232.80 MA · THE AMBER SPIKE & CONIFERS</span>
+        <span class="gpe" id="gpe5">232.50 MA · THE CARNIAN REPTILE COLLAPSE</span>
+        <span class="gpe" id="gpe6">232.00 MA · DAWN OF THE DINOSAUR EMPIRE</span>
+        <span class="gpe" id="gpe7">231.80 MA · GEOLOGICAL DOSSIER RESOLVED</span>
+      </div>
+      <span class="gp-rate">2M YRS RAIN</span>
+    </div>
+  </div>
+
+  <!-- Atmospheric Environmental Rain Particles (Scenes 3 -> 5) -->
+  <div id="rainField"></div>
+
+  <!-- Dynamic Climate Atmospheric Tint Overlay -->
+  <div id="atmosphere"></div>
+
+  <!-- Viewport Optical Speed Streak Overlay for Camera Transitions -->
+  <div id="motionStreak"></div>
+</div><!-- /#stage -->
+
+<!-- Audio Narration Element -->
+<audio id="vo" src="assets/episode3_carnian_pluvial/audio/vo_carnian_pluvial_cinematic.mp3" preload="auto"></audio>
+
+<!-- Debug Time Scrubber -->
+<div id="scrubberWrap">
+  <button id="scrubBtn">PAUSE</button>
+  <input type="range" id="scrubBar" min="0" max="70" step="0.05" value="0">
+  <span id="scrubTime">00.00s</span>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(() => {
+'use strict';
+
+const $ = (s, p = document) => p.querySelector(s);
+const $$ = (s, p = document) => Array.from(p.querySelectorAll(s));
+
+/* ---------- Kinetic Typography Splitting ---------- */
+$$('.line.t').forEach(el => {
+  const childNodes = Array.from(el.childNodes);
+  el.innerHTML = '';
+  childNodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const words = node.textContent.split(/\s+/).filter(Boolean);
+      words.forEach(w => {
+        const span = document.createElement('span');
+        span.className = 'w';
+        span.textContent = w;
+        el.appendChild(span);
+        el.appendChild(document.createTextNode(' '));
+      });
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      if (node.classList.contains('hl')) {
+        const highlightWrapper = document.createElement('span');
+        highlightWrapper.className = 'hl';
+        const iTag = node.querySelector('i');
+        if (iTag) highlightWrapper.appendChild(iTag.cloneNode(true));
+        
+        const innerWords = node.textContent.trim().split(/\s+/).filter(Boolean);
+        innerWords.forEach(w => {
+          const span = document.createElement('span');
+          span.className = 'w';
+          span.textContent = w;
+          highlightWrapper.appendChild(span);
+          highlightWrapper.appendChild(document.createTextNode(' '));
+        });
+        el.appendChild(highlightWrapper);
+        el.appendChild(document.createTextNode(' '));
+      } else {
+        el.appendChild(node.cloneNode(true));
+      }
+    }
+  });
+});
+
+/* ---------- Rain Field Particle Generator ---------- */
+const rainField = $('#rainField');
+for (let i = 0; i < 45; i++) {
+  const drop = document.createElement('div');
+  drop.className = 'rain-drop';
+  drop.style.left = `${Math.random() * 1080}px`;
+  drop.style.top = `${Math.random() * -100}px`;
+  drop.style.opacity = `${0.3 + Math.random() * 0.5}`;
+  drop.style.height = `${25 + Math.random() * 30}px`;
+  rainField.appendChild(drop);
+}
+
+/* ==========================================================================
+   GSAP MASTER TIMELINE (70.00 SECONDS DETERMINISTIC)
+   ========================================================================== */
+const tl = gsap.timeline({ paused: true });
+const rig = $('#world');
+const words = el => $$('.w', el);
+
+/* Kinetic Typography Word Animations */
+const say = (sel, at, { dur = 0.44, st = 0.045 } = {}) => {
+  const el = $(sel), ws = words(el);
+  tl.set(el, { opacity: 1 }, at);
+  tl.fromTo(ws, { opacity: 0, scale: 0.82, rotate: -2 }, { opacity: 1, scale: 1, rotate: 0, duration: dur, ease: 'back.out(1.5)', stagger: st, immediateRender: false }, at);
+  $$('.hl i', el).forEach((h, i) => {
+    tl.fromTo(h, { scaleX: 0 }, { scaleX: 1, duration: 0.38, ease: 'power3.out', immediateRender: false }, at + st * ws.length + 0.10 + i * 0.15);
+  });
+};
+
+/* Cutout Sprite Entrances */
+const fly = (sel, at, { from = { x: 0, y: 320, rotate: 3, scale: 0.92 }, dur = 0.85, ease = 'power4.out', float = true, rot = 0 } = {}) => {
+  const el = $(sel);
+  tl.fromTo(el, { opacity: 0, ...from }, { opacity: 1, x: 0, y: 0, rotate: rot, scale: 1, duration: dur, ease, immediateRender: false }, at);
+  if (float) {
+    tl.to(el, { y: -10, rotate: rot + 0.8, scale: 1.01, duration: 2.3 + ((at * 7) % 1) * 0.4, ease: 'sine.inOut', yoyo: true, repeat: 7 }, at + dur);
+  }
+};
+
+const label = (sel, at) => tl.fromTo($(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.38, ease: 'power3.out', immediateRender: false }, at);
+
+/* Rubber Stamp Slam Physics */
+const slam = (sel, at, targetRot = -7.5) => {
+  const el = $(sel);
+  tl.fromTo(el, { opacity: 0, scale: 1.6, rotate: targetRot - 6 }, { opacity: 1, scale: 1, rotate: targetRot, duration: 0.28, ease: 'back.out(2.2)', immediateRender: false }, at);
+  tl.fromTo('#stage', { x: -3, y: 3 }, { x: 0, y: 0, duration: 0.10, ease: 'power2.out', immediateRender: false }, at + 0.18);
+};
+
+/* Dynamic Climate Atmospheric Tinting */
+const setClimate = (color, at, dur = 1.0) => {
+  tl.to('#atmosphere', { backgroundColor: color, duration: dur, ease: 'power2.inOut' }, at);
+};
+
+const block = (sel, at) => {
+  tl.set($(sel), { opacity: 1 }, at);
+  tl.fromTo($(sel), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power3.out', immediateRender: false }, at);
+};
+
+/* Camera Glide Transition */
+const glideTransition = (startTime, fromX, toX, dur = 0.85) => {
+  tl.fromTo(rig, 
+    { x: 540 - fromX, y: 0, scale: 1 }, 
+    { x: 540 - toX, y: 0, duration: dur, ease: 'power3.inOut', immediateRender: false }, 
+    startTime
+  );
+  tl.to(rig, { scale: 0.96, duration: dur * 0.45, ease: 'power2.in' }, startTime);
+  tl.to(rig, { scale: 1.0, duration: dur * 0.55, ease: 'power2.out' }, startTime + dur * 0.45);
+
+  tl.fromTo('#motionStreak', 
+    { opacity: 0, scaleX: 0.3 }, 
+    { opacity: 0.65, scaleX: 1.5, duration: dur * 0.45, ease: 'power2.in', immediateRender: false }, 
+    startTime
+  );
+  tl.to('#motionStreak', 
+    { opacity: 0, scaleX: 0.3, duration: dur * 0.55, ease: 'power2.out' }, 
+    startTime + dur * 0.45
+  );
+};
+
+/* Scene Groups */
+const s1_elems = ['#cardPangeaDesert', '#cutRhynchosaur', '#cutCrackedEarth', '#tag1', '#sb1', '#hand1', '#line1', '#doc1', '#gauge1', '#footer1', '#stag1', '#ghost1', '#name1'];
+const s2_elems = ['#cardWrangellia', '#cutPillowBasalt', '#cutSteamPlume', '#tag2', '#sb2', '#hand2', '#line2', '#doc2', '#gauge2', '#footer2', '#stag2', '#ghost2', '#name2'];
+const s3_elems = ['#cardCarnianRain', '#cutMudCurrent', '#tag3', '#sb3', '#hand3', '#line3', '#doc3', '#gauge3', '#footer3', '#stag3', '#ghost3', '#name3'];
+const s4_elems = ['#cardConiferForest', '#cutAmberDroplet', '#tag4', '#sb4', '#hand4', '#line4', '#doc4', '#gauge4', '#footer4', '#stag4', '#ghost4', '#name4'];
+const s5_elems = ['#cardBonebed', '#cutLeafMat', '#tag5', '#sb5', '#hand5', '#line5', '#doc5', '#gauge5', '#footer5', '#stag5', '#ghost5', '#name5'];
+const s6_elems = ['#cardDinoTrack', '#cutHerrerasaurus', '#tag6', '#sb6', '#hand6', '#line6', '#doc6', '#gauge6', '#footer6', '#stag6', '#ghost6', '#name6'];
+
+/* ==========================================================================
+   70-SECOND TIMELINE CHOREOGRAPHY
+   ========================================================================== */
+tl.set(rig, { x: 540 - 540, y: 0, scale: 1 }, 0);
+
+// Global Epoch Progress Runner (0s - 70s)
+tl.fromTo('#gpFill', { scaleX: 0 }, { scaleX: 1, duration: 70.0, ease: 'none' }, 0);
+
+// Epoch Tracker Labels
+tl.set('#gpe1', { opacity: 1 }, 0);
+tl.to('#gpe1', { opacity: 0, duration: 0.3 }, 9.2);
+tl.to('#gpe2', { opacity: 1, duration: 0.3 }, 9.5);
+tl.to('#gpe2', { opacity: 0, duration: 0.3 }, 20.6);
+tl.to('#gpe3', { opacity: 1, duration: 0.3 }, 20.9);
+tl.to('#gpe3', { opacity: 0, duration: 0.3 }, 32.4);
+tl.to('#gpe4', { opacity: 1, duration: 0.3 }, 32.7);
+tl.to('#gpe4', { opacity: 0, duration: 0.3 }, 43.1);
+tl.to('#gpe5', { opacity: 1, duration: 0.3 }, 43.4);
+tl.to('#gpe5', { opacity: 0, duration: 0.3 }, 54.1);
+tl.to('#gpe6', { opacity: 1, duration: 0.3 }, 54.4);
+tl.to('#gpe6', { opacity: 0, duration: 0.3 }, 64.6);
+tl.to('#gpe7', { opacity: 1, duration: 0.3 }, 64.9);
+
+// SCENE 1: THE ARID PANGEA DUSTBOWL (00.0s – 10.4s)
+label('#stag1', 0.15);
+label('#name1', 0.25);
+tl.fromTo('#ghost1', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, 0.2);
+fly('#cardPangeaDesert', 0.5, { from: { x: -80, y: 160, rotate: -2, scale: 0.90 }, dur: 0.80, rot: -1 });
+fly('#cutRhynchosaur', 0.7, { from: { x: 120, y: 200, rotate: 3, scale: 0.88 }, dur: 0.85, rot: 1 });
+fly('#cutCrackedEarth', 1.0, { from: { x: 0, y: 120, rotate: -4, scale: 0.85 }, dur: 0.70, rot: -2 });
+say('#line1', 0.8, { dur: 0.44, st: 0.045 });
+label('#tag1', 1.4);
+block('#sb1', 1.8);
+label('#hand1', 2.2);
+fly('#doc1', 2.5, { from: { y: 60, scale: 0.96 }, dur: 0.55, float: false });
+slam('#stamp1', 3.2, -7.5);
+fly('#gauge1', 3.6, { from: { y: 40, scale: 0.98 }, dur: 0.45, float: false });
+label('#footer1', 4.0);
+
+// TRANSITION 1 -> 2 (09.1s – 10.4s)
+tl.to(s1_elems, { x: -140, opacity: 0, duration: 0.38, ease: 'power2.in', stagger: 0.01 }, 9.10);
+glideTransition(9.10, 540, 2540, 0.85);
+setClimate('rgba(220, 38, 38, 0.07)', 9.30, 1.2);
+
+// Incoming Scene 2 Overlapping Entrance
+label('#stag2', 9.50);
+tl.fromTo('#ghost2', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 9.55);
+label('#name2', 9.62);
+fly('#cardWrangellia', 9.65, { from: { x: -60, y: 140, rotate: -2, scale: 0.90 }, dur: 0.80, rot: -1 });
+fly('#cutPillowBasalt', 9.85, { from: { x: 140, y: 160, rotate: 4, scale: 0.86 }, dur: 0.80, rot: 2 });
+fly('#cutSteamPlume', 10.10, { from: { x: 0, y: 100, rotate: 5, scale: 0.85 }, dur: 0.70, rot: 3 });
+
+// SCENE 2 Body
+block('#sb2', 10.40);
+say('#line2', 11.20, { dur: 0.44, st: 0.045 });
+label('#tag2', 12.00);
+label('#hand2', 12.40);
+fly('#doc2', 12.80, { from: { y: 60, scale: 0.96 }, dur: 0.55, float: false });
+slam('#stamp2', 13.60, -7.5);
+fly('#gauge2', 14.10, { from: { y: 40, scale: 0.98 }, dur: 0.45, float: false });
+label('#footer2', 14.60);
+
+// TRANSITION 2 -> 3 (20.8s – 22.2s)
+tl.to(s2_elems, { x: -140, opacity: 0, duration: 0.38, ease: 'power2.in', stagger: 0.01 }, 20.80);
+glideTransition(20.80, 2540, 4540, 0.85);
+setClimate('rgba(30, 58, 138, 0.11)', 21.00, 1.2);
+
+// Activate Rain Field in Scene 3
+tl.to('#rainField', { opacity: 1, duration: 1.0, ease: 'power2.inOut' }, 21.40);
+$$('.rain-drop').forEach((d, idx) => {
+  tl.to(d, { y: 1950, duration: 0.45 + (idx % 5) * 0.08, ease: 'none', repeat: 100 }, 21.40 + (idx * 0.02));
+});
+
+// Incoming Scene 3 Overlapping Entrance
+label('#stag3', 20.50);
+tl.fromTo('#ghost3', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 20.55);
+label('#name3', 20.62);
+fly('#cardCarnianRain', 20.65, { from: { x: -60, y: 140, rotate: -2, scale: 0.90 }, dur: 0.80, rot: -1 });
+fly('#cutMudCurrent', 20.85, { from: { x: 120, y: 180, rotate: -3, scale: 0.88 }, dur: 0.80, rot: -1 });
+
+// SCENE 3 Body
+label('#tag3', 21.15);
+block('#sb3', 21.40);
+say('#line3', 22.20, { dur: 0.44, st: 0.045 });
+label('#hand3', 23.40);
+fly('#doc3', 24.20, { from: { y: 60, scale: 0.96 }, dur: 0.55, float: false });
+slam('#stamp3', 25.50, -7.5);
+fly('#gauge3', 26.20, { from: { y: 40, scale: 0.98 }, dur: 0.45, float: false });
+label('#footer3', 26.80);
+
+// TRANSITION 3 -> 4 (32.2s – 33.2s)
+tl.to(s3_elems, { x: -140, opacity: 0, duration: 0.38, ease: 'power2.in', stagger: 0.01 }, 32.20);
+glideTransition(32.20, 4540, 6540, 0.85);
+setClimate('rgba(6, 95, 70, 0.08)', 32.40, 1.2);
+
+// Incoming Scene 4 Overlapping Entrance
+label('#stag4', 32.50);
+tl.fromTo('#ghost4', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 32.55);
+label('#name4', 32.62);
+fly('#cardConiferForest', 32.65, { from: { x: -60, y: 140, rotate: -2, scale: 0.75 }, dur: 0.75, rot: -1 });
+fly('#cutAmberDroplet', 32.85, { from: { x: 120, y: 150, rotate: 3, scale: 0.86 }, dur: 0.75, rot: 2 });
+
+// SCENE 4 Body
+say('#line4', 33.20, { dur: 0.44, st: 0.045 });
+label('#tag4', 34.00);
+block('#sb4', 34.40);
+label('#hand4', 34.80);
+fly('#doc4', 35.20, { from: { y: 60, scale: 0.96 }, dur: 0.55, float: false });
+slam('#stamp4', 36.00, -7.5);
+fly('#gauge4', 36.80, { from: { y: 40, scale: 0.98 }, dur: 0.45, float: false });
+label('#footer4', 37.40);
+
+// TRANSITION 4 -> 5 (43.3s – 44.2s)
+tl.to(s4_elems, { x: -140, opacity: 0, duration: 0.38, ease: 'power2.in', stagger: 0.01 }, 43.30);
+glideTransition(43.30, 6540, 8540, 0.85);
+setClimate('rgba(71, 85, 105, 0.09)', 43.50, 1.2);
+
+// Incoming Scene 5 Overlapping Entrance
+label('#stag5', 42.80);
+tl.fromTo('#ghost5', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 42.85);
+label('#name5', 42.92);
+fly('#cardBonebed', 42.95, { from: { x: -60, y: 140, rotate: -2, scale: 0.80 }, dur: 0.80, rot: -1 });
+fly('#cutLeafMat', 43.15, { from: { x: 120, y: 160, rotate: -3, scale: 0.88 }, dur: 0.80, rot: -1 });
+
+// SCENE 5 Body
+label('#tag5', 43.50);
+block('#sb5', 43.75);
+say('#line5', 44.20, { dur: 0.44, st: 0.045 });
+label('#hand5', 45.40);
+fly('#doc5', 46.00, { from: { y: 60, scale: 0.96 }, dur: 0.55, float: false });
+slam('#stamp5', 47.00, -7.5);
+fly('#gauge5', 47.80, { from: { y: 40, scale: 0.98 }, dur: 0.45, float: false });
+label('#footer5', 48.40);
+
+// TRANSITION 5 -> 6 (54.3s – 55.2s)
+tl.to(s5_elems, { x: -140, opacity: 0, duration: 0.38, ease: 'power2.in', stagger: 0.01 }, 54.30);
+glideTransition(54.30, 8540, 10540, 0.85);
+setClimate('rgba(21, 128, 61, 0.07)', 54.50, 1.2);
+tl.to('#rainField', { opacity: 0.2, duration: 1.5 }, 55.0);
+
+// Incoming Scene 6 Overlapping Entrance
+label('#stag6', 53.80);
+tl.fromTo('#ghost6', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 53.85);
+label('#name6', 53.92);
+fly('#cardDinoTrack', 53.95, { from: { x: -60, y: 140, rotate: -2, scale: 0.80 }, dur: 0.80, rot: -1 });
+fly('#cutHerrerasaurus', 54.15, { from: { x: 140, y: 160, rotate: 3, scale: 0.86 }, dur: 0.80, rot: 2 });
+
+// SCENE 6 Body
+label('#tag6', 54.50);
+block('#sb6', 54.80);
+say('#line6', 55.20, { dur: 0.44, st: 0.045 });
+label('#hand6', 56.40);
+fly('#doc6', 57.00, { from: { y: 60, scale: 0.96 }, dur: 0.55, float: false });
+slam('#stamp6', 58.00, -7.5);
+fly('#gauge6', 58.80, { from: { y: 40, scale: 0.98 }, dur: 0.45, float: false });
+label('#footer6', 59.40);
+
+// SCENE 7: OUTRO RESOLUTION CARD (64.8s – 70.0s)
+tl.to(s6_elems, { opacity: 0, duration: 0.45, ease: 'power2.in', stagger: 0.01 }, 64.80);
+tl.fromTo('#outroCard', 
+  { opacity: 0, scale: 0.88, y: 60 }, 
+  { opacity: 1, scale: 1, y: 0, duration: 0.65, ease: 'back.out(1.4)' }, 
+  65.00
+);
+slam('.pt-stamp-seal', 66.50, 5.0);
+setClimate('rgba(11, 19, 41, 0.05)', 65.00, 1.0);
+
+/* ==========================================================================
+   DETERMINISTIC PLAYBACK & SCRUBBER BRIDGE
+   ========================================================================== */
+const vo = $('#vo');
+
+window.BANG_MOTION = {
+  ready: true,
+  tl: tl,
+  seekFrame: async function(seconds) {
+    tl.time(seconds);
+    if (vo && !vo.paused) vo.pause();
+    return Promise.resolve();
+  },
+  play: function() {
+    tl.play();
+    if (vo) vo.play().catch(() => {});
+  },
+  pause: function() {
+    tl.pause();
+    if (vo) vo.pause();
+  }
+};
+
+const params = new URLSearchParams(window.location.search);
+const isClean = params.get('clean') === '1';
+const isDebug = params.get('debug') === '1';
+
+if (isDebug) {
+  const wrap = $('#scrubberWrap');
+  const bar = $('#scrubBar');
+  const timeLbl = $('#scrubTime');
+  const btn = $('#scrubBtn');
+  wrap.style.display = 'flex';
+
+  btn.addEventListener('click', () => {
+    if (tl.paused()) {
+      tl.play();
+      btn.textContent = 'PAUSE';
+      if (vo) vo.play().catch(() => {});
+    } else {
+      tl.pause();
+      btn.textContent = 'PLAY';
+      if (vo) vo.pause();
+    }
+  });
+
+  bar.addEventListener('input', e => {
+    const t = parseFloat(e.target.value);
+    tl.time(t);
+    timeLbl.textContent = t.toFixed(2) + 's';
+    if (vo) vo.currentTime = t;
+  });
+
+  tl.eventCallback('onUpdate', () => {
+    const t = tl.time();
+    bar.value = t;
+    timeLbl.textContent = t.toFixed(2) + 's';
+  });
+}
+
+if (!isClean) {
+  document.addEventListener('click', () => {
+    if (tl.paused()) {
+      tl.play();
+      if (vo) vo.play().catch(() => {});
+    }
+  }, { once: true });
+}
+
+})();
+</script>
+</body>
+</html>

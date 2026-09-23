@@ -1,0 +1,64 @@
+{
+  "total_duration": 70.0,
+  "sample_rate": 24000,
+  "language": "en",
+  "voice": "am_adam",
+  "cues": [
+    {
+      "id": "beat_1",
+      "title": "The Permian Paradise",
+      "start": 0.6,
+      "end": 9.28,
+      "duration": 8.68,
+      "text": "Two hundred and fifty-two million years ago, before dinosaurs existed, saber-toothed predators and giant synapsids ruled a thriving prehistoric Earth."
+    },
+    {
+      "id": "beat_2",
+      "title": "The Siberian Traps Inferno",
+      "start": 11.2,
+      "end": 20.14,
+      "duration": 8.94,
+      "text": "Until the continental crust ripped open in Siberia, unleashing three million cubic kilometers of molten basalt in an eruption that burned for a million years."
+    },
+    {
+      "id": "beat_3",
+      "title": "Coal Fires & Acid Rain",
+      "start": 22.2,
+      "end": 32.5,
+      "duration": 10.3,
+      "text": "Subterranean magma ignited massive ancient coal seams, pumping billions of tons of toxic sulfur into the skies and unleashing acid rain as caustic as battery acid."
+    },
+    {
+      "id": "beat_4",
+      "title": "The Purple Dying Oceans",
+      "start": 33.2,
+      "end": 42.2,
+      "duration": 9.0,
+      "text": "As superheated seas choked and lost all oxygen, toxic bacteria turned the oceans purple, suffocating ninety-six percent of all marine species."
+    },
+    {
+      "id": "beat_5",
+      "title": "The Fungal Spike & Total Collapse",
+      "start": 44.2,
+      "end": 52.54,
+      "duration": 8.34,
+      "text": "Continents turned into rotting wastelands. Every forest on Earth collapsed, triggering a planetary fungal spike feeding on millions of dead trees."
+    },
+    {
+      "id": "beat_6",
+      "title": "The Lonely Survivor & Dawn of Dinosaurs",
+      "start": 55.2,
+      "end": 64.39,
+      "duration": 9.19,
+      "text": "Against impossible odds, a single burrowing survivor endured underground: Lystrosaurus, clearing the evolutionary stage for the rise of dinosaurs."
+    },
+    {
+      "id": "beat_7_outro",
+      "title": "Resolution: Life Survived",
+      "start": 64.8,
+      "end": 70.01,
+      "duration": 5.21,
+      "text": "Life faced its closest brush with death. Without this catastrophic reset, we would never exist."
+    }
+  ]
+}

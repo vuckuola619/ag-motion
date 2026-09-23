@@ -1,0 +1,50 @@
+[
+  {
+    "beat_id": "hook",
+    "start": 0.6,
+    "duration": 5.312,
+    "text": "The world is not collapsing. It is being squeezed from every direction. Five pressures. One planet."
+  },
+  {
+    "beat_id": "heat",
+    "start": 7.6,
+    "duration": 4.864,
+    "text": "First: heat. Extreme weather is showing up in food, power, health, and insurance costs."
+  },
+  {
+    "beat_id": "displacement",
+    "start": 14.6,
+    "duration": 6.144,
+    "text": "Second: displacement. More than one hundred twenty million people were forced from home by the end of twenty twenty-four."
+  },
+  {
+    "beat_id": "debt",
+    "start": 21.6,
+    "duration": 6.635,
+    "text": "Third: debt. The IMF warned public debt could top a hundred trillion dollars. Interest crowds out the future."
+  },
+  {
+    "beat_id": "ai",
+    "start": 28.6,
+    "duration": 3.904,
+    "text": "Fourth: AI. The race needs chips, water, power—and a bigger grid."
+  },
+  {
+    "beat_id": "security",
+    "start": 35.6,
+    "duration": 6.699,
+    "text": "Fifth: military spending hit two point seven trillion dollars in twenty twenty-four. A record is not stability."
+  },
+  {
+    "beat_id": "pattern",
+    "start": 42.6,
+    "duration": 5.504,
+    "text": "These are not five separate crises. They feed one another. Heat raises costs. Debt narrows choices."
+  },
+  {
+    "beat_id": "outro",
+    "start": 49.6,
+    "duration": 5.184,
+    "text": "AI strains the grid. Fear drives spending. Who gets to write the rules that come next?"
+  }
+]

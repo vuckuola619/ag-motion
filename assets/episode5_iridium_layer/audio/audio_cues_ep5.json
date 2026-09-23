@@ -1,0 +1,56 @@
+[
+  {
+    "beat_id": "beat_1",
+    "title": "The Crime Scene \u00b7 The 1-Centimeter Seam",
+    "start": 0.5,
+    "end": 9.72,
+    "duration": 9.22,
+    "text": "For a century, science couldn't explain why every dinosaur vanished on the exact same day. Until one geologist noticed a single centimeter of mud in Italy.",
+    "audio_file": "ep5_beat_1.wav"
+  },
+  {
+    "beat_id": "beat_2",
+    "title": "The Forensic Test \u00b7 The 30x Iridium Spike",
+    "start": 10.8,
+    "end": 18.42,
+    "duration": 7.62,
+    "text": "Inside this thin clay line, iridium levels spiked thirty times higher than normal. But iridium almost never exists in Earth's crust.",
+    "audio_file": "ep5_beat_2.wav"
+  },
+  {
+    "beat_id": "beat_3",
+    "title": "The Cosmic Suspect \u00b7 Deep Space Fallout",
+    "start": 20.0,
+    "end": 27.94,
+    "duration": 7.94,
+    "text": "So where did it come from? Deep space. The math revealed only one suspect: a six-mile-wide asteroid, pulverized into global fallout.",
+    "audio_file": "ep5_beat_3.wav"
+  },
+  {
+    "beat_id": "beat_4",
+    "title": "The Crater Hunt \u00b7 Yucatan Satellite Anomaly",
+    "start": 29.8,
+    "end": 38.89,
+    "duration": 9.09,
+    "text": "The missing piece was the crater. In 1991, satellite gravity maps revealed it buried beneath the Yucatan sea: a ring one hundred and ten miles wide.",
+    "audio_file": "ep5_beat_4.wav"
+  },
+  {
+    "beat_id": "beat_5",
+    "title": "The Forensic Fingerprint \u00b7 Molten Glass Tektites",
+    "start": 40.5,
+    "end": 49.72,
+    "duration": 9.22,
+    "text": "Deep drill cores pulled up molten glass tektites. The blast released the energy of one hundred million atomic bombs, wiping out seventy-five percent of all species.",
+    "audio_file": "ep5_beat_5.wav"
+  },
+  {
+    "beat_id": "beat_6",
+    "title": "The Case Closed \u00b7 The Human Connection",
+    "start": 51.5,
+    "end": 59.31,
+    "duration": 7.81,
+    "text": "This single centimeter of mud solved Earth's biggest murder mystery. Without it, mammals would never have risen, and humans would not exist.",
+    "audio_file": "ep5_beat_6.wav"
+  }
+]

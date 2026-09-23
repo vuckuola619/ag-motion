@@ -21,9 +21,9 @@
 
     var scriptFile = new File($.fileName);
     var projectFolder = scriptFile.parent;
-    var assetsImagesFolder = new Folder(projectFolder.fsName + "/assets/images");
-    var assetsAudioFolder = new Folder(projectFolder.fsName + "/assets/audio");
-    var assetsVideoFolder = new Folder(projectFolder.fsName + "/assets/video");
+    var assetsImagesFolder = new Folder(projectFolder.fsName + "/assets/episode1_dinosaurus/images");
+    var assetsAudioFolder = new Folder(projectFolder.fsName + "/assets/episode1_dinosaurus/audio");
+    var assetsVideoFolder = new Folder(projectFolder.fsName + "/assets/episode1_dinosaurus/video");
 
     // 2. Add White Background Solid
     var bgSolid = comp.layers.addSolid([1.0, 1.0, 1.0], "BG_WHITE_PAPER", compWidth, compHeight, pixelAspect, duration);

@@ -1,0 +1,473 @@
+{
+  "communities": {
+    "0": [
+      "hyperframe_pro_example_build",
+      "hyperframe_pro_example_build_cache",
+      "hyperframe_pro_example_build_caps",
+      "hyperframe_pro_example_build_deleted",
+      "hyperframe_pro_example_build_enter",
+      "hyperframe_pro_example_build_esc",
+      "hyperframe_pro_example_build_exit",
+      "hyperframe_pro_example_build_full",
+      "hyperframe_pro_example_build_fx",
+      "hyperframe_pro_example_build_gigabytes",
+      "hyperframe_pro_example_build_here",
+      "hyperframe_pro_example_build_html",
+      "hyperframe_pro_example_build_look",
+      "hyperframe_pro_example_build_meta",
+      "hyperframe_pro_example_build_norm",
+      "hyperframe_pro_example_build_notyours",
+      "hyperframe_pro_example_build_plan",
+      "hyperframe_pro_example_build_problem",
+      "hyperframe_pro_example_build_slam",
+      "hyperframe_pro_example_build_storage",
+      "hyperframe_pro_example_build_ta",
+      "hyperframe_pro_example_build_three",
+      "hyperframe_pro_example_build_tl",
+      "hyperframe_pro_example_build_total",
+      "hyperframe_pro_example_build_twenty",
+      "hyperframe_pro_example_build_vo_end",
+      "hyperframe_pro_example_build_week"
+    ],
+    "1": [
+      "package",
+      "package_author",
+      "package_dependencies",
+      "package_dependencies_puppeteer",
+      "package_description",
+      "package_keywords",
+      "package_license",
+      "package_main",
+      "package_name",
+      "package_type",
+      "package_version",
+      "puppeteer",
+      "ref_bang_motion",
+      "ref_explainer_video",
+      "ref_ffmpeg",
+      "ref_gsap",
+      "ref_motion_graphics",
+      "ref_white_catalog"
+    ],
+    "2": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_a",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_args",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_datauri",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_download",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_env_file",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_h",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_key",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_run",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_sizearg",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_fal_sleep"
+    ],
+    "3": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_cards",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_ctids",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_err",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_errors",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_html",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_note",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_notes",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_pups",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_warn",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_lint_warns"
+    ],
+    "4": [
+      "package_scripts",
+      "package_scripts_gen_voice",
+      "package_scripts_lint_hf",
+      "package_scripts_prep_footage",
+      "package_scripts_render",
+      "package_scripts_render_ep2",
+      "package_scripts_render_ep3",
+      "package_scripts_sheet",
+      "package_scripts_swap_line",
+      "package_scripts_test_snapshots",
+      "package_scripts_trim_vo"
+    ],
+    "5": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_args",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_duration",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_ffmpegargs",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_mjs_hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_outdir",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_outdur",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_outinfo",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_probe",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_res",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_trimstart"
+    ],
+    "6": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots_check",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots_crop",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots_fetch",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots_find",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots_get",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots_grid",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots_rationale_85",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots_rows",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_shots_sheet"
+    ],
+    "7": [
+      "pipeline_generate_assets_indonesia",
+      "pipeline_generate_assets_indonesia_create_blueprint_asset",
+      "pipeline_generate_assets_indonesia_create_digital_asset",
+      "pipeline_generate_assets_indonesia_create_map_asset",
+      "pipeline_generate_assets_indonesia_create_middle_class_asset",
+      "pipeline_generate_assets_indonesia_create_nickel_asset",
+      "pipeline_generate_assets_indonesia_create_seal_asset",
+      "pipeline_generate_assets_indonesia_create_trap_asset",
+      "pipeline_generate_assets_indonesia_draw_dossier_card",
+      "pipeline_generate_assets_indonesia_get_font"
+    ],
+    "8": [
+      "node_child_process",
+      "pipeline_render_mp4",
+      "pipeline_render_mp4_dirname",
+      "pipeline_render_mp4_filename",
+      "pipeline_render_mp4_mime_types",
+      "pipeline_render_mp4_project_root",
+      "pipeline_render_mp4_rendervideo",
+      "pipeline_render_mp4_startstaticserver"
+    ],
+    "9": [
+      "pipeline_generate_assets_9router",
+      "pipeline_generate_assets_9router_generate_procedural_fallback",
+      "pipeline_generate_assets_9router_generate_via_9router",
+      "pipeline_generate_assets_9router_main",
+      "pipeline_generate_assets_9router_make_transparent_cutout",
+      "pipeline_generate_assets_9router_py_image",
+      "pipeline_generate_assets_9router_rationale_112",
+      "pipeline_generate_assets_9router_rationale_43"
+    ],
+    "10": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_motion",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_motion_dur",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_motion_ease",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_motion_exit_ratio",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_motion_makemotion",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_motion_sfx_lead",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_motion_springease"
+    ],
+    "11": [
+      "pipeline_render_mp4_ep2",
+      "pipeline_render_mp4_ep2_dirname",
+      "pipeline_render_mp4_ep2_filename",
+      "pipeline_render_mp4_ep2_mime_types",
+      "pipeline_render_mp4_ep2_project_root",
+      "pipeline_render_mp4_ep2_rendervideo",
+      "pipeline_render_mp4_ep2_startstaticserver"
+    ],
+    "12": [
+      "pipeline_render_mp4_ep3",
+      "pipeline_render_mp4_ep3_dirname",
+      "pipeline_render_mp4_ep3_filename",
+      "pipeline_render_mp4_ep3_mime_types",
+      "pipeline_render_mp4_ep3_project_root",
+      "pipeline_render_mp4_ep3_rendervideo",
+      "pipeline_render_mp4_ep3_startstaticserver"
+    ],
+    "13": [
+      "pipeline_synthesize_audio_mix_ep2",
+      "pipeline_synthesize_audio_mix_ep2_butter_bandpass_filter",
+      "pipeline_synthesize_audio_mix_ep2_butter_lowpass_filter",
+      "pipeline_synthesize_audio_mix_ep2_generate_ambient_drone",
+      "pipeline_synthesize_audio_mix_ep2_generate_stamp_slam",
+      "pipeline_synthesize_audio_mix_ep2_generate_whoosh",
+      "pipeline_synthesize_audio_mix_ep2_main"
+    ],
+    "14": [
+      "pipeline_synthesize_audio_mix_ep3",
+      "pipeline_synthesize_audio_mix_ep3_butter_bandpass_filter",
+      "pipeline_synthesize_audio_mix_ep3_butter_lowpass_filter",
+      "pipeline_synthesize_audio_mix_ep3_generate_environmental_bed",
+      "pipeline_synthesize_audio_mix_ep3_generate_stamp_slam",
+      "pipeline_synthesize_audio_mix_ep3_generate_whoosh_sound",
+      "pipeline_synthesize_audio_mix_ep3_main"
+    ],
+    "15": [
+      "pipeline_test_snapshots",
+      "pipeline_test_snapshots_dirname",
+      "pipeline_test_snapshots_filename",
+      "pipeline_test_snapshots_mime_types",
+      "pipeline_test_snapshots_project_root",
+      "pipeline_test_snapshots_startserver",
+      "pipeline_test_snapshots_takesnapshots"
+    ],
+    "16": [
+      "pipeline_test_snapshots_ep2",
+      "pipeline_test_snapshots_ep2_dirname",
+      "pipeline_test_snapshots_ep2_filename",
+      "pipeline_test_snapshots_ep2_mime_types",
+      "pipeline_test_snapshots_ep2_project_root",
+      "pipeline_test_snapshots_ep2_startserver",
+      "pipeline_test_snapshots_ep2_takesnapshots"
+    ],
+    "17": [
+      "pipeline_test_snapshots_ep3",
+      "pipeline_test_snapshots_ep3_dirname",
+      "pipeline_test_snapshots_ep3_filename",
+      "pipeline_test_snapshots_ep3_mime_types",
+      "pipeline_test_snapshots_ep3_project_root",
+      "pipeline_test_snapshots_ep3_startserver",
+      "pipeline_test_snapshots_ep3_takesnapshots"
+    ],
+    "18": [
+      "pipeline_test_snapshots_indonesia",
+      "pipeline_test_snapshots_indonesia_dirname",
+      "pipeline_test_snapshots_indonesia_filename",
+      "pipeline_test_snapshots_indonesia_mime_types",
+      "pipeline_test_snapshots_indonesia_project_root",
+      "pipeline_test_snapshots_indonesia_startserver",
+      "pipeline_test_snapshots_indonesia_takesnapshots"
+    ],
+    "19": [
+      "pipeline_test_transition_snapshots",
+      "pipeline_test_transition_snapshots_dirname",
+      "pipeline_test_transition_snapshots_filename",
+      "pipeline_test_transition_snapshots_mime_types",
+      "pipeline_test_transition_snapshots_project_root",
+      "pipeline_test_transition_snapshots_startserver",
+      "pipeline_test_transition_snapshots_testtransitions"
+    ],
+    "20": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_swap_line",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_swap_line_die",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_swap_line_opt",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_swap_line_rationale_1",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_swap_line_rd",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_swap_line_rms"
+    ],
+    "21": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_tts",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_tts_args",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_tts_cfg",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_tts_meta",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_tts_total",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_tts_wordsfromalignment"
+    ],
+    "22": [
+      "pipeline_generate_assets_9router_ep2",
+      "pipeline_generate_assets_9router_ep2_generate_via_9router",
+      "pipeline_generate_assets_9router_ep2_main",
+      "pipeline_generate_assets_9router_ep2_make_transparent_cutout",
+      "pipeline_generate_assets_9router_ep2_py_image",
+      "pipeline_generate_assets_9router_ep2_rationale_103"
+    ],
+    "23": [
+      "pipeline_generate_assets_episode2",
+      "pipeline_generate_assets_episode2_build_procedural_asset",
+      "pipeline_generate_assets_episode2_generate_via_9router",
+      "pipeline_generate_assets_episode2_main",
+      "pipeline_generate_assets_episode2_make_transparent_cutout",
+      "pipeline_generate_assets_episode2_py_image"
+    ],
+    "24": [
+      "pipeline_generate_assets_indonesia_9router",
+      "pipeline_generate_assets_indonesia_9router_generate_via_9router",
+      "pipeline_generate_assets_indonesia_9router_main",
+      "pipeline_generate_assets_indonesia_9router_make_transparent_cutout",
+      "pipeline_generate_assets_indonesia_9router_py_image",
+      "pipeline_generate_assets_indonesia_9router_rationale_65"
+    ],
+    "25": [
+      "pipeline_generate_more_assets",
+      "pipeline_generate_more_assets_generate_procedural_fallback",
+      "pipeline_generate_more_assets_generate_via_9router",
+      "pipeline_generate_more_assets_main",
+      "pipeline_generate_more_assets_make_transparent_cutout",
+      "pipeline_generate_more_assets_py_image"
+    ],
+    "26": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_generate_voice_aligned",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_generate_voice_aligned_main",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_generate_voice_aligned_rationale_19",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_generate_voice_aligned_split_words_proportional"
+    ],
+    "27": [
+      "pipeline_generate_assets_9router_ep3",
+      "pipeline_generate_assets_9router_ep3_generate_asset",
+      "pipeline_generate_assets_9router_ep3_main",
+      "pipeline_generate_assets_9router_ep3_make_transparent_cutout"
+    ],
+    "28": [
+      "pipeline_generate_voice_aligned",
+      "pipeline_generate_voice_aligned_main",
+      "pipeline_generate_voice_aligned_rationale_19",
+      "pipeline_generate_voice_aligned_split_words_proportional"
+    ],
+    "29": [
+      "build_after_effects",
+      "build_after_effects_addcatalogsprite",
+      "build_after_effects_addtextcard"
+    ],
+    "30": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_trim_vo",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_trim_vo_rationale_1",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_trim_vo_shift"
+    ],
+    "31": [
+      "pipeline_generate_voice_indonesia",
+      "pipeline_generate_voice_indonesia_main",
+      "pipeline_generate_voice_indonesia_split_words_proportional"
+    ],
+    "32": [
+      "agents_scripts_retention_guard_hook",
+      "agents_scripts_retention_guard_hook_main"
+    ],
+    "33": [
+      "build_after_effects_ep2",
+      "build_after_effects_ep2_addcatalogsprite"
+    ],
+    "34": [
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_sh__entry",
+      "hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage_sh_hyperframe_pro_plugins_hyperframe_pro_scripts_prep_footage"
+    ],
+    "35": [
+      "pipeline_generate_realistic_assets",
+      "pipeline_generate_realistic_assets_make_transparent_cutout"
+    ],
+    "36": [
+      "pipeline_generate_simulation_video",
+      "pipeline_generate_simulation_video_generate_frames"
+    ],
+    "37": [
+      "pipeline_generate_subtitles_ep2",
+      "pipeline_generate_subtitles_ep2_main"
+    ],
+    "38": [
+      "pipeline_generate_subtitles_ep3",
+      "pipeline_generate_subtitles_ep3_main"
+    ],
+    "39": [
+      "pipeline_generate_tsunami_video",
+      "pipeline_generate_tsunami_video_generate_tsunami_clip"
+    ],
+    "40": [
+      "pipeline_generate_voice_ep3",
+      "pipeline_generate_voice_ep3_main"
+    ],
+    "41": [
+      "pipeline_generate_voice_episode2",
+      "pipeline_generate_voice_episode2_main"
+    ],
+    "42": [
+      "pipeline_generate_voice_kokoro",
+      "pipeline_generate_voice_kokoro_main"
+    ],
+    "43": [
+      "agents_agents_scripts_retention_guard_hook"
+    ],
+    "44": [
+      "build_after_effects_ep3"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08831908831908832,
+    "1": 0.11764705882352941,
+    "2": 0.23636363636363636,
+    "3": 0.18181818181818182,
+    "4": 0.18181818181818182,
+    "5": 0.2,
+    "6": 0.24444444444444444,
+    "7": 0.5111111111111111,
+    "8": 0.2857142857142857,
+    "9": 0.35714285714285715,
+    "10": 0.3333333333333333,
+    "11": 0.3333333333333333,
+    "12": 0.3333333333333333,
+    "13": 0.5238095238095238,
+    "14": 0.6190476190476191,
+    "15": 0.3333333333333333,
+    "16": 0.3333333333333333,
+    "17": 0.3333333333333333,
+    "18": 0.3333333333333333,
+    "19": 0.3333333333333333,
+    "20": 0.3333333333333333,
+    "21": 0.3333333333333333,
+    "22": 0.4666666666666667,
+    "23": 0.5333333333333333,
+    "24": 0.4666666666666667,
+    "25": 0.5333333333333333,
+    "26": 0.6666666666666666,
+    "27": 0.8333333333333334,
+    "28": 0.6666666666666666,
+    "29": 0.6666666666666666,
+    "30": 0.6666666666666666,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0
+  },
+  "gods": [
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 11
+    },
+    {
+      "id": "puppeteer",
+      "label": "puppeteer",
+      "degree": 10
+    },
+    {
+      "id": "pipeline_generate_assets_indonesia_get_font",
+      "label": "get_font()",
+      "degree": 9
+    },
+    {
+      "id": "package_keywords",
+      "label": "keywords",
+      "degree": 8
+    },
+    {
+      "id": "pipeline_generate_assets_indonesia_draw_dossier_card",
+      "label": "draw_dossier_card()",
+      "degree": 8
+    },
+    {
+      "id": "hyperframe_pro_example_build_fx",
+      "label": "fx()",
+      "degree": 5
+    },
+    {
+      "id": "pipeline_generate_assets_9router_make_transparent_cutout",
+      "label": "make_transparent_cutout()",
+      "degree": 4
+    },
+    {
+      "id": "pipeline_generate_assets_9router_ep2_make_transparent_cutout",
+      "label": "make_transparent_cutout()",
+      "degree": 4
+    },
+    {
+      "id": "pipeline_generate_assets_indonesia_9router_make_transparent_cutout",
+      "label": "make_transparent_cutout()",
+      "degree": 4
+    },
+    {
+      "id": "pipeline_synthesize_audio_mix_ep2_main",
+      "label": "main()",
+      "degree": 4
+    }
+  ],
+  "surprises": [],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

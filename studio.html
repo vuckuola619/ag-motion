@@ -1,0 +1,2884 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bang Studio Pro — Editorial & Motion Graphics Director</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Caveat:wght@600;700&family=Cinzel:wght@700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root {
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  --card: #111113;
+  --card-hover: #18181b;
+  --card-foreground: #f4f4f5;
+  --popover: #18181b;
+  --popover-foreground: #f4f4f5;
+  --primary: #f4f4f5;
+  --primary-foreground: #09090b;
+  --secondary: #18181b;
+  --secondary-hover: #27272a;
+  --secondary-foreground: #f4f4f5;
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #f4f4f5;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-focus: #38bdf8;
+  --radius: 8px;
+
+  /* Backward compatible tokens */
+  --bg-space: #09090b;
+  --bg-card: #111113;
+  --bg-card-hover: #18181b;
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --panel-border-active: rgba(56, 189, 248, 0.5);
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
+  --cyan: #38bdf8;
+  --amber: #fbbf24;
+  --emerald: #10b981;
+  --rose: #f43f5e;
+  --indigo: #6366f1;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-space);
+  color: var(--text-main);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lucide Icon Standard Styling */
+i[data-lucide] {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2px;
+  display: inline-block;
+  vertical-align: -2px;
+  flex-shrink: 0;
+}
+
+/* Header — shadcn top bar */
+header {
+  height: 52px;
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  z-index: 50;
+  flex-shrink: 0;
+}
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-badge {
+  width: 30px;
+  height: 30px;
+  background: #18181b;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.brand-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: -0.01em;
+  color: #f4f4f5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.version-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  color: #a1a1aa;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 7px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ratio-toggle {
+  background: #18181b;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: inline-flex;
+  padding: 3px;
+  gap: 3px;
+}
+.ratio-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #a1a1aa;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ratio-btn:hover {
+  color: #f4f4f5;
+}
+.ratio-btn.active {
+  background: #27272a;
+  color: #f4f4f5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.btn-primary {
+  background: #f4f4f5;
+  color: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary:hover {
+  background: #e4e4e7;
+  transform: translateY(-0.5px);
+}
+.btn-secondary {
+  background: #18181b;
+  border: 1px solid var(--border);
+  color: #f4f4f5;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+.btn-secondary:hover {
+  background: #27272a;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* App Main Layout */
+.app-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 370px 1fr 340px;
+  overflow: hidden;
+}
+
+/* Sidebar Left: Control Deck */
+.panel-deck {
+  background: #0d0d10;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.deck-section {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.deck-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.deck-title span.badge {
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--cyan);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 2px 7px;
+  border-radius: 9999px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* Style Grid */
+.style-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.style-card {
+  background: #141417;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.style-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #18181c;
+  transform: translateY(-1px);
+}
+.style-card.active {
+  border-color: var(--cyan);
+  background: rgba(56, 189, 248, 0.04);
+  box-shadow: 0 0 0 1px var(--cyan), 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+.sc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sc-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: #f4f4f5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sc-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+.tag-vox { background: rgba(250, 204, 21, 0.1); color: #facc15; border-color: rgba(250, 204, 21, 0.25); }
+.tag-bloomberg { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border-color: rgba(245, 158, 11, 0.25); }
+.tag-polymatter { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25); }
+.tag-magnates { background: rgba(234, 179, 8, 0.1); color: #eab308; border-color: rgba(234, 179, 8, 0.25); }
+.tag-cleo { background: rgba(0, 240, 255, 0.1); color: #00f0ff; border-color: rgba(0, 240, 255, 0.25); }
+.sc-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Form Controls */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.field-lbl {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+select, input, textarea {
+  width: 100%;
+  background: #141417;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: #f4f4f5;
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+select:focus, input:focus, textarea:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 1px var(--cyan);
+}
+textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+/* Anti-Slop Box */
+.anti-slop-box {
+  background: rgba(24, 24, 27, 0.5);
+  border: 1px solid var(--border);
+  border-left: 3px solid #38bdf8;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.anti-slop-box strong { color: #f4f4f5; }
+
+/* Center Viewport Stage */
+.panel-stage {
+  background: #04060a;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.stage-toolbar {
+  height: 46px;
+  background: rgba(12, 18, 34, 0.85);
+  border-bottom: 1px solid var(--panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+.beat-indicator {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.beat-indicator b {
+  color: var(--cyan);
+}
+
+/* Canvas Area */
+.stage-viewport {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  overflow: hidden;
+  position: relative;
+}
+.canvas-frame {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(148, 163, 184, 0.2);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #000;
+}
+
+/* 9:16 vs 16:9 sizing in preview */
+.canvas-frame.ratio-vertical {
+  width: 380px;
+  height: 675px; /* 9:16 aspect */
+}
+.canvas-frame.ratio-landscape {
+  width: 768px;
+  height: 432px; /* 16:9 aspect */
+}
+
+/* Internal Live Canvas Container */
+.live-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 24px;
+  transition: background 0.3s ease;
+}
+
+/* Style Renderers for Preview — 5 BROADCAST-GRADE MOTION GRAPHICS FORMATS */
+
+/* 1. VOX / JOHNNY HARRIS (Tactile Archival Journalism) */
+.style-vox .live-canvas {
+  background: radial-gradient(ellipse at 50% 30%, #f9f4ec 0%, #ede3d3 100%);
+  color: #1e1e24;
+  font-family: 'Archivo', sans-serif;
+  box-shadow: inset 0 0 100px rgba(78, 62, 40, 0.12);
+}
+.style-vox .paper-tape {
+  position: absolute;
+  top: -10px;
+  left: 36px;
+  width: 100px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transform: rotate(-3deg);
+  border-left: 2px dashed rgba(0,0,0,0.12);
+  border-right: 2px dashed rgba(0,0,0,0.12);
+  z-index: 6;
+}
+.style-vox .archival-card {
+  background: #ffffff;
+  border: 1px solid rgba(40, 30, 20, 0.15);
+  border-radius: 6px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 36px rgba(50, 40, 30, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+  position: relative;
+  margin-top: 10px;
+}
+.style-vox .republic-seal-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  color: #854d0e;
+  border-bottom: 1px dashed rgba(133, 77, 14, 0.25);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+.style-vox .newspaper-head {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.25;
+  border-bottom: 2px solid #1e1e24;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  color: #18181b;
+}
+.style-vox .highlighter {
+  background: linear-gradient(120deg, rgba(250, 204, 21, 0) 0%, rgba(250, 204, 21, 0.82) 12%, rgba(250, 204, 21, 0.82) 88%, rgba(250, 204, 21, 0) 100%);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 800;
+  color: #000;
+}
+.style-vox .hand-note {
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  font-weight: 700;
+  color: #dc2626;
+  position: absolute;
+  right: 14px;
+  top: -18px;
+  transform: rotate(5deg);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  background: rgba(254, 240, 138, 0.95);
+  padding: 2px 10px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 8;
+}
+.style-vox .lc-stat-val {
+  color: #0f172a;
+}
+
+/* 2. BLOOMBERG / FINANCIAL TIMES (Macroeconomic Terminal & Data Journalism) */
+.style-bloomberg .live-canvas {
+  background: radial-gradient(ellipse at 50% 20%, #0c1427 0%, #060a14 70%, #03050a 100%);
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+}
+.style-bloomberg .ticker-tape-bar {
+  display: flex !important;
+}
+.style-bloomberg .archival-card {
+  background: rgba(13, 22, 44, 0.94);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 25px rgba(245, 158, 11, 0.08);
+  position: relative;
+  backdrop-filter: blur(16px);
+  margin-top: 8px;
+}
+.style-bloomberg .newspaper-head {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: #f59e0b;
+  border-bottom: 1.5px solid rgba(245, 158, 11, 0.4);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.style-bloomberg .republic-seal-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  color: #38bdf8;
+  border-bottom: 1px dashed rgba(56, 189, 248, 0.25);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+.style-bloomberg .highlighter {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-weight: 700;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.style-bloomberg .hand-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: #f59e0b;
+  position: absolute;
+  right: 14px;
+  top: -12px;
+  background: #090e1a;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.style-bloomberg .lc-stat-val {
+  color: #f59e0b;
+  text-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
+}
+
+/* 3. POLYMATTER / VISUAL CAPITALIST (Clean Structural Systems) */
+.style-polymatter .live-canvas {
+  background: radial-gradient(ellipse at 50% 30%, #0a1329 0%, #070d1e 70%, #040812 100%);
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+}
+.style-polymatter .archival-card {
+  background: #0e1935;
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 16px 45px rgba(0,0,0,0.5), 0 0 20px rgba(56, 189, 248, 0.12);
+  position: relative;
+  margin-top: 8px;
+}
+.style-polymatter .newspaper-head {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: #38bdf8;
+  border-bottom: 1.5px solid rgba(56, 189, 248, 0.3);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.style-polymatter .republic-seal-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  color: #38bdf8;
+  border-bottom: 1px dashed rgba(56, 189, 248, 0.25);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+.style-polymatter .highlighter {
+  background: rgba(56, 189, 248, 0.22);
+  color: #38bdf8;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-weight: 700;
+}
+.style-polymatter .hand-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: #38bdf8;
+  position: absolute;
+  right: 14px;
+  top: -12px;
+  background: #0b152d;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.style-polymatter .lc-stat-val {
+  color: #38bdf8;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+}
+
+/* 4. MAGNATESMEDIA / COLDFUSION (Cinematic Noir & 2.5D Parallax) */
+.style-magnates .live-canvas {
+  background: radial-gradient(circle at 50% 20%, #1c1913 0%, #09090b 70%, #040405 100%);
+  color: #fafafa;
+  font-family: 'Cinzel', serif;
+}
+.style-magnates .archival-card {
+  background: rgba(20, 20, 24, 0.92);
+  border: 1.5px solid rgba(234, 179, 8, 0.4);
+  border-radius: 10px;
+  padding: 20px 22px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(234, 179, 8, 0.15);
+  position: relative;
+  margin-top: 8px;
+}
+.style-magnates .newspaper-head {
+  color: #eab308;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(234, 179, 8, 0.4);
+  padding-bottom: 6px;
+}
+.style-magnates .republic-seal-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fef08a;
+  border-bottom: 1px dashed rgba(234, 179, 8, 0.3);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+}
+.style-magnates .highlighter {
+  color: #fef08a;
+  text-shadow: 0 0 14px rgba(254, 240, 138, 0.5);
+  font-weight: 800;
+}
+.style-magnates .hand-note {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #eab308;
+  position: absolute;
+  right: 14px;
+  top: -12px;
+  background: #141418;
+  border: 1px solid rgba(234, 179, 8, 0.6);
+  padding: 3px 8px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.style-magnates .lc-stat-val {
+  color: #eab308;
+  text-shadow: 0 0 20px rgba(234, 179, 8, 0.45);
+}
+
+/* 5. CLEO ABRAM: HUGE IF TRUE (Tech Futurism & Nanometer Schematics) */
+.style-cleo .live-canvas {
+  background: radial-gradient(ellipse at 50% 25%, #08112b 0%, #050817 65%, #020409 100%);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+.style-cleo .archival-card {
+  background: rgba(10, 18, 42, 0.88);
+  border: 1.5px solid rgba(0, 240, 255, 0.45);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(0, 240, 255, 0.16);
+  position: relative;
+  backdrop-filter: blur(24px);
+  margin-top: 8px;
+}
+.style-cleo .newspaper-head {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #00f0ff;
+  border-bottom: 1.5px solid rgba(0, 240, 255, 0.4);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.style-cleo .republic-seal-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  color: #a855f7;
+  border-bottom: 1px dashed rgba(168, 85, 247, 0.3);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+.style-cleo .highlighter {
+  background: rgba(0, 240, 255, 0.2);
+  color: #00f0ff;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-weight: 700;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+.style-cleo .hand-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: #00f0ff;
+  position: absolute;
+  right: 14px;
+  top: -12px;
+  background: #060c1d;
+  border: 1px solid rgba(0, 240, 255, 0.6);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+}
+.style-cleo .lc-stat-val {
+  color: #00f0ff;
+  text-shadow: 0 0 18px rgba(0, 240, 255, 0.5);
+}
+
+/* Atmospheric Background & Technical Overlays inside Live Canvas */
+.canvas-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.canvas-tech-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle, rgba(148, 163, 184, 0.12) 1.2px, transparent 1.2px),
+    linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px, 120px 120px, 120px 120px;
+  opacity: 0.8;
+}
+.canvas-spotlight {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.35;
+  transition: all 0.5s ease;
+}
+.style-vox .canvas-spotlight { background: radial-gradient(circle, rgba(251, 191, 36, 0.5) 0%, transparent 70%); }
+.style-bloomberg .canvas-spotlight { background: radial-gradient(circle, rgba(245, 158, 11, 0.6) 0%, transparent 70%); }
+.style-polymatter .canvas-spotlight { background: radial-gradient(circle, rgba(56, 189, 248, 0.6) 0%, transparent 70%); }
+.style-magnates .canvas-spotlight { background: radial-gradient(circle, rgba(234, 179, 8, 0.6) 0%, transparent 70%); }
+.style-cleo .canvas-spotlight { background: radial-gradient(circle, rgba(0, 240, 255, 0.6) 0%, transparent 70%); }
+
+/* Technical Corner Ticks inside Archival Card */
+.card-corner-tick {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(148, 163, 184, 0.35);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 3;
+}
+.card-corner-tick.tl { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+.card-corner-tick.tr { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
+.card-corner-tick.bl { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
+.card-corner-tick.br { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+
+/* Ticker Tape Bar */
+.ticker-tape-bar {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #f59e0b;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 4;
+}
+
+/* Stat Box Delta Pill */
+.delta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  margin-top: 3px;
+}
+.delta-pill.up { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.delta-pill.down { background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+
+/* Infographic Chart Container & Header */
+.chart-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
+/* Live Elements in Canvas */
+.lc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  opacity: 0.8;
+  font-family: 'JetBrains Mono', monospace;
+}
+.lc-title {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 12px 0;
+}
+.lc-stat-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(148, 163, 184, 0.25);
+}
+.lc-stat-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 26px;
+  font-weight: 800;
+}
+.lc-stat-lbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+/* Live Chart Canvas */
+.chart-container {
+  height: 110px;
+  width: 100%;
+  position: relative;
+  margin: 12px 0;
+}
+canvas#liveChart {
+  width: 100%;
+  height: 100%;
+}
+
+/* Header Engine Status Pill */
+.engine-live-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--panel-border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.engine-live-pill:hover {
+  border-color: var(--cyan);
+  color: var(--text-main);
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  display: inline-block;
+}
+.pulse-dot.online {
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseAnim 2s infinite;
+}
+.pulse-dot.offline {
+  background: #f43f5e;
+  box-shadow: 0 0 8px #f43f5e;
+}
+@keyframes pulseAnim {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.25); }
+}
+
+/* In-Canvas Specimen Slot (Zero Travel Distance) */
+.specimen-slot {
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+  z-index: 5;
+}
+
+/* State A: Empty / Prompt Slot */
+.slot-empty-card {
+  border: 1.5px dashed rgba(148, 163, 184, 0.35);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: rgba(15, 23, 42, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.slot-empty-card:hover {
+  border-color: var(--cyan);
+  background: rgba(56, 189, 248, 0.08);
+  transform: translateY(-1px);
+}
+.style-vox .slot-empty-card {
+  border-color: rgba(30, 30, 36, 0.25);
+  background: rgba(255, 255, 255, 0.4);
+}
+.style-vox .slot-empty-card:hover {
+  border-color: #000;
+  background: rgba(255, 255, 255, 0.8);
+}
+.slot-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+}
+.slot-badge {
+  color: var(--amber);
+  letter-spacing: 0.05em;
+}
+.slot-engine-tag {
+  color: var(--cyan);
+  background: rgba(56, 189, 248, 0.12);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.slot-main-prompt {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-main);
+}
+.style-vox .slot-main-prompt {
+  color: #1e1e24;
+}
+.slot-chips {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+.slot-chip {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid var(--panel-border);
+  color: var(--text-muted);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.slot-chip:hover {
+  background: var(--cyan);
+  color: #040813;
+  border-color: var(--cyan);
+}
+.style-vox .slot-chip {
+  background: #f1f5f9;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+.style-vox .slot-chip:hover {
+  background: #0f172a;
+  color: #fff;
+}
+
+/* State B: Skeleton Shimmer Loading */
+.slot-skeleton-card {
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(15, 23, 42, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.skeleton-shimmer {
+  width: 100%;
+  height: 80px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.05) 25%, rgba(56, 189, 248, 0.18) 50%, rgba(56, 189, 248, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmerMove 1.6s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+@keyframes shimmerMove {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skeleton-scanline {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: scanMove 1.8s ease-in-out infinite alternate;
+}
+@keyframes scanMove {
+  0% { top: 0; }
+  100% { top: 96%; }
+}
+.skeleton-meta {
+  width: 100%;
+}
+.skeleton-status-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--cyan);
+  margin-bottom: 2px;
+}
+.skeleton-subtitle {
+  font-size: 10px;
+  color: var(--text-dim);
+}
+
+/* State C: Active Sprite with HUD */
+.slot-active-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 4px 0;
+}
+.sprite-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.stage-sprite-img {
+  max-height: 130px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.65));
+  transition: transform 0.25s ease;
+}
+.sprite-wrapper:hover .stage-sprite-img {
+  transform: scale(1.04);
+}
+.sprite-action-hud {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 3px 8px;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  z-index: 10;
+}
+.sprite-wrapper:hover .sprite-action-hud {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.hud-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+.hud-btn:hover {
+  color: var(--cyan);
+  background: rgba(56, 189, 248, 0.15);
+}
+.hud-btn.danger:hover {
+  color: var(--rose);
+  background: rgba(244, 63, 94, 0.15);
+}
+
+/* Native Top-Layer Popover Toast (Google Chrome Modern Web Guidance) */
+.modern-toast {
+  position: fixed;
+  inset: auto;
+  top: auto;
+  left: auto;
+  bottom: 24px;
+  right: 24px;
+  margin: 0;
+  padding: 12px 18px;
+  background: rgba(12, 18, 34, 0.96);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--panel-border-active);
+  border-radius: 10px;
+  color: var(--text-main);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.2);
+  display: none;
+  align-items: center;
+  gap: 14px;
+  z-index: 9999;
+  min-width: 340px;
+  max-width: 440px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.modern-toast.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast-pulse-core {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: pulseAnim 1.2s infinite;
+  flex-shrink: 0;
+}
+.toast-body {
+  flex: 1;
+}
+.toast-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 3px;
+}
+.toast-title {
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.toast-clock {
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+.toast-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.toast-close {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+.toast-close:hover {
+  color: #fff;
+}
+
+/* Bottom Scrubber Controls */
+.stage-controls {
+  height: 68px;
+  background: rgba(13, 13, 16, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 8px 18px;
+  gap: 6px;
+}
+.scrub-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.play-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: #f4f4f5;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #09090b;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.play-btn:hover {
+  background: #e4e4e7;
+  transform: scale(1.03);
+}
+.scrub-bar {
+  flex: 1;
+  accent-color: var(--cyan);
+  cursor: pointer;
+  height: 4px;
+}
+.time-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  width: 90px;
+  text-align: right;
+}
+.beat-pills {
+  display: flex;
+  gap: 6px;
+}
+.beat-pill {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #141417;
+  border: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.beat-pill:hover {
+  color: #f4f4f5;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+.beat-pill.active {
+  background: #1e1e24;
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.15);
+}
+
+/* Sidebar Right: Pipeline & Code Export */
+.panel-export {
+  background: #0d0d10;
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.export-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: #09090b;
+  padding: 4px;
+  gap: 4px;
+}
+.export-tab {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+.export-tab:hover {
+  color: #f4f4f5;
+}
+.export-tab.active {
+  color: #f4f4f5;
+  background: #18181b;
+  border-color: var(--border);
+}
+.export-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.code-box {
+  background: #000000;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #e4e4e7;
+  height: 240px;
+  overflow-y: auto;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.btn-action-full {
+  width: 100%;
+  padding: 9px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  transition: all 0.15s ease;
+}
+.btn-render {
+  background: #f4f4f5;
+  color: #09090b;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.btn-render:hover {
+  background: #e4e4e7;
+  transform: translateY(-0.5px);
+}
+.status-console {
+  background: #000000;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #34d399;
+  height: 140px;
+  overflow-y: auto;
+}
+</style>
+</head>
+<body class="style-vox">
+
+<!-- Top Studio Bar -->
+<header>
+  <div class="brand-group">
+    <div class="brand-badge">
+      <i data-lucide="sparkles"></i>
+    </div>
+    <div class="brand-title">
+      BANG STUDIO PRO
+      <span class="version-pill">v2.0 ANTI-SLOP</span>
+    </div>
+  </div>
+
+  <div class="header-actions">
+    <div class="engine-live-pill" id="engineLivePill" onclick="checkEngineHealth()" title="Klik untuk re-ping status 9Router / Gemini">
+      <span class="pulse-dot online" id="enginePulseDot"></span>
+      <span id="engineStatusText">9ROUTER ONLINE</span>
+    </div>
+    <div class="ratio-toggle">
+      <button class="ratio-btn active" id="btnRatio916" onclick="setRatio('9:16')">
+        <i data-lucide="smartphone"></i> 9:16 Vertical
+      </button>
+      <button class="ratio-btn" id="btnRatio169" onclick="setRatio('16:9')">
+        <i data-lucide="monitor"></i> 16:9 Landscape
+      </button>
+    </div>
+    <button class="btn-primary" onclick="triggerRender()">
+      <i data-lucide="clapperboard"></i> Render MP4 Master
+    </button>
+  </div>
+</header>
+
+<!-- App Grid -->
+<div class="app-container">
+
+  <!-- Left Sidebar: Style & Prompt Deck -->
+  <aside class="panel-deck">
+    <div class="deck-section">
+      <div class="deck-title">
+        1. Creator Style Reference
+        <span class="badge">PRO EDITORS</span>
+      </div>
+      <div class="style-grid" id="styleGrid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+
+    <div class="deck-section">
+      <div class="deck-title">2. Topic & Episode Prompt</div>
+      <div class="field-group">
+        <label class="field-lbl">Episode Topic Preset</label>
+        <select id="topicPresetSelect" onchange="applyTopicPreset()">
+          <!-- Injected via JS -->
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label class="field-lbl">Narrative Angle / Thesis</label>
+        <input type="text" id="topicAngleInput" value="Critical Balance of Industrialization vs Purchasing Power">
+      </div>
+
+      <div class="anti-slop-box">
+        <i data-lucide="shield-check" style="color: #38bdf8; width: 16px; height: 16px; margin-top: 1px;"></i>
+        <div>
+          <strong>Anti-Slop Directive</strong>: Replaces floating 3D plastic icons with authentic archival newspaper clippings, BPS census tables, and real World Bank line charts.
+        </div>
+      </div>
+    </div>
+
+    <div class="deck-section">
+      <div class="deck-title">
+        3. Model & Footage Generator
+        <span class="badge" id="providerBadge" style="background: rgba(56, 189, 248, 0.15); color: var(--cyan);">9ROUTER CX/GPT-5.5</span>
+      </div>
+      
+      <!-- Provider Selector -->
+      <div class="field-group">
+        <label class="field-lbl">Target Generation Engine</label>
+        <div style="display: flex; gap: 8px; margin-bottom: 6px;">
+          <button type="button" class="ratio-btn active" id="btnEngine9Router" onclick="setEngine('9router')" style="flex: 1; justify-content: center;">
+            <i data-lucide="zap"></i> 9Router cx/gpt-5.5
+          </button>
+          <button type="button" class="ratio-btn" id="btnEngineGemini" onclick="setEngine('gemini')" style="flex: 1; justify-content: center;">
+            <i data-lucide="sparkles"></i> Google Gemini
+          </button>
+        </div>
+        <div style="font-size: 11px; color: var(--text-dim); line-height: 1.4;" id="engineDesc">
+          Endpoint: <code>http://127.0.0.1:20128/v1/images/generations</code> (Model: <code>cx/gpt-5.5-image</code>).
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-lbl">Footage / Sprite Prompt</label>
+        <textarea id="assetPromptBox" rows="4"></textarea>
+      </div>
+
+      <button type="button" class="btn-action-full btn-render" id="btnGenAsset" onclick="triggerAssetGeneration()" style="margin-top: 6px;">
+        <i data-lucide="wand-2"></i> Generate Sprite via 9Router (cx/gpt-5.5-image)
+      </button>
+
+      <div id="assetGenStatus" style="display: none; margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 8px 10px; border-radius: 6px; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--panel-border);">
+      </div>
+
+      <!-- Generated Sprite Shelf -->
+      <div style="margin-top: 14px; border-top: 1px dashed var(--panel-border); padding-top: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 11px; font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--text-dim); text-transform: uppercase;">
+            <i data-lucide="layers" style="width: 12px; height: 12px; vertical-align: -1px; margin-right: 4px;"></i>Sprite Shelf
+          </span>
+          <button type="button" style="background: none; border: none; color: var(--cyan); font-size: 11px; cursor: pointer; display: flex; align-items: center; gap: 4px;" onclick="loadSpriteGallery()">
+            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i> Refresh
+          </button>
+        </div>
+        <div id="spriteGalleryList" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; min-height: 48px;">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Center Stage: Live Interactive Viewport -->
+  <main class="panel-stage">
+    <div class="stage-toolbar">
+      <div class="beat-indicator">
+        ACTIVE SCENE: <b id="sceneTitle">BEAT 1 — GEOPOLITICAL HOOK</b>
+      </div>
+      <div id="sceneTimecode">00:00:03.50 / 00:01:00.50</div>
+    </div>
+
+    <div class="stage-viewport">
+      <div class="canvas-frame ratio-vertical" id="canvasFrame">
+        <div class="live-canvas" id="liveCanvas">
+          <!-- Atmospheric Background Layers (Zero Slop) -->
+          <div class="canvas-atmosphere">
+            <div class="canvas-tech-grid"></div>
+            <div class="canvas-spotlight" id="canvasSpotlight"></div>
+          </div>
+
+          <div class="paper-tape"></div>
+
+          <!-- Ticker Tape Bar for Bloomberg / Financial format -->
+          <div class="ticker-tape-bar" id="tickerTapeBar">
+            <span>🔴 LIVE DATA FEED</span>
+            <span>IDR/USD 15,842 ▲ +0.35%</span>
+            <span>NIKEL GLOBAL 52.3% ▲ ATH</span>
+            <span>GDP/CAP $4,920</span>
+            <span>BONUS DEMOGRAFI 2030 // PEAK</span>
+          </div>
+
+          <!-- Top Meta -->
+          <div class="lc-header">
+            <span id="canvasDossierTag">ARCHIVE REF: IDN-01</span>
+            <span id="canvasCategoryTag">GEOPOLITICAL DOSSIER</span>
+          </div>
+
+          <!-- Central Archival Specimen -->
+          <div class="archival-card" id="archivalCard">
+            <!-- Corner Ticks for Broadcast Technical Aesthetics -->
+            <div class="card-corner-tick tl"></div>
+            <div class="card-corner-tick tr"></div>
+            <div class="card-corner-tick bl"></div>
+            <div class="card-corner-tick br"></div>
+
+            <!-- Republic Seal Badge -->
+            <div class="republic-seal-badge" id="canvasSealBadge">
+              <span>🇮🇩</span>
+              <span id="canvasSealText">REPUBLIK INDONESIA // KEMENTERIAN KOORDINATOR PEREKONOMIAN</span>
+            </div>
+
+            <div class="newspaper-head" id="canvasCardHead">THE JAKARTA DISPATCH // SPECIAL REPORT</div>
+            <div style="font-size: 12px; line-height: 1.45; opacity: 0.85;" id="canvasCardBody">
+              Data resmi mencatat hilirisasi mineral melonjak tajam, namun survei membuktikan <span class="highlighter">9,48 juta kelas menengah terdegradasi</span> dalam lima tahun terakhir.
+            </div>
+            <div class="hand-note" id="canvasHandNote">Alarm Nyata!</div>
+
+            <!-- Live Infographic Dynamic Chart -->
+            <div class="chart-container">
+              <div class="chart-meta-bar">
+                <span id="chartMetaType">📈 MAKRO INDIKATOR // TREN HISTORIS & PROYEKSI</span>
+                <span id="chartMetaSource">SUMBER: BPS & BANK DUNIA 2024</span>
+              </div>
+              <canvas id="liveChart"></canvas>
+            </div>
+
+            <!-- In-Canvas Specimen Direct Slot (Zero Travel Distance UX) -->
+            <div id="canvasSpecimenSlot" class="specimen-slot">
+              <!-- State A: Empty / Contextual Direct Trigger -->
+              <div id="slotEmptyState" class="slot-empty-card" onclick="triggerDirectGenerate(0)">
+                <div class="slot-badge-row">
+                  <span class="slot-badge" id="slotBeatBadge">BEAT 1 SPECIMEN</span>
+                  <span class="slot-engine-tag"><i data-lucide="zap" style="width:10px;height:10px;margin-right:2px;"></i>9ROUTER CX/GPT-5.5</span>
+                </div>
+                <div class="slot-main-prompt" id="slotPromptTeaser">
+                  + Klik untuk Generate 3D Specimen Otomatis
+                </div>
+                <div class="slot-chips">
+                  <button type="button" class="slot-chip" onclick="event.stopPropagation(); triggerDirectGenerate(0)">
+                    <i data-lucide="zap" style="width:10px;height:10px;margin-right:2px;"></i> Instant
+                  </button>
+                  <button type="button" class="slot-chip" onclick="event.stopPropagation(); triggerDirectGenerate(1)">
+                    <i data-lucide="dice-5" style="width:10px;height:10px;margin-right:2px;"></i> Variasi 2
+                  </button>
+                  <button type="button" class="slot-chip" onclick="event.stopPropagation(); triggerDirectGenerate(2)">
+                    <i data-lucide="dice-6" style="width:10px;height:10px;margin-right:2px;"></i> Variasi 3
+                  </button>
+                </div>
+              </div>
+
+              <!-- State B: Generating / Skeleton Wireframe Shimmer -->
+              <div id="slotLoadingState" class="slot-skeleton-card" style="display: none;">
+                <div class="skeleton-shimmer">
+                  <div class="skeleton-scanline"></div>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 800; color: var(--cyan); letter-spacing: 0.05em; z-index: 2;">
+                    AI 3D SYNTHESIS IN PROGRESS
+                  </span>
+                </div>
+                <div class="skeleton-meta">
+                  <div class="skeleton-status-row">
+                    <span class="skeleton-title">9ROUTER CX/GPT-5.5-IMAGE</span>
+                    <span class="skeleton-timer" id="slotCountdown">00:00</span>
+                  </div>
+                  <div class="skeleton-subtitle" id="slotLoadingDetail">Merender 3D RGBA cut-out transparan...</div>
+                </div>
+              </div>
+
+              <!-- State C: Active Sprite Hero with Direct Hover HUD -->
+              <div id="slotActiveState" class="slot-active-card" style="display: none;">
+                <div class="sprite-wrapper" id="spriteWrapper">
+                  <img id="canvasSpriteImg" src="" alt="Sprite Hero" class="stage-sprite-img">
+                  <!-- Direct In-Canvas Action HUD -->
+                  <div class="sprite-action-hud">
+                    <button type="button" class="hud-btn" onclick="triggerDirectGenerate(0)" title="Regenerate / Roll Variant">
+                      <i data-lucide="rotate-ccw" style="width:11px;height:11px;margin-right:3px;"></i> Roll Baru
+                    </button>
+                    <button type="button" class="hud-btn" onclick="openSpriteLightbox()" title="View High-Res">
+                      <i data-lucide="maximize-2" style="width:11px;height:11px;margin-right:3px;"></i> Perbesar
+                    </button>
+                    <button type="button" class="hud-btn danger" onclick="removeSpriteFromStage()" title="Hapus dari Scene">
+                      <i data-lucide="trash-2" style="width:11px;height:11px;margin-right:3px;"></i> Hapus
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lc-stat-box">
+              <div>
+                <div class="lc-stat-lbl" id="canvasStatLbl">Puncak Bonus Demografi</div>
+                <div class="lc-stat-val" id="canvasStatVal">282 JUTA</div>
+                <span class="delta-pill up" id="canvasStatDelta">▲ +18.4% YoY</span>
+              </div>
+              <div style="text-align: right; font-size: 11px; font-weight: 700; opacity: 0.8;" id="canvasStatMeta">
+                STATUS: KRUSIAL
+              </div>
+            </div>
+          </div>
+
+          <!-- Kinetic Subtitle -->
+          <div class="lc-title" id="canvasSubtitle">
+            Indonesia hari ini berada di <span class="highlighter">persimpangan paling krusial</span> dalam sejarahnya.
+          </div>
+
+          <!-- Bottom HUD / Safe zone -->
+          <div style="display: flex; justify-content: space-between; font-size: 10px; font-family: 'JetBrains Mono', monospace; opacity: 0.6;">
+            <span>DOC-REF // IDN-2026</span>
+            <span>SAFE-ZONE: PASSED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Playback & Scrubber Controls -->
+    <div class="stage-controls">
+      <div class="scrub-row">
+        <button class="play-btn" id="playBtn" onclick="togglePlay()" title="Play / Pause">
+          <i data-lucide="play" id="playIcon"></i>
+        </button>
+        <input type="range" class="scrub-bar" id="timelineScrub" min="0" max="6" step="1" value="0" oninput="onScrub(this.value)">
+        <div class="time-display" id="timeDisplay">00:03.5s</div>
+      </div>
+      <div class="beat-pills" id="beatPills">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Right Sidebar: Export & Pipeline Terminal -->
+  <aside class="panel-export">
+    <div class="export-tabs">
+      <button class="export-tab active" onclick="switchTab('code')">
+        <i data-lucide="code-2"></i> Code
+      </button>
+      <button class="export-tab" onclick="switchTab('script')">
+        <i data-lucide="mic"></i> VO Script
+      </button>
+      <button class="export-tab" onclick="switchTab('logs')">
+        <i data-lucide="terminal"></i> Logs
+      </button>
+    </div>
+
+    <div class="export-content" id="tabCode">
+      <button class="btn-action-full btn-render" onclick="generateProjectHtml()">
+        <i data-lucide="download"></i> Export Standalone HTML
+      </button>
+
+      <button class="btn-action-full btn-secondary" onclick="copyCode()">
+        <i data-lucide="copy"></i> Copy HTML Code
+      </button>
+
+      <div class="code-box" id="codePreviewBox">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+
+    <div class="export-content" id="tabScript" style="display: none;">
+      <div style="font-size: 12px; line-height: 1.6; color: var(--text-muted);" id="voScriptContainer">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+
+    <div class="export-content" id="tabLogs" style="display: none;">
+      <button class="btn-action-full btn-secondary" onclick="fetchStatus()">
+        <i data-lucide="rotate-ccw"></i> Refresh Status
+      </button>
+      <div class="status-console" id="statusConsoleBox">
+[Studio Engine]: Ready.
+[Anti-Slop Protocol]: Active.
+[FFmpeg QC]: Online.
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<script>
+// State Store
+let state = {
+  activeStyle: 'vox',
+  activeTopic: 'indonesia_hari_ini',
+  activeBeat: 0,
+  ratio: '9:16',
+  isPlaying: false,
+  styles: [],
+  topics: []
+};
+
+// Preset Data
+const DEFAULT_STYLES = [
+  {
+    id: 'vox',
+    name: 'Vox / Johnny Harris',
+    tag: 'tag-vox',
+    badge: 'INVESTIGATIVE',
+    desc: 'Textured archival paper dossier, official Republic decree seal, live SVG marker highlighter, translucent tape, 12fps tactile feel.'
+  },
+  {
+    id: 'bloomberg',
+    name: 'Bloomberg / Financial Times',
+    tag: 'tag-bloomberg',
+    badge: 'FINANCIAL TERMINAL',
+    desc: 'Dark obsidian terminal, dual-axis baseline charts, real recession bands, verified World Bank source citations, live ticker tape.'
+  },
+  {
+    id: 'polymatter',
+    name: 'PolyMatter / Visual Capitalist',
+    tag: 'tag-polymatter',
+    badge: 'SYSTEM DYNAMICS',
+    desc: 'Precision vector infographics, interconnected supply chain nodes with moving energy pulses, clean demographic pyramid curves.'
+  },
+  {
+    id: 'magnates',
+    name: 'MagnatesMedia / ColdFusion',
+    tag: 'tag-magnates',
+    badge: 'CINEMATIC NOIR',
+    desc: 'Obsidian vignette with top-down golden spotlights, 2.5D layered photographic cutouts with depth blur, gold-embossed seals.'
+  },
+  {
+    id: 'cleo',
+    name: 'Cleo Abram: Huge If True',
+    tag: 'tag-cleo',
+    badge: 'TECH FUTURISM',
+    desc: 'Cyber-blueprint dark grid with neon cyan/ultraviolet accents, layered glassmorphism panels, exploded dimension callouts.'
+  }
+];
+
+const DEFAULT_TOPICS = [
+  {
+    id: 'indonesia_hari_ini',
+    title: 'Indonesia Hari Ini: Di Persimpangan Emas atau Perangkap?',
+    angle: 'Critical Balance of Industrialization vs Household Purchasing Power',
+    beats: [
+      {
+        beat: 1,
+        title: 'Geopolitical Hook & Demographic Window',
+        time: '0:00 - 0:08',
+        cardHead: 'BPS SURVEI DEMOGRAFI // ARSIP IDN-01',
+        cardBody: 'Puncak bonus demografi Indonesia sedang berlangsung, menyisakan jendela waktu 12 tahun sebelum piramida penduduk menua.',
+        handNote: 'Puncak Emas!',
+        statLbl: 'Puncak Bonus Demografi',
+        statVal: '282 JUTA',
+        subtitle: 'Indonesia hari ini berada di <span class="highlighter">persimpangan paling krusial</span> dalam sejarahnya.',
+        chartData: [40, 55, 68, 85, 92, 98, 95]
+      },
+      {
+        beat: 2,
+        title: 'The Nickel & EV Boom',
+        time: '0:08 - 0:18',
+        cardHead: 'MINISTRY OF ENERGY // RAW MINERAL EXPORT',
+        cardBody: 'Hilirisasi mineral meledak luar biasa. Kebijakan larangan ekspor bijih mentah mengamankan lebih dari separuh rantai pasok nikel dunia.',
+        handNote: 'Jangkar EV!',
+        statLbl: 'Pangsa Pasokan Global',
+        statVal: '52.3% DUNIA',
+        subtitle: 'Hilirisasi mineral <span class="highlighter">meledak luar biasa</span>. Indonesia kuasai separuh pasokan nikel dunia!',
+        chartData: [15, 22, 38, 52, 70, 88, 94]
+      },
+      {
+        beat: 3,
+        title: 'The Middle-Class Squeeze',
+        time: '0:18 - 0:28',
+        cardHead: 'BPS OFFICIAL CENSUS // KELAS MENENGAH',
+        cardBody: 'Di balik kemegahan ekspor mineral, data resmi mengungkap anomali pahit: daya beli masyarakat tergerus drastis.',
+        handNote: 'Alarm Nyata!',
+        statLbl: 'Kelas Menengah Terdegradasi',
+        statVal: '-9.48 JUTA',
+        subtitle: 'Namun di balik angka megah, <span class="highlighter">9,4 juta kelas menengah</span> justru tergerus turun kelas!',
+        chartData: [85, 82, 78, 64, 52, 45, 42]
+      },
+      {
+        beat: 4,
+        title: 'Digital Acceleration & AI',
+        time: '0:28 - 0:38',
+        cardHead: 'INDONESIA DIGITAL ECONOMY GMV // BANK INDONESIA',
+        cardBody: 'Penetrasi internet menembus delapan puluh persen. Generasi muda menggerakkan ekonomi digital ribuan triliun.',
+        handNote: 'Mesin Baru!',
+        statLbl: 'Valuasi GMV Digital',
+        statVal: 'RP 1.400 T',
+        subtitle: 'Penetrasi digital tembus 80%. <span class="highlighter">Talenta muda memutar ekonomi</span> ribuan triliun!',
+        chartData: [20, 35, 50, 72, 95, 120, 140]
+      },
+      {
+        beat: 5,
+        title: 'Middle Income Trap Benchmark',
+        time: '0:38 - 0:48',
+        cardHead: 'WORLD BANK HISTORICAL BENCHMARK // 1960-2024',
+        cardBody: 'Sejarah membuktikan: hanya 15 dari 101 negara berkembang yang sukses menembus ambang batas pendapatan tinggi.',
+        handNote: 'Ujian Sejarah!',
+        statLbl: 'Ambang Batas PDB',
+        statVal: 'USD $13,845',
+        subtitle: 'Hanya <span class="highlighter">15% negara yang lolos</span> jadi negara maju. Target kita tembus $13.000 per kapita!',
+        chartData: [30, 38, 44, 49, 53, 56, 58]
+      },
+      {
+        beat: 6,
+        title: 'Resolution: Indonesia Emas 2045',
+        time: '0:48 - 1:00',
+        cardHead: 'STRATEGIC ROADMAP // INDONESIA EMAS 2045',
+        cardBody: 'Kuncinya: manufaktur bernilai tambah tinggi, riset sains nyata, dan kepastian integritas hukum total.',
+        handNote: 'Masa Depan!',
+        statLbl: 'Target Eksekusi',
+        statVal: '3 PILAR UTAMA',
+        subtitle: 'Indonesia Emas bukan hadiah, <span class="highlighter">melainkan masa depan yang harus direbut</span> hari ini!',
+        chartData: [50, 60, 75, 88, 105, 130, 160]
+      }
+    ]
+  },
+  {
+    id: 'semiconductor_war',
+    title: 'Perang Semikonduktor: Blokade Silikon AS vs China',
+    angle: 'Monopoly of Extreme Ultraviolet (EUV) Lithography & Global Choke points',
+    beats: [
+      {
+        beat: 1,
+        title: 'The Nanometer Cold War',
+        time: '0:00 - 0:08',
+        cardHead: 'GEOPOLITICAL INTELLIGENCE // SILICON MONOPOLY',
+        cardBody: 'Perang hegemoni dunia tidak lagi diukur dari hulu ledak nuklir, melainkan presisi transisi 2 nanometer.',
+        handNote: '2 Nanometer!',
+        statLbl: 'Ukuran Transistor',
+        statVal: '2 NM',
+        subtitle: 'Perang terbesar abad ini <span class="highlighter">diperebutkan di ukuran 2 nanometer</span>.',
+        chartData: [90, 65, 45, 28, 14, 7, 2]
+      },
+      {
+        beat: 2,
+        title: 'ASML Monopoly',
+        time: '0:08 - 0:18',
+        cardHead: 'ASML HIGH-NA EUV DOSSIER // VELDHOVEN',
+        cardBody: 'Monopoli mutlak satu pabrik di Belanda yang memegang kunci pembuatan seluruh chip AI tercanggih di dunia.',
+        handNote: 'Monopoli Total!',
+        statLbl: 'Harga Satu Mesin',
+        statVal: '$380 JUTA',
+        subtitle: 'Hanya ada satu perusahaan di bumi yang sanggup membuat <span class="highlighter">mesin litografi EUV</span>!',
+        chartData: [10, 25, 45, 70, 95, 140, 180]
+      }
+    ]
+  }
+];
+
+function initStudio() {
+  state.styles = DEFAULT_STYLES;
+  state.topics = DEFAULT_TOPICS;
+
+  renderStyleGrid();
+  renderTopicOptions();
+  applyTopicPreset();
+  renderBeatPills();
+  updateLiveStage();
+  updateCodePreview();
+  renderChart();
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderStyleGrid() {
+  const iconMap = {
+    vox: 'newspaper',
+    bloomberg: 'line-chart',
+    polymatter: 'network',
+    magnates: 'film',
+    cleo: 'cpu'
+  };
+  const colorMap = {
+    vox: '#facc15',
+    bloomberg: '#f59e0b',
+    polymatter: '#38bdf8',
+    magnates: '#eab308',
+    cleo: '#00f0ff'
+  };
+  const grid = document.getElementById('styleGrid');
+  grid.innerHTML = state.styles.map(s => `
+    <div class="style-card ${s.id === state.activeStyle ? 'active' : ''}" onclick="selectStyle('${s.id}')">
+      <div class="sc-head">
+        <div class="sc-title">
+          <i data-lucide="${iconMap[s.id] || 'palette'}" style="width: 14px; height: 14px; color: ${colorMap[s.id] || '#38bdf8'};"></i>
+          ${s.name}
+        </div>
+        <span class="sc-tag ${s.tag}">${s.badge}</span>
+      </div>
+      <div class="sc-desc">${s.desc}</div>
+    </div>
+  `).join('');
+  if (window.lucide) lucide.createIcons();
+}
+
+function selectStyle(styleId) {
+  state.activeStyle = styleId;
+  document.body.className = `style-${styleId}`;
+  renderStyleGrid();
+  updatePromptBox();
+  updateLiveStage();
+  updateCodePreview();
+  if (window.gsap) {
+    gsap.fromTo('#liveCanvas', { opacity: 0.88, scale: 0.99 }, { opacity: 1, scale: 1, duration: 0.28, ease: "power2.out" });
+  }
+}
+
+function renderTopicOptions() {
+  const sel = document.getElementById('topicPresetSelect');
+  sel.innerHTML = state.topics.map(t => `<option value="${t.id}">${t.title}</option>`).join('');
+}
+
+function applyTopicPreset() {
+  const sel = document.getElementById('topicPresetSelect');
+  state.activeTopic = sel.value;
+  const topic = state.topics.find(t => t.id === state.activeTopic);
+  if (topic) {
+    document.getElementById('topicAngleInput').value = topic.angle;
+    renderBeatPills();
+    state.activeBeat = 0;
+    updateLiveStage();
+    updatePromptBox();
+    updateCodePreview();
+    updateVoScriptTab();
+  }
+}
+
+function setRatio(ratio) {
+  state.ratio = ratio;
+  const frame = document.getElementById('canvasFrame');
+  const btn916 = document.getElementById('btnRatio916');
+  const btn169 = document.getElementById('btnRatio169');
+
+  if (ratio === '9:16') {
+    frame.className = 'canvas-frame ratio-vertical';
+    btn916.className = 'ratio-btn active';
+    btn169.className = 'ratio-btn';
+  } else {
+    frame.className = 'canvas-frame ratio-landscape';
+    btn916.className = 'ratio-btn';
+    btn169.className = 'ratio-btn active';
+  }
+}
+
+function renderBeatPills() {
+  const topic = state.topics.find(t => t.id === state.activeTopic);
+  if (!topic) return;
+
+  const container = document.getElementById('beatPills');
+  container.innerHTML = topic.beats.map((b, idx) => `
+    <div class="beat-pill ${idx === state.activeBeat ? 'active' : ''}" onclick="selectBeat(${idx})">
+      0${b.beat} ${b.title.split(' ')[0]}
+    </div>
+  `).join('');
+
+  document.getElementById('timelineScrub').max = topic.beats.length - 1;
+}
+
+function selectBeat(idx) {
+  state.activeBeat = idx;
+  document.getElementById('timelineScrub').value = idx;
+  renderBeatPills();
+  updateLiveStage();
+  renderChart();
+  if (window.gsap) {
+    gsap.fromTo('#archivalCard', { y: 6, opacity: 0.92 }, { y: 0, opacity: 1, duration: 0.22, ease: "power2.out" });
+    gsap.fromTo('#canvasSubtitle', { y: 4, opacity: 0.85 }, { y: 0, opacity: 1, duration: 0.22, ease: "power2.out" });
+  }
+}
+
+function onScrub(val) {
+  state.activeBeat = parseInt(val, 10);
+  renderBeatPills();
+  updateLiveStage();
+  renderChart();
+}
+
+function updateLiveStage() {
+  const topic = state.topics.find(t => t.id === state.activeTopic);
+  if (!topic || !topic.beats[state.activeBeat]) return;
+  const beat = topic.beats[state.activeBeat];
+
+  document.getElementById('sceneTitle').innerText = `BEAT ${beat.beat} — ${beat.title.toUpperCase()}`;
+  document.getElementById('sceneTimecode').innerText = `${beat.time}`;
+  document.getElementById('canvasDossierTag').innerText = `ARCHIVE REF: IDN-0${beat.beat}`;
+  document.getElementById('canvasCardHead').innerText = beat.cardHead;
+  document.getElementById('canvasCardBody').innerHTML = beat.cardBody;
+  document.getElementById('canvasHandNote').innerText = beat.handNote;
+  document.getElementById('canvasStatLbl').innerText = beat.statLbl || beat.statLabel || 'METRIC';
+  document.getElementById('canvasStatVal').innerText = beat.statVal;
+  document.getElementById('canvasSubtitle').innerHTML = beat.subtitle;
+
+  // Real YoY / Trend Delta Pills
+  const deltaPill = document.getElementById('canvasStatDelta');
+  if (deltaPill) {
+    const deltas = [
+      { text: '▲ +18.4% YoY [PUNCAK HISTORIS]', type: 'up' },
+      { text: '▲ +340% HILIRISASI [DOMINASI GLOBAL]', type: 'up' },
+      { text: '▼ -16.5% DAYA BELI [DEGRADASI KELAS]', type: 'down' },
+      { text: '▲ +24.8% CAGR [VALUASI GMV DIGITAL]', type: 'up' },
+      { text: '⚠️ AMBANG BATAS: $13.845 [HIGH-INCOME TRAP]', type: 'down' },
+      { text: '🎯 TARGET 2045: 5 BESAR PDB DUNIA', type: 'up' }
+    ];
+    const d = deltas[state.activeBeat] || { text: '▲ +14.2% YoY', type: 'up' };
+    deltaPill.innerText = d.text;
+    deltaPill.className = `delta-pill ${d.type}`;
+  }
+
+  // Update seal text per style
+  const sealText = document.getElementById('canvasSealText');
+  if (sealText) {
+    if (state.activeStyle === 'vox') sealText.innerText = 'REPUBLIK INDONESIA // KEMENTERIAN KOORDINATOR PEREKONOMIAN';
+    else if (state.activeStyle === 'bloomberg') sealText.innerText = 'BLOOMBERG TERMINAL // IDR MACROECONOMIC SURVEILLANCE';
+    else if (state.activeStyle === 'polymatter') sealText.innerText = 'SYSTEM DYNAMICS // SUPPLY CHAIN & DEMOGRAPHIC DENSITY';
+    else if (state.activeStyle === 'magnates') sealText.innerText = '2.5D NOIR DOCUMENTARY // THE CHRONICLES OF INDONESIA';
+    else if (state.activeStyle === 'cleo') sealText.innerText = 'TECHNICAL SPECIFICATION // NANOMETER SCHEMATICS';
+  }
+
+  document.getElementById('timeDisplay').innerText = beat.time.split(' - ')[0] + 's';
+  updateSlotForActiveBeat();
+}
+
+function updatePromptBox() {
+  const topic = state.topics.find(t => t.id === state.activeTopic);
+  const promptBox = document.getElementById('assetPromptBox');
+  if (!topic) return;
+
+  let prompt = '';
+  if (state.activeStyle === 'vox') {
+    prompt = `Archival scanned presidential decree document (Perpres / BPS statistical report) regarding "${topic.title}", aged newsprint paper grain, official Indonesian Republic coat of arms seal stamp, halftone printing dots, subtle scotch tape, macro studio photograph, zero 3D plastic artifacts, authentic investigative journalism aesthetic.`;
+  } else if (state.activeStyle === 'bloomberg') {
+    prompt = `Macroeconomic data terminal graphic of "${topic.title}", high-density coordinate grid, verified financial indicator data chart, obsidian and copper gold accents, clean editorial typography, Bloomberg Markets aesthetic.`;
+  } else if (state.activeStyle === 'polymatter') {
+    prompt = `Precision isometric vector system diagram illustrating "${topic.title}", interconnected supply chain nodes from raw mines to global factories, matte navy slate palette, clean flat data visualization, zero clutter.`;
+  } else if (state.activeStyle === 'magnates') {
+    prompt = `2.5D documentary collage cutout of economic assets related to "${topic.title}", dramatic dark noir rim lighting, obsidian vignette, volumetric golden spotlight from top, film grain 35mm, highly detailed editorial photo isolation.`;
+  } else {
+    prompt = `Exploded futuristic technical schematic of "${topic.title}", glowing neon cyan and ultraviolet traces on dark blueprint grid, precise dimension caliper callouts, EUV lithography cleanroom aesthetic.`;
+  }
+
+  promptBox.value = prompt;
+}
+
+function renderChart() {
+  const topic = state.topics.find(t => t.id === state.activeTopic);
+  if (!topic || !topic.beats[state.activeBeat]) return;
+  const rawData = topic.beats[state.activeBeat].chartData || [20, 35, 60, 45, 80, 95];
+
+  const canvas = document.getElementById('liveChart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  
+  canvas.width = (rect.width || 300) * dpr;
+  canvas.height = (rect.height || 100) * dpr;
+  canvas.style.width = `${rect.width || 300}px`;
+  canvas.style.height = `${rect.height || 100}px`;
+
+  ctx.scale(dpr, dpr);
+  const W = rect.width || 300;
+  const H = rect.height || 100;
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Styling theme colors
+  let strokeColor = '#facc15';
+  let fillGradStart = 'rgba(250, 204, 21, 0.35)';
+  let fillGradEnd = 'rgba(250, 204, 21, 0.0)';
+  let gridColor = 'rgba(0, 0, 0, 0.08)';
+  let textColor = '#71717a';
+  let thresholdColor = 'rgba(220, 38, 38, 0.6)';
+
+  if (state.activeStyle === 'bloomberg') {
+    strokeColor = '#f59e0b';
+    fillGradStart = 'rgba(245, 158, 11, 0.35)';
+    fillGradEnd = 'rgba(245, 158, 11, 0.0)';
+    gridColor = 'rgba(148, 163, 184, 0.15)';
+    textColor = '#94a3b8';
+    thresholdColor = 'rgba(56, 189, 248, 0.7)';
+  } else if (state.activeStyle === 'polymatter') {
+    strokeColor = '#38bdf8';
+    fillGradStart = 'rgba(56, 189, 248, 0.4)';
+    fillGradEnd = 'rgba(56, 189, 248, 0.0)';
+    gridColor = 'rgba(56, 189, 248, 0.12)';
+    textColor = '#64748b';
+    thresholdColor = 'rgba(16, 185, 129, 0.7)';
+  } else if (state.activeStyle === 'magnates') {
+    strokeColor = '#eab308';
+    fillGradStart = 'rgba(234, 179, 8, 0.4)';
+    fillGradEnd = 'rgba(234, 179, 8, 0.0)';
+    gridColor = 'rgba(234, 179, 8, 0.15)';
+    textColor = '#a1a1aa';
+    thresholdColor = 'rgba(245, 158, 11, 0.7)';
+  } else if (state.activeStyle === 'cleo') {
+    strokeColor = '#00f0ff';
+    fillGradStart = 'rgba(0, 240, 255, 0.45)';
+    fillGradEnd = 'rgba(168, 85, 247, 0.0)';
+    gridColor = 'rgba(0, 240, 255, 0.15)';
+    textColor = '#94a3b8';
+    thresholdColor = 'rgba(168, 85, 247, 0.8)';
+  }
+
+  const padLeft = 32;
+  const padRight = 12;
+  const padTop = 14;
+  const padBottom = 20;
+  const plotW = W - padLeft - padRight;
+  const plotH = H - padTop - padBottom;
+
+  const maxVal = Math.max(...rawData) * 1.15;
+  const minVal = 0;
+
+  // 1. Draw 3 Horizontal Calibrated Gridlines
+  ctx.save();
+  ctx.strokeStyle = gridColor;
+  ctx.lineWidth = 1;
+  ctx.setLineDash([3, 3]);
+  ctx.font = '8px "JetBrains Mono", monospace';
+  ctx.fillStyle = textColor;
+  ctx.textAlign = 'right';
+
+  for (let g = 0; g <= 2; g++) {
+    const y = padTop + (plotH / 2) * g;
+    ctx.beginPath();
+    ctx.moveTo(padLeft, y);
+    ctx.lineTo(W - padRight, y);
+    ctx.stroke();
+
+    const valLabel = Math.round(maxVal - (maxVal / 2) * g);
+    ctx.fillText(valLabel, padLeft - 6, y + 3);
+  }
+  ctx.restore();
+
+  // 2. Draw Target Benchmark Threshold Line
+  ctx.save();
+  const thresholdY = padTop + plotH * 0.32;
+  ctx.strokeStyle = thresholdColor;
+  ctx.lineWidth = 1.2;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath();
+  ctx.moveTo(padLeft, thresholdY);
+  ctx.lineTo(W - padRight, thresholdY);
+  ctx.stroke();
+
+  // Threshold Tag
+  ctx.font = '7px "JetBrains Mono", monospace';
+  ctx.fillStyle = thresholdColor;
+  ctx.textAlign = 'right';
+  ctx.fillText('TARGET BENCHMARK', W - padRight, thresholdY - 4);
+  ctx.restore();
+
+  // Compute smooth curve points
+  const points = rawData.map((val, i) => {
+    const x = padLeft + (i / (rawData.length - 1)) * plotW;
+    const y = padTop + plotH - ((val - minVal) / (maxVal - minVal)) * plotH;
+    return { x, y };
+  });
+
+  // 3. Draw Gradient Filled Area
+  ctx.save();
+  const areaGrad = ctx.createLinearGradient(0, padTop, 0, padTop + plotH);
+  areaGrad.addColorStop(0, fillGradStart);
+  areaGrad.addColorStop(1, fillGradEnd);
+
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, points[0].y);
+  for (let i = 0; i < points.length - 1; i++) {
+    const xc = (points[i].x + points[i + 1].x) / 2;
+    const yc = (points[i].y + points[i + 1].y) / 2;
+    ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+  }
+  ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+  ctx.lineTo(points[points.length - 1].x, padTop + plotH);
+  ctx.lineTo(points[0].x, padTop + plotH);
+  ctx.closePath();
+  ctx.fillStyle = areaGrad;
+  ctx.fill();
+  ctx.restore();
+
+  // 4. Draw Smooth Spline Stroke
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, points[0].y);
+  for (let i = 0; i < points.length - 1; i++) {
+    const xc = (points[i].x + points[i + 1].x) / 2;
+    const yc = (points[i].y + points[i + 1].y) / 2;
+    ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+  }
+  ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+  ctx.strokeStyle = strokeColor;
+  ctx.lineWidth = 2.5;
+  ctx.shadowColor = strokeColor;
+  ctx.shadowBlur = 8;
+  ctx.stroke();
+  ctx.restore();
+
+  // 5. Draw Points & Timeline Years
+  const years = ['2015', '2018', '2021', '2024', '2030E', '2038E', '2045E'];
+  ctx.font = '8px "JetBrains Mono", monospace';
+  ctx.fillStyle = textColor;
+  ctx.textAlign = 'center';
+
+  points.forEach((p, i) => {
+    // Year label
+    if (years[i]) {
+      ctx.fillText(years[i], p.x, H - 4);
+    }
+
+    // Small data point dot
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = strokeColor;
+    ctx.fill();
+  });
+
+  // 6. Highlight Active Peak Point Beacon
+  const peakIdx = Math.min(state.activeBeat + 1, points.length - 1);
+  const peakP = points[peakIdx];
+  if (peakP) {
+    ctx.save();
+    // Outer radar ring
+    ctx.beginPath();
+    ctx.arc(peakP.x, peakP.y, 7, 0, Math.PI * 2);
+    ctx.strokeStyle = strokeColor;
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    // Inner glowing core
+    ctx.beginPath();
+    ctx.arc(peakP.x, peakP.y, 3.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#ffffff';
+    ctx.shadowColor = strokeColor;
+    ctx.shadowBlur = 10;
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+function updateCodePreview() {
+  const codeBox = document.getElementById('codePreviewBox');
+  const topic = state.topics.find(t => t.id === state.activeTopic);
+  codeBox.innerText = `<!-- Bang Motion Studio Master: ${topic ? topic.title : 'Custom'} -->
+<!-- Style: ${state.activeStyle.toUpperCase()} | Ratio: ${state.ratio} -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>${topic ? topic.title : 'Explainer'}</title>
+<style>
+  :root {
+    --style-theme: "${state.activeStyle}";
+    --ratio-mode: "${state.ratio}";
+  }
+  /* Anti-Slop Production System */
+</style>
+</head>
+<body>
+  <div id="stage" data-duration="60.5">
+    <!-- Generated Beat Nodes -->
+  </div>
+</body>
+</html>`;
+}
+
+function updateVoScriptTab() {
+  const topic = state.topics.find(t => t.id === state.activeTopic);
+  if (!topic) return;
+  const container = document.getElementById('voScriptContainer');
+  container.innerHTML = `
+    <h3 style="color:#fff; margin-bottom: 12px;">Naskah Voiceover (${topic.title})</h3>
+    ${topic.beats.map(b => `
+      <div style="margin-bottom: 14px; padding: 10px; background: rgba(15,23,42,0.6); border-radius: 6px;">
+        <strong style="color:var(--cyan);">[Beat 0${b.beat} (${b.time})]</strong><br>
+        ${b.subtitle.replace(/<[^>]*>/g, '')}<br>
+        <span style="font-size: 11px; opacity: 0.7;">Visual: ${b.cardHead}</span>
+      </div>
+    `).join('')}
+  `;
+}
+
+function switchTab(tabId) {
+  document.querySelectorAll('.export-tab').forEach((t, i) => {
+    t.classList.toggle('active', (i === 0 && tabId === 'code') || (i === 1 && tabId === 'script') || (i === 2 && tabId === 'logs'));
+  });
+  const c = document.getElementById('tabCode');
+  const s = document.getElementById('tabScript');
+  const l = document.getElementById('tabLogs');
+  c.style.display = tabId === 'code' ? 'flex' : 'none';
+  s.style.display = tabId === 'script' ? 'flex' : 'none';
+  l.style.display = tabId === 'logs' ? 'flex' : 'none';
+  const target = tabId === 'code' ? c : (tabId === 'script' ? s : l);
+  if (window.gsap) {
+    gsap.fromTo(target, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" });
+  }
+  if (window.lucide) lucide.createIcons();
+}
+
+function togglePlay() {
+  state.isPlaying = !state.isPlaying;
+  const btn = document.getElementById('playBtn');
+  btn.innerHTML = state.isPlaying ? '<i data-lucide="pause"></i>' : '<i data-lucide="play"></i>';
+  if (window.lucide) lucide.createIcons();
+  if (window.gsap) {
+    gsap.fromTo(btn, { scale: 0.88 }, { scale: 1, duration: 0.2, ease: "back.out(2)" });
+  }
+  if (state.isPlaying) {
+    window.playInterval = setInterval(() => {
+      let next = state.activeBeat + 1;
+      const topic = state.topics.find(t => t.id === state.activeTopic);
+      if (next >= topic.beats.length) next = 0;
+      selectBeat(next);
+    }, 2500);
+  } else {
+    clearInterval(window.playInterval);
+  }
+}
+
+async function triggerRender() {
+  logToConsole('Initiating render job to backend server...');
+  try {
+    const res = await fetch('/api/render', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        targetHtml: 'index_indonesia_hari_ini.html',
+        audioFile: 'assets/episode_indonesia_hari_ini/audio/vo.wav'
+      })
+    });
+    const data = await res.json();
+    logToConsole('Server response: ' + JSON.stringify(data));
+    switchTab('logs');
+    startStatusPolling();
+  } catch (err) {
+    logToConsole('Render error: ' + err.message + '. (Running in static file mode?)');
+    switchTab('logs');
+  }
+}
+
+async function generateProjectHtml() {
+  logToConsole('Generating project HTML code...');
+  try {
+    const res = await fetch('/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        filename: `index_${state.activeTopic}_${state.activeStyle}.html`,
+        code: document.getElementById('codePreviewBox').innerText
+      })
+    });
+    const data = await res.json();
+    logToConsole('File created successfully: ' + data.filename);
+  } catch (err) {
+    logToConsole('Generate error: ' + err.message);
+  }
+}
+
+function copyCode() {
+  const code = document.getElementById('codePreviewBox').innerText;
+  navigator.clipboard.writeText(code);
+  logToConsole('HTML code copied to clipboard!');
+}
+
+function logToConsole(msg) {
+  const box = document.getElementById('statusConsoleBox');
+  box.innerText += '\n' + msg;
+  box.scrollTop = box.scrollHeight;
+}
+
+function startStatusPolling() {
+  const poll = setInterval(async () => {
+    try {
+      const res = await fetch('/api/status');
+      const data = await res.json();
+      logToConsole(`[Render]: Status=${data.status}, Frame=${data.frame}/${data.total_frames} (${data.progress}%)`);
+      if (data.status === 'success' || data.status === 'error') {
+        clearInterval(poll);
+      }
+    } catch (e) {
+      clearInterval(poll);
+    }
+  }, 2000);
+}
+
+function setEngine(engine) {
+  state.engine = engine;
+  const b9 = document.getElementById('btnEngine9Router');
+  const bg = document.getElementById('btnEngineGemini');
+  const badge = document.getElementById('providerBadge');
+  const desc = document.getElementById('engineDesc');
+  const btnGen = document.getElementById('btnGenAsset');
+
+  if (engine === '9router') {
+    b9.className = 'ratio-btn active';
+    bg.className = 'ratio-btn';
+    badge.innerText = '9ROUTER CX/GPT-5.5';
+    badge.style.color = '#38bdf8';
+    desc.innerHTML = 'Endpoint: <code>http://127.0.0.1:20128/v1/images/generations</code> (Model: <code>cx/gpt-5.5-image</code>).';
+    btnGen.innerHTML = '<i data-lucide="wand-2"></i> Generate Sprite via 9Router (cx/gpt-5.5-image)';
+  } else {
+    b9.className = 'ratio-btn';
+    bg.className = 'ratio-btn active';
+    badge.innerText = 'GOOGLE GEMINI';
+    badge.style.color = '#10b981';
+    desc.innerHTML = 'Direct Integration: Google Gemini / Imagen 3 API & Vision Synthesis.';
+    btnGen.innerHTML = '<i data-lucide="sparkles"></i> Generate Asset via Google Gemini';
+  }
+  if (window.lucide) lucide.createIcons();
+}
+
+async function triggerAssetGeneration() {
+  const prompt = document.getElementById('assetPromptBox').value;
+  const statusBox = document.getElementById('assetGenStatus');
+  statusBox.style.display = 'block';
+  statusBox.style.color = '#38bdf8';
+  statusBox.innerHTML = `[Engine]: Mengirim prompt ke ${state.engine === 'gemini' ? 'Google Gemini' : '9Router cx/gpt-5.5-image (port 20128)'}... Mohon tunggu ~30 detik.`;
+
+  try {
+    const res = await fetch('/api/generate_asset', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prompt: prompt,
+        filename: `sprite_beat_${state.activeBeat + 1}.png`,
+        provider: state.engine || '9router',
+        transparent: true
+      })
+    });
+    const data = await res.json();
+    if (data.status === 'success') {
+      statusBox.style.color = '#34d399';
+      statusBox.innerHTML = `
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <img src="${data.url}?t=${Date.now()}" style="width: 54px; height: 54px; object-fit: contain; background: repeating-conic-gradient(#1e293b 0% 25%, #0f172a 0% 50%) 50% / 10px 10px; border: 1px solid rgba(56,189,248,0.3); border-radius: 6px;">
+          <div>
+            <div style="font-weight: 700; color: #fff;">✅ Sprite Sukses Digenerate!</div>
+            <div style="font-size: 10px; color: #94a3b8;">${data.url}</div>
+            <button type="button" class="btn-secondary" style="margin-top: 4px; padding: 3px 8px; font-size: 10px;" onclick="applySpriteToStage('${data.url}')">🎯 Pasang ke Scene Preview</button>
+          </div>
+        </div>
+      `;
+      logToConsole(`[Asset Generator]: Sprite tersimpan di ${data.url}`);
+      loadSpriteGallery();
+      applySpriteToStage(data.url);
+    } else if (data.status === 'offline') {
+      statusBox.style.color = '#f59e0b';
+      statusBox.innerHTML = `⚠️ ${data.message}`;
+      logToConsole(`[9Router Offline]: Buka app 9Router di port 20128 untuk generate otomatis.`);
+    } else {
+      statusBox.style.color = '#f87171';
+      statusBox.innerHTML = `ℹ️ ${data.message || data.status}`;
+      logToConsole(`[Generator]: ${data.message || data.status}`);
+    }
+  } catch (err) {
+    statusBox.style.color = '#f87171';
+    statusBox.innerHTML = `❌ Gagal menghubungi server studio: ${err.message}`;
+  }
+}
+
+async function loadSpriteGallery() {
+  const shelf = document.getElementById('spriteGalleryList');
+  if (!shelf) return;
+  try {
+    const res = await fetch('/api/sprites');
+    const data = await res.json();
+    if (data.sprites && data.sprites.length > 0) {
+      shelf.innerHTML = data.sprites.map(s => `
+        <div onclick="applySpriteToStage('${s.url}')" title="${s.name}" style="flex-shrink: 0; width: 44px; height: 44px; border-radius: 6px; border: 1px solid var(--panel-border); background: repeating-conic-gradient(#1e293b 0% 25%, #0f172a 0% 50%) 50% / 8px 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <img src="${s.url}" style="max-width: 38px; max-height: 38px; object-fit: contain;">
+        </div>
+      `).join('');
+    } else {
+      shelf.innerHTML = `<span style="font-size: 11px; color: var(--text-dim);">Belum ada sprite yang digenerate.</span>`;
+    }
+  } catch (e) {
+    shelf.innerHTML = `<span style="font-size: 11px; color: var(--rose);">Gagal memuat sprite.</span>`;
+  }
+}
+
+// Specimen Names & Contextual Prompts per Beat
+const BEAT_SPECIMEN_NAMES = {
+  indonesia_hari_ini: [
+    "Radar Satelit Demografi 3D",
+    "Kristal Nikel & EV Battery Cell",
+    "Tangga Piramida Terdistorsi",
+    "AI Neural Microchip Beremboss",
+    "Jangkar Gravitasi PDB $13.845",
+    "Medali Lambang Garuda Emas"
+  ]
+};
+
+const BEAT_SPECIMEN_PROMPTS = {
+  indonesia_hari_ini: [
+    // Beat 1: Geopolitical Hook & Demographic Window
+    [
+      "3D volumetric satellite radar hologram of Indonesian archipelago with demographic density contour lines and golden peak seal, isolated on solid white background, 8k raytracing render, premium studio product photography, clean edge cutout.",
+      "Futuristic glowing demographic pyramid tower constructed from gold and titanium alloy bars, isolated on solid white background, high contrast editorial macro render.",
+      "Golden compass seal with Indonesian geographic coordinates embossed on circular obsidian medallion, isolated on solid white background, cinema lighting."
+    ],
+    // Beat 2: The Nickel & EV Boom
+    [
+      "Hyper-realistic raw nickel ore crystal rock fused with glowing cyan electric battery cell traces, isolated on pure solid white background, macro studio product photograph, premium 3D render.",
+      "Futuristic prismatic solid-state electric vehicle battery cell with nickel cathode glow, isolated on solid white background, clean industrial design render.",
+      "Molten nickel ingot glowing with orange industrial slag reflections, isolated on pure white background, dramatic studio lighting."
+    ],
+    // Beat 3: The Middle-Class Squeeze
+    [
+      "Distorted modern acrylic ladder of economic prosperity with descending red gradient indicator arrow, isolated on pure solid white background, minimalist editorial data visualization.",
+      "Precision isometric consumer purchasing power pressure gauge with needle in red warning sector, isolated on solid white background, tactile matte finish.",
+      "Cracked golden coin column showing erosion of middle strata, isolated on pure solid white background, sharp studio macro photography."
+    ],
+    // Beat 4: Digital Acceleration & AI
+    [
+      "Futuristic 3D neural processing AI microchip with glowing cyan circuit traces and gold contacts, isolated on pure solid white background, high quality 3d render.",
+      "Holographic fiber-optic digital data globe interconnecting Southeast Asia archipelago, isolated on solid white background, volumetric illumination.",
+      "Quantum processor die with intricate etched nanometer lithography pathways, isolated on solid white background, crisp industrial product shoot."
+    ],
+    // Beat 5: Middle Income Trap Benchmark
+    [
+      "Heavy dark titanium gravity anchor chained to ascending golden GDP trajectory arrow, isolated on pure solid white background, high-concept editorial 3D.",
+      "Sleek architectural glass gateway benchmark with target number 13845 embossed in laser gold, isolated on solid white background, minimal noir realism.",
+      "Balance scale comparing industrial manufacturing output vs raw resource basket, isolated on solid white background, precision studio render."
+    ],
+    // Beat 6: Resolution: Indonesia Emas 2045
+    [
+      "Majestic embossed gold and platinum Garuda Pancasila seal medallion with high relief detailing and diamond refraction, isolated on pure solid white background, cinema-grade 3D sculpture.",
+      "Futuristic tripartite architectural monument pillar representing high manufacturing, rule of law, and research innovation, isolated on solid white background, glowing gold accents.",
+      "Golden torch of perpetual innovation glowing with prismatic flame and 2045 numeral watermark, isolated on pure solid white background, crisp macro photo."
+    ]
+  ]
+};
+
+// Update In-Canvas Specimen Slot based on Beat & State
+function updateSlotForActiveBeat() {
+  const empty = document.getElementById('slotEmptyState');
+  const loading = document.getElementById('slotLoadingState');
+  const active = document.getElementById('slotActiveState');
+  const img = document.getElementById('canvasSpriteImg');
+  const badge = document.getElementById('slotBeatBadge');
+  const teaser = document.getElementById('slotPromptTeaser');
+
+  if (!empty || !active) return;
+
+  if (badge) badge.innerText = `BEAT ${state.activeBeat + 1} SPECIMEN`;
+  const names = BEAT_SPECIMEN_NAMES[state.activeTopic] || [];
+  const specName = names[state.activeBeat] || "3D Visual Specimen";
+  if (teaser) teaser.innerText = `+ Klik untuk Generate ${specName} Otomatis`;
+
+  // Check if beat already has an active sprite
+  const existingUrl = state.beatSprites && state.beatSprites[state.activeBeat];
+  if (existingUrl) {
+    empty.style.display = 'none';
+    if (loading) loading.style.display = 'none';
+    active.style.display = 'flex';
+    if (img) img.src = existingUrl;
+  } else {
+    active.style.display = 'none';
+    if (loading) loading.style.display = 'none';
+    empty.style.display = 'flex';
+    if (img) img.src = '';
+  }
+}
+
+// 1-Click In-Canvas Direct Generation (Google Chrome Modern Web Guidance: Zero Travel Distance)
+let genTimerInterval = null;
+async function triggerDirectGenerate(variantIndex = 0) {
+  const empty = document.getElementById('slotEmptyState');
+  const loading = document.getElementById('slotLoadingState');
+  const active = document.getElementById('slotActiveState');
+  const countdown = document.getElementById('slotCountdown');
+
+  const names = BEAT_SPECIMEN_NAMES[state.activeTopic] || [];
+  const specName = names[state.activeBeat] || "3D Visual Specimen";
+
+  // Derive prompt automatically
+  let basePrompt = "";
+  if (BEAT_SPECIMEN_PROMPTS[state.activeTopic] && BEAT_SPECIMEN_PROMPTS[state.activeTopic][state.activeBeat]) {
+    basePrompt = BEAT_SPECIMEN_PROMPTS[state.activeTopic][state.activeBeat][variantIndex] || BEAT_SPECIMEN_PROMPTS[state.activeTopic][state.activeBeat][0];
+  } else {
+    basePrompt = document.getElementById('assetPromptBox').value || `Futuristic 3D icon representing ${specName}, isolated on solid white background`;
+  }
+
+  // Inject active style nuance
+  let styleSuffix = "";
+  if (state.activeStyle === 'vox') {
+    styleSuffix = ", aged newsprint paper grain, authentic archival document texture, halftone dots, zero plastic artifacts";
+  } else if (state.activeStyle === 'magnates') {
+    styleSuffix = ", dramatic noir obsidian rim lighting, volumetric gold rim highlights, 35mm film grain, cinema lighting";
+  } else if (state.activeStyle === 'polymatter') {
+    styleSuffix = ", clean matte isometric vector palette, precision geometric lines, modern tech minimalism";
+  } else {
+    styleSuffix = ", official statistical gazette Perpres decree seal, macro document paper texture";
+  }
+  const finalPrompt = basePrompt + styleSuffix;
+
+  // View transition morphing to loading skeleton
+  const toLoading = () => {
+    if (empty) empty.style.display = 'none';
+    if (active) active.style.display = 'none';
+    if (loading) loading.style.display = 'flex';
+  };
+  if (document.startViewTransition) {
+    document.startViewTransition(toLoading);
+  } else {
+    toLoading();
+  }
+
+  // Toast notification
+  showToast(`9Router Synthesizing: ${specName}`, `Merender 3D RGBA cut-out (Beat ${state.activeBeat + 1}, V${variantIndex + 1})...`);
+
+  // Start ticker
+  let seconds = 0;
+  if (genTimerInterval) clearInterval(genTimerInterval);
+  genTimerInterval = setInterval(() => {
+    seconds++;
+    const formatted = String(Math.floor(seconds / 60)).padStart(2, '0') + ':' + String(seconds % 60).padStart(2, '0');
+    if (countdown) countdown.innerText = formatted;
+    const toastClock = document.getElementById('toastClock');
+    if (toastClock) toastClock.innerText = formatted;
+  }, 1000);
+
+  const filename = `sprite_beat_${state.activeBeat + 1}_v${variantIndex + 1}.png`;
+
+  try {
+    const res = await fetch('/api/generate_asset', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prompt: finalPrompt,
+        filename: filename,
+        provider: state.engine || '9router',
+        transparent: true
+      })
+    });
+    const data = await res.json();
+    clearInterval(genTimerInterval);
+
+    if (data.status === 'success') {
+      applySpriteToStage(data.url);
+      loadSpriteGallery();
+      showToast(`✅ Specimen Siap: ${specName}`, `Tersimpan di ${data.url} & dipasang ke scene!`, 4000);
+      logToConsole(`[Direct Specimen Gen]: Sukses generate ${data.url}`);
+    } else if (data.status === 'offline') {
+      toEmptyState();
+      showToast(`⚠️ 9Router Offline`, data.message, 6000);
+      logToConsole(`[9Router Offline]: Pastikan port 20128 aktif.`);
+    } else {
+      toEmptyState();
+      showToast(`❌ Error Generator`, data.message || "Gagal generate aset.", 5000);
+      logToConsole(`[Generator Error]: ${data.message}`);
+    }
+  } catch (err) {
+    clearInterval(genTimerInterval);
+    toEmptyState();
+    showToast(`❌ Connection Error`, err.message, 5000);
+  }
+
+  function toEmptyState() {
+    const update = () => {
+      if (loading) loading.style.display = 'none';
+      if (empty) empty.style.display = 'flex';
+    };
+    if (document.startViewTransition) document.startViewTransition(update);
+    else update();
+  }
+}
+
+// Stage Sprite Insertion & Morphing
+function applySpriteToStage(url) {
+  const empty = document.getElementById('slotEmptyState');
+  const loading = document.getElementById('slotLoadingState');
+  const active = document.getElementById('slotActiveState');
+  const img = document.getElementById('canvasSpriteImg');
+  if (!img) return;
+
+  const updateDOM = () => {
+    if (empty) empty.style.display = 'none';
+    if (loading) loading.style.display = 'none';
+    if (active) active.style.display = 'flex';
+    img.src = `${url}?t=${Date.now()}`;
+  };
+
+  if (document.startViewTransition) {
+    document.startViewTransition(updateDOM);
+  } else {
+    updateDOM();
+  }
+
+  if (!state.beatSprites) state.beatSprites = {};
+  state.beatSprites[state.activeBeat] = url;
+
+  if (window.gsap) {
+    gsap.killTweensOf(img);
+    gsap.fromTo(img, { scale: 0.7, opacity: 0, y: 15 }, { scale: 1, opacity: 1, y: 0, duration: 0.55, ease: 'back.out(1.7)' });
+    gsap.to(img, { y: -4, duration: 1.8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+  }
+  logToConsole(`[Stage Preview]: Memasang specimen ${url} ke canvas.`);
+}
+
+function removeSpriteFromStage() {
+  const empty = document.getElementById('slotEmptyState');
+  const loading = document.getElementById('slotLoadingState');
+  const active = document.getElementById('slotActiveState');
+  const img = document.getElementById('canvasSpriteImg');
+
+  const updateDOM = () => {
+    if (active) active.style.display = 'none';
+    if (loading) loading.style.display = 'none';
+    if (empty) empty.style.display = 'flex';
+    if (img) img.src = '';
+  };
+
+  if (document.startViewTransition) {
+    document.startViewTransition(updateDOM);
+  } else {
+    updateDOM();
+  }
+
+  if (state.beatSprites) delete state.beatSprites[state.activeBeat];
+  logToConsole(`[Stage Preview]: Specimen dihapus dari beat ${state.activeBeat + 1}.`);
+}
+
+function openSpriteLightbox() {
+  const img = document.getElementById('canvasSpriteImg');
+  if (img && img.src) {
+    window.open(img.src, '_blank');
+  }
+}
+
+// Toast Notifications (Google Chrome Modern Web Guidance)
+let toastTimeout = null;
+function showToast(title, desc, autoCloseMs = 0) {
+  const toast = document.getElementById('ambientToast');
+  if (!toast) return;
+  document.getElementById('toastTitle').innerText = title;
+  document.getElementById('toastDesc').innerText = desc;
+  toast.classList.add('active');
+
+  if (toastTimeout) clearTimeout(toastTimeout);
+  if (autoCloseMs > 0) {
+    toastTimeout = setTimeout(() => {
+      hideToast();
+    }, autoCloseMs);
+  }
+}
+
+function hideToast() {
+  const toast = document.getElementById('ambientToast');
+  if (toast) toast.classList.remove('active');
+  if (toastTimeout) clearTimeout(toastTimeout);
+}
+
+// Proactive Health Ping
+async function checkEngineHealth() {
+  const dot = document.getElementById('enginePulseDot');
+  const text = document.getElementById('engineStatusText');
+  try {
+    const res = await fetch('/api/sprites');
+    if (res.ok) {
+      if (dot) dot.className = 'pulse-dot online';
+      if (text) {
+        text.innerText = '9ROUTER ONLINE';
+        text.style.color = '#10b981';
+      }
+    } else {
+      throw new Error("Server response not ok");
+    }
+  } catch (e) {
+    if (dot) dot.className = 'pulse-dot offline';
+    if (text) {
+      text.innerText = 'SERVER OFFLINE';
+      text.style.color = '#f43f5e';
+    }
+  }
+}
+
+window.addEventListener('load', () => {
+  state.engine = '9router';
+  state.beatSprites = {
+    0: '/assets/episode_indonesia_hari_ini/sprites/sprite_radar_satellite.png',
+    1: '/assets/episode_indonesia_hari_ini/sprites/sprite_nickel_ore_crystal.png',
+    2: '/assets/episode_indonesia_hari_ini/sprites/sprite_middle_income_ladder.png',
+    3: '/assets/episode_indonesia_hari_ini/sprites/sprite_ai_chip.png',
+    4: '/assets/episode_indonesia_hari_ini/sprites/sprite_gold_bullion_stack.png',
+    5: '/assets/episode_indonesia_hari_ini/sprites/sprite_garuda_gold_seal.png'
+  };
+  initStudio();
+  loadSpriteGallery();
+  checkEngineHealth();
+  if (window.lucide) lucide.createIcons();
+
+  // GSAP Tactile Spring Feedback on All Action Buttons
+  document.querySelectorAll('button, .style-card, .beat-pill').forEach(el => {
+    el.addEventListener('mousedown', () => {
+      if (window.gsap) gsap.to(el, { scale: 0.97, duration: 0.08, ease: 'power1.out' });
+    });
+    el.addEventListener('mouseup', () => {
+      if (window.gsap) gsap.to(el, { scale: 1, duration: 0.12, ease: 'back.out(2)' });
+    });
+    el.addEventListener('mouseleave', () => {
+      if (window.gsap) gsap.to(el, { scale: 1, duration: 0.12, ease: 'power1.out' });
+    });
+  });
+});
+window.addEventListener('resize', renderChart);
+</script>
+<!-- Native Top-Layer Popover Toast (Google Chrome Modern Web Guidance) -->
+<div id="ambientToast" popover="manual" class="modern-toast">
+  <div class="toast-pulse-core" id="toastPulseCore"></div>
+  <div class="toast-body">
+    <div class="toast-title-bar">
+      <span class="toast-title" id="toastTitle">9Router AI Synthesizing</span>
+      <span class="toast-clock" id="toastClock">00:00</span>
+    </div>
+    <div class="toast-desc" id="toastDesc">Rendering 3D RGBA cut-out specimen...</div>
+  </div>
+  <button type="button" class="toast-close" onclick="hideToast()">
+    <i data-lucide="x"></i>
+  </button>
+</div>
+
+</body>
+</html>

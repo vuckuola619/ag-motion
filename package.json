@@ -6,7 +6,16 @@
   "type": "module",
   "scripts": {
     "test:snapshots": "node pipeline/test_snapshots.mjs",
-    "render": "node pipeline/render_mp4.mjs"
+    "render": "node pipeline/render_mp4.mjs",
+    "render:ep2": "node pipeline/render_mp4_ep2.mjs",
+    "render:ep3": "node pipeline/render_mp4_ep3.mjs",
+    "lint:hf": "node hyperframe-pro/plugins/hyperframe-pro/scripts/lint.mjs",
+    "trim:vo": "python hyperframe-pro/plugins/hyperframe-pro/scripts/trim-vo.py",
+    "swap:line": "python hyperframe-pro/plugins/hyperframe-pro/scripts/swap-line.py",
+    "prep:footage": "node hyperframe-pro/plugins/hyperframe-pro/scripts/prep-footage.mjs",
+    "gen:voice": "python pipeline/generate_voice_aligned.py",
+    "sheet": "python hyperframe-pro/plugins/hyperframe-pro/scripts/shots.py sheet",
+    "studio": "python studio_server.py"
   },
   "keywords": [
     "motion-graphics",

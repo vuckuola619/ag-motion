@@ -1,0 +1,1887 @@
+<!doctype html>
+<html lang="id">
+<!-- Made with Bang Motion × Hyperframe Pro Unified Architecture -->
+<!-- Explainer: Indonesia Hari Ini — Di Persimpangan Emas Atau Perangkap (60s Documentary Edition) -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explainer: Indonesia Hari Ini — Bang Motion White Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Caveat:wght@600;700&family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #060913;
+  --bg-navy: #0b1329;
+  --card-bg: rgba(13, 20, 38, 0.82);
+  --card-border: rgba(148, 163, 184, 0.22);
+  --card-glow: rgba(30, 58, 138, 0.25);
+  --ink: #f8fafc;
+  --ink-bright: #ffffff;
+  --ink-soft: #cbd5e1;
+  --mute: #94a3b8;
+  --mute-dark: #64748b;
+  --red: #f43f5e;
+  --red-light: #fb7185;
+  --amber: #fbbf24;
+  --amber-light: #fde047;
+  --emerald: #10b981;
+  --emerald-light: #34d399;
+  --blue: #38bdf8;
+  --blue-dark: #2563eb;
+  --grid-line: rgba(148, 163, 184, 0.05);
+  --grid-dot: rgba(148, 163, 184, 0.12);
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #03050a;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+#stage {
+  position: absolute;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 30%, #0c1836 0%, #070c1a 60%, #04070e 100%);
+  font-family: "Archivo", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+}
+
+/* Atmospheric Multi-Layered Technical Background */
+#techGrid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, var(--grid-dot) 1.5px, transparent 1.5px),
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px, 240px 240px, 240px 240px;
+  background-position: 0 0, 0 0, 0 0;
+  z-index: 1;
+}
+
+#ambientSpotlight {
+  position: absolute;
+  top: 180px;
+  left: 90px;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(140px);
+  opacity: 0.40;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.6) 0%, rgba(56, 189, 248, 0.25) 50%, transparent 80%);
+  z-index: 2;
+  will-change: background, opacity;
+  transition: background 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#paperGrain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(3, 6, 15, 0.8) 100%);
+  z-index: 3;
+}
+
+#techRulers {
+  display: none;
+}
+
+#atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: transparent;
+  z-index: 5;
+}
+
+#vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(2, 4, 10, 0.75) 100%);
+  z-index: 80;
+}
+
+/* Continuous Multi-Stage World Container */
+#world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 13000px;
+  height: 1920px;
+  transform-origin: 0px 0px;
+  will-change: transform, filter;
+  z-index: 10;
+}
+
+.stage-panel {
+  position: absolute;
+  top: 0;
+  width: 1080px;
+  height: 1920px;
+  padding: 56px 64px 44px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+/* Stage Absolute Placements */
+#s1 { left: 0px; }
+#s2 { left: 2000px; }
+#s3 { left: 4000px; }
+#s4 { left: 6000px; }
+#s5 { left: 8000px; }
+#s6 { left: 10000px; }
+
+/* Dossier Header Component */
+.header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--red);
+  letter-spacing: 0.14em;
+  padding-bottom: 14px;
+  border-bottom: 1.5px solid rgba(148, 163, 184, 0.20);
+  margin-bottom: 6px;
+  text-shadow: 0 0 16px rgba(244, 63, 94, 0.35);
+}
+
+.dossier-id {
+  color: var(--mute);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+/* Watermark: Hidden to prevent distracting faint ghost text */
+.watermark {
+  display: none;
+}
+
+/* Hand-Drawn Annotation Accent — Positioned cleanly under header, never cut off */
+.hand-accent {
+  position: absolute;
+  top: 76px;
+  right: 68px;
+  font-family: "Caveat", cursive;
+  font-size: 38px;
+  color: var(--amber-light);
+  font-weight: 700;
+  transform: rotate(4deg);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 16px rgba(251, 191, 36, 0.4);
+  z-index: 25;
+}
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(251, 191, 36, 0.4);
+  z-index: 25;
+}
+
+/* ==================== CARD DOSSIER COMPONENT SYSTEM ==================== */
+.hero-card-wrap.card-dossier {
+  width: 952px;
+  height: 880px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(13, 22, 44, 0.85) 0%, rgba(9, 14, 28, 0.92) 100%);
+  border: 1.5px solid rgba(148, 163, 184, 0.24);
+  border-radius: 28px;
+  box-shadow: 
+    0 35px 80px -15px rgba(0, 0, 0, 0.70), 
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 45px rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 26px 32px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  z-index: 10;
+}
+
+.hero-card-wrap.card-dossier.alert-theme {
+  border-color: rgba(244, 63, 94, 0.50);
+  background: linear-gradient(180deg, rgba(38, 15, 24, 0.90) 0%, rgba(18, 9, 14, 0.94) 100%);
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.70), 0 0 40px rgba(244, 63, 94, 0.20);
+}
+
+.card-inner-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.06) 0%, transparent 70%),
+    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* Corner Technical Ticks inside Card */
+.card-corner-tick {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(148, 163, 184, 0.4);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 3;
+}
+.card-corner-tick.tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
+.card-corner-tick.tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; }
+.card-corner-tick.bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; }
+.card-corner-tick.br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+
+.card-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.22);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--mute);
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+.card-tag {
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-tag.alert-red { color: var(--red-light); font-weight: 800; }
+.card-coord {
+  color: var(--mute);
+  font-weight: 600;
+}
+.card-coord.alert-red { color: var(--red-light); font-weight: 700; }
+
+.card-center-stage {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  margin: 10px 0;
+}
+
+.card-center-stage.column {
+  flex-direction: column;
+}
+
+/* Card 1: Archipelago & Satellite */
+.hero-3d-map {
+  width: 820px;
+  height: auto;
+  filter: drop-shadow(0 25px 45px rgba(16, 185, 129, 0.50));
+  will-change: transform;
+}
+
+.hero-satellite {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  width: 235px;
+  height: auto;
+  transform: rotate(12deg);
+  filter: drop-shadow(0 20px 30px rgba(251, 191, 36, 0.40));
+  will-change: transform;
+}
+
+.card-hud-strip {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  z-index: 2;
+}
+
+.hud-pill {
+  background: rgba(30, 41, 59, 0.70);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.hud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.hud-dot.red { background: var(--red); box-shadow: 0 0 10px var(--red); }
+.hud-dot.amber { background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+.hud-dot.emerald { background: var(--emerald); box-shadow: 0 0 10px var(--emerald); }
+
+/* Card 2 & 4: Duo Layout */
+.card-center-duo {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  padding: 10px 0;
+}
+
+.duo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-3d-battery {
+  height: 480px;
+  width: auto;
+  filter: drop-shadow(0 25px 45px rgba(56, 189, 248, 0.55));
+  will-change: transform;
+}
+
+.hero-3d-crystal {
+  width: 300px;
+  height: auto;
+  margin-top: 32px;
+  filter: drop-shadow(0 25px 45px rgba(16, 185, 129, 0.50));
+  will-change: transform;
+}
+
+.duo-lbl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mute);
+  margin-top: 10px;
+  letter-spacing: 0.06em;
+}
+
+.duo-center-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.metric-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(22, 33, 58, 0.92);
+  border: 4px solid var(--amber);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(251, 191, 36, 0.30);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.metric-circle.blue {
+  border-color: var(--blue);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.30);
+}
+
+.mc-num {
+  font-size: 54px;
+  font-weight: 900;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+}
+
+.mc-sub {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--mute);
+  margin-top: 6px;
+  letter-spacing: 0.06em;
+}
+
+.mc-badge {
+  background: rgba(251, 191, 36, 0.15);
+  border: 1.5px solid var(--amber);
+  color: var(--amber-light);
+  border-radius: 12px;
+  padding: 6px 16px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+}
+
+.mc-badge.blue {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--blue);
+  color: var(--blue);
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+/* Card 3: Alarm & BPS Delta */
+.hero-3d-alarm {
+  height: 380px;
+  width: auto;
+  filter: drop-shadow(0 25px 55px rgba(244, 63, 94, 0.65));
+  margin-bottom: 16px;
+  will-change: transform, filter;
+}
+
+.alarm-metric-card {
+  width: 100%;
+  background: rgba(28, 14, 22, 0.85);
+  border: 2px solid rgba(244, 63, 94, 0.45);
+  border-radius: 18px;
+  padding: 18px 28px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 25px rgba(244, 63, 94, 0.2);
+}
+
+.amc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amc-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.amc-yr {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--mute);
+}
+
+.amc-val {
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.amc-val.red { color: #fb7185; text-shadow: 0 0 18px rgba(251, 113, 133, 0.45); }
+
+.amc-note {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mute);
+}
+
+.amc-note.red { color: #fb7185; font-weight: 700; }
+
+.amc-delta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(244, 63, 94, 0.16);
+  border: 1.5px dashed var(--red);
+  border-radius: 14px;
+  padding: 10px 22px;
+}
+
+.delta-arrow {
+  color: #fb7185;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.delta-val {
+  font-size: 26px;
+  font-weight: 900;
+  color: #fb7185;
+}
+
+.delta-desc {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fb7185;
+}
+
+/* Card 4: Chip & Gold */
+.hero-3d-chip {
+  width: 320px;
+  height: auto;
+  margin-top: 24px;
+  filter: drop-shadow(0 25px 45px rgba(59, 130, 246, 0.55));
+  will-change: transform;
+}
+
+.hero-3d-gold {
+  width: 320px;
+  height: auto;
+  margin-top: 24px;
+  filter: drop-shadow(0 25px 50px rgba(251, 191, 36, 0.50));
+  will-change: transform;
+}
+
+/* Card 5: Arrow Breakthrough */
+.hero-3d-arrow {
+  height: 480px;
+  width: auto;
+  filter: drop-shadow(0 25px 50px rgba(168, 85, 247, 0.50));
+  margin-right: 28px;
+  will-change: transform;
+}
+
+.escape-stat-box {
+  flex: 1;
+  background: rgba(22, 33, 58, 0.85);
+  border: 1.5px solid rgba(148, 163, 184, 0.22);
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.esb-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.esb-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--mute);
+}
+
+.esb-num.red {
+  font-size: 36px;
+  font-weight: 900;
+  color: #fb7185;
+  text-shadow: 0 0 18px rgba(251, 113, 133, 0.4);
+}
+
+.esb-bar {
+  width: 100%;
+  height: 16px;
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.esb-fill {
+  width: 35.5%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--amber));
+  border-radius: 8px;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+}
+
+.esb-foot {
+  display: flex;
+  justify-content: space-between;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mute);
+}
+
+.esb-foot .red { color: #fb7185; font-weight: 800; }
+
+/* Card 6: Blueprint & Pillars */
+.card-blueprint-content {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+  padding: 10px 0;
+}
+
+.bp-visual-duo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bp-atom {
+  width: 280px;
+  height: auto;
+  filter: drop-shadow(0 20px 45px rgba(16, 185, 129, 0.55));
+  will-change: transform;
+}
+
+.bp-seal {
+  width: 280px;
+  height: auto;
+  filter: drop-shadow(0 20px 45px rgba(251, 191, 36, 0.50));
+  will-change: transform;
+}
+
+.bp-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.bp-item {
+  background: rgba(22, 33, 58, 0.85);
+  border: 1.5px solid rgba(148, 163, 184, 0.22);
+  border-radius: 14px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.bp-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--emerald-light);
+  text-shadow: 0 0 12px rgba(52, 211, 153, 0.4);
+}
+
+.bp-text {
+  font-size: 21px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Rubber Stamp Styling */
+.stamp {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  border: 3.5px solid var(--red);
+  color: #ffffff;
+  background: rgba(225, 29, 72, 0.92);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 24px;
+  font-weight: 900;
+  padding: 8px 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: 8px;
+  transform: rotate(-5deg);
+  box-shadow: 0 8px 25px rgba(225, 29, 72, 0.5), inset 0 0 10px rgba(0,0,0,0.2);
+  z-index: 20;
+}
+
+.stamp.amber {
+  border-color: var(--amber);
+  background: rgba(217, 119, 6, 0.92);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+}
+
+.stamp.blue {
+  border-color: var(--blue);
+  background: rgba(2, 132, 199, 0.92);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+}
+
+.stamp.emerald {
+  border-color: var(--emerald);
+  background: rgba(5, 150, 105, 0.92);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+}
+
+/* Card-Specific Stamp Placements (Zero Overlap with Text, Badges, or Fields) */
+#stamp1 { top: 52px; left: 32px; bottom: auto; right: auto; transform: rotate(-4deg); }
+#stamp2 { top: 46px; right: 32px; bottom: auto; transform: rotate(4deg); }
+#stamp3 { top: 60px; right: 32px; bottom: auto; transform: rotate(-5deg); }
+#stamp4 { top: 46px; right: 32px; bottom: auto; transform: rotate(4deg); }
+#stamp5 { bottom: 35px; right: 50px; left: auto; transform: rotate(-4deg); }
+#stamp6 { top: 60px; right: 32px; bottom: auto; transform: rotate(-5deg); }
+
+/* Kinetic Narrative Subtitle */
+.line {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.20;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 12px 0 16px 0;
+  min-height: 175px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  opacity: 0; /* invisible until voiceover entrance */
+}
+
+.line .w {
+  display: inline-block;
+  will-change: transform, opacity;
+  margin-right: 0.28em;
+}
+
+.hl {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+}
+
+.hl i {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 8px;
+  background: var(--red);
+  border-radius: 4px;
+  display: block;
+  transform-origin: left;
+  box-shadow: 0 0 14px var(--red);
+}
+
+.hl.amber i { background: var(--amber); box-shadow: 0 0 14px var(--amber); }
+.hl.blue i { background: var(--blue); box-shadow: 0 0 14px var(--blue); }
+.hl.emerald i { background: var(--emerald); box-shadow: 0 0 14px var(--emerald); }
+
+/* Dossier Telemetry Dashboard Table */
+.dossier-table {
+  background: linear-gradient(180deg, rgba(13, 20, 38, 0.85) 0%, rgba(9, 14, 28, 0.92) 100%);
+  border: 1.5px solid rgba(148, 163, 184, 0.22);
+  border-radius: 20px;
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  font-family: "JetBrains Mono", monospace;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 10;
+}
+
+.dt-item {
+  display: flex;
+  flex-direction: column;
+  background: rgba(22, 33, 58, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.dt-lbl {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mute);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.dt-val {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.dt-val.red { color: #fb7185; text-shadow: 0 0 14px rgba(251, 113, 133, 0.5); }
+.dt-val.amber { color: #fde047; text-shadow: 0 0 14px rgba(253, 224, 71, 0.5); }
+.dt-val.blue { color: #60a5fa; text-shadow: 0 0 14px rgba(96, 165, 250, 0.5); }
+.dt-val.emerald { color: #34d399; text-shadow: 0 0 14px rgba(52, 211, 153, 0.5); }
+
+/* Barcode & Telemetry Broadcast Strip (Bottom HUD) */
+.barcode-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: rgba(13, 20, 38, 0.70);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--mute);
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10;
+}
+
+.bs-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.barcode {
+  font-size: 22px;
+  letter-spacing: 4px;
+  color: #ffffff;
+}
+
+.bs-tag {
+  color: var(--mute);
+  font-weight: 700;
+}
+
+/* Real-Time Audio Frequency Spectrum Telemetry */
+.bs-eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 22px;
+}
+
+.eq-bar {
+  width: 4px;
+  background: var(--blue);
+  border-radius: 2px;
+  animation: eqBounce 1.2s infinite ease-in-out alternate;
+}
+
+@keyframes eqBounce {
+  0% { height: 4px; opacity: 0.3; }
+  50% { height: 18px; opacity: 0.8; }
+  100% { height: 8px; opacity: 0.5; }
+}
+
+.bs-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+/* Outro Final Resolution Card */
+#outroCard {
+  position: absolute;
+  top: 420px;
+  left: 70px;
+  width: 940px;
+  background: linear-gradient(180deg, rgba(13, 20, 38, 0.96) 0%, rgba(7, 11, 24, 0.98) 100%);
+  border: 2.5px solid rgba(251, 191, 36, 0.45);
+  border-radius: 28px;
+  padding: 60px 52px;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.80), 0 0 50px rgba(251, 191, 36, 0.20);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 50;
+  text-align: center;
+}
+
+#outroSeal {
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 24px auto;
+  display: block;
+  filter: drop-shadow(0 15px 35px rgba(251, 191, 36, 0.50));
+}
+
+.outro-title {
+  font-size: 50px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 18px;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+.outro-body {
+  font-size: 28px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  font-family: "Inter", sans-serif;
+  margin-bottom: 34px;
+}
+
+.outro-prompt {
+  background: rgba(244, 63, 94, 0.14);
+  border: 2px dashed var(--red);
+  border-radius: 14px;
+  padding: 22px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #fb7185;
+  font-family: "JetBrains Mono", monospace;
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.2);
+}
+
+/* Scrub Debug UI (?debug=1) */
+#dbg {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 30px;
+  padding: 10px 24px;
+  display: none;
+  align-items: center;
+  gap: 16px;
+  color: #fff;
+  font-family: monospace;
+  font-size: 16px;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+#dPlay {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#dScrub { width: 320px; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body data-composition-id="main" data-duration="60.5">
+
+<div id="stage">
+  <div id="techGrid"></div>
+  <div id="ambientSpotlight"></div>
+  <div id="paperGrain"></div>
+  <div id="atmosphere"></div>
+
+  <div id="world">
+    
+    <!-- ==================== STAGE 1: GEOPOLITICAL HOOK & DEMOGRAPHY ==================== -->
+    <div id="s1" class="stage-panel">
+      <div class="header-meta">
+        <span id="stag1">GEOPOLITICAL DOSSIER // INDONESIA 2026</span>
+        <span class="dossier-id">ARCHIVE REF: IDN-01</span>
+      </div>
+      <div class="watermark">2026</div>
+      <div class="hand-accent" id="hand1">Puncak Emas!</div>
+      
+      <div class="hero-card-wrap card-dossier" id="cardWrap1">
+        <div class="card-inner-grid"></div>
+        <div class="card-corner-tick tl"></div>
+        <div class="card-corner-tick tr"></div>
+        <div class="card-corner-tick bl"></div>
+        <div class="card-corner-tick br"></div>
+
+        <div class="card-top-bar">
+          <span class="card-tag">GEO-STRATEGIC RADAR // ARCHIPELAGO 2026</span>
+          <span class="card-coord">0.7893° S, 113.9213° E</span>
+        </div>
+        
+        <div class="card-center-stage">
+          <img class="hero-3d-map" id="spMap1" src="assets/episode_indonesia_hari_ini/sprites/sprite_indonesia_archipelago.png" alt="3D Archipelago">
+          <img class="hero-satellite" id="spSat1" src="assets/episode_indonesia_hari_ini/sprites/sprite_radar_satellite.png" alt="Radar Satellite">
+        </div>
+
+        <div class="card-hud-strip">
+          <div class="hud-pill"><span class="hud-dot red"></span>IKN NUSANTARA (CAPITAL)</div>
+          <div class="hud-pill"><span class="hud-dot amber"></span>JAWA: 56% PDB</div>
+          <div class="hud-pill"><span class="hud-dot emerald"></span>BONUS DEMOGRAFI 2030-2035</div>
+        </div>
+
+        <div class="stamp" id="stamp1">FASE KRUSIAL</div>
+      </div>
+      
+      <div class="line" id="line1">
+        Indonesia hari ini berada di <span class="hl">persimpangan paling krusial<i></i></span> dalam sejarahnya. Puncak bonus demografi sedang berlangsung!
+      </div>
+      
+      <div class="dossier-table" id="doc1">
+        <div class="dt-item">
+          <span class="dt-lbl">PUNCAK DEMOGRAFI</span>
+          <span class="dt-val red">2030–2035</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">SISA JENDELA WAKTU</span>
+          <span class="dt-val red">12 TAHUN</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">TOTAL PENDUDUK</span>
+          <span class="dt-val">282 JUTA JIWA</span>
+        </div>
+      </div>
+      
+      <div class="barcode-strip" id="footer1">
+        <div class="bs-left">
+          <span class="barcode">||| | |||| ||| |||| |</span>
+          <span class="bs-tag">DOC-REF // IDN-01</span>
+        </div>
+        <div class="bs-eq">
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 14px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 8px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 18px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 12px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 20px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.6s; height: 10px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 16px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 6px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.7s; height: 19px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 11px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 17px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 9px;"></span>
+        </div>
+        <div class="bs-right">
+          <span class="hud-dot emerald"></span>
+          <span>STATUS: ACTIVE RADAR</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== STAGE 2: THE NICKEL & BATTERY GIANT ==================== -->
+    <div id="s2" class="stage-panel">
+      <div class="header-meta">
+        <span id="stag2">COMMODITY & VALUE ADDED // HILIRISASI</span>
+        <span class="dossier-id">ARCHIVE REF: IDN-02</span>
+      </div>
+      <div class="watermark">52%</div>
+      <div class="hand-accent" id="hand2">Jangkar EV!</div>
+      
+      <div class="hero-card-wrap card-dossier" id="cardWrap2">
+        <div class="card-inner-grid"></div>
+        <div class="card-corner-tick tl"></div>
+        <div class="card-corner-tick tr"></div>
+        <div class="card-corner-tick bl"></div>
+        <div class="card-corner-tick br"></div>
+
+        <div class="card-top-bar">
+          <span class="card-tag">CRITICAL MINERAL ARCHIVE // NICKEL & EV BATTERY</span>
+          <span class="card-coord">SPEC: CLASS 1 HIGH-PURITY</span>
+        </div>
+
+        <div class="card-center-duo">
+          <div class="duo-item">
+            <img class="hero-3d-battery" id="spBat2" src="assets/episode_indonesia_hari_ini/sprites/sprite_ev_battery_cell.png" alt="EV Battery">
+            <span class="duo-lbl">CELL: LI-NMC 21700</span>
+          </div>
+          <div class="duo-center-metric">
+            <div class="metric-circle amber">
+              <span class="mc-num">52%</span>
+              <span class="mc-sub">PASOKAN DUNIA</span>
+            </div>
+            <div class="mc-badge">CADANGAN TERBESAR BUMI</div>
+          </div>
+          <div class="duo-item">
+            <img class="hero-3d-crystal" id="spCrys2" src="assets/episode_indonesia_hari_ini/sprites/sprite_nickel_ore_crystal.png" alt="Nickel Crystal">
+            <span class="duo-lbl">MINERAL: RAW ORE CRYSTAL</span>
+          </div>
+        </div>
+
+        <div class="stamp amber" id="stamp2">52% NIKEL DUNIA</div>
+      </div>
+      
+      <div class="line" id="line2">
+        Hilirisasi mineral <span class="hl amber">meledak luar biasa<i></i></span>. Indonesia kini menguasai lebih dari separuh pasokan nikel dunia!
+      </div>
+      
+      <div class="dossier-table" id="doc2">
+        <div class="dt-item">
+          <span class="dt-lbl">PANGSA PASAR GLOBAL</span>
+          <span class="dt-val amber">52.3% DUNIA</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">NILAI EKSPOR TURUNAN</span>
+          <span class="dt-val">RP 540+ TRILIUN</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">INTEGRASI RANTAI</span>
+          <span class="dt-val amber">GLOBAL EV LEAD</span>
+        </div>
+      </div>
+      
+      <div class="barcode-strip" id="footer2">
+        <div class="bs-left">
+          <span class="barcode">|||| || | |||| || |||</span>
+          <span class="bs-tag">DOC-REF // IDN-02</span>
+        </div>
+        <div class="bs-eq">
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 12px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 16px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 8px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 20px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 14px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.6s; height: 18px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 10px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 17px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.7s; height: 9px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 19px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 13px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 15px;"></span>
+        </div>
+        <div class="bs-right">
+          <span class="hud-dot amber"></span>
+          <span>SUPPLY: DOMINANT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== STAGE 3: THE MIDDLE CLASS REALITY ==================== -->
+    <div id="s3" class="stage-panel">
+      <div class="header-meta">
+        <span id="stag3">SOCIO-ECONOMIC REALITY // DAYA BELI</span>
+        <span class="dossier-id">ARCHIVE REF: IDN-03</span>
+      </div>
+      <div class="watermark">-9.4M</div>
+      <div class="hand-accent" id="hand3">Alarm Nyata!</div>
+      
+      <div class="hero-card-wrap card-dossier alert-theme" id="cardWrap3">
+        <div class="card-inner-grid"></div>
+        <div class="card-corner-tick tl"></div>
+        <div class="card-corner-tick tr"></div>
+        <div class="card-corner-tick bl"></div>
+        <div class="card-corner-tick br"></div>
+
+        <div class="card-top-bar">
+          <span class="card-tag alert-red">CRITICAL SURVEILLANCE // BPS CENSUS ALERT</span>
+          <span class="card-coord alert-red">STATUS: ELEVATED RISK</span>
+        </div>
+
+        <div class="card-center-stage column">
+          <img class="hero-3d-alarm" id="spAlarm3" src="assets/episode_indonesia_hari_ini/sprites/sprite_alarm_beacon.png" alt="Alarm Beacon">
+          <div class="alarm-metric-card">
+            <div class="amc-row">
+              <div class="amc-side">
+                <span class="amc-yr">2019</span>
+                <span class="amc-val">57.3 Juta</span>
+                <span class="amc-note">Kelas Menengah</span>
+              </div>
+              <div class="amc-delta">
+                <span class="delta-arrow">▼</span>
+                <span class="delta-val">-9.48 Juta</span>
+                <span class="delta-desc">Tergerus Turun</span>
+              </div>
+              <div class="amc-side">
+                <span class="amc-yr">2024</span>
+                <span class="amc-val red">47.8 Juta</span>
+                <span class="amc-note red">Alarm Daya Beli</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stamp" id="stamp3">ALARM BPS</div>
+      </div>
+      
+      <div class="line" id="line3">
+        Namun di balik angka megah, <span class="hl">9,4 juta kelas menengah<i></i></span> justru tergerus turun kelas. Alarm nyata bagi daya beli.
+      </div>
+      
+      <div class="dossier-table" id="doc3">
+        <div class="dt-item">
+          <span class="dt-lbl">KELAS MENENGAH 2019</span>
+          <span class="dt-val">57.33 JUTA</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">KELAS MENENGAH 2024</span>
+          <span class="dt-val red">47.85 JUTA</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">TERDEGRADASI</span>
+          <span class="dt-val red">-9.48 JUTA ORANG</span>
+        </div>
+      </div>
+      
+      <div class="barcode-strip" id="footer3">
+        <div class="bs-left">
+          <span class="barcode">|| |||| | ||| |||| ||</span>
+          <span class="bs-tag">DOC-REF // IDN-03</span>
+        </div>
+        <div class="bs-eq">
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 18px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 14px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 20px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 10px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 19px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 12px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.6s; height: 16px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 8px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.7s; height: 20px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 13px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 17px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 11px;"></span>
+        </div>
+        <div class="bs-right">
+          <span class="hud-dot red"></span>
+          <span>RISK: ELEVATED</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== STAGE 4: DIGITAL ECONOMY SURGE ==================== -->
+    <div id="s4" class="stage-panel">
+      <div class="header-meta">
+        <span id="stag4">DIGITAL ACCELERATION // AI & TALENTA</span>
+        <span class="dossier-id">ARCHIVE REF: IDN-04</span>
+      </div>
+      <div class="watermark">1400T</div>
+      <div class="hand-accent" id="hand4">Mesin Baru!</div>
+      
+      <div class="hero-card-wrap card-dossier" id="cardWrap4">
+        <div class="card-inner-grid"></div>
+        <div class="card-corner-tick tl"></div>
+        <div class="card-corner-tick tr"></div>
+        <div class="card-corner-tick bl"></div>
+        <div class="card-corner-tick br"></div>
+
+        <div class="card-top-bar">
+          <span class="card-tag">DIGITAL ECOSYSTEM // AI & CAPITAL INFRASTRUCTURE</span>
+          <span class="card-coord">HIGH-VELOCITY</span>
+        </div>
+
+        <div class="card-center-duo">
+          <div class="duo-item">
+            <img class="hero-3d-chip" id="spChip4" src="assets/episode_indonesia_hari_ini/sprites/sprite_ai_chip.png" alt="AI Chip">
+            <span class="duo-lbl">AI NEURAL PROCESSOR</span>
+          </div>
+          <div class="duo-center-metric">
+            <div class="metric-circle blue">
+              <span class="mc-num">1.400 T</span>
+              <span class="mc-sub">GMV DIGITAL (IDR)</span>
+            </div>
+            <div class="mc-badge blue">PENETRASI 79.5% POPULASI</div>
+          </div>
+          <div class="duo-item">
+            <img class="hero-3d-gold" id="spGold4" src="assets/episode_indonesia_hari_ini/sprites/sprite_gold_bullion_stack.png" alt="Gold Bullion">
+            <span class="duo-lbl">GOLD & RUPIAH DIGITAL</span>
+          </div>
+        </div>
+
+        <div class="stamp blue" id="stamp4">RP 1.400 TRILIUN</div>
+      </div>
+      
+      <div class="line" id="line4">
+        Di sisi lain, penetrasi digital tembus <span class="hl blue">delapan puluh persen<i></i></span>. Talenta muda memutar ekonomi ribuan triliun!
+      </div>
+      
+      <div class="dossier-table" id="doc4">
+        <div class="dt-item">
+          <span class="dt-lbl">PENETRASI INTERNET</span>
+          <span class="dt-val blue">79.5% POPULASI</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">VALUASI GMV DIGITAL</span>
+          <span class="dt-val blue">RP 1.400 TRILIUN</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">PERTUMBUHAN TAHUNAN</span>
+          <span class="dt-val">+14% CAGR</span>
+        </div>
+      </div>
+      
+      <div class="barcode-strip" id="footer4">
+        <div class="bs-left">
+          <span class="barcode">||| |||| || | || ||||</span>
+          <span class="bs-tag">DOC-REF // IDN-04</span>
+        </div>
+        <div class="bs-eq">
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 15px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 19px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 9px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 18px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 12px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.6s; height: 20px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 14px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 7px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.7s; height: 16px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 11px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 18px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 10px;"></span>
+        </div>
+        <div class="bs-right">
+          <span class="hud-dot blue"></span>
+          <span>ECOSYSTEM: SURGING</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== STAGE 5: THE MIDDLE INCOME TRAP ==================== -->
+    <div id="s5" class="stage-panel">
+      <div class="header-meta">
+        <span id="stag5">HISTORICAL BENCHMARK // PERANGKAP PENDAPATAN</span>
+        <span class="dossier-id">ARCHIVE REF: IDN-05</span>
+      </div>
+      <div class="watermark">15%</div>
+      <div class="hand-accent" id="hand5">Ujian Sejarah!</div>
+      
+      <div class="hero-card-wrap card-dossier" id="cardWrap5">
+        <div class="card-inner-grid"></div>
+        <div class="card-corner-tick tl"></div>
+        <div class="card-corner-tick tr"></div>
+        <div class="card-corner-tick bl"></div>
+        <div class="card-corner-tick br"></div>
+
+        <div class="card-top-bar">
+          <span class="card-tag">HISTORICAL BENCHMARK // MIDDLE INCOME TRAP</span>
+          <span class="card-coord">WORLD BANK MATRIX</span>
+        </div>
+
+        <div class="card-center-stage">
+          <img class="hero-3d-arrow" id="spArrow5" src="assets/episode_indonesia_hari_ini/sprites/sprite_middle_income_ladder.png" alt="Breakthrough Arrow">
+          <div class="escape-stat-box">
+            <div class="esb-row">
+              <span class="esb-label">TARGET PDB/KAPITA:</span>
+              <span class="esb-num red">USD $13,845</span>
+            </div>
+            <div class="esb-bar"><div class="esb-fill"></div></div>
+            <div class="esb-foot">
+              <span>SAAT INI: $4,920</span>
+              <span class="red">HANYA 15% NEGARA LOLOS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stamp" id="stamp5">HANYA 15% LOLOS</div>
+      </div>
+      
+      <div class="line" id="line5">
+        Hanya <span class="hl">lima belas persen negara<i></i></span> yang lolos jadi negara maju. Target kita harus tembus 13.000 dolar per kapita!
+      </div>
+      
+      <div class="dossier-table" id="doc5">
+        <div class="dt-item">
+          <span class="dt-lbl">PDB/KAPITA SAAT INI</span>
+          <span class="dt-val">USD $4,920</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">AMBANG NEGARA MAJU</span>
+          <span class="dt-val red">USD $13,845</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">PELUANG KELOLOSAN</span>
+          <span class="dt-val red">15 DARI 101 NEGARA</span>
+        </div>
+      </div>
+      
+      <div class="barcode-strip" id="footer5">
+        <div class="bs-left">
+          <span class="barcode">|||| | ||| || |||| ||</span>
+          <span class="bs-tag">DOC-REF // IDN-05</span>
+        </div>
+        <div class="bs-eq">
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 13px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 17px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 9px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 19px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 14px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.6s; height: 16px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 11px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 18px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.7s; height: 8px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 20px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 12px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 15px;"></span>
+        </div>
+        <div class="bs-right">
+          <span class="hud-dot amber"></span>
+          <span>CHALLENGE: SYSTEMIC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== STAGE 6: INDONESIA 2045 BLUEPRINT & OUTRO ==================== -->
+    <div id="s6" class="stage-panel">
+      <div class="header-meta">
+        <span id="stag6">STRATEGIC RESOLUTION // INDONESIA EMAS 2045</span>
+        <span class="dossier-id">ARCHIVE REF: IDN-06</span>
+      </div>
+      <div class="watermark">2045</div>
+      <div class="hand-accent" id="hand6">Masa Depan!</div>
+      
+      <div class="hero-card-wrap card-dossier" id="cardWrap6">
+        <div class="card-inner-grid"></div>
+        <div class="card-corner-tick tl"></div>
+        <div class="card-corner-tick tr"></div>
+        <div class="card-corner-tick bl"></div>
+        <div class="card-corner-tick br"></div>
+
+        <div class="card-top-bar">
+          <span class="card-tag">STRATEGIC RESOLUTION // INDONESIA EMAS 2045</span>
+          <span class="card-coord">EXECUTION ROADMAP</span>
+        </div>
+
+        <div class="card-blueprint-content">
+          <div class="bp-visual-duo">
+            <img class="bp-atom" id="spAtom6" src="assets/episode_indonesia_hari_ini/sprites/sprite_quantum_atom_stem.png" alt="Quantum Atom">
+            <img class="bp-seal" src="assets/episode_indonesia_hari_ini/sprites/sprite_garuda_gold_seal.png" alt="Garuda Seal">
+          </div>
+          <div class="bp-pillars">
+            <div class="bp-item"><span class="bp-num">01</span><span class="bp-text">Manufaktur Bernilai Tinggi Berbasis Riset</span></div>
+            <div class="bp-item"><span class="bp-num">02</span><span class="bp-text">Reformasi Pendidikan, STEM, & Vokasi Global</span></div>
+            <div class="bp-item"><span class="bp-num">03</span><span class="bp-text">Integritas Birokrasi & Kepastian Hukum Total</span></div>
+          </div>
+        </div>
+
+        <div class="stamp emerald" id="stamp6">INDONESIA 2045</div>
+      </div>
+      
+      <div class="line" id="line6">
+        Kuncinya: <span class="hl emerald">manufaktur bernilai tinggi<i></i></span>, riset nyata, dan integritas sebelum gerbang emas tertutup selamanya!
+      </div>
+      
+      <div class="dossier-table" id="doc6">
+        <div class="dt-item">
+          <span class="dt-lbl">PILAR UTAMA</span>
+          <span class="dt-val emerald">RISET & INOVASI</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">KUALITAS SDM</span>
+          <span class="dt-val emerald">STEM & VOKASI GLOBAL</span>
+        </div>
+        <div class="dt-item">
+          <span class="dt-lbl">REFORMASI</span>
+          <span class="dt-val">KEPASTIAN HUKUM</span>
+        </div>
+      </div>
+      
+      <div class="barcode-strip" id="footer6">
+        <div class="bs-left">
+          <span class="barcode">|||| |||| | ||| || ||</span>
+          <span class="bs-tag">DOC-REF // IDN-06</span>
+        </div>
+        <div class="bs-eq">
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 16px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 12px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 20px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 14px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 18px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.6s; height: 10px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.2s; height: 17px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.4s; height: 8px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.7s; height: 19px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.3s; height: 13px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.5s; height: 15px;"></span>
+          <span class="eq-bar" style="animation-delay: 0.1s; height: 11px;"></span>
+        </div>
+        <div class="bs-right">
+          <span class="hud-dot emerald"></span>
+          <span>STATUS: EXECUTING</span>
+        </div>
+      </div>
+
+      <!-- Outro Dossier Final Resolution Pop-in -->
+      <div id="outroCard">
+        <img id="outroSeal" src="assets/episode_indonesia_hari_ini/sprites/sprite_garuda_gold_seal.png" alt="Seal">
+        <div class="outro-title">Indonesia Emas Bukan Hadiah</div>
+        <div class="outro-body">Melainkan masa depan yang harus kita rebut dan bangun bersama hari ini.</div>
+        <div class="outro-prompt">Apa langkah paling mendesak menurutmu? Tulis di komentar! 👇</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="vignette"></div>
+
+  <!-- Audio Element -->
+  <audio id="vo" src="assets/episode_indonesia_hari_ini/audio/vo.wav" preload="none"></audio>
+
+  <!-- Debug Controller -->
+  <div id="dbg">
+    <button id="dPlay">Play</button>
+    <input type="range" id="dScrub" min="0" max="60500" value="0">
+    <span id="dClock">0.00s</span>
+  </div>
+</div>
+
+<script>
+(() => {
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+
+const DURATION = 60.5;
+const rig = $('#world');
+const vo = $('#vo');
+
+/* ---------- Split words into spans for kinetic animation (attach punctuation cleanly) ---------- */
+$$('.line').forEach(el => {
+  const out = [];
+  el.childNodes.forEach(n => {
+    if (n.nodeType === 3) {
+      const words = n.textContent.trim().split(/\s+/).filter(Boolean);
+      words.forEach((w, idx) => {
+        if (/^[.,!?:;]+$/.test(w) && out.length > 0) {
+          out[out.length - 1].appendChild(document.createTextNode(w));
+          return;
+        }
+        if (/^[.,!?:;]/.test(w) && idx === 0 && out.length > 0) {
+          const m = w.match(/^[.,!?:;]+/);
+          if (m) {
+            const punct = m[0];
+            const rest = w.slice(punct.length);
+            out[out.length - 1].appendChild(document.createTextNode(punct));
+            if (rest) {
+              const s = document.createElement('span');
+              s.className = 'w';
+              s.textContent = rest;
+              out.push(s);
+            }
+            return;
+          }
+        }
+        const s = document.createElement('span');
+        s.className = 'w';
+        s.textContent = w;
+        out.push(s);
+      });
+    } else {
+      const s = document.createElement('span');
+      s.className = 'w';
+      s.appendChild(n.cloneNode(true));
+      out.push(s);
+    }
+  });
+  el.textContent = '';
+  out.forEach(s => el.appendChild(s));
+});
+
+/* ---------- Motion Blur Filter Generator ---------- */
+const svgNS = 'http://www.w3.org/2000/svg';
+let blurCount = 0;
+function makeBlur() {
+  let defs = $('#motionBlurDefs');
+  if (!defs) {
+    const s = document.createElementNS(svgNS, 'svg');
+    s.id = 'motionBlurDefs';
+    s.style.position = 'absolute';
+    s.style.width = '0';
+    s.style.height = '0';
+    document.body.appendChild(s);
+    defs = document.createElementNS(svgNS, 'defs');
+    s.appendChild(defs);
+  }
+  const id = `mb_${++blurCount}`;
+  const f = document.createElementNS(svgNS, 'filter');
+  f.id = id;
+  const g = document.createElementNS(svgNS, 'feGaussianBlur');
+  g.setAttribute('stdDeviation', '0 0');
+  f.appendChild(g);
+  defs.appendChild(f);
+  return { url: `url(#${id})`, node: g };
+}
+
+function blurTween(timeline, targets, at, from, to, dur, { ease = 'power3.out', ax = 1, ay = 0.08 } = {}) {
+  const b = makeBlur(), o = { v: from };
+  timeline.set(targets, { filter: b.url }, at);
+  timeline.to(o, {
+    v: to,
+    duration: dur,
+    ease,
+    onUpdate() {
+      b.node.setAttribute('stdDeviation', `${(o.v * ax).toFixed(2)} ${(o.v * ay).toFixed(2)}`);
+    }
+  }, at);
+  timeline.set(targets, { filter: 'none' }, at + dur);
+}
+const VERT = { ax: 0.08, ay: 1 }, HORZ = { ax: 1, ay: 0.08 };
+
+/* ---------- GSAP Master Timeline ---------- */
+const tl = gsap.timeline({ paused: true });
+
+/* ---------- Motion Vocabulary Helpers ---------- */
+const say = (sel, at, { dur = 0.44, st = 0.045 } = {}) => {
+  const el = $(sel), ws = $$('.w', el);
+  tl.set(el, { opacity: 1 }, at);
+  tl.fromTo(ws, 
+    { opacity: 0, scale: 0.85, y: 18 }, 
+    { opacity: 1, scale: 1, y: 0, duration: dur, ease: 'back.out(1.4)', stagger: st, immediateRender: false }, 
+    at
+  );
+  blurTween(tl, el, at, 14, 0, dur + st * ws.length, VERT);
+  $$('.hl i', el).forEach((h, i) => {
+    tl.fromTo(h, { scaleX: 0 }, { scaleX: 1, duration: 0.38, ease: 'power3.out', immediateRender: false }, at + st * ws.length + 0.10 + i * 0.15);
+  });
+};
+
+const fly = (sel, at, { from = { x: 0, y: 160, rotate: 2, scale: 0.92 }, dur = 0.80, rot = 0, float = true } = {}) => {
+  const el = $(sel);
+  tl.fromTo(el, 
+    { opacity: 0, ...from }, 
+    { opacity: 1, x: 0, y: 0, rotate: rot, scale: 1, duration: dur, ease: 'power4.out', immediateRender: false }, 
+    at
+  );
+  blurTween(tl, el, at, 20, 0, dur * 0.7, Math.abs(from.x || 0) > Math.abs(from.y || 0) ? HORZ : VERT);
+  if (float) {
+    tl.to(el, { y: -10, rotate: rot + 0.5, duration: 2.2, ease: 'sine.inOut', yoyo: true, repeat: 5 }, at + dur);
+  }
+};
+
+const label = (sel, at) => tl.fromTo($(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.36, ease: 'power3.out', immediateRender: false }, at);
+const slam = (sel, at) => tl.fromTo($(sel), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.26, ease: 'power4.in', immediateRender: false }, at);
+const block = (sel, at) => {
+  tl.set($(sel), { opacity: 1 }, at);
+  tl.fromTo($(sel), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.42, ease: 'power3.out', immediateRender: false }, at);
+};
+
+/* 3D Cosmetic Sprite Pop & Float Helper */
+const popSprite = (sel, at, { scale = 1, rot = 0, yOffset = 40, dur = 0.65 } = {}) => {
+  const el = $(sel);
+  if (!el) return;
+  tl.fromTo(el,
+    { opacity: 0, scale: scale * 0.7, y: yOffset, rotation: rot - 10 },
+    { opacity: 1, scale: scale, y: 0, rotation: rot, duration: dur, ease: 'back.out(1.8)', immediateRender: false },
+    at
+  );
+  tl.to(el, { y: -8, rotation: rot + 1, duration: 2.0, ease: 'sine.inOut', yoyo: true, repeat: 4 }, at + dur);
+};
+
+/* Volumetric Ambient Spotlight Glow Shifter */
+const setGlow = (at, color1, color2, dur = 1.0) => {
+  const spot = $('#ambientSpotlight');
+  if (!spot) return;
+  tl.to(spot, {
+    background: `radial-gradient(circle, ${color1} 0%, ${color2} 50%, transparent 80%)`,
+    duration: dur,
+    ease: 'power2.out'
+  }, at);
+};
+
+/* Camera Glide Transition */
+const glideTransition = (startTime, fromX, toX, dur = 0.80) => {
+  const midX = (fromX + toX) / 2;
+  tl.to(rig, {
+    x: 540 - midX * 0.96,
+    y: 960 - 960 * 0.96,
+    scale: 0.96,
+    duration: dur * 0.45,
+    ease: 'power2.in'
+  }, startTime);
+
+  tl.to(rig, {
+    x: 540 - toX * 1.03,
+    y: 960 - 960 * 1.03,
+    scale: 1.03,
+    duration: dur * 0.55,
+    ease: 'power2.out'
+  }, startTime + dur * 0.45);
+
+  blurTween(tl, rig, startTime + dur * 0.15, 0, 24, dur * 0.35, HORZ);
+  blurTween(tl, rig, startTime + dur * 0.50, 24, 0, dur * 0.35, HORZ);
+};
+
+/* Reading push-in */
+const readPush = (at, toX, fromScale = 1.03, toScale = 1.06, dur = 4.0) => {
+  tl.fromTo(rig, 
+    { x: 540 - toX * fromScale, y: 960 - 960 * fromScale, scale: fromScale },
+    { x: 540 - toX * toScale, y: 960 - 960 * toScale, scale: toScale, duration: dur, ease: 'sine.out' },
+    at
+  );
+};
+
+// Global initial state
+tl.set(rig, { x: 540 - 540, y: 0, scale: 1, transformOrigin: '0px 0px' }, 0);
+
+/* ==========================================================================
+   CHOREOGRAPHY: 60-SECOND INDONESIA HARI INI DOSSIER
+   ========================================================================== */
+
+/* ---------- BEAT 1 (0.0s – 9.4s): GEOPOLITICAL HOOK & DEMOGRAPHY (X = 540) ---------- */
+setGlow(0.00, 'rgba(16, 185, 129, 0.50)', 'rgba(56, 189, 248, 0.20)', 0.5);
+label('#stag1', 0.12);
+readPush(0.15, 540, 1.0, 1.04, 8.5);
+fly('#cardWrap1', 0.45, { from: { x: 0, y: 180, scale: 0.92, rotate: 1 }, dur: 0.85, rot: 0 });
+popSprite('#spSat1', 0.85, { scale: 1, rot: 10, yOffset: -30 });
+popSprite('#spMap1', 1.45, { scale: 1, rot: -4, yOffset: 40 });
+slam('#stamp1', 1.20);
+label('#hand1', 1.60);
+say('#line1', 0.80, { dur: 0.42, st: 0.045 });
+block('#doc1', 4.50);
+label('#footer1', 5.20);
+
+/* ---------- TRANSITION 1 -> 2 (8.8s -> 9.6s) ---------- */
+glideTransition(8.80, 540, 2540, 0.80);
+
+/* ---------- BEAT 2 (9.5s – 18.9s): THE NICKEL GIANT (X = 2540) ---------- */
+setGlow(9.50, 'rgba(56, 189, 248, 0.55)', 'rgba(16, 185, 129, 0.20)');
+label('#stag2', 9.50);
+readPush(9.60, 2540, 1.03, 1.07, 8.5);
+fly('#cardWrap2', 9.80, { from: { x: 80, y: 160, scale: 0.90, rotate: -2 }, dur: 0.80, rot: 0 });
+popSprite('#spBat2', 10.20, { scale: 1, rot: -6, yOffset: -30 });
+popSprite('#spCrys2', 11.20, { scale: 1, rot: 6, yOffset: 40 });
+slam('#stamp2', 10.60);
+label('#hand2', 11.00);
+say('#line2', 10.10, { dur: 0.42, st: 0.045 });
+block('#doc2', 13.50);
+label('#footer2', 14.20);
+
+/* ---------- TRANSITION 2 -> 3 (18.3s -> 19.1s) ---------- */
+glideTransition(18.30, 2540, 4540, 0.80);
+
+/* ---------- BEAT 3 (19.0s – 27.2s): THE MIDDLE CLASS REALITY (X = 4540) ---------- */
+setGlow(19.00, 'rgba(244, 63, 94, 0.60)', 'rgba(251, 191, 36, 0.20)');
+label('#stag3', 19.00);
+readPush(19.10, 4540, 1.03, 1.07, 7.5);
+fly('#cardWrap3', 19.30, { from: { x: -60, y: 160, scale: 0.92, rotate: 2 }, dur: 0.80, rot: 0 });
+popSprite('#spAlarm3', 19.80, { scale: 1, rot: 4, yOffset: -40 });
+tl.to('#spAlarm3', { filter: 'drop-shadow(0 20px 45px rgba(225, 29, 72, 0.85))', yoyo: true, repeat: 6, duration: 0.5, ease: 'sine.inOut' }, 20.40);
+slam('#stamp3', 20.20);
+label('#hand3', 20.60);
+say('#line3', 19.60, { dur: 0.42, st: 0.045 });
+block('#doc3', 22.00);
+label('#footer3', 23.00);
+
+/* ---------- TRANSITION 3 -> 4 (26.6s -> 27.4s) ---------- */
+glideTransition(26.60, 4540, 6540, 0.80);
+
+/* ---------- BEAT 4 (27.3s – 35.9s): DIGITAL ECONOMY SURGE (X = 6540) ---------- */
+setGlow(27.30, 'rgba(59, 130, 246, 0.55)', 'rgba(251, 191, 36, 0.25)');
+label('#stag4', 27.30);
+readPush(27.40, 6540, 1.03, 1.07, 8.0);
+fly('#cardWrap4', 27.70, { from: { x: 80, y: 160, scale: 0.90, rotate: -2 }, dur: 0.80, rot: 0 });
+popSprite('#spChip4', 28.10, { scale: 1, rot: -8, yOffset: -30 });
+popSprite('#spGold4', 29.20, { scale: 1, rot: 5, yOffset: 40 });
+slam('#stamp4', 28.50);
+label('#hand4', 28.90);
+say('#line4', 28.00, { dur: 0.42, st: 0.045 });
+block('#doc4', 31.50);
+label('#footer4', 32.20);
+
+/* ---------- TRANSITION 4 -> 5 (35.3s -> 36.1s) ---------- */
+glideTransition(35.30, 6540, 8540, 0.80);
+
+/* ---------- BEAT 5 (36.0s – 45.1s): THE MIDDLE INCOME TRAP (X = 8540) ---------- */
+setGlow(36.00, 'rgba(168, 85, 247, 0.50)', 'rgba(244, 63, 94, 0.20)');
+label('#stag5', 36.00);
+readPush(36.10, 8540, 1.03, 1.07, 8.5);
+fly('#cardWrap5', 36.40, { from: { x: -60, y: 160, scale: 0.92, rotate: 2 }, dur: 0.80, rot: 0 });
+popSprite('#spArrow5', 36.90, { scale: 1, rot: 2, yOffset: 60, dur: 0.75 });
+slam('#stamp5', 37.30);
+label('#hand5', 37.70);
+say('#line5', 36.80, { dur: 0.42, st: 0.045 });
+block('#doc5', 40.50);
+label('#footer5', 41.50);
+
+/* ---------- TRANSITION 5 -> 6 (44.5s -> 45.3s) ---------- */
+glideTransition(44.50, 8540, 10540, 0.80);
+
+/* ---------- BEAT 6 (45.2s – 53.5s): 2045 BLUEPRINT (X = 10540) ---------- */
+setGlow(45.20, 'rgba(16, 185, 129, 0.55)', 'rgba(251, 191, 36, 0.25)');
+label('#stag6', 45.20);
+readPush(45.30, 10540, 1.03, 1.07, 7.5);
+fly('#cardWrap6', 45.60, { from: { x: 0, y: 160, scale: 0.90, rotate: 1 }, dur: 0.80, rot: 0 });
+popSprite('#spAtom6', 46.10, { scale: 1, rot: -5, yOffset: -30 });
+slam('#stamp6', 46.50);
+label('#hand6', 46.90);
+say('#line6', 45.80, { dur: 0.42, st: 0.045 });
+block('#doc6', 48.50);
+label('#footer6', 49.50);
+
+/* ---------- OUTRO RESOLUTION (53.5s – 60.5s) ---------- */
+setGlow(53.40, 'rgba(251, 191, 36, 0.60)', 'rgba(16, 185, 129, 0.25)');
+tl.to(['#cardWrap6', '#line6', '#doc6', '#footer6'], { opacity: 0, duration: 0.35, ease: 'power2.out' }, 53.40);
+
+tl.fromTo('#outroCard',
+  { opacity: 0, scale: 0.86, y: 40 },
+  { opacity: 1, scale: 1.0, y: 0, duration: 0.65, ease: 'back.out(1.5)' },
+  53.70
+);
+blurTween(tl, '#outroCard', 53.70, 18, 0, 0.50, VERT);
+
+// Zoom hold on Outro Resolution Card
+tl.to(rig, {
+  x: 540 - 10540 * 1.04,
+  y: 960 - 960 * 1.04,
+  scale: 1.04,
+  duration: 6.8,
+  ease: 'sine.out'
+}, 53.70);
+
+tl.to({}, { duration: 0.5 }, 60.5);
+
+/* ---------- DETERMINISTIC PLAYBACK & SCRUBBER BRIDGE ---------- */
+window.BANG_MOTION = {
+  ready: true,
+  DURATION: DURATION,
+  tl: tl,
+  seekFrame: async function(seconds) {
+    tl.time(seconds);
+    if (vo && !vo.paused) vo.pause();
+    return Promise.resolve();
+  },
+  play: function() {
+    tl.play();
+    if (vo) vo.play().catch(() => {});
+  },
+  pause: function() {
+    tl.pause();
+    if (vo) vo.pause();
+  }
+};
+
+/* Scrubber Debug Setup */
+const urlParams = new URLSearchParams(window.location.search);
+const isClean = urlParams.get('clean') === '1';
+const isDebug = urlParams.get('debug') === '1';
+
+if (isDebug) {
+  const dbg = $('#dbg');
+  const dPlay = $('#dPlay');
+  const dScrub = $('#dScrub');
+  const dClock = $('#dClock');
+  dbg.style.display = 'flex';
+
+  dPlay.addEventListener('click', () => {
+    if (tl.paused()) {
+      tl.play();
+      if (vo) vo.play().catch(() => {});
+      dPlay.textContent = 'Pause';
+    } else {
+      tl.pause();
+      if (vo) vo.pause();
+      dPlay.textContent = 'Play';
+    }
+  });
+
+  dScrub.addEventListener('input', () => {
+    tl.pause();
+    if (vo) vo.pause();
+    dPlay.textContent = 'Play';
+    const t = (dScrub.value / 60500) * DURATION;
+    tl.seek(t);
+    if (vo) vo.currentTime = t;
+  });
+
+  tl.eventCallback('onUpdate', () => {
+    const t = tl.time();
+    dScrub.value = (t / DURATION) * 60500;
+    dClock.textContent = `${t.toFixed(2)}s`;
+  });
+}
+
+if (!isClean) {
+  window.addEventListener('click', () => {
+    if (tl.paused()) {
+      tl.play();
+      if (vo) {
+        vo.currentTime = tl.time();
+        vo.play().catch(() => {});
+      }
+    }
+  }, { once: true });
+}
+
+})();
+</script>
+</body>
+</html>

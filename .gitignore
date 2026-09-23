@@ -7,9 +7,15 @@ node_modules/
 *.tmp.png
 
 # Large video render outputs (keep source assets and diagnostic frames)
+output/**/*.mp4
+output/**/*.wav
 output/*.mp4
 output/*.wav
 test_audio.wav
+
+# Python caches
+__pycache__/
+*.pyc
 
 # External reference clones
 bang-motion-repo/

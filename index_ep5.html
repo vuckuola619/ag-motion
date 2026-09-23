@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Episode 5: The 1-Centimeter Layer of Mud (Vox Style Visual Journalism)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-gradient: radial-gradient(circle at 50% 35%, #FAF8F3 0%, #EFEBE2 85%, #E5DFD4 100%);
+  --panel-bg: #FFFFFF;
+  --ink: #111317;
+  --ink-dim: #4B5058;
+  --yel: #FFDE38;
+  --red: #D92D20;
+  --amber-ink: #B45309;
+  --cyan: #0284C7;
+  --mute: #8C887F;
+  --border-dim: rgba(20, 22, 25, 0.12);
+  --card-shadow: 0 20px 48px rgba(35, 30, 20, 0.14), 0 2px 8px rgba(35, 30, 20, 0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+html, body {
+  width: 100%; height: 100%;
+  background: #1A1A1A;
+  overflow: hidden;
+  font-family: "Barlow Condensed", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+/* 1080x1920 Stage Canvas */
+#stage {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 1080px; height: 1920px;
+  background: var(--bg-gradient);
+  overflow: hidden;
+  transform-origin: center center;
+  box-shadow: 0 0 90px rgba(0, 0, 0, 0.85);
+}
+
+/* Authentic Heavy Archival Paper Grain Overlay */
+.grain-overlay {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: multiply;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Warm Editorial Paper Vignette */
+.vignette {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(85, 75, 60, 0.15) 100%);
+  z-index: 51;
+}
+
+/* Optical Motion Streak */
+#motionStreak {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 222, 56, 0.35) 50%, transparent 100%);
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 55;
+  opacity: 0;
+}
+
+/* Persistent Vox Header Runner (Bright Editorial Bar) */
+#voxRunner {
+  position: absolute;
+  top: 90px; left: 60px; right: 60px;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 0 20px;
+  border-radius: 6px;
+  border: 1px solid var(--border-dim);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  z-index: 60;
+}
+#voxRunner .badge {
+  background: var(--yel);
+  color: #111;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 3px;
+  letter-spacing: 0.12em;
+}
+#voxRunner .tag {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Horizontal 12,000px Runway Rig */
+#runway {
+  position: absolute;
+  top: 0; left: 0;
+  width: 12000px; height: 1920px;
+  will-change: transform;
+}
+
+/* Scene Dossier Containers (2000px spacing, centered at 540, 2540, 4540, 6540, 8540, 10540) */
+.scene-dossier {
+  position: absolute;
+  top: 0;
+  width: 1080px; height: 1920px;
+}
+
+/* Full-Bleed Archival Background Documents (fills canvas, zero blank space) */
+.scene-bg-doc {
+  position: absolute;
+  top: 140px;
+  left: 40px;
+  width: 1000px;
+  height: 1080px;
+  object-fit: cover;
+  opacity: 0.40;
+  filter: sepia(0.20) contrast(1.15) brightness(0.96);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+/* Source Citation Tag */
+.source-tag {
+  position: absolute;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #FFF;
+  background: #141619;
+  border-left: 5px solid var(--yel);
+  padding: 8px 18px;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+}
+
+/* Polaroid Archival Cards with Frosted Tape */
+.polaroid-card {
+  position: absolute;
+  background: #FFFFFF;
+  padding: 16px 16px 44px 16px;
+  box-shadow: var(--card-shadow);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  will-change: transform;
+}
+.polaroid-card img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.polaroid-card .caption {
+  position: absolute;
+  bottom: 12px; left: 20px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  letter-spacing: 0.06em;
+}
+
+/* Frosted Scotch Tape Strips */
+.scotch-tape {
+  position: absolute;
+  width: 140px; height: 38px;
+  background: rgba(255, 255, 230, 0.65);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform: rotate(-18deg);
+  z-index: 25;
+  pointer-events: none;
+}
+.scotch-tape.tr {
+  right: -25px; top: -15px;
+  transform: rotate(24deg);
+}
+.scotch-tape.tl {
+  left: -25px; top: -15px;
+  transform: rotate(-24deg);
+}
+
+/* Specimen Cutout Sprites */
+.specimen-sprite {
+  position: absolute;
+  filter: drop-shadow(0 16px 28px rgba(35, 30, 20, 0.28));
+  will-change: transform;
+  z-index: 15;
+}
+.specimen-sprite img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+
+/* SVG Hand-Drawn Annotations */
+.anno-svg {
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 28;
+}
+.anno-svg path, .anno-svg ellipse, .anno-svg circle {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Handwritten Editorial Notes */
+.hand-note {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--amber-ink);
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
+  z-index: 30;
+  white-space: nowrap;
+}
+.hand-note.red {
+  color: var(--red);
+}
+
+/* Kinetic Narrative Headlines */
+.kinetic-headline {
+  position: absolute;
+  left: 70px; right: 70px;
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  z-index: 35;
+}
+
+/* Neon Yellow & Red Highlighters */
+.hl {
+  position: relative;
+  display: inline-block;
+  color: #111;
+  padding: 0 10px;
+  margin: 0 2px;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.hl i {
+  position: absolute;
+  left: 0; right: 0; top: 6%; bottom: 4%;
+  background: var(--yel);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: -1;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(255, 222, 56, 0.4);
+}
+.hl.r {
+  color: #FFF;
+}
+.hl.r i {
+  background: var(--red);
+  box-shadow: 0 2px 8px rgba(217, 45, 32, 0.35);
+}
+
+/* Telemetry Data Counter Card (Bright Analytical Paper Slip) */
+.telemetry-card {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid var(--border-dim);
+  border-radius: 6px;
+  padding: 24px 32px;
+  box-shadow: var(--card-shadow);
+  z-index: 22;
+}
+.telemetry-card .label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.telemetry-card .counter-value {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 92px;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 0.9;
+}
+.telemetry-card .unit {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-left: 10px;
+}
+
+/* Tactical Radar Reticle */
+.radar-reticle {
+  position: absolute;
+  width: 520px; height: 520px;
+  pointer-events: none;
+  z-index: 24;
+}
+
+/* Red Rubber Stamp */
+.case-closed-stamp {
+  position: absolute;
+  width: 460px; height: 180px;
+  transform: rotate(-12deg) scale(2.0);
+  opacity: 0;
+  z-index: 45;
+  filter: drop-shadow(0 8px 20px rgba(217, 45, 32, 0.35));
+}
+
+/* Debug Scrubber Panel */
+#dbg {
+  position: fixed;
+  left: 50%; bottom: 25px;
+  transform: translateX(-50%);
+  display: none;
+  gap: 16px; align-items: center;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: rgba(20, 22, 26, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFF;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  z-index: 999;
+}
+#dbg input { width: 440px; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <div class="grain-overlay"></div>
+  <div class="vignette"></div>
+  <div id="motionStreak"></div>
+
+  <!-- Persistent Header Telemetry -->
+  <div id="voxRunner">
+    <div style="display:flex; align-items:center; gap:16px;">
+      <span class="badge">VOX // INVESTIGATION</span>
+      <span class="tag" id="runnerDossier">DOSSIER: K-PG FORENSIC EVIDENCE</span>
+    </div>
+    <div id="runnerTimeline" style="font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--red);">66.038 MA</div>
+  </div>
+
+  <!-- 12,000px Runway Rig -->
+  <div id="runway">
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 1: THE CRIME SCENE (Gubbio Italy Stratigraphy) (Xc = 540)           -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene1" style="left: 0px;">
+      <!-- Archival Dinosaur Fossil Lithograph Ornament (Historic Paleontology Bone Plate) -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_dinosaur_fossil_lithograph.png" alt="Dinosaur Fossil Lithograph" style="top: 130px; left: 40px; width: 1000px; height: 1090px; opacity: 0.38; mix-blend-mode: multiply;">
+
+      <!-- Archival Background Stratigraphic Map -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_gubbio_stratigraphic_map.png" alt="Gubbio Stratigraphic Map" style="top: 140px; left: 40px; width: 1000px; height: 1080px; opacity: 0.30; mix-blend-mode: multiply;">
+
+      <div class="source-tag" style="top: 240px; left: 70px;">EVIDENCE #01 // GUBBIO, ITALY · 43.35°N 12.57°E</div>
+
+      <!-- Hero Polaroid Card -->
+      <div class="polaroid-card" id="cardCliff" style="top: 310px; left: 160px; width: 760px; height: 540px; transform: rotate(-2deg);">
+        <div class="scotch-tape tl"></div>
+        <div class="scotch-tape tr"></div>
+        <img src="assets/episode5_iridium_layer/images/gubbio_boundary_cliff.png" alt="Gubbio Limestone Boundary Cliff">
+        <div class="caption">FIG 1.1 · BOTTACCIONE GORGE K-PG CLAY SEAM (1.0 CM THICKNESS)</div>
+      </div>
+
+      <!-- Dinosaur Fossil Specimens: Museum T-Rex Cranial Specimen & Burned Raptor Claw -->
+      <div class="specimen-sprite" id="spriteTrexSkull" style="top: 670px; left: 560px; width: 440px; height: 300px; transform: rotate(6deg); z-index: 25; filter: drop-shadow(0 16px 36px rgba(0,0,0,0.25));">
+        <img src="assets/episode5_iridium_layer/images/trex_skull_specimen.png" alt="Museum T-Rex Skull Specimen">
+      </div>
+      <div class="specimen-sprite" id="spriteDinoClaw" style="top: 850px; left: 70px; width: 280px; height: 190px; transform: rotate(-10deg); z-index: 25; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.22));">
+        <img src="assets/episode5_iridium_layer/images/burned_dino_claw_bone.png" alt="Burned Dinosaur Claw Bone">
+      </div>
+
+      <!-- Sprites: Magnifying Glass & Scale Ruler & Rock Pick & Cretaceous Microfossil -->
+      <div class="specimen-sprite" id="spriteRuler" style="top: 840px; left: 240px; width: 420px; height: 105px; transform: rotate(-4deg); z-index: 26;">
+        <img src="assets/episode5_iridium_layer/images/forensic_centimeter_ruler.png" alt="1-Centimeter Scale Ruler">
+      </div>
+      <div class="specimen-sprite" id="spriteGlass" style="top: 510px; left: 60px; width: 340px; height: 340px; transform: rotate(-15deg); z-index: 24;">
+        <img src="assets/episode5_iridium_layer/images/vintage_magnifying_glass.png" alt="Vintage Magnifying Glass">
+      </div>
+      <div class="specimen-sprite" id="spritePick" style="top: 760px; left: 740px; width: 260px; height: 260px; transform: rotate(45deg); z-index: 23;">
+        <img src="assets/episode5_iridium_layer/images/geologist_rock_pick.png" alt="Geologist Rock Pick">
+      </div>
+      <div class="specimen-sprite" id="spriteForam" style="top: 980px; left: 380px; width: 180px; height: 180px; transform: rotate(8deg); z-index: 24;">
+        <img src="assets/episode5_iridium_layer/images/sprite_fossil_microscopic.png" alt="Cretaceous Microfossil Globotruncana">
+      </div>
+
+      <div class="hand-note red" id="noteSeam" style="top: 420px; left: 470px; transform: rotate(6deg); z-index: 30;">
+        Razor-thin 1cm clay seam! ↗
+      </div>
+
+      <!-- Kinetic Headline -->
+      <div class="kinetic-headline" id="headScene1" style="top: 1260px;">
+        For a century, science couldn't explain why every dinosaur vanished on the exact same day. Until one geologist noticed a <span class="hl" id="hl1"><i></i>single centimeter of mud</span> in Italy.
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 2: THE FORENSIC LAB (Berkeley Nuclear Reactor) (Xc = 2540)          -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene2" style="left: 2000px;">
+      <!-- Archival Background Dossier -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_berkeley_lab_dossier.png" alt="Berkeley Lab Dossier">
+
+      <div class="source-tag" style="top: 240px; left: 70px;">EVIDENCE #02 // LAWRENCE BERKELEY LAB · 1980 ANALYSIS</div>
+
+      <!-- Hero Polaroid Chart -->
+      <div class="polaroid-card" id="cardChart" style="top: 310px; left: 110px; width: 840px; height: 560px; transform: rotate(1.5deg);">
+        <div class="scotch-tape tl"></div>
+        <div class="scotch-tape tr"></div>
+        <img src="assets/episode5_iridium_layer/images/iridium_spike_chart.png" alt="1980 Iridium Spike Graph">
+        <div class="caption">FIG 2.1 · NEUTRON ACTIVATION SPECTROMETRY (IRIDIUM ABUNDANCE)</div>
+      </div>
+
+      <!-- Secondary Technical Figure: Nuclear Reactor Physics Schematic -->
+      <div class="polaroid-card" id="cardNeutron" style="top: 270px; left: 580px; width: 440px; height: 280px; transform: rotate(4deg); padding: 10px 10px 30px 10px;">
+        <div class="scotch-tape tr"></div>
+        <img src="assets/episode5_iridium_layer/images/sprite_neutron_schematic.png" alt="Neutron Activation Reaction Schematic">
+        <div class="caption">FIG 2.2 · THERMAL NEUTRON CAPTURE (191-Ir → 192-Ir)</div>
+      </div>
+
+      <!-- Telemetry Live Counter -->
+      <div class="telemetry-card" id="cardTelemetry" style="top: 870px; left: 80px; width: 440px;">
+        <div class="label">MEASURED IRIDIUM CONCENTRATION:</div>
+        <div style="display:flex; align-items:baseline;">
+          <span class="counter-value" id="counterIr">0.30</span>
+          <span class="unit">PPB</span>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:16px; color:var(--red); font-weight:700; margin-top:4px;">
+          CRUST BASELINE EXCEEDED BY 30.4X
+        </div>
+      </div>
+
+      <!-- Sprites: Lab Vial & Hazard Tag -->
+      <div class="specimen-sprite" id="spriteVial" style="top: 800px; left: 560px; width: 200px; height: 360px; transform: rotate(-10deg);">
+        <img src="assets/episode5_iridium_layer/images/lab_vial_boundary_clay.png" alt="Laboratory Vial with Boundary Clay">
+      </div>
+      <div class="specimen-sprite" id="spriteTag" style="top: 750px; left: 770px; width: 190px; height: 250px; transform: rotate(18deg);">
+        <img src="assets/episode5_iridium_layer/images/radioactive_hazard_tag.png" alt="Radioactive Hazard Tag">
+      </div>
+
+      <!-- Hand Note -->
+      <div class="hand-note" id="noteIr" style="top: 700px; left: 160px; transform: rotate(-6deg);">
+        Earth crust average is only 0.3 ppb! ↗
+      </div>
+
+      <!-- Kinetic Headline -->
+      <div class="kinetic-headline" id="headScene2" style="top: 1280px;">
+        Inside this thin clay line, <span class="hl" id="hl2"><i></i>iridium levels spiked thirty times</span> higher than normal. But iridium almost never exists in Earth's crust.
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 3: THE COSMIC SUSPECT (Deep Space Extraterrestrial) (Xc = 4540)     -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene3" style="left: 4000px;">
+      <!-- Dinosaur Fossil Extinction Lithograph (Subtle Layered Ghost Strata) -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_dinosaur_fossil_lithograph.png" alt="Dinosaur Skeletal Anatomy Plate" style="opacity: 0.22; mix-blend-mode: multiply;">
+
+      <!-- Archival Background Astronomical Chart (Authentic 1980 Star Map & Orbit) -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_astronomical_star_chart.png" alt="1980 Astronomical Star Chart" style="opacity: 0.38; mix-blend-mode: multiply;">
+
+      <div class="source-tag" style="top: 240px; left: 70px;">EVIDENCE #03 // ASTROPHYSICAL MATCH · ELEMENT 77 ORIGIN</div>
+
+      <!-- Secondary Card: NASA JPL Orbit Geometry Blueprint -->
+      <div class="polaroid-card" id="cardOrbitBlueprint" style="top: 280px; left: 50px; width: 480px; height: 320px; transform: rotate(-4deg); padding: 10px 10px 30px 10px;">
+        <div class="scotch-tape tl"></div>
+        <img src="assets/episode5_iridium_layer/images/sprite_asteroid_orbit_diagram.png" alt="NASA JPL Asteroid Orbit Blueprint">
+        <div class="caption">FIG 3.2 · JPL ORBITAL EPHEMERIS GEOMETRY</div>
+      </div>
+
+      <!-- Hero Polaroid Asteroid Card -->
+      <div class="polaroid-card" id="cardAsteroid" style="top: 330px; left: 240px; width: 780px; height: 530px; transform: rotate(2deg);">
+        <div class="scotch-tape tl"></div>
+        <div class="scotch-tape tr"></div>
+        <img src="assets/episode5_iridium_layer/images/metallic_asteroid_orbit.png" alt="6-Mile Metallic Asteroid in Orbit">
+        <div class="caption">FIG 3.1 · CHONDRITIC METEOROID ENTRY TRAJECTORY (10.5 KM Ø)</div>
+      </div>
+
+      <!-- Sprites: Iridium Ingot & Cosmic Dust Particle -->
+      <div class="specimen-sprite" id="spriteIngot" style="top: 850px; left: 140px; width: 320px; height: 280px; transform: rotate(8deg);">
+        <img src="assets/episode5_iridium_layer/images/iridium_ingot_badge.png" alt="Iridium Element 77 Ingot">
+      </div>
+      <div class="specimen-sprite" id="spriteDust" style="top: 810px; left: 560px; width: 380px; height: 320px; transform: rotate(-15deg);">
+        <img src="assets/episode5_iridium_layer/images/cosmic_dust_particle.png" alt="Chondritic Cosmic Dust Grain">
+      </div>
+
+      <!-- Hand Note -->
+      <div class="hand-note red" id="noteSpace" style="top: 480px; left: 630px; transform: rotate(12deg);">
+        Asteroids carry 10,000× more Ir! ↙
+      </div>
+
+      <!-- Kinetic Headline -->
+      <div class="kinetic-headline" id="headScene3" style="top: 1280px;">
+        Where did it come from? <span class="hl" id="hl3a"><i></i>Deep space.</span> The math revealed only one suspect: a <span class="hl r" id="hl3b"><i></i>six-mile-wide asteroid,</span> pulverized into global fallout.
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 4: THE MISSING CRATER HUNT (Yucatan Chicxulub) (Xc = 6540)          -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene4" style="left: 6000px;">
+      <!-- Archival Background Sonar & Bathymetric Chart -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_yucatan_sonar_chart.png" alt="Yucatan Sonar Bathymetric Chart">
+
+      <div class="source-tag" style="top: 240px; left: 70px;">EVIDENCE #04 // GEOPHYSICAL ANOMALY · YUCATAN, MEXICO</div>
+
+      <!-- Hero Polaroid Gravity Map -->
+      <div class="polaroid-card" id="cardGravity" style="top: 310px; left: 130px; width: 820px; height: 560px; transform: rotate(1deg);">
+        <div class="scotch-tape tl"></div>
+        <div class="scotch-tape tr"></div>
+        <img src="assets/episode5_iridium_layer/images/yucatan_gravity_anomaly_map.png" alt="Yucatan Satellite Gravity Anomaly Map">
+        <div class="caption">FIG 4.1 · SUBSURFACE CONCENTRIC GRAVITY CRATER RINGS (180 KM Ø)</div>
+      </div>
+
+      <!-- Tactical Radar Targeting Reticle (Rotating) -->
+      <div class="specimen-sprite" id="reticleRadar" style="top: 320px; left: 240px; width: 540px; height: 540px; pointer-events:none;">
+        <img src="assets/episode5_iridium_layer/images/radar_targeting_reticle.png" alt="Radar Targeting Reticle">
+      </div>
+
+      <!-- Secondary Card: Chicxulub Subsurface Seismic Reflection Profile -->
+      <div class="polaroid-card" id="cardSeismic" style="top: 860px; left: 60px; width: 560px; height: 270px; transform: rotate(-2deg); padding: 10px 10px 30px 10px;">
+        <div class="scotch-tape tl"></div>
+        <img src="assets/episode5_iridium_layer/images/sprite_crater_seismic_slice.png" alt="Chicxulub Subsurface Seismic Profile">
+        <div class="caption">FIG 4.2 · SEISMIC PROFILE: 180 KM COLLAPSED CRATER</div>
+      </div>
+
+      <!-- Sprite: Offshore Marine Oil Rig -->
+      <div class="specimen-sprite" id="spriteOilRig" style="top: 660px; left: 600px; width: 420px; height: 420px;">
+        <img src="assets/episode5_iridium_layer/images/ocean_oil_rig_platform.png" alt="Offshore Oil Rig">
+      </div>
+
+      <!-- Hand Note -->
+      <div class="hand-note" id="noteCrater" style="top: 670px; left: 100px; transform: rotate(-5deg);">
+        Buried 1,000m beneath limestone! ↗
+      </div>
+
+      <!-- Kinetic Headline -->
+      <div class="kinetic-headline" id="headScene4" style="top: 1280px;">
+        The missing piece was the crater. In 1991, satellite gravity maps revealed it buried beneath the Yucatan sea: a <span class="hl" id="hl4"><i></i>ring 110 miles wide.</span>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 5: THE GLASS TEKTITE FINGERPRINT (Drill Cores) (Xc = 8540)          -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene5" style="left: 8000px;">
+      <!-- Archival Background Core Recovery Log Sheet -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_ocean_drilling_log.png" alt="ODP Core Lithology Log Sheet">
+
+      <div class="source-tag" style="top: 240px; left: 70px;">EVIDENCE #05 // FORENSIC DRILL CORES · ODP SITE 1049</div>
+
+      <!-- Hero Sprite: Ocean Drilling Core Tube -->
+      <div class="specimen-sprite" id="spriteCore" style="top: 330px; left: 130px; width: 820px; height: 390px; transform: rotate(-2deg);">
+        <img src="assets/episode5_iridium_layer/images/ocean_drill_core_slab.png" alt="Ocean Drilling Core Tube">
+      </div>
+
+      <!-- Secondary Sprite: Birefringent Shocked Quartz Petrographic Specimen -->
+      <div class="specimen-sprite" id="spriteQuartz" style="top: 760px; left: 60px; width: 340px; height: 250px; transform: rotate(-10deg);">
+        <img src="assets/episode5_iridium_layer/images/sprite_shocked_quartz_micro.png" alt="Shocked Quartz Polarized Thin-Section">
+      </div>
+
+      <!-- Sprite: Black Glass Tektites -->
+      <div class="specimen-sprite" id="spriteTektites" style="top: 730px; left: 340px; width: 680px; height: 350px; transform: rotate(3deg);">
+        <img src="assets/episode5_iridium_layer/images/black_glass_tektites.png" alt="Black Glass Tektites">
+      </div>
+
+      <!-- Hand Note -->
+      <div class="hand-note red" id="noteTektite" style="top: 650px; left: 380px; font-size: 40px; transform: rotate(10deg);">
+        Aerodynamic molten rock droplets! ↙
+      </div>
+
+      <!-- Kinetic Headline -->
+      <div class="kinetic-headline" id="headScene5" style="top: 1260px;">
+        Deep drill cores pulled up <span class="hl" id="hl5a"><i></i>molten glass tektites.</span> The blast released the energy of <span class="hl r" id="hl5b"><i></i>100 million atomic bombs,</span> wiping out 75% of all species.
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 6: CASE CLOSED & HUMAN LEGACY (Alvarez Polaroid) (Xc = 10540)       -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene6" style="left: 10000px;">
+      <!-- Dinosaur Fossil Extinction Lithograph (Subtle Layered Background) -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_dinosaur_fossil_lithograph.png" alt="Dinosaur Skeletal Anatomy Plate" style="opacity: 0.26; mix-blend-mode: multiply;">
+
+      <!-- Archival Background Science 1980 Journal Article -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_science_1980_article.png" alt="Science 1980 Alvarez Article" style="opacity: 0.38; mix-blend-mode: multiply;">
+
+      <div class="source-tag" style="top: 240px; left: 70px;">VERDICT // STRATIGRAPHIC CASE CLOSED · 66.038 MA</div>
+
+      <!-- Hero Polaroid Walter Alvarez -->
+      <div class="polaroid-card" id="cardAlvarez" style="top: 310px; left: 140px; width: 800px; height: 600px; transform: rotate(-1.5deg);">
+        <div class="scotch-tape tl"></div>
+        <div class="scotch-tape tr"></div>
+        <img src="assets/episode5_iridium_layer/images/walter_alvarez_polaroid.png" alt="Walter Alvarez Archival Polaroid">
+        <div class="caption">WALTER ALVAREZ POINTING AT THE K-PG BOUNDARY CLAY · GUBBIO 1980</div>
+      </div>
+
+      <!-- Secondary Sprite: Fossil T-Rex Tooth and Early Mammal Jaw Specimen -->
+      <div class="specimen-sprite" id="spriteTooth" style="top: 760px; left: 50px; width: 380px; height: 360px; transform: rotate(-8deg); z-index: 25;">
+        <img src="assets/episode5_iridium_layer/images/sprite_dinosaur_trex_tooth.png" alt="T-Rex Tooth and Early Mammal Fossil Jaw">
+      </div>
+
+      <!-- Dinosaur Fossil Bone Cutout (Raptor Claw Bone) -->
+      <div class="specimen-sprite" id="spriteClawScene6" style="top: 760px; left: 660px; width: 300px; height: 210px; transform: rotate(12deg); z-index: 25; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.22));">
+        <img src="assets/episode5_iridium_layer/images/burned_dino_claw_bone.png" alt="Burned Dinosaur Claw Bone">
+      </div>
+
+      <!-- Red Stamp: Case Closed -->
+      <div class="case-closed-stamp" id="stampClosed" style="top: 700px; left: 340px;">
+        <img src="assets/episode5_iridium_layer/images/case_closed_stamp.png" alt="Case Closed Rubber Stamp" style="width:100%; height:100%; object-fit:contain;">
+      </div>
+
+      <!-- Hand Note -->
+      <div class="hand-note" id="noteLegacy" style="top: 980px; left: 240px; font-size: 58px; transform: rotate(-4deg);">
+        No asteroid = No mammals = No humans.
+      </div>
+
+      <!-- Kinetic Headline -->
+      <div class="kinetic-headline" id="headScene6" style="top: 1280px;">
+        This single centimeter of mud <span class="hl" id="hl6"><i></i>solved Earth's biggest mystery.</span> Without it, mammals would never have risen, and humans would not exist.
+      </div>
+    </div>
+
+  </div><!-- /#runway -->
+
+  <!-- ========================================================================= -->
+  <!-- INTRO DOSSIER BUMPER (0.0s – 1.2s)                                        -->
+  <!-- ========================================================================= -->
+  <div id="introOverlay" style="position: absolute; inset: 0; z-index: 68; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; background: rgba(244, 241, 234, 0.96);">
+    <div id="introFolderCard" style="position: relative; width: 920px; height: 1220px; box-shadow: 0 40px 100px rgba(25, 20, 15, 0.40); border-radius: 12px; overflow: hidden; transform-origin: center center;">
+      <img src="assets/episode5_iridium_layer/images/intro_case_folder.png" alt="Vox Forensic Archive Dossier 05" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- OUTRO CASE CLOSED BUMPER (57.2s – 60.0s)                                  -->
+  <!-- ========================================================================= -->
+  <div id="outroOverlay" style="position: absolute; inset: 0; z-index: 75; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; opacity: 0; background: rgba(18, 20, 24, 0.72); backdrop-filter: blur(4px);">
+    <div id="outroCard" style="position: relative; width: 940px; height: 640px; box-shadow: 0 45px 110px rgba(0, 0, 0, 0.65); border-radius: 10px; overflow: hidden; transform: translateY(120px);">
+      <img src="assets/episode5_iridium_layer/images/outro_case_closed_card.png" alt="Investigation Concluded Case Closed" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <!-- Outro Interactive & Follow Callout -->
+    <div id="outroCta" style="margin-top: 50px; display: flex; flex-direction: column; align-items: center; gap: 14px; font-family: 'IBM Plex Mono', monospace; color: #FFF; opacity: 0; transform: translateY(30px);">
+      <div style="background: var(--yel); color: #111; font-weight: 800; font-size: 26px; padding: 10px 32px; border-radius: 4px; letter-spacing: 0.12em; box-shadow: 0 10px 30px rgba(255, 222, 56, 0.35);">FOLLOW FOR NEXT DOSSIER</div>
+      <div style="font-size: 20px; font-weight: 600; letter-spacing: 0.10em; color: rgba(255, 255, 255, 0.88);">NEXT EPISODE: THE PERMIAN GREAT DYING (252 MA)</div>
+    </div>
+  </div>
+
+  <!-- Debug Scrubber HUD -->
+  <div id="dbg">
+    <button id="dPlay" style="padding:4px 12px; background:var(--yel); color:#000; border:none; font-weight:700; border-radius:4px; cursor:pointer;">Play</button>
+    <input id="dScrub" type="range" min="0" max="6000" value="0">
+    <span id="dClock" style="font-variant-numeric:tabular-nums; min-width:8ch;">0.00s</span>
+  </div>
+
+</div><!-- /#stage -->
+
+<!-- Audio only instantiated dynamically when not clean/headless -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+const W = 1080, H = 1920, DURATION = 60.0;
+function fitStage() {
+  const scale = Math.min(window.innerWidth / W, window.innerHeight / H);
+  $('#stage').style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+window.addEventListener('resize', fitStage);
+fitStage();
+
+const params = new URLSearchParams(window.location.search);
+const isDebug = params.get('debug') === '1';
+const isClean = params.get('clean') === '1';
+
+let audio = null;
+if (!isClean) {
+  try {
+    audio = new Audio('assets/episode5_iridium_layer/audio/vo_iridium_layer_cinematic.wav');
+  } catch(e) {}
+}
+
+const tl = gsap.timeline({ paused: true });
+const runway = $('#runway');
+
+// Camera Runway X positions (Xc = 540, 2540, 4540, 6540, 8540, 10540)
+// Camera offset: runway translateX = -(Xc - 540)
+const X_CAM = [0, -2000, -4000, -6000, -8000, -10000];
+
+// Directional Motion Blur Helper
+function triggerMotionStreak(at) {
+  tl.fromTo('#motionStreak', { opacity: 0, x: -1080 }, { opacity: 0.85, x: 1080, duration: 0.65, ease: 'power2.inOut' }, at);
+}
+
+// --- INITIAL STATE ---
+tl.set(runway, { x: 0 }, 0);
+tl.set('#introOverlay', { opacity: 1 }, 0);
+tl.set('#introFolderCard', { scale: 1.05, y: 0, opacity: 1 }, 0);
+tl.set('#outroOverlay', { opacity: 0 }, 0);
+tl.set('#outroCard', { y: 120, opacity: 0, scale: 0.92 }, 0);
+tl.set('#outroCta', { y: 30, opacity: 0 }, 0);
+tl.set('#voxRunner', { opacity: 0 }, 0);
+
+tl.set(['#cardCliff', '#spriteTrexSkull', '#spriteDinoClaw', '#spriteRuler', '#spriteGlass', '#spritePick', '#spriteForam', '#noteSeam', '#headScene1'], { opacity: 0 }, 0);
+tl.set(['#cardChart', '#cardNeutron', '#cardTelemetry', '#spriteVial', '#spriteTag', '#noteIr', '#headScene2'], { opacity: 0 }, 0);
+tl.set(['#cardAsteroid', '#cardOrbitBlueprint', '#spriteIngot', '#spriteDust', '#noteSpace', '#headScene3'], { opacity: 0 }, 0);
+tl.set(['#cardGravity', '#reticleRadar', '#cardSeismic', '#spriteOilRig', '#noteCrater', '#headScene4'], { opacity: 0 }, 0);
+tl.set(['#spriteCore', '#spriteQuartz', '#spriteTektites', '#noteTektite', '#headScene5'], { opacity: 0 }, 0);
+tl.set(['#cardAlvarez', '#spriteTooth', '#spriteClawScene6', '#stampClosed', '#noteLegacy', '#headScene6'], { opacity: 0 }, 0);
+
+// =============================================================
+// INTRO BUMPER & BEAT 1: THE CRIME SCENE (0.0s – 9.72s)
+// =============================================================
+tl.set('#runnerDossier', { textContent: 'DOSSIER #01: BOTTACCIONE GORGE, ITALY' }, 0);
+tl.set('#runnerTimeline', { textContent: '1977 INVESTIGATION' }, 0);
+
+// Global subtle background document parallax
+tl.to('.scene-bg-doc', { y: '-=25', duration: 60.0, ease: 'none' }, 0);
+
+// 0.0s - 0.6s: Intro Folder Settle & Focus
+tl.to('#introFolderCard', { scale: 1.0, duration: 0.6, ease: 'power2.out' }, 0);
+
+// 0.65s - 1.25s: Intro folder unseals & flies away up-left, uncovering Scene 1
+tl.to('#introFolderCard', { y: -1400, rotate: -4, scale: 1.06, duration: 0.55, ease: 'power3.in' }, 0.65);
+tl.to('#introOverlay', { opacity: 0, duration: 0.4, ease: 'power2.inOut' }, 0.75);
+tl.to('#voxRunner', { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.85);
+
+// Scene 1 Sprites Enter
+tl.fromTo('#cardCliff', { opacity: 0, scale: 0.88, y: 50 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.9, ease: 'power3.out' }, 0.8);
+tl.fromTo('#spriteTrexSkull', { opacity: 0, scale: 0.6, x: 60, rotate: 18 }, { opacity: 1, scale: 1.0, x: 0, rotate: 6, duration: 0.85, ease: 'back.out(1.4)' }, 1.0);
+tl.fromTo('#spriteDinoClaw', { opacity: 0, y: 40, rotate: -20 }, { opacity: 1, y: 0, rotate: -10, duration: 0.75, ease: 'back.out(1.5)' }, 1.2);
+tl.fromTo('#spriteRuler', { opacity: 0, y: 40, rotate: -12 }, { opacity: 1, y: 0, rotate: -4, duration: 0.8, ease: 'back.out(1.4)' }, 1.4);
+tl.fromTo('#spriteGlass', { opacity: 0, scale: 0.7, x: -30 }, { opacity: 1, scale: 1.0, x: 0, duration: 0.85, ease: 'power2.out' }, 1.6);
+tl.fromTo('#spritePick', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 1.9);
+tl.fromTo('#spriteForam', { opacity: 0, scale: 0.6, rotate: -25 }, { opacity: 1, scale: 1.0, rotate: 8, duration: 0.8, ease: 'back.out(1.4)' }, 2.1);
+
+tl.fromTo('#noteSeam', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' }, 2.5);
+
+tl.fromTo('#headScene1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 0.8);
+tl.fromTo('#hl1 i', { scaleX: 0 }, { scaleX: 1, duration: 0.55, ease: 'power2.out' }, 2.5);
+
+tl.to('#cardCliff', { scale: 1.04, duration: 8.5, ease: 'sine.inOut' }, 1.0);
+tl.to('#spriteTrexSkull', { y: '-=12', rotate: '+=1.5', duration: 2.4, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 2.0);
+tl.to('#spriteGlass', { y: '-=15', rotate: '+=2.5', duration: 2.2, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 2.0);
+tl.to('#spriteForam', { y: '-=10', duration: 2.2, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 3.0);
+
+tl.to(runway, { x: X_CAM[1], duration: 1.0, ease: 'power3.inOut' }, 9.7);
+triggerMotionStreak(9.7);
+
+// =============================================================
+// BEAT 2: THE FORENSIC LAB & 30X ANOMALY (10.8s – 18.42s)
+// =============================================================
+tl.set('#runnerDossier', { textContent: 'DOSSIER #02: LAWRENCE BERKELEY LAB' }, 10.6);
+tl.set('#runnerTimeline', { textContent: '1980 DISCOVERY' }, 10.6);
+
+tl.fromTo('#cardChart', { opacity: 0, scale: 0.9, y: 40 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.85, ease: 'power3.out' }, 10.7);
+tl.fromTo('#cardNeutron', { opacity: 0, y: -30, rotate: 0 }, { opacity: 1, y: 0, rotate: 4, duration: 0.85, ease: 'power3.out' }, 11.0);
+tl.fromTo('#cardTelemetry', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 11.2);
+tl.fromTo('#spriteVial', { opacity: 0, y: 50, rotate: -20 }, { opacity: 1, y: 0, rotate: -10, duration: 0.8, ease: 'back.out(1.5)' }, 11.5);
+tl.fromTo('#spriteTag', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'power2.out' }, 12.0);
+
+const counterObj = { val: 0.30 };
+tl.to(counterObj, {
+  val: 9.40,
+  duration: 1.8,
+  ease: 'power2.out',
+  onUpdate() {
+    $('#counterIr').textContent = counterObj.val.toFixed(2);
+  }
+}, 11.4);
+
+tl.fromTo('#noteIr', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.6)' }, 12.4);
+
+tl.fromTo('#headScene2', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 10.8);
+tl.fromTo('#hl2 i', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power2.out' }, 12.0);
+
+tl.to('#spriteVial', { y: '-=12', duration: 2.0, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 12.0);
+
+tl.to(runway, { x: X_CAM[2], duration: 1.0, ease: 'power3.inOut' }, 18.6);
+triggerMotionStreak(18.6);
+
+// =============================================================
+// BEAT 3: THE COSMIC SUSPECT (20.0s – 27.94s)
+// =============================================================
+tl.set('#runnerDossier', { textContent: 'DOSSIER #03: EXTRATERRESTRIAL SUSPECT' }, 19.7);
+tl.set('#runnerTimeline', { textContent: 'ELEMENT 77 // 66.038 MA' }, 19.7);
+
+tl.fromTo('#cardAsteroid', { opacity: 0, scale: 0.9, y: 40 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.9, ease: 'power3.out' }, 19.8);
+tl.fromTo('#cardOrbitBlueprint', { opacity: 0, x: -40, rotate: 0 }, { opacity: 1, x: 0, rotate: -4, duration: 0.85, ease: 'power3.out' }, 20.2);
+tl.fromTo('#spriteIngot', { opacity: 0, x: -40, rotate: -5 }, { opacity: 1, x: 0, rotate: 8, duration: 0.8, ease: 'back.out(1.4)' }, 20.6);
+tl.fromTo('#spriteDust', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' }, 21.2);
+tl.fromTo('#noteSpace', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' }, 22.0);
+
+tl.fromTo('#headScene3', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 20.0);
+tl.fromTo('#hl3a i', { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: 'power2.out' }, 21.2);
+tl.fromTo('#hl3b i', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power2.out' }, 22.2);
+
+tl.to('#cardAsteroid', { scale: 1.05, duration: 7.5, ease: 'sine.inOut' }, 20.5);
+
+tl.to(runway, { x: X_CAM[3], duration: 1.1, ease: 'power3.inOut' }, 28.2);
+triggerMotionStreak(28.2);
+
+// =============================================================
+// BEAT 4: THE MISSING CRATER HUNT (29.8s – 38.89s)
+// =============================================================
+tl.set('#runnerDossier', { textContent: 'DOSSIER #04: YUCATAN GRAVITY CRATER' }, 29.5);
+tl.set('#runnerTimeline', { textContent: '1991 DISCOVERY // CHICXULUB' }, 29.5);
+
+tl.fromTo('#cardGravity', { opacity: 0, scale: 0.9, y: 40 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.9, ease: 'power3.out' }, 29.6);
+tl.fromTo('#reticleRadar', { opacity: 0, scale: 1.3, rotate: -40 }, { opacity: 1, scale: 1.0, rotate: 0, duration: 1.0, ease: 'power2.out' }, 30.2);
+tl.to('#reticleRadar', { rotate: 180, duration: 10.0, ease: 'none' }, 31.0);
+
+tl.fromTo('#cardSeismic', { opacity: 0, y: 40, rotate: 0 }, { opacity: 1, y: 0, rotate: -2, duration: 0.85, ease: 'power3.out' }, 30.6);
+tl.fromTo('#spriteOilRig', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: 'back.out(1.4)' }, 31.2);
+tl.fromTo('#noteCrater', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.6)' }, 32.2);
+
+tl.fromTo('#headScene4', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 29.8);
+tl.fromTo('#hl4 i', { scaleX: 0 }, { scaleX: 1, duration: 0.65, ease: 'power2.out' }, 32.4);
+
+tl.to(runway, { x: X_CAM[4], duration: 1.1, ease: 'power3.inOut' }, 39.0);
+triggerMotionStreak(39.0);
+
+// =============================================================
+// BEAT 5: THE GLASS TEKTITE FINGERPRINT (40.5s – 49.72s)
+// =============================================================
+tl.set('#runnerDossier', { textContent: 'DOSSIER #05: ODP SITE 1049 TEKTITES' }, 40.2);
+tl.set('#runnerTimeline', { textContent: '100 MILLION MEGATONS' }, 40.2);
+
+tl.fromTo('#spriteCore', { opacity: 0, x: -60, rotate: -5 }, { opacity: 1, x: 0, rotate: -2, duration: 0.85, ease: 'power3.out' }, 40.4);
+tl.fromTo('#spriteTektites', { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1.0, duration: 0.9, ease: 'back.out(1.5)' }, 41.2);
+tl.fromTo('#spriteQuartz', { opacity: 0, scale: 0.6, rotate: -25 }, { opacity: 1, scale: 1.0, rotate: -10, duration: 0.8, ease: 'back.out(1.5)' }, 41.6);
+tl.fromTo('#noteTektite', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' }, 42.5);
+
+tl.fromTo('#headScene5', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 40.5);
+tl.fromTo('#hl5a i', { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: 'power2.out' }, 41.5);
+tl.fromTo('#hl5b i', { scaleX: 0 }, { scaleX: 1, duration: 0.65, ease: 'power2.out' }, 43.0);
+
+tl.to('#spriteTektites', { y: '-=10', duration: 2.2, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 42.0);
+tl.to('#spriteQuartz', { y: '-=8', duration: 2.0, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 42.5);
+
+tl.to(runway, { x: X_CAM[5], duration: 1.1, ease: 'power3.inOut' }, 50.0);
+triggerMotionStreak(50.0);
+
+// =============================================================
+// BEAT 6: CASE CLOSED & HUMAN LEGACY (51.5s – 60.0s)
+// =============================================================
+tl.set('#runnerDossier', { textContent: 'DOSSIER #06: INVESTIGATION RESOLVED' }, 51.2);
+tl.set('#runnerTimeline', { textContent: 'CASE CLOSED // RISE OF MAMMALS' }, 51.2);
+
+tl.fromTo('#cardAlvarez', { opacity: 0, scale: 0.9, y: 40 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.9, ease: 'power3.out' }, 51.4);
+tl.fromTo('#spriteTooth', { opacity: 0, scale: 0.7, rotate: -20 }, { opacity: 1, scale: 1.0, rotate: -8, duration: 0.85, ease: 'back.out(1.4)' }, 52.0);
+tl.fromTo('#spriteClawScene6', { opacity: 0, scale: 0.7, y: 40, rotate: 20 }, { opacity: 1, scale: 1.0, y: 0, rotate: 12, duration: 0.8, ease: 'back.out(1.5)' }, 52.4);
+
+tl.fromTo('#headScene6', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 51.5);
+tl.fromTo('#hl6 i', { scaleX: 0 }, { scaleX: 1, duration: 0.65, ease: 'power2.out' }, 53.0);
+
+// Red Stamp Slam at 55.2s!
+tl.fromTo('#stampClosed',
+  { opacity: 0, scale: 2.6, rotate: -35 },
+  { opacity: 1, scale: 1.0, rotate: -12, duration: 0.35, ease: 'back.out(2.2)' },
+  55.2
+);
+tl.to('#stage', { x: '+=8', duration: 0.05, yoyo: true, repeat: 3, ease: 'power1.inOut' }, 55.22);
+tl.to('#spriteTooth', { y: '-=10', duration: 2.4, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 53.0);
+tl.to('#spriteClawScene6', { y: '-=8', duration: 2.2, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 53.5);
+
+tl.fromTo('#noteLegacy', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.5)' }, 56.0);
+
+// =============================================================
+// OUTRO SLATE & CASE RESOLUTION (57.2s – 60.0s)
+// =============================================================
+tl.to('#headScene6', { opacity: 0, duration: 0.35, ease: 'power2.out' }, 57.0);
+tl.fromTo('#outroOverlay', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 57.2);
+tl.fromTo('#outroCard',
+  { opacity: 0, y: 140, scale: 0.9 },
+  { opacity: 1, y: 0, scale: 1.0, duration: 0.65, ease: 'back.out(1.5)' },
+  57.3
+);
+tl.fromTo('#outroCta',
+  { opacity: 0, y: 35 },
+  { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+  57.7
+);
+tl.to('#stage', { y: '+=6', duration: 0.06, yoyo: true, repeat: 2, ease: 'power1.inOut' }, 57.4);
+
+tl.to('#stage', { opacity: 1, duration: 4.0 }, 56.0);
+
+// Engine Interface for Headless Puppeteer / Interactive Scrubbing
+window.BANG_MOTION = {
+  ready: true,
+  seekFrame(t) {
+    tl.seek(t);
+  }
+};
+
+if (isDebug) {
+  $('#dbg').style.display = 'flex';
+  const scrubber = $('#dScrub');
+  const clock = $('#dClock');
+  const btnPlay = $('#dPlay');
+
+  scrubber.addEventListener('input', e => {
+    const t = (e.target.value / 6000) * DURATION;
+    tl.seek(t);
+    clock.textContent = t.toFixed(2) + 's';
+  });
+
+  let isPlaying = false;
+  btnPlay.addEventListener('click', () => {
+    if (isPlaying) {
+      tl.pause();
+      if (audio) audio.pause();
+      btnPlay.textContent = 'Play';
+    } else {
+      tl.play();
+      if (audio) {
+        audio.currentTime = tl.time();
+        audio.play().catch(() => {});
+      }
+      btnPlay.textContent = 'Pause';
+    }
+    isPlaying = !isPlaying;
+  });
+
+  tl.eventCallback('onUpdate', () => {
+    const t = tl.time();
+    scrubber.value = (t / DURATION) * 6000;
+    clock.textContent = t.toFixed(2) + 's';
+  });
+}
+
+if (!isClean && !isDebug) {
+  tl.play();
+  if (audio) {
+    audio.play().catch(() => {
+      window.addEventListener('click', () => {
+        audio.currentTime = tl.time();
+        audio.play();
+      }, { once: true });
+    });
+  }
+  tl.eventCallback('onComplete', () => {
+    tl.play(0);
+    if (audio) {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    }
+  });
+}
+</script>
+</body>
+</html>
