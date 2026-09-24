@@ -5,6 +5,10 @@ node_modules/
 *.log
 *.tmp
 *.tmp.png
+google.json
+token.json
+credentials.json
+AUTH_URL.txt
 
 # Large video render outputs (keep source assets and diagnostic frames)
 output/**/*.mp4
