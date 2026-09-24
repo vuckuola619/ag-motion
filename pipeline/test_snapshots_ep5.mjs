@@ -72,7 +72,7 @@ async function takeSnapshots() {
     { t: 34.0, name: 'snap_ep5_scene4_yucatan_crater.jpg' },
     { t: 44.5, name: 'snap_ep5_scene5_drill_cores_tektites.jpg' },
     { t: 56.5, name: 'snap_ep5_scene6_case_closed.jpg' },
-    { t: 58.5, name: 'snap_ep5_outro.jpg' }
+    { t: 58.5, name: 'snap_ep5_outro_stamp.jpg' }
   ];
 
   const outDir = path.join(PROJECT_ROOT, 'output', 'episode5_iridium_layer', 'snapshots');

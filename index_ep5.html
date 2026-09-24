@@ -120,22 +120,19 @@ html, body {
   width: 1080px; height: 1920px;
 }
 
-/* Full-Bleed Archival Background Documents (fills canvas, zero blank space) */
+/* Full-Bleed Archival Background Documents (fills entire 1080x1920 canvas) */
 .scene-bg-doc {
   position: absolute;
-  top: 140px;
-  left: 40px;
-  width: 1000px;
-  height: 1080px;
+  top: 0;
+  left: 0;
+  width: 1080px;
+  height: 1920px;
   object-fit: cover;
-  opacity: 0.40;
-  filter: sepia(0.20) contrast(1.15) brightness(0.96);
+  opacity: 0.35;
+  filter: sepia(0.18) contrast(1.12) brightness(0.96);
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 1;
-  border-radius: 6px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
-  border: 1px solid rgba(0, 0, 0, 0.10);
 }
 
 /* Source Citation Tag */
@@ -329,11 +326,11 @@ html, body {
 /* Red Rubber Stamp */
 .case-closed-stamp {
   position: absolute;
-  width: 460px; height: 180px;
+  width: 580px; height: 220px;
   transform: rotate(-12deg) scale(2.0);
   opacity: 0;
   z-index: 45;
-  filter: drop-shadow(0 8px 20px rgba(217, 45, 32, 0.35));
+  filter: drop-shadow(0 14px 32px rgba(217, 45, 32, 0.45));
 }
 
 /* Debug Scrubber Panel */
@@ -378,11 +375,11 @@ html, body {
     <!-- SCENE 1: THE CRIME SCENE (Gubbio Italy Stratigraphy) (Xc = 540)           -->
     <!-- ========================================================================= -->
     <div class="scene-dossier" id="scene1" style="left: 0px;">
-      <!-- Archival Dinosaur Fossil Lithograph Ornament (Historic Paleontology Bone Plate) -->
-      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_dinosaur_fossil_lithograph.png" alt="Dinosaur Fossil Lithograph" style="top: 130px; left: 40px; width: 1000px; height: 1090px; opacity: 0.38; mix-blend-mode: multiply;">
+      <!-- Archival Background Stratigraphic Map (Full Bleed 1080x1920) -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_gubbio_stratigraphic_map.png" alt="Gubbio Stratigraphic Map">
 
-      <!-- Archival Background Stratigraphic Map -->
-      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_gubbio_stratigraphic_map.png" alt="Gubbio Stratigraphic Map" style="top: 140px; left: 40px; width: 1000px; height: 1080px; opacity: 0.30; mix-blend-mode: multiply;">
+      <!-- Archival Dinosaur Fossil Lithograph (Full Bleed Subtle Watermark) -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_dinosaur_fossil_lithograph.png" alt="Dinosaur Fossil Lithograph" style="opacity: 0.18;">
 
       <div class="source-tag" style="top: 240px; left: 70px;">EVIDENCE #01 // GUBBIO, ITALY · 43.35°N 12.57°E</div>
 
@@ -394,11 +391,11 @@ html, body {
         <div class="caption">FIG 1.1 · BOTTACCIONE GORGE K-PG CLAY SEAM (1.0 CM THICKNESS)</div>
       </div>
 
-      <!-- Dinosaur Fossil Specimens: Museum T-Rex Cranial Specimen & Burned Raptor Claw -->
-      <div class="specimen-sprite" id="spriteTrexSkull" style="top: 670px; left: 560px; width: 440px; height: 300px; transform: rotate(6deg); z-index: 25; filter: drop-shadow(0 16px 36px rgba(0,0,0,0.25));">
+      <!-- Transparent Dinosaur Fossil Watermarks (Background Layer) -->
+      <div class="specimen-sprite" id="spriteTrexSkull" style="top: 190px; left: 450px; width: 580px; height: 400px; transform: rotate(5deg); z-index: 2; opacity: 0.20; mix-blend-mode: multiply; pointer-events: none;">
         <img src="assets/episode5_iridium_layer/images/trex_skull_specimen.png" alt="Museum T-Rex Skull Specimen">
       </div>
-      <div class="specimen-sprite" id="spriteDinoClaw" style="top: 850px; left: 70px; width: 280px; height: 190px; transform: rotate(-10deg); z-index: 25; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.22));">
+      <div class="specimen-sprite" id="spriteDinoClaw" style="top: 860px; left: 60px; width: 260px; height: 180px; transform: rotate(-10deg); z-index: 2; opacity: 0.24; mix-blend-mode: multiply; pointer-events: none;">
         <img src="assets/episode5_iridium_layer/images/burned_dino_claw_bone.png" alt="Burned Dinosaur Claw Bone">
       </div>
 
@@ -611,11 +608,11 @@ html, body {
     <!-- SCENE 6: CASE CLOSED & HUMAN LEGACY (Alvarez Polaroid) (Xc = 10540)       -->
     <!-- ========================================================================= -->
     <div class="scene-dossier" id="scene6" style="left: 10000px;">
-      <!-- Dinosaur Fossil Extinction Lithograph (Subtle Layered Background) -->
-      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_dinosaur_fossil_lithograph.png" alt="Dinosaur Skeletal Anatomy Plate" style="opacity: 0.26; mix-blend-mode: multiply;">
+      <!-- Archival Background Science 1980 Journal Article (Full Bleed 1080x1920) -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_science_1980_article.png" alt="Science 1980 Alvarez Article">
 
-      <!-- Archival Background Science 1980 Journal Article -->
-      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_science_1980_article.png" alt="Science 1980 Alvarez Article" style="opacity: 0.38; mix-blend-mode: multiply;">
+      <!-- Dinosaur Fossil Extinction Lithograph (Full Bleed Subtle Watermark) -->
+      <img class="scene-bg-doc" src="assets/episode5_iridium_layer/images/bg_dinosaur_fossil_lithograph.png" alt="Dinosaur Skeletal Anatomy Plate" style="opacity: 0.16;">
 
       <div class="source-tag" style="top: 240px; left: 70px;">VERDICT // STRATIGRAPHIC CASE CLOSED · 66.038 MA</div>
 
@@ -628,17 +625,17 @@ html, body {
       </div>
 
       <!-- Secondary Sprite: Fossil T-Rex Tooth and Early Mammal Jaw Specimen -->
-      <div class="specimen-sprite" id="spriteTooth" style="top: 760px; left: 50px; width: 380px; height: 360px; transform: rotate(-8deg); z-index: 25;">
+      <div class="specimen-sprite" id="spriteTooth" style="top: 760px; left: 60px; width: 340px; height: 320px; transform: rotate(-8deg); z-index: 25;">
         <img src="assets/episode5_iridium_layer/images/sprite_dinosaur_trex_tooth.png" alt="T-Rex Tooth and Early Mammal Fossil Jaw">
       </div>
 
-      <!-- Dinosaur Fossil Bone Cutout (Raptor Claw Bone) -->
-      <div class="specimen-sprite" id="spriteClawScene6" style="top: 760px; left: 660px; width: 300px; height: 210px; transform: rotate(12deg); z-index: 25; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.22));">
+      <!-- Dinosaur Fossil Bone Cutout (Transparent Watermark) -->
+      <div class="specimen-sprite" id="spriteClawScene6" style="top: 220px; left: 580px; width: 440px; height: 300px; transform: rotate(15deg); z-index: 2; opacity: 0.20; mix-blend-mode: multiply; pointer-events: none;">
         <img src="assets/episode5_iridium_layer/images/burned_dino_claw_bone.png" alt="Burned Dinosaur Claw Bone">
       </div>
 
-      <!-- Red Stamp: Case Closed -->
-      <div class="case-closed-stamp" id="stampClosed" style="top: 700px; left: 340px;">
+      <!-- Red Stamp: Case Closed (Hero Outro Climax Slam) -->
+      <div class="case-closed-stamp" id="stampClosed" style="top: 520px; left: 250px;">
         <img src="assets/episode5_iridium_layer/images/case_closed_stamp.png" alt="Case Closed Rubber Stamp" style="width:100%; height:100%; object-fit:contain;">
       </div>
 
@@ -661,20 +658,6 @@ html, body {
   <div id="introOverlay" style="position: absolute; inset: 0; z-index: 68; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; background: rgba(244, 241, 234, 0.96);">
     <div id="introFolderCard" style="position: relative; width: 920px; height: 1220px; box-shadow: 0 40px 100px rgba(25, 20, 15, 0.40); border-radius: 12px; overflow: hidden; transform-origin: center center;">
       <img src="assets/episode5_iridium_layer/images/intro_case_folder.png" alt="Vox Forensic Archive Dossier 05" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- OUTRO CASE CLOSED BUMPER (57.2s – 60.0s)                                  -->
-  <!-- ========================================================================= -->
-  <div id="outroOverlay" style="position: absolute; inset: 0; z-index: 75; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; opacity: 0; background: rgba(18, 20, 24, 0.72); backdrop-filter: blur(4px);">
-    <div id="outroCard" style="position: relative; width: 940px; height: 640px; box-shadow: 0 45px 110px rgba(0, 0, 0, 0.65); border-radius: 10px; overflow: hidden; transform: translateY(120px);">
-      <img src="assets/episode5_iridium_layer/images/outro_case_closed_card.png" alt="Investigation Concluded Case Closed" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    <!-- Outro Interactive & Follow Callout -->
-    <div id="outroCta" style="margin-top: 50px; display: flex; flex-direction: column; align-items: center; gap: 14px; font-family: 'IBM Plex Mono', monospace; color: #FFF; opacity: 0; transform: translateY(30px);">
-      <div style="background: var(--yel); color: #111; font-weight: 800; font-size: 26px; padding: 10px 32px; border-radius: 4px; letter-spacing: 0.12em; box-shadow: 0 10px 30px rgba(255, 222, 56, 0.35);">FOLLOW FOR NEXT DOSSIER</div>
-      <div style="font-size: 20px; font-weight: 600; letter-spacing: 0.10em; color: rgba(255, 255, 255, 0.88);">NEXT EPISODE: THE PERMIAN GREAT DYING (252 MA)</div>
     </div>
   </div>
 
@@ -728,9 +711,6 @@ function triggerMotionStreak(at) {
 tl.set(runway, { x: 0 }, 0);
 tl.set('#introOverlay', { opacity: 1 }, 0);
 tl.set('#introFolderCard', { scale: 1.05, y: 0, opacity: 1 }, 0);
-tl.set('#outroOverlay', { opacity: 0 }, 0);
-tl.set('#outroCard', { y: 120, opacity: 0, scale: 0.92 }, 0);
-tl.set('#outroCta', { y: 30, opacity: 0 }, 0);
 tl.set('#voxRunner', { opacity: 0 }, 0);
 
 tl.set(['#cardCliff', '#spriteTrexSkull', '#spriteDinoClaw', '#spriteRuler', '#spriteGlass', '#spritePick', '#spriteForam', '#noteSeam', '#headScene1'], { opacity: 0 }, 0);
@@ -886,34 +866,17 @@ tl.fromTo('#spriteClawScene6', { opacity: 0, scale: 0.7, y: 40, rotate: 20 }, { 
 tl.fromTo('#headScene6', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 51.5);
 tl.fromTo('#hl6 i', { scaleX: 0 }, { scaleX: 1, duration: 0.65, ease: 'power2.out' }, 53.0);
 
-// Red Stamp Slam at 55.2s!
+// Red Stamp Slam at 55.2s (Hero Outro Climax)!
 tl.fromTo('#stampClosed',
-  { opacity: 0, scale: 2.6, rotate: -35 },
+  { opacity: 0, scale: 3.2, rotate: -38 },
   { opacity: 1, scale: 1.0, rotate: -12, duration: 0.35, ease: 'back.out(2.2)' },
   55.2
 );
-tl.to('#stage', { x: '+=8', duration: 0.05, yoyo: true, repeat: 3, ease: 'power1.inOut' }, 55.22);
+tl.to('#stage', { x: '+=10', duration: 0.05, yoyo: true, repeat: 3, ease: 'power1.inOut' }, 55.22);
 tl.to('#spriteTooth', { y: '-=10', duration: 2.4, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 53.0);
 tl.to('#spriteClawScene6', { y: '-=8', duration: 2.2, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 53.5);
 
 tl.fromTo('#noteLegacy', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.5)' }, 56.0);
-
-// =============================================================
-// OUTRO SLATE & CASE RESOLUTION (57.2s – 60.0s)
-// =============================================================
-tl.to('#headScene6', { opacity: 0, duration: 0.35, ease: 'power2.out' }, 57.0);
-tl.fromTo('#outroOverlay', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 57.2);
-tl.fromTo('#outroCard',
-  { opacity: 0, y: 140, scale: 0.9 },
-  { opacity: 1, y: 0, scale: 1.0, duration: 0.65, ease: 'back.out(1.5)' },
-  57.3
-);
-tl.fromTo('#outroCta',
-  { opacity: 0, y: 35 },
-  { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-  57.7
-);
-tl.to('#stage', { y: '+=6', duration: 0.06, yoyo: true, repeat: 2, ease: 'power1.inOut' }, 57.4);
 
 tl.to('#stage', { opacity: 1, duration: 4.0 }, 56.0);
 
