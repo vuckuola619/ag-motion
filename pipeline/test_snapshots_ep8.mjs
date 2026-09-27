@@ -81,10 +81,12 @@ async function takeSnapshots() {
   });
 
   const page = await browser.newPage();
+  page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+  page.on('pageerror', err => console.error('PAGE ERROR:', err.message));
   await page.setViewport({ width: WIDTH, height: HEIGHT, deviceScaleFactor: 1 });
 
   console.log(`[Snapshots Ep8] Loading http://127.0.0.1:${PORT}/index_ep8.html?clean=1`);
-  await page.goto(`http://127.0.0.1:${PORT}/index_ep8.html?clean=1`, { waitUntil: 'networkidle0', timeout: 60000 });
+  await page.goto(`http://127.0.0.1:${PORT}/index_ep8.html?clean=1`, { waitUntil: 'load', timeout: 60000 });
 
   await page.waitForFunction(() => window.BANG_MOTION && window.BANG_MOTION.ready, { timeout: 30000 });
   console.log('[Snapshots Ep8] BANG_MOTION engine ready.');

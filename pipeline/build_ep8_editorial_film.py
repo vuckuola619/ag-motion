@@ -1,4 +1,36 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""build_ep8_editorial_film.py — Build premium, high-retention documentary editorial film for Episode 8.
+Upgrades:
+- Restrained color palette (parchment, ivory, charcoal, warm gold accent)
+- Bespoke identity (MS 408 BEINECKE ARCHIVE, no borrowed Vox branding)
+- Immediate curiosity macro-hook opening (no static blocking card)
+- Purposeful shot choreography: camera pushes, focal shifts, macro crops
+- Hand-crafted animated SVG Zipf's Law chart & C-14 radiocarbon Gaussian curve
+- Sequential botanical & astronomical reveals (no multi-specimen clutter)
+- Stable grounded physics (zero oscillation/shake)
+- Whisper word-locked subtitle pill clear of mobile safe areas
+- Final motif loop back to shelf MS 408
+"""
+import json
+import os
+
+def main():
+    aligned_path = "assets/episode8_voynich_manuscript/audio/voynich_words_aligned.json"
+    with open(aligned_path, "r", encoding="utf-8") as f:
+        aligned_data = json.load(f)
+
+    compact_words = []
+    for w in aligned_data["global_words"]:
+        compact_words.append({
+            "w": w["word"],
+            "s": w["global_start"],
+            "e": w["global_end"],
+            "b": w["beat_index"]
+        })
+
+    words_json = json.dumps(compact_words, separators=(',', ':'))
+
+    html_content = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -8,7 +40,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
+:root {{
   --bg: #0C0E12;
   --canvas-dark: #101217;
   --canvas-vellum: #F3EFE6;
@@ -26,19 +58,19 @@
   --border-paper: rgba(18, 20, 26, 0.14);
   --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.25);
   --contact-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
-}
+}}
 
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
-html, body {
+* {{ box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }}
+html, body {{
   width: 100%; height: 100%;
   background: #060709;
   overflow: hidden;
   font-family: "Inter", -apple-system, system-ui, sans-serif;
   color: var(--ink-light);
-}
+}}
 
 /* 1080x1920 Stage Canvas */
-#stage {
+#stage {{
   position: absolute;
   left: 50%; top: 50%;
   width: 1080px; height: 1920px;
@@ -47,38 +79,38 @@ html, body {
   transform: translate(-50%, -50%);
   transform-origin: center center;
   box-shadow: 0 0 140px rgba(0, 0, 0, 0.98);
-}
+}}
 
 /* Tactile 35mm Archival Film Grain */
-.grain-overlay {
+.grain-overlay {{
   position: absolute; inset: 0;
   pointer-events: none;
   opacity: 0.11;
   mix-blend-mode: overlay;
   z-index: 80;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+}}
 
 /* Soft Vignette */
-.vignette {
+.vignette {{
   position: absolute; inset: 0;
   pointer-events: none;
   background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(6, 7, 9, 0.65) 100%);
   z-index: 81;
-}
+}}
 
 /* Optical Transit Shutter */
-#transitShutter {
+#transitShutter {{
   position: absolute; inset: 0;
   background: linear-gradient(90deg, transparent 0%, rgba(200, 151, 62, 0.18) 50%, transparent 100%);
   transform: translateX(-100%);
   pointer-events: none;
   z-index: 85;
   opacity: 0;
-}
+}}
 
 /* Bespoke Editorial Archive Runner (No Borrowed Branding) */
-#archiveRunner {
+#archiveRunner {{
   position: absolute;
   top: 72px; left: 60px; right: 60px;
   height: 64px;
@@ -98,8 +130,8 @@ html, body {
   letter-spacing: 0.10em;
   color: var(--ink-muted);
   z-index: 90;
-}
-#archiveRunner .badge {
+}}
+#archiveRunner .badge {{
   background: var(--gold);
   color: #0E1015;
   font-weight: 700;
@@ -108,53 +140,53 @@ html, body {
   font-size: 15px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-#archiveRunner .tag {
+}}
+#archiveRunner .tag {{
   color: var(--ink-light);
   font-weight: 600;
-}
+}}
 
 /* Master Camera & Panoramic Runway */
-#cameraRig {
+#cameraRig {{
   position: absolute;
   inset: 0;
   width: 1080px; height: 1920px;
   transform-origin: 540px 960px;
   will-change: transform;
-}
+}}
 
-#runway {
+#runway {{
   position: absolute;
   top: 0; left: 0;
   width: 6480px; height: 1920px; /* 6 scenes x 1080px */
   display: flex;
   will-change: transform;
-}
+}}
 
-.scene-dossier {
+.scene-dossier {{
   position: relative;
   width: 1080px; height: 1920px;
   flex-shrink: 0;
   overflow: hidden;
-}
+}}
 
 /* Soft Background Canvas Layers (Never Muddy or Over-Contrasty) */
-.scene-bg {
+.scene-bg {{
   position: absolute;
   inset: 0;
   width: 1080px; height: 1920px;
   object-fit: cover;
   filter: brightness(0.72) contrast(1.08) saturate(0.85);
   transform: scale(1.02);
-}
-.scene-scrim {
+}}
+.scene-scrim {{
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(12,14,18,0.70) 0%, rgba(12,14,18,0.40) 45%, rgba(12,14,18,0.85) 100%);
   pointer-events: none;
-}
+}}
 
 /* Editorial Dossier Index Tag */
-.dossier-tag {
+.dossier-tag {{
   position: absolute;
   font-family: "JetBrains Mono", monospace;
   font-size: 15px;
@@ -169,18 +201,18 @@ html, body {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
   opacity: 0;
-}
-.dossier-tag.vermilion {
+}}
+.dossier-tag.vermilion {{
   color: var(--vermilion);
   border-left-color: var(--vermilion);
-}
-.dossier-tag.cyan {
+}}
+.dossier-tag.cyan {{
   color: var(--cyan-subtle);
   border-left-color: var(--cyan-subtle);
-}
+}}
 
 /* Ghost Watermark Monogram */
-.ghost-watermark {
+.ghost-watermark {{
   position: absolute;
   font-family: "Cinzel", serif;
   font-weight: 900;
@@ -194,23 +226,23 @@ html, body {
   pointer-events: none;
   white-space: nowrap;
   opacity: 0;
-}
+}}
 
 /* Hero Artifact Cutout Sprites */
-.artifact-sprite {
+.artifact-sprite {{
   position: absolute;
   will-change: transform, opacity;
   filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.65));
   z-index: 20;
-}
-.artifact-sprite img {
+}}
+.artifact-sprite img {{
   display: block;
   width: 100%; height: 100%;
   object-fit: contain;
-}
+}}
 
 /* Archival Specimen Callout Pill */
-.specimen-pill {
+.specimen-pill {{
   position: absolute;
   padding: 6px 14px;
   background: rgba(14, 18, 25, 0.92);
@@ -227,20 +259,20 @@ html, body {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   white-space: nowrap;
   opacity: 0;
-}
+}}
 
 /* Precision Traced Annotation Boxes */
-.traced-box {
+.traced-box {{
   position: absolute;
   border: 1.5px dashed var(--gold);
   border-radius: 6px;
   background: rgba(200, 151, 62, 0.05);
   z-index: 22;
   opacity: 0;
-}
+}}
 
 /* Handwritten Field Notes */
-.hand-note {
+.hand-note {{
   position: absolute;
   font-family: "Instrument Serif", serif;
   font-style: italic;
@@ -251,12 +283,12 @@ html, body {
   z-index: 32;
   white-space: nowrap;
   letter-spacing: 0.01em;
-}
-.hand-note.vermilion { color: var(--vermilion); }
-.hand-note.cyan { color: var(--cyan-subtle); }
+}}
+.hand-note.vermilion {{ color: var(--vermilion); }}
+.hand-note.cyan {{ color: var(--cyan-subtle); }}
 
 /* Clean Editorial Telemetry Card */
-.telemetry-panel {
+.telemetry-panel {{
   position: absolute;
   background: rgba(14, 18, 26, 0.94);
   border: 1px solid var(--border-subtle);
@@ -264,8 +296,8 @@ html, body {
   padding: 18px 24px;
   box-shadow: var(--card-shadow);
   z-index: 25;
-}
-.telemetry-panel .p-label {
+}}
+.telemetry-panel .p-label {{
   font-family: "JetBrains Mono", monospace;
   font-size: 14px;
   font-weight: 600;
@@ -273,26 +305,26 @@ html, body {
   letter-spacing: 0.12em;
   margin-bottom: 4px;
   text-transform: uppercase;
-}
-.telemetry-panel .p-value {
+}}
+.telemetry-panel .p-value {{
   font-family: "Cinzel", serif;
   font-size: 64px;
   font-weight: 800;
   color: var(--gold);
   line-height: 0.95;
-}
-.telemetry-panel .p-value.vermilion { color: var(--vermilion); }
-.telemetry-panel .p-value.cyan { color: var(--cyan-subtle); }
-.telemetry-panel .p-unit {
+}}
+.telemetry-panel .p-value.vermilion {{ color: var(--vermilion); }}
+.telemetry-panel .p-value.cyan {{ color: var(--cyan-subtle); }}
+.telemetry-panel .p-unit {{
   font-family: "JetBrains Mono", monospace;
   font-size: 18px;
   font-weight: 600;
   color: var(--ink-muted);
   margin-left: 8px;
-}
+}}
 
 /* Restrained Archival Stamps */
-.archival-stamp {
+.archival-stamp {{
   position: absolute;
   padding: 7px 20px;
   border: 3.5px solid var(--vermilion);
@@ -308,15 +340,15 @@ html, body {
   z-index: 35;
   white-space: nowrap;
   opacity: 0;
-}
-.archival-stamp.gold {
+}}
+.archival-stamp.gold {{
   border-color: var(--gold);
   color: var(--gold);
   box-shadow: 0 8px 24px rgba(200, 151, 62, 0.30);
-}
+}}
 
 /* Decisive Editorial Headline Box */
-.editorial-headline-box {
+.editorial-headline-box {{
   position: absolute;
   left: 60px; right: 60px;
   top: 1340px;
@@ -329,10 +361,10 @@ html, body {
   box-shadow: var(--card-shadow);
   z-index: 40;
   opacity: 0;
-}
-.editorial-headline-box.vermilion { border-left-color: var(--vermilion); }
-.editorial-headline-box.cyan { border-left-color: var(--cyan-subtle); }
-.editorial-headline-box .h-kicker {
+}}
+.editorial-headline-box.vermilion {{ border-left-color: var(--vermilion); }}
+.editorial-headline-box.cyan {{ border-left-color: var(--cyan-subtle); }}
+.editorial-headline-box .h-kicker {{
   font-family: "JetBrains Mono", monospace;
   font-size: 15px;
   font-weight: 600;
@@ -340,26 +372,26 @@ html, body {
   color: var(--gold);
   margin-bottom: 6px;
   text-transform: uppercase;
-}
-.editorial-headline-box.vermilion .h-kicker { color: var(--vermilion); }
-.editorial-headline-box.cyan .h-kicker { color: var(--cyan-subtle); }
-.editorial-headline-box .h-text {
+}}
+.editorial-headline-box.vermilion .h-kicker {{ color: var(--vermilion); }}
+.editorial-headline-box.cyan .h-kicker {{ color: var(--cyan-subtle); }}
+.editorial-headline-box .h-text {{
   font-family: "Inter", sans-serif;
   font-size: 46px;
   font-weight: 800;
   line-height: 1.18;
   letter-spacing: -0.015em;
   color: #FFFFFF;
-}
+}}
 
 /* Editorial Highlight Underlines */
-.hl {
+.hl {{
   position: relative;
   display: inline-block;
   color: inherit;
   padding: 0 4px;
-}
-.hl i {
+}}
+.hl i {{
   position: absolute;
   left: 0; right: 0; bottom: 2px;
   height: 5px;
@@ -368,12 +400,12 @@ html, body {
   transform: scaleX(0);
   transform-origin: left;
   z-index: -1;
-}
-.hl.r i { background: var(--vermilion); }
-.hl.c i { background: var(--cyan-subtle); }
+}}
+.hl.r i {{ background: var(--vermilion); }}
+.hl.c i {{ background: var(--cyan-subtle); }}
 
 /* Dynamic Spoken TikTok Caption Pill (Clear of Bottom Safe Area) */
-#captionPillContainer {
+#captionPillContainer {{
   position: absolute;
   bottom: 110px;
   left: 50%;
@@ -383,8 +415,8 @@ html, body {
   justify-content: center;
   z-index: 95;
   pointer-events: none;
-}
-#captionPill {
+}}
+#captionPill {{
   background: rgba(14, 18, 25, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -402,24 +434,24 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-}
-.sub-word {
+}}
+.sub-word {{
   display: inline-block;
   color: #DDD8CE;
   transition: color 0.1s ease, transform 0.1s ease;
-}
-.sub-word.active {
+}}
+.sub-word.active {{
   color: var(--gold);
   font-weight: 800;
   transform: scale(1.08);
   text-shadow: 0 0 16px var(--gold-glow);
-}
-.sub-word.past {
+}}
+.sub-word.past {{
   color: #8C877D;
-}
+}}
 
 /* Vector Chart Containers (Zipf & Radiocarbon) */
-.vector-chart-panel {
+.vector-chart-panel {{
   position: absolute;
   top: 730px; left: 80px; width: 920px; height: 380px;
   background: rgba(14, 18, 26, 0.95);
@@ -429,29 +461,29 @@ html, body {
   box-shadow: var(--card-shadow);
   z-index: 24;
   opacity: 0;
-}
-.vector-chart-panel .chart-header {
+}}
+.vector-chart-panel .chart-header {{
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 12px;
-}
-.vector-chart-panel .chart-title {
+}}
+.vector-chart-panel .chart-title {{
   font-family: "JetBrains Mono", monospace;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.10em;
   color: var(--gold);
   text-transform: uppercase;
-}
-.vector-chart-panel .chart-sub {
+}}
+.vector-chart-panel .chart-sub {{
   font-family: "JetBrains Mono", monospace;
   font-size: 13px;
   color: var(--ink-muted);
-}
+}}
 
 /* Opening Macro Curiosity Card (Integrated into Flow) */
-#openingMacroCard {
+#openingMacroCard {{
   position: absolute;
   top: 420px; left: 80px; right: 80px;
   background: rgba(14, 18, 26, 0.94);
@@ -461,8 +493,8 @@ html, body {
   box-shadow: var(--card-shadow);
   z-index: 50;
   opacity: 0;
-}
-#openingMacroCard .kicker {
+}}
+#openingMacroCard .kicker {{
   font-family: "JetBrains Mono", monospace;
   font-size: 16px;
   font-weight: 700;
@@ -470,8 +502,8 @@ html, body {
   color: var(--gold);
   margin-bottom: 10px;
   text-transform: uppercase;
-}
-#openingMacroCard .title {
+}}
+#openingMacroCard .title {{
   font-family: "Cinzel", serif;
   font-size: 58px;
   font-weight: 900;
@@ -479,16 +511,16 @@ html, body {
   color: #FFFFFF;
   letter-spacing: -0.01em;
   margin-bottom: 16px;
-}
-#openingMacroCard .meta {
+}}
+#openingMacroCard .meta {{
   font-family: "JetBrains Mono", monospace;
   font-size: 20px;
   line-height: 1.5;
   color: var(--ink-muted);
-}
+}}
 
 /* Outro Heavy Rubber Stamp */
-#outroFinalStamp {
+#outroFinalStamp {{
   position: absolute;
   top: 760px; left: 50%;
   width: 860px; height: 320px;
@@ -496,7 +528,7 @@ html, body {
   opacity: 0;
   z-index: 48;
   filter: drop-shadow(0 20px 48px rgba(184, 53, 38, 0.80));
-}
+}}
 </style>
 </head>
 <body>
@@ -986,108 +1018,108 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const W = 1080, H = 1920, DURATION = 152.923;
 
 /* Stage Auto-Scaler */
-function fitStage() {
+function fitStage() {{
   const sx = window.innerWidth / W;
   const sy = window.innerHeight / H;
   const s = Math.min(sx, sy);
-  $('#stage').style.transform = `translate(-50%, -50%) scale(${s})`;
-}
+  $('#stage').style.transform = `translate(-50%, -50%) scale(${{s}})`;
+}}
 window.addEventListener('resize', fitStage);
 fitStage();
 
 /* Embedded Whisper Aligned Words */
-const ALIGNED_WORDS = [{"w":"In","s":0.0,"e":0.08,"b":1},{"w":"1912,","s":0.08,"e":0.88,"b":1},{"w":"deep","s":1.32,"e":1.62,"b":1},{"w":"inside","s":1.62,"e":2.04,"b":1},{"w":"a","s":2.04,"e":2.24,"b":1},{"w":"secluded","s":2.24,"e":2.56,"b":1},{"w":"Jesuit","s":2.56,"e":2.86,"b":1},{"w":"college","s":2.86,"e":3.38,"b":1},{"w":"near","s":3.38,"e":3.72,"b":1},{"w":"Rome,","s":3.72,"e":4.04,"b":1},{"w":"an","s":4.54,"e":4.58,"b":1},{"w":"antique","s":4.58,"e":4.84,"b":1},{"w":"book","s":4.84,"e":5.16,"b":1},{"w":"dealer","s":5.16,"e":5.34,"b":1},{"w":"named","s":5.34,"e":5.78,"b":1},{"w":"Wilfred","s":5.78,"e":6.24,"b":1},{"w":"Voynish","s":6.24,"e":6.7,"b":1},{"w":"uncovered","s":6.7,"e":7.18,"b":1},{"w":"an","s":7.18,"e":7.5,"b":1},{"w":"enigmatic","s":7.5,"e":7.7,"b":1},{"w":"manuscript","s":7.7,"e":8.58,"b":1},{"w":"bound","s":8.58,"e":9.04,"b":1},{"w":"in","s":9.04,"e":9.38,"b":1},{"w":"aged","s":9.38,"e":9.64,"b":1},{"w":"goat","s":9.64,"e":10.12,"b":1},{"w":"vellum.","s":10.12,"e":10.56,"b":1},{"w":"Inside","s":11.988,"e":12.328,"b":2},{"w":"were","s":12.328,"e":12.608,"b":2},{"w":"240","s":12.608,"e":12.848,"b":2},{"w":"illustrated","s":12.848,"e":13.888,"b":2},{"w":"pages,","s":13.888,"e":14.428,"b":2},{"w":"written","s":15.168,"e":15.228,"b":2},{"w":"in","s":15.228,"e":15.408,"b":2},{"w":"an","s":15.408,"e":15.508,"b":2},{"w":"elegant,","s":15.508,"e":15.808,"b":2},{"w":"unbroken","s":16.148,"e":16.508,"b":2},{"w":"script","s":16.508,"e":16.988,"b":2},{"w":"that","s":16.988,"e":17.248,"b":2},{"w":"no","s":17.248,"e":17.428,"b":2},{"w":"scholar","s":17.428,"e":17.808,"b":2},{"w":"historian","s":17.808,"e":18.228,"b":2},{"w":"or","s":18.228,"e":18.908,"b":2},{"w":"linguist","s":18.908,"e":19.408,"b":2},{"w":"on","s":19.408,"e":19.528,"b":2},{"w":"Earth","s":19.528,"e":19.788,"b":2},{"w":"had","s":19.788,"e":19.948,"b":2},{"w":"ever","s":19.948,"e":20.168,"b":2},{"w":"seen.","s":20.168,"e":20.488,"b":2},{"w":"Every","s":22.156,"e":22.356,"b":3},{"w":"folio","s":22.356,"e":22.816,"b":3},{"w":"was","s":22.816,"e":23.056,"b":3},{"w":"covered","s":23.056,"e":23.336,"b":3},{"w":"in","s":23.336,"e":23.576,"b":3},{"w":"hand","s":23.576,"e":23.776,"b":3},{"w":"-painted","s":23.776,"e":24.136,"b":3},{"w":"drawings","s":24.136,"e":24.496,"b":3},{"w":"of","s":24.496,"e":24.856,"b":3},{"w":"bizarre","s":24.856,"e":25.016,"b":3},{"w":"plants,","s":25.016,"e":25.676,"b":3},{"w":"impossible","s":25.976,"e":26.496,"b":3},{"w":"botanical","s":26.496,"e":27.196,"b":3},{"w":"hybrids","s":27.196,"e":27.596,"b":3},{"w":"with","s":27.596,"e":28.016,"b":3},{"w":"roots","s":28.016,"e":28.256,"b":3},{"w":"shaped","s":28.256,"e":28.656,"b":3},{"w":"like","s":28.656,"e":29.016,"b":3},{"w":"claws","s":29.016,"e":29.316,"b":3},{"w":"and","s":29.316,"e":29.696,"b":3},{"w":"leaves","s":29.696,"e":29.876,"b":3},{"w":"with","s":29.876,"e":30.256,"b":3},{"w":"unnatural","s":30.256,"e":30.616,"b":3},{"w":"vascular","s":30.616,"e":31.176,"b":3},{"w":"systems.","s":31.176,"e":31.876,"b":3},{"w":"Not","s":32.696,"e":32.736,"b":3},{"w":"a","s":32.736,"e":32.856,"b":3},{"w":"single","s":32.856,"e":33.036,"b":3},{"w":"plant","s":33.036,"e":33.476,"b":3},{"w":"exists","s":33.476,"e":33.716,"b":3},{"w":"in","s":33.716,"e":34.156,"b":3},{"w":"nature.","s":34.156,"e":34.376,"b":3},{"w":"Other","s":36.021,"e":36.221,"b":4},{"w":"fold","s":36.221,"e":36.421,"b":4},{"w":"-outs","s":36.421,"e":36.761,"b":4},{"w":"revealed","s":36.761,"e":37.101,"b":4},{"w":"cosmological","s":37.101,"e":38.041,"b":4},{"w":"star","s":38.041,"e":38.401,"b":4},{"w":"wheels,","s":38.401,"e":38.781,"b":4},{"w":"unknown","s":39.321,"e":39.621,"b":4},{"w":"zodiac","s":39.621,"e":40.441,"b":4},{"w":"constellations,","s":40.441,"e":41.281,"b":4},{"w":"and","s":41.721,"e":41.881,"b":4},{"w":"miniature","s":41.881,"e":42.121,"b":4},{"w":"figures","s":42.121,"e":42.481,"b":4},{"w":"floating","s":42.481,"e":42.901,"b":4},{"w":"through","s":42.901,"e":43.301,"b":4},{"w":"intricate","s":43.301,"e":43.641,"b":4},{"w":"labyrinths","s":43.641,"e":44.361,"b":4},{"w":"of","s":44.361,"e":44.461,"b":4},{"w":"organic","s":44.461,"e":44.741,"b":4},{"w":"plumbing","s":44.741,"e":45.281,"b":4},{"w":"tubes.","s":45.281,"e":45.561,"b":4},{"w":"For","s":47.505,"e":47.605,"b":5},{"w":"nearly","s":47.605,"e":47.765,"b":5},{"w":"a","s":47.765,"e":47.985,"b":5},{"w":"century,","s":47.985,"e":48.485,"b":5},{"w":"skeptics","s":49.085,"e":49.085,"b":5},{"w":"insisted","s":49.085,"e":49.485,"b":5},{"w":"the","s":49.485,"e":49.965,"b":5},{"w":"entire","s":49.965,"e":50.205,"b":5},{"w":"manuscript","s":50.205,"e":50.785,"b":5},{"w":"was","s":50.785,"e":51.365,"b":5},{"w":"an","s":51.365,"e":51.485,"b":5},{"w":"elaborate","s":51.485,"e":51.765,"b":5},{"w":"Renaissance","s":51.765,"e":52.245,"b":5},{"w":"hoax,","s":52.245,"e":52.805,"b":5},{"w":"forged","s":53.345,"e":53.565,"b":5},{"w":"by","s":53.565,"e":53.905,"b":5},{"w":"alchemists","s":53.905,"e":54.605,"b":5},{"w":"to","s":54.605,"e":54.805,"b":5},{"w":"swindle","s":54.805,"e":55.145,"b":5},{"w":"wealthy","s":55.145,"e":55.385,"b":5},{"w":"emperors","s":55.385,"e":56.025,"b":5},{"w":"out","s":56.025,"e":56.325,"b":5},{"w":"of","s":56.325,"e":56.445,"b":5},{"w":"gold.","s":56.445,"e":56.625,"b":5},{"w":"until","s":58.341,"e":58.561,"b":6},{"w":"2009.","s":58.561,"e":59.621,"b":6},{"w":"Physicists","s":60.241,"e":60.801,"b":6},{"w":"at","s":60.801,"e":60.921,"b":6},{"w":"the","s":60.921,"e":61.001,"b":6},{"w":"University","s":61.001,"e":61.441,"b":6},{"w":"of","s":61.441,"e":61.801,"b":6},{"w":"Arizona","s":61.801,"e":62.201,"b":6},{"w":"extracted","s":62.201,"e":62.801,"b":6},{"w":"four","s":62.801,"e":63.361,"b":6},{"w":"micro","s":63.361,"e":63.681,"b":6},{"w":"samples","s":63.681,"e":64.001,"b":6},{"w":"of","s":64.001,"e":64.401,"b":6},{"w":"the","s":64.401,"e":64.501,"b":6},{"w":"calfskin","s":64.501,"e":64.941,"b":6},{"w":"parchment","s":64.941,"e":65.201,"b":6},{"w":"for","s":65.201,"e":65.881,"b":6},{"w":"accelerator","s":65.881,"e":66.281,"b":6},{"w":"mass","s":66.281,"e":66.701,"b":6},{"w":"spectrometry","s":66.701,"e":67.581,"b":6},{"w":"radiocarbon","s":67.581,"e":68.221,"b":6},{"w":"dating.","s":68.221,"e":68.561,"b":6},{"w":"The","s":70.223,"e":70.303,"b":7},{"w":"scientific","s":70.303,"e":70.603,"b":7},{"w":"verdict","s":70.603,"e":71.063,"b":7},{"w":"was","s":71.063,"e":71.463,"b":7},{"w":"indisputable.","s":71.463,"e":72.143,"b":7},{"w":"The","s":72.763,"e":72.783,"b":7},{"w":"vellum","s":72.783,"e":73.083,"b":7},{"w":"was","s":73.083,"e":73.183,"b":7},{"w":"prepared","s":73.183,"e":73.483,"b":7},{"w":"between","s":73.483,"e":73.903,"b":7},{"w":"1","s":73.903,"e":74.243,"b":7},{"w":",404","s":74.243,"e":74.883,"b":7},{"w":"and","s":74.883,"e":75.863,"b":7},{"w":"1","s":75.863,"e":76.083,"b":7},{"w":",438.","s":76.083,"e":77.023,"b":7},{"w":"The","s":78.103,"e":78.263,"b":7},{"w":"Voynish","s":78.263,"e":78.643,"b":7},{"w":"manuscript","s":78.643,"e":78.903,"b":7},{"w":"is","s":78.903,"e":79.483,"b":7},{"w":"genuinely","s":79.483,"e":79.903,"b":7},{"w":"600","s":79.903,"e":80.343,"b":7},{"w":"years","s":80.343,"e":80.803,"b":7},{"w":"old.","s":80.803,"e":81.123,"b":7},{"w":"If","s":82.901,"e":82.961,"b":8},{"w":"it","s":82.961,"e":83.041,"b":8},{"w":"was","s":83.041,"e":83.161,"b":8},{"w":"a","s":83.161,"e":83.281,"b":8},{"w":"hoax,","s":83.281,"e":83.461,"b":8},{"w":"its","s":84.001,"e":84.141,"b":8},{"w":"author","s":84.141,"e":84.321,"b":8},{"w":"was","s":84.321,"e":84.561,"b":8},{"w":"centuries","s":84.561,"e":84.781,"b":8},{"w":"ahead","s":84.781,"e":85.321,"b":8},{"w":"of","s":85.321,"e":85.401,"b":8},{"w":"modern","s":85.401,"e":85.561,"b":8},{"w":"science.","s":85.561,"e":86.261,"b":8},{"w":"Statistical","s":86.721,"e":87.041,"b":8},{"w":"analysis","s":87.041,"e":87.721,"b":8},{"w":"proved","s":87.721,"e":88.201,"b":8},{"w":"the","s":88.201,"e":88.461,"b":8},{"w":"text","s":88.461,"e":88.661,"b":8},{"w":"strictly","s":88.661,"e":89.101,"b":8},{"w":"obeys","s":89.101,"e":89.861,"b":8},{"w":"Zipp's","s":89.861,"e":90.241,"b":8},{"w":"law,","s":90.241,"e":90.441,"b":8},{"w":"matching","s":90.941,"e":91.281,"b":8},{"w":"the","s":91.281,"e":91.461,"b":8},{"w":"exact","s":91.461,"e":91.681,"b":8},{"w":"mathematical","s":91.681,"e":92.481,"b":8},{"w":"frequency","s":92.481,"e":93.021,"b":8},{"w":"distribution","s":93.021,"e":93.721,"b":8},{"w":"of","s":93.721,"e":94.241,"b":8},{"w":"genuine","s":94.241,"e":94.581,"b":8},{"w":"spoken","s":94.581,"e":94.981,"b":8},{"w":"languages.","s":94.981,"e":95.601,"b":8},{"w":"The","s":97.279,"e":97.359,"b":9},{"w":"words","s":97.359,"e":97.519,"b":9},{"w":"follow","s":97.519,"e":97.899,"b":9},{"w":"strict","s":97.899,"e":98.279,"b":9},{"w":"grammatical","s":98.279,"e":98.939,"b":9},{"w":"rules,","s":98.939,"e":99.359,"b":9},{"w":"complete","s":99.719,"e":100.079,"b":9},{"w":"with","s":100.079,"e":100.259,"b":9},{"w":"prefixes,","s":100.259,"e":100.879,"b":9},{"w":"roots,","s":101.119,"e":101.279,"b":9},{"w":"and","s":101.619,"e":101.679,"b":9},{"w":"suffixes.","s":101.679,"e":102.259,"b":9},{"w":"Mathematically","s":102.919,"e":103.619,"b":9},{"w":"it","s":103.619,"e":103.939,"b":9},{"w":"is","s":103.939,"e":104.039,"b":9},{"w":"virtually","s":104.039,"e":104.319,"b":9},{"w":"impossible","s":104.319,"e":104.839,"b":9},{"w":"for","s":104.839,"e":105.319,"b":9},{"w":"these","s":105.319,"e":105.439,"b":9},{"w":"170","s":105.439,"e":105.779,"b":9},{"w":",000","s":105.779,"e":107.039,"b":9},{"w":"glyphs","s":107.039,"e":108.199,"b":9},{"w":"to","s":108.199,"e":108.279,"b":9},{"w":"be","s":108.279,"e":108.379,"b":9},{"w":"random","s":108.379,"e":108.719,"b":9},{"w":"medieval","s":108.719,"e":109.139,"b":9},{"w":"gibberish.","s":109.139,"e":109.899,"b":9},{"w":"During","s":111.6,"e":111.78,"b":10},{"w":"World","s":111.78,"e":111.98,"b":10},{"w":"War","s":111.98,"e":112.34,"b":10},{"w":"II,","s":112.34,"e":112.68,"b":10},{"w":"William","s":113.02,"e":113.34,"b":10},{"w":"Friedman,","s":113.34,"e":113.62,"b":10},{"w":"the","s":114.18,"e":114.3,"b":10},{"w":"legendary","s":114.3,"e":114.56,"b":10},{"w":"cryptanalyst","s":114.56,"e":115.46,"b":10},{"w":"who","s":115.46,"e":115.68,"b":10},{"w":"broke","s":115.68,"e":115.86,"b":10},{"w":"Japan's","s":115.86,"e":116.46,"b":10},{"w":"purple","s":116.46,"e":116.64,"b":10},{"w":"cipher,","s":116.64,"e":117.04,"b":10},{"w":"dedicated","s":117.58,"e":117.86,"b":10},{"w":"30","s":117.86,"e":118.36,"b":10},{"w":"years","s":118.36,"e":118.78,"b":10},{"w":"trying","s":118.78,"e":119.1,"b":10},{"w":"to","s":119.1,"e":119.3,"b":10},{"w":"decipher","s":119.3,"e":119.48,"b":10},{"w":"the","s":119.48,"e":119.92,"b":10},{"w":"book.","s":119.92,"e":120.06,"b":10},{"w":"He","s":120.7,"e":120.84,"b":10},{"w":"died","s":120.84,"e":121.04,"b":10},{"w":"without","s":121.04,"e":121.34,"b":10},{"w":"decoding","s":121.34,"e":121.66,"b":10},{"w":"a","s":121.66,"e":122.06,"b":10},{"w":"single","s":122.06,"e":122.22,"b":10},{"w":"word.","s":122.22,"e":122.68,"b":10},{"w":"Decades","s":124.249,"e":124.689,"b":11},{"w":"later,","s":124.689,"e":124.949,"b":11},{"w":"the","s":125.289,"e":125.429,"b":11},{"w":"National","s":125.429,"e":125.609,"b":11},{"w":"Security","s":125.609,"e":126.069,"b":11},{"w":"Agency,","s":126.069,"e":126.809,"b":11},{"w":"quantum","s":127.169,"e":127.389,"b":11},{"w":"computing","s":127.389,"e":128.009,"b":11},{"w":"clusters,","s":128.009,"e":128.329,"b":11},{"w":"and","s":128.849,"e":128.929,"b":11},{"w":"modern","s":128.929,"e":129.129,"b":11},{"w":"neural","s":129.129,"e":129.469,"b":11},{"w":"network","s":129.469,"e":129.889,"b":11},{"w":"language","s":129.889,"e":130.449,"b":11},{"w":"models","s":130.449,"e":130.809,"b":11},{"w":"were","s":130.809,"e":131.109,"b":11},{"w":"unleashed","s":131.109,"e":131.409,"b":11},{"w":"on","s":131.409,"e":131.769,"b":11},{"w":"the","s":131.769,"e":131.889,"b":11},{"w":"text.","s":131.889,"e":132.109,"b":11},{"w":"Every","s":132.889,"e":132.949,"b":11},{"w":"single","s":132.949,"e":133.249,"b":11},{"w":"model","s":133.249,"e":133.709,"b":11},{"w":"collapsed","s":133.709,"e":133.969,"b":11},{"w":"into","s":133.969,"e":134.489,"b":11},{"w":"statistical","s":134.489,"e":134.989,"b":11},{"w":"contradictions.","s":134.989,"e":135.609,"b":11},{"w":"Today,","s":137.675,"e":137.895,"b":12},{"w":"cataloged","s":138.295,"e":139.015,"b":12},{"w":"as","s":139.015,"e":139.135,"b":12},{"w":"MS","s":139.135,"e":139.275,"b":12},{"w":"-408,","s":139.275,"e":139.915,"b":12},{"w":"it","s":140.455,"e":140.655,"b":12},{"w":"rests","s":140.655,"e":140.835,"b":12},{"w":"locked","s":140.835,"e":141.255,"b":12},{"w":"inside","s":141.255,"e":141.595,"b":12},{"w":"the","s":141.595,"e":141.895,"b":12},{"w":"climate","s":141.895,"e":142.155,"b":12},{"w":"-controlled","s":142.155,"e":142.655,"b":12},{"w":"vault","s":142.655,"e":143.075,"b":12},{"w":"of","s":143.075,"e":143.335,"b":12},{"w":"Yale","s":143.335,"e":143.495,"b":12},{"w":"University's","s":143.495,"e":144.395,"b":12},{"w":"Banach","s":144.395,"e":144.755,"b":12},{"w":"Library.","s":144.755,"e":145.115,"b":12},{"w":"Six","s":145.975,"e":146.135,"b":12},{"w":"centuries","s":146.135,"e":146.555,"b":12},{"w":"of","s":146.555,"e":146.795,"b":12},{"w":"human","s":146.795,"e":147.035,"b":12},{"w":"intelligence","s":147.035,"e":147.375,"b":12},{"w":"and","s":147.375,"e":148.135,"b":12},{"w":"the","s":148.135,"e":148.255,"b":12},{"w":"Voynish","s":148.255,"e":148.655,"b":12},{"w":"cipher","s":148.655,"e":148.855,"b":12},{"w":"remains","s":148.855,"e":149.335,"b":12},{"w":"completely","s":149.335,"e":149.935,"b":12},{"w":"unbroken.","s":149.935,"e":150.535,"b":12}];
+const ALIGNED_WORDS = {words_json};
 
 /* Group Aligned Words into 3-5 Word Natural Phrase Chunks */
 const CHUNKS = [];
 let curChunk = [];
 let curChars = 0;
-for (const w of ALIGNED_WORDS) {
+for (const w of ALIGNED_WORDS) {{
   curChunk.push(w);
   curChars += w.w.length + 1;
   const isPunc = /[.!?;:]$/.test(w.w);
-  if (curChunk.length >= 4 || curChars >= 28 || isPunc) {
-    CHUNKS.push({
+  if (curChunk.length >= 4 || curChars >= 28 || isPunc) {{
+    CHUNKS.push({{
       start: curChunk[0].s,
       end: curChunk[curChunk.length - 1].e,
       words: curChunk
-    });
+    }});
     curChunk = [];
     curChars = 0;
-  }
-}
-if (curChunk.length) {
-  CHUNKS.push({
+  }}
+}}
+if (curChunk.length) {{
+  CHUNKS.push({{
     start: curChunk[0].s,
     end: curChunk[curChunk.length - 1].e,
     words: curChunk
-  });
-}
+  }});
+}}
 
 /* Dynamic Caption Pill Update Engine */
 const captionPill = $('#captionPill');
 const captionWords = $('#captionWords');
 
-function updateDynamicSubtitles(t) {
+function updateDynamicSubtitles(t) {{
   const chunk = CHUNKS.find(c => t >= c.start - 0.05 && t <= c.end + 0.35);
-  if (!chunk) {
+  if (!chunk) {{
     captionPill.style.opacity = '0';
     return;
-  }
+  }}
   captionPill.style.opacity = '1';
 
   let html = '';
-  for (const w of chunk.words) {
+  for (const w of chunk.words) {{
     const isActive = (t >= w.s && t <= w.e);
     const isPast = (t > w.e);
     const cls = isActive ? 'sub-word active' : (isPast ? 'sub-word past' : 'sub-word');
-    html += `<span class="${cls}">${w.w}</span> `;
-  }
+    html += `<span class="${{cls}}">${{w.w}}</span> `;
+  }}
   captionWords.innerHTML = html;
-}
+}}
 
 /* GSAP Master Choreography */
-const tl = gsap.timeline({ paused: true });
+const tl = gsap.timeline({{ paused: true }});
 const cameraRig = $('#cameraRig');
 const runway = $('#runway');
 
 /* Camera Transition Helper with Transit Shutter */
-function glideTo(startTime, targetX, dur = 0.85) {
-  tl.to(runway, {
+function glideTo(startTime, targetX, dur = 0.85) {{
+  tl.to(runway, {{
     x: targetX,
     duration: dur,
     ease: 'power2.inOut'
-  }, startTime);
+  }}, startTime);
 
   // Subtle optical transit shutter
-  tl.fromTo('#transitShutter', { opacity: 0, x: '-100%' }, { opacity: 0.45, x: '100%', duration: dur * 0.7, ease: 'power2.inOut' }, startTime + dur * 0.15);
-  tl.to('#transitShutter', { opacity: 0, duration: 0.15 }, startTime + dur * 0.85);
-}
+  tl.fromTo('#transitShutter', {{ opacity: 0, x: '-100%' }}, {{ opacity: 0.45, x: '100%', duration: dur * 0.7, ease: 'power2.inOut' }}, startTime + dur * 0.15);
+  tl.to('#transitShutter', {{ opacity: 0, duration: 0.15 }}, startTime + dur * 0.85);
+}}
 
 /* Slow Cinematic Reading Push (Keeps Camera Gently Breathing, No Wobble) */
-function cameraPush(startTime, targetScale, dur = 8.0) {
-  tl.to(cameraRig, {
+function cameraPush(startTime, targetScale, dur = 8.0) {{
+  tl.to(cameraRig, {{
     scale: targetScale,
     duration: dur,
     ease: 'sine.inOut'
-  }, startTime);
-}
+  }}, startTime);
+}}
 
 /* Headline Swap Helper */
-function showHeadline(sel, startTime, hlSel) {
-  tl.fromTo(sel, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, startTime);
-  if (hlSel) {
-    tl.fromTo(`${hlSel} i`, { scaleX: 0 }, { scaleX: 1, duration: 0.40, ease: 'power3.out' }, startTime + 0.40);
-  }
-}
-function hideHeadline(sel, startTime) {
-  tl.to(sel, { opacity: 0, y: -16, duration: 0.30, ease: 'power2.in' }, startTime);
-}
+function showHeadline(sel, startTime, hlSel) {{
+  tl.fromTo(sel, {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, startTime);
+  if (hlSel) {{
+    tl.fromTo(`${{hlSel}} i`, {{ scaleX: 0 }}, {{ scaleX: 1, duration: 0.40, ease: 'power3.out' }}, startTime + 0.40);
+  }}
+}}
+function hideHeadline(sel, startTime) {{
+  tl.to(sel, {{ opacity: 0, y: -16, duration: 0.30, ease: 'power2.in' }}, startTime);
+}}
 
 /* Stamp Slam Helper */
-function slamStamp(sel, startTime) {
-  tl.fromTo(sel, { opacity: 0, scale: 2.1 }, { opacity: 1, scale: 1, duration: 0.24, ease: 'power4.in' }, startTime);
-}
+function slamStamp(sel, startTime) {{
+  tl.fromTo(sel, {{ opacity: 0, scale: 2.1 }}, {{ opacity: 1, scale: 1, duration: 0.24, ease: 'power4.in' }}, startTime);
+}}
 
 /* --------------------------------------------------------------------------
    BUILD MASTER EDITORIAL CHOREOGRAPHY (152.92s)
@@ -1097,26 +1129,26 @@ function slamStamp(sel, startTime) {
 // SHOT 1A: CURIOSITY MACRO HOOK (0.0s - 3.2s)
 // Starts immediately on macro book crop with bold hook
 // =========================================================================
-tl.set(runway, { x: 0 }, 0);
-tl.set(cameraRig, { scale: 1.15, transformOrigin: '540px 600px' }, 0);
+tl.set(runway, {{ x: 0 }}, 0);
+tl.set(cameraRig, {{ scale: 1.15, transformOrigin: '540px 600px' }}, 0);
 
 // Opening Macro Hook Card fades in immediately
-tl.fromTo('#openingMacroCard', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.1);
-tl.fromTo('#spBook', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.85, ease: 'power3.out' }, 0.3);
+tl.fromTo('#openingMacroCard', {{ opacity: 0, y: 20 }}, {{ opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }}, 0.1);
+tl.fromTo('#spBook', {{ opacity: 0, scale: 0.95 }}, {{ opacity: 1, scale: 1, duration: 0.85, ease: 'power3.out' }}, 0.3);
 
 // Smooth pull-back from macro to wide establishing shot as voiceover enters (1.8s - 3.4s)
-tl.to(cameraRig, { scale: 1.0, transformOrigin: '540px 960px', duration: 1.6, ease: 'power2.inOut' }, 1.8);
-tl.to('#openingMacroCard', { opacity: 0, y: -20, duration: 0.6, ease: 'power2.in' }, 2.6);
+tl.to(cameraRig, {{ scale: 1.0, transformOrigin: '540px 960px', duration: 1.6, ease: 'power2.inOut' }}, 1.8);
+tl.to('#openingMacroCard', {{ opacity: 0, y: -20, duration: 0.6, ease: 'power2.in' }}, 2.6);
 
 // =========================================================================
 // SHOT 1B: VILLA MONDRAGONE & THE CLOSED CODEX (3.2s - 11.5s)
 // =========================================================================
-tl.to(['#scene1 .dossier-tag', '#scene1 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 3.2);
-tl.fromTo('#spWax', { opacity: 0, scale: 1.4, rotate: -15 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.65, ease: 'back.out(1.4)' }, 3.2);
-tl.fromTo('#spQuill', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.70, ease: 'power3.out' }, 3.6);
-tl.fromTo(['#pillSubstrate', '#pillVolume'], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 4.0);
-tl.fromTo('#hn1_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 4.4);
-tl.fromTo('#cardTelemetry1', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 4.8);
+tl.to(['#scene1 .dossier-tag', '#scene1 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 3.2);
+tl.fromTo('#spWax', {{ opacity: 0, scale: 1.4, rotate: -15 }}, {{ opacity: 1, scale: 1, rotate: 0, duration: 0.65, ease: 'back.out(1.4)' }}, 3.2);
+tl.fromTo('#spQuill', {{ opacity: 0, x: -40 }}, {{ opacity: 1, x: 0, duration: 0.70, ease: 'power3.out' }}, 3.6);
+tl.fromTo(['#pillSubstrate', '#pillVolume'], {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, 4.0);
+tl.fromTo('#hn1_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 4.4);
+tl.fromTo('#cardTelemetry1', {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }}, 4.8);
 slamStamp('#stampArtifact', 6.0);
 
 // Beat 1 Headline (3.4s - 10.69s)
@@ -1127,9 +1159,9 @@ hideHeadline('#hlBox1_1', 10.8);
 // SHOT 1C: THE OPEN SPREAD & UNKNOWN SCRIPT (11.5s - 21.0s)
 // Match-reveal into open spread
 // =========================================================================
-tl.to(['#spBook', '#spWax', '#spQuill', '#hn1_1', '#stampArtifact', '#pillSubstrate', '#pillVolume', '#cardTelemetry1'], { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, 11.4);
-tl.fromTo('#spOpenSpread1', { opacity: 0, scale: 0.92, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.85, ease: 'power3.out' }, 11.8);
-tl.fromTo('#hn1_2', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: 'back.out' }, 12.8);
+tl.to(['#spBook', '#spWax', '#spQuill', '#hn1_1', '#stampArtifact', '#pillSubstrate', '#pillVolume', '#cardTelemetry1'], {{ opacity: 0, duration: 0.5, ease: 'power2.inOut' }}, 11.4);
+tl.fromTo('#spOpenSpread1', {{ opacity: 0, scale: 0.92, y: 20 }}, {{ opacity: 1, scale: 1, y: 0, duration: 0.85, ease: 'power3.out' }}, 11.8);
+tl.fromTo('#hn1_2', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.55, ease: 'back.out' }}, 12.8);
 cameraPush(12.0, 1.04, 8.5);
 
 showHeadline('#hlBox1_2', 12.0, '#hl1_2');
@@ -1143,16 +1175,16 @@ glideTo(20.8, -1080, 0.85);
 // =========================================================================
 // SHOT 2A: IMPOSSIBLE BOTANY & CLAW ROOTS (22.0s - 34.72s)
 // =========================================================================
-tl.to(['#scene2 .dossier-tag', '#scene2 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 21.5);
-tl.fromTo('#spAlienFlower', { opacity: 0, y: 50, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.85, ease: 'power3.out' }, 22.2);
-tl.fromTo('#boxRoot', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.60, ease: 'power2.out' }, 23.2);
-tl.fromTo('#pillBot1', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 23.5);
-tl.fromTo('#hn2_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 23.8);
+tl.to(['#scene2 .dossier-tag', '#scene2 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 21.5);
+tl.fromTo('#spAlienFlower', {{ opacity: 0, y: 50, scale: 0.94 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.85, ease: 'power3.out' }}, 22.2);
+tl.fromTo('#boxRoot', {{ opacity: 0, scale: 0.9 }}, {{ opacity: 1, scale: 1, duration: 0.60, ease: 'power2.out' }}, 23.2);
+tl.fromTo('#pillBot1', {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, 23.5);
+tl.fromTo('#hn2_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 23.8);
 
 // Focal Shift to Vascular Leaf & Magnifier at 27.0s
-tl.fromTo('#spVascularLeaf', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.70, ease: 'power3.out' }, 27.2);
-tl.fromTo('#spMagnifier', { opacity: 0, scale: 0.7, rotate: -15 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.65, ease: 'back.out(1.4)' }, 27.8);
-tl.fromTo('#cardTelemetry2', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 28.5);
+tl.fromTo('#spVascularLeaf', {{ opacity: 0, x: 40 }}, {{ opacity: 1, x: 0, duration: 0.70, ease: 'power3.out' }}, 27.2);
+tl.fromTo('#spMagnifier', {{ opacity: 0, scale: 0.7, rotate: -15 }}, {{ opacity: 1, scale: 1, rotate: 0, duration: 0.65, ease: 'back.out(1.4)' }}, 27.8);
+tl.fromTo('#cardTelemetry2', {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }}, 28.5);
 
 showHeadline('#hlBox2_1', 22.4, '#hl2_1');
 hideHeadline('#hlBox2_1', 34.8);
@@ -1161,12 +1193,12 @@ hideHeadline('#hlBox2_1', 34.8);
 // SHOT 2B: CELESTIAL STAR WHEELS & FLUID PIPES (35.5s - 46.2s)
 // Sequential reveal: clean out botany specimens, bring in celestial dials
 // =========================================================================
-tl.to(['#spAlienFlower', '#boxRoot', '#spVascularLeaf', '#spMagnifier', '#pillBot1', '#hn2_1', '#cardTelemetry2'], { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, 34.8);
+tl.to(['#spAlienFlower', '#boxRoot', '#spVascularLeaf', '#spMagnifier', '#pillBot1', '#hn2_1', '#cardTelemetry2'], {{ opacity: 0, duration: 0.5, ease: 'power2.inOut' }}, 34.8);
 
-tl.fromTo('#spZodiac', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 35.8);
-tl.fromTo('#spTubes', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 36.4);
-tl.fromTo('#pillBot2', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 36.8);
-tl.fromTo('#hn2_2', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 37.2);
+tl.fromTo('#spZodiac', {{ opacity: 0, y: 50 }}, {{ opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }}, 35.8);
+tl.fromTo('#spTubes', {{ opacity: 0, y: 50 }}, {{ opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }}, 36.4);
+tl.fromTo('#pillBot2', {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, 36.8);
+tl.fromTo('#hn2_2', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 37.2);
 
 showHeadline('#hlBox2_2', 36.2, '#hl2_2');
 hideHeadline('#hlBox2_2', 46.2);
@@ -1179,32 +1211,32 @@ glideTo(46.2, -2160, 0.85);
 // =========================================================================
 // SHOT 3A: THE HOAX ACCUSATION (47.4s - 57.2s)
 // =========================================================================
-tl.to(['#scene3 .dossier-tag', '#scene3 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 46.8);
-tl.fromTo('#hn3_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 47.8);
+tl.to(['#scene3 .dossier-tag', '#scene3 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 46.8);
+tl.fromTo('#hn3_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 47.8);
 showHeadline('#hlBox3_1', 47.6, '#hl3_1');
 hideHeadline('#hlBox3_1', 57.2);
 
 // =========================================================================
 // SHOT 3B: MICRO-SAMPLE EXTRACTION & AMS ACCELERATOR (57.8s - 69.5s)
 // =========================================================================
-tl.to('#hn3_1', { opacity: 0, duration: 0.4 }, 57.5);
-tl.fromTo('#spAmsCore', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' }, 58.0);
-tl.fromTo('#spRuler', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.70, ease: 'power3.out' }, 58.6);
-tl.fromTo('#pillAms1', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 59.0);
+tl.to('#hn3_1', {{ opacity: 0, duration: 0.4 }}, 57.5);
+tl.fromTo('#spAmsCore', {{ opacity: 0, y: 60 }}, {{ opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' }}, 58.0);
+tl.fromTo('#spRuler', {{ opacity: 0, x: 40 }}, {{ opacity: 1, x: 0, duration: 0.70, ease: 'power3.out' }}, 58.6);
+tl.fromTo('#pillAms1', {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, 59.0);
 showHeadline('#hlBox3_2', 58.4, '#hl3_2');
 hideHeadline('#hlBox3_2', 69.0);
 
 // =========================================================================
 // SHOT 3C: SVG C-14 CALIBRATION & INDISPUTABLE DATING (69.8s - 81.8s)
 // =========================================================================
-tl.fromTo('#panelC14', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }, 70.0);
+tl.fromTo('#panelC14', {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }}, 70.0);
 // Draw Gaussian curve and reveal confidence band
-tl.fromTo('#c14Curve', { strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 1.2, ease: 'power2.inOut' }, 70.4);
-tl.to('#c14Band', { opacity: 1, duration: 0.6, ease: 'power2.out' }, 71.4);
-tl.fromTo('#pillAms2', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 71.6);
-tl.fromTo('#cardTelemetry3', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 72.0);
+tl.fromTo('#c14Curve', {{ strokeDashoffset: 1000 }}, {{ strokeDashoffset: 0, duration: 1.2, ease: 'power2.inOut' }}, 70.4);
+tl.to('#c14Band', {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 71.4);
+tl.fromTo('#pillAms2', {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, 71.6);
+tl.fromTo('#cardTelemetry3', {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }}, 72.0);
 slamStamp('#stampDebunked', 73.0);
-tl.fromTo('#hn3_2', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 73.6);
+tl.fromTo('#hn3_2', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 73.6);
 
 showHeadline('#hlBox3_3', 70.4, '#hl3_3');
 hideHeadline('#hlBox3_3', 81.5);
@@ -1217,13 +1249,13 @@ glideTo(81.5, -3240, 0.90);
 // =========================================================================
 // SHOT 4A: SVG ZIPF'S LAW FREQUENCY MODEL (82.8s - 96.2s)
 // =========================================================================
-tl.to(['#scene4 .dossier-tag', '#scene4 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 82.2);
-tl.fromTo('#panelZipf', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }, 82.8);
-tl.fromTo('#zipfVoynichCurve', { strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' }, 83.2);
-tl.fromTo('#pillZipf1', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 83.8);
-tl.fromTo('#hn4_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 84.5);
+tl.to(['#scene4 .dossier-tag', '#scene4 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 82.2);
+tl.fromTo('#panelZipf', {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }}, 82.8);
+tl.fromTo('#zipfVoynichCurve', {{ strokeDashoffset: 1000 }}, {{ strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' }}, 83.2);
+tl.fromTo('#pillZipf1', {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, 83.8);
+tl.fromTo('#hn4_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 84.5);
 slamStamp('#stampZipf', 86.5);
-tl.fromTo('#cardTelemetry4', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 87.5);
+tl.fromTo('#cardTelemetry4', {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }}, 87.5);
 
 showHeadline('#hlBox4_1', 83.0, '#hl4_1');
 hideHeadline('#hlBox4_1', 96.0);
@@ -1232,11 +1264,11 @@ hideHeadline('#hlBox4_1', 96.0);
 // SHOT 4B: MORPHOLOGY ANATOMY (96.8s - 109.8s)
 // Sequential reveal: clean out graph, display alphabet specimen
 // =========================================================================
-tl.to(['#panelZipf', '#pillZipf1', '#hn4_1', '#stampZipf', '#cardTelemetry4'], { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, 96.2);
+tl.to(['#panelZipf', '#pillZipf1', '#hn4_1', '#stampZipf', '#cardTelemetry4'], {{ opacity: 0, duration: 0.5, ease: 'power2.inOut' }}, 96.2);
 
-tl.fromTo('#spAlphabet', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 96.8);
-tl.fromTo('#pillZipf2', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 97.2);
-tl.fromTo('#hn4_2', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 97.8);
+tl.fromTo('#spAlphabet', {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }}, 96.8);
+tl.fromTo('#pillZipf2', {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, 97.2);
+tl.fromTo('#hn4_2', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 97.8);
 
 showHeadline('#hlBox4_2', 97.4, '#hl4_2');
 hideHeadline('#hlBox4_2', 109.5);
@@ -1249,23 +1281,23 @@ glideTo(109.5, -4320, 0.85);
 // =========================================================================
 // SHOT 5A: FRIEDMAN & WWII CODEBREAKERS (110.6s - 119.8s)
 // =========================================================================
-tl.to(['#scene5 .dossier-tag', '#scene5 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 110.2);
-tl.fromTo('#spFriedman', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.75, ease: 'power3.out' }, 110.8);
-tl.fromTo('#spNsaSeal', { opacity: 0, scale: 0.8, rotate: 10 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.70, ease: 'back.out(1.4)' }, 111.4);
-tl.fromTo('#pillCode1', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 112.0);
-tl.fromTo('#hn5_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 112.8);
+tl.to(['#scene5 .dossier-tag', '#scene5 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 110.2);
+tl.fromTo('#spFriedman', {{ opacity: 0, x: -40 }}, {{ opacity: 1, x: 0, duration: 0.75, ease: 'power3.out' }}, 110.8);
+tl.fromTo('#spNsaSeal', {{ opacity: 0, scale: 0.8, rotate: 10 }}, {{ opacity: 1, scale: 1, rotate: 0, duration: 0.70, ease: 'back.out(1.4)' }}, 111.4);
+tl.fromTo('#pillCode1', {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, 112.0);
+tl.fromTo('#hn5_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 112.8);
 
 // =========================================================================
 // SHOT 5B: MODERN NEURAL NETWORKS & COLD CASE (119.8s - 124.8s)
 // Sequential reveal: clean out Friedman, spotlight neural network
 // =========================================================================
-tl.to(['#spFriedman', '#spNsaSeal', '#pillCode1', '#hn5_1'], { opacity: 0, duration: 0.45, ease: 'power2.inOut' }, 119.8);
+tl.to(['#spFriedman', '#spNsaSeal', '#pillCode1', '#hn5_1'], {{ opacity: 0, duration: 0.45, ease: 'power2.inOut' }}, 119.8);
 
-tl.fromTo('#spNeuralNet', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 120.2);
-tl.fromTo('#pillCode2', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 120.6);
-tl.fromTo('#hn5_2', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 121.2);
+tl.fromTo('#spNeuralNet', {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }}, 120.2);
+tl.fromTo('#pillCode2', {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }}, 120.6);
+tl.fromTo('#hn5_2', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 121.2);
 slamStamp('#stampColdCase', 121.8);
-tl.fromTo('#cardTelemetry5', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 122.2);
+tl.fromTo('#cardTelemetry5', {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }}, 122.2);
 
 showHeadline('#hlBox5_1', 110.8, '#hl5_1');
 hideHeadline('#hlBox5_1', 124.6);
@@ -1278,13 +1310,13 @@ glideTo(124.6, -5400, 0.90);
 // =========================================================================
 // SHOT 6A: YALE RARE BOOK VAULT (125.8s - 139.2s)
 // =========================================================================
-tl.to(['#scene6 .dossier-tag', '#scene6 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 125.8);
-tl.fromTo('#spBeineckeSeal', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.65, ease: 'back.out' }, 126.0);
-tl.fromTo('#spArchiveBox', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.70, ease: 'power3.out' }, 126.6);
-tl.fromTo('#spCallTag', { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.55, ease: 'power3.out' }, 127.2);
-tl.fromTo('#spFinalSpread', { opacity: 0, y: 60, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.90, ease: 'power3.out' }, 127.8);
-tl.fromTo('#cardTelemetry6', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 129.0);
-tl.fromTo('#hn6_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 129.8);
+tl.to(['#scene6 .dossier-tag', '#scene6 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 125.8);
+tl.fromTo('#spBeineckeSeal', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.65, ease: 'back.out' }}, 126.0);
+tl.fromTo('#spArchiveBox', {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.70, ease: 'power3.out' }}, 126.6);
+tl.fromTo('#spCallTag', {{ opacity: 0, x: 30 }}, {{ opacity: 1, x: 0, duration: 0.55, ease: 'power3.out' }}, 127.2);
+tl.fromTo('#spFinalSpread', {{ opacity: 0, y: 60, scale: 0.94 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.90, ease: 'power3.out' }}, 127.8);
+tl.fromTo('#cardTelemetry6', {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }}, 129.0);
+tl.fromTo('#hn6_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 129.8);
 
 showHeadline('#hlBox6_1', 126.0, '#hl6_1');
 hideHeadline('#hlBox6_1', 139.0);
@@ -1295,49 +1327,59 @@ hideHeadline('#hlBox6_1', 139.0);
 // =========================================================================
 showHeadline('#hlBox6_2', 140.2, '#hl6_2');
 // Definitive Rubber Stamp Slam directly on vellum
-tl.fromTo('#outroFinalStamp', { opacity: 0, scale: 2.4, rotate: -15 }, { opacity: 1, scale: 1, rotate: -6, duration: 0.28, ease: 'power4.in' }, 143.0);
+tl.fromTo('#outroFinalStamp', {{ opacity: 0, scale: 2.4, rotate: -15 }}, {{ opacity: 1, scale: 1, rotate: -6, duration: 0.28, ease: 'power4.in' }}, 143.0);
 
 // Gentle pull-back to wide vault at the conclusion (144.0s - 150.0s)
 cameraPush(144.0, 0.97, 6.5);
 
 /* Headless Puppeteer Seek Hook */
-window.BANG_MOTION = {
+window.BANG_MOTION = {{
   ready: true,
-  seekFrame: function(t) {
+  seekFrame: function(t) {{
     tl.pause(t, false);
     updateDynamicSubtitles(t);
-  },
+  }},
   duration: DURATION
-};
+}};
 
 /* Interactive Autoplay & Audio Sync */
 const audio = $('#audioTrack');
 let isPlaying = false;
 
-function playVideo() {
+function playVideo() {{
   tl.play(0);
   audio.currentTime = 0;
-  audio.play().then(() => isPlaying = true).catch(() => {});
-}
+  audio.play().then(() => isPlaying = true).catch(() => {{}});
+}}
 
-window.addEventListener('click', () => {
-  if (!isPlaying) {
+window.addEventListener('click', () => {{
+  if (!isPlaying) {{
     playVideo();
-  } else {
+  }} else {{
     tl.paused(!tl.paused());
     if (tl.paused()) audio.pause(); else audio.play();
-  }
-});
+  }}
+}});
 
-gsap.ticker.add(() => {
+gsap.ticker.add(() => {{
   const t = tl.time();
   updateDynamicSubtitles(t);
-  if (isPlaying && !tl.paused()) {
-    if (Math.abs(audio.currentTime - t) > 0.15) {
+  if (isPlaying && !tl.paused()) {{
+    if (Math.abs(audio.currentTime - t) > 0.15) {{
       audio.currentTime = t;
-    }
-  }
-});
+    }}
+  }}
+}});
 </script>
 </body>
 </html>
+'''
+
+    out_file = "index_ep8.html"
+    with open(out_file, "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+    print(f"[+] Successfully generated upgraded {out_file} ({len(html_content)} bytes)")
+
+if __name__ == "__main__":
+    main()
