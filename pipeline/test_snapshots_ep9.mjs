@@ -13,14 +13,14 @@ const WIDTH = 1080;
 const HEIGHT = 1920;
 
 const SNAPSHOT_TIMES = [
-  { t: 0.5, name: 'snap_01_hook_macro_card.jpg' },
-  { t: 5.5, name: 'snap_02_myth_financial_atm.jpg' },
-  { t: 15.0, name: 'snap_03_act2_yale_oxytocin_curve.jpg' },
-  { t: 22.0, name: 'snap_04_act2_neurobiology_verdict.jpg' },
-  { t: 34.0, name: 'snap_05_act3_rough_play_resilience.jpg' },
-  { t: 49.0, name: 'snap_06_act4_sahih_bukhari_hadith.jpg' },
-  { t: 56.0, name: 'snap_07_act4_sunnah_ar_rai_stamp.jpg' },
-  { t: 68.0, name: 'snap_08_outro_hadir_secara_utuh.jpg' }
+  { t: 5.0, name: 'snap_01_hook_atm_dad.jpg' },
+  { t: 20.0, name: 'snap_02_act1_paternal_brain.jpg' },
+  { t: 26.0, name: 'snap_03_act1_yale_oxytocin_curve.jpg' },
+  { t: 40.0, name: 'snap_04_act2_rough_play_airplane.jpg' },
+  { t: 45.0, name: 'snap_05_act2_stress_resilience.jpg' },
+  { t: 58.0, name: 'snap_06_act3_prophetic_mercy.jpg' },
+  { t: 65.0, name: 'snap_07_act3_sahih_bukhari_hadith.jpg' },
+  { t: 78.0, name: 'snap_08_outro_be_truly_present.jpg' }
 ];
 
 const MIME_TYPES = {

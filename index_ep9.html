@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>The Father's Brain // Ar-Ra'i — Editorial Documentary Film</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Amiri:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600;700;800&family=Amiri:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0C0E12;
-  --canvas-dark: #101217;
-  --ink-light: #F6F4EE;
-  --ink-muted: #8E93A0;
-  --ink-dim: #606573;
-  --gold: #D4A373;
-  --gold-glow: rgba(212, 163, 115, 0.35);
-  --emerald: #2A5C45;
-  --emerald-soft: rgba(42, 92, 69, 0.20);
-  --vermilion: #B83526;
-  --cyan-subtle: #4EA3A9;
-  --border-subtle: rgba(255, 255, 255, 0.12);
-  --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.35);
+  --bg-canvas: #FAF8F4;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F3EFE6;
+  --ink-primary: #181A1E;
+  --ink-secondary: #565C69;
+  --ink-muted: #848B98;
+  --coral-accent: #E76F51;
+  --coral-soft: rgba(231, 111, 81, 0.12);
+  --emerald-accent: #2A9D8F;
+  --emerald-soft: rgba(42, 157, 143, 0.12);
+  --gold-accent: #E9C46A;
+  --gold-soft: rgba(233, 196, 106, 0.18);
+  --navy-accent: #264653;
+  --border-card: rgba(24, 26, 30, 0.08);
+  --card-shadow: 0 16px 40px rgba(38, 70, 83, 0.08), 0 4px 12px rgba(38, 70, 83, 0.04);
+  --sprite-shadow: drop-shadow(0 18px 32px rgba(38, 70, 83, 0.14));
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
 html, body {
   width: 100%; height: 100%;
-  background: #060709;
+  background: #EBE6DC;
   overflow: hidden;
-  font-family: "Inter", -apple-system, system-ui, sans-serif;
-  color: var(--ink-light);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: var(--ink-primary);
 }
 
 /* 1080x1920 Stage Canvas */
@@ -38,29 +41,32 @@ html, body {
   position: absolute;
   left: 50%; top: 50%;
   width: 1080px; height: 1920px;
-  background: var(--bg);
+  background: var(--bg-canvas);
   overflow: hidden;
   transform: translate(-50%, -50%);
   transform-origin: center center;
-  box-shadow: 0 0 140px rgba(0, 0, 0, 0.98);
+  box-shadow: 0 0 120px rgba(0, 0, 0, 0.25);
 }
 
-/* Tactile 35mm Archival Film Grain */
+/* Editorial Geometric Grid Pattern */
+.grid-overlay {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  z-index: 5;
+}
+
+/* Tactile Soft Grain */
 .grain-overlay {
   position: absolute; inset: 0;
   pointer-events: none;
-  opacity: 0.10;
-  mix-blend-mode: overlay;
-  z-index: 80;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Soft Vignette */
-.vignette {
-  position: absolute; inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(6, 7, 9, 0.70) 100%);
-  z-index: 81;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  z-index: 6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* Camera Rig & Horizontal Scene Runway */
@@ -76,7 +82,7 @@ html, body {
   will-change: transform;
 }
 
-/* Scene Container Dossier */
+/* Scene Container */
 .scene-dossier {
   position: relative;
   width: 1080px; height: 1920px;
@@ -84,47 +90,33 @@ html, body {
   overflow: hidden;
 }
 
-/* Background Imagery */
-.scene-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: brightness(0.68) contrast(1.10);
-  transform: scale(1.02);
-}
-.scene-scrim {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(12,14,18,0.72) 0%, rgba(12,14,18,0.40) 45%, rgba(12,14,18,0.88) 100%);
-  pointer-events: none;
-}
-
 /* Editorial Top Archive Runner */
 #archiveRunner {
   position: absolute;
-  top: 60px; left: 54px;
-  width: 972px; height: 60px;
+  top: 54px; left: 54px;
+  width: 972px; height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
-  background: rgba(14, 18, 25, 0.88);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(38, 70, 83, 0.06);
   z-index: 90;
   font-family: "JetBrains Mono", monospace;
   font-size: 14px;
   letter-spacing: 0.12em;
-  color: var(--ink-light);
+  color: var(--ink-secondary);
 }
 #archiveRunner .badge {
-  background: var(--gold);
-  color: #12141A;
+  background: var(--navy-accent);
+  color: #FFFFFF;
   font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 5px 12px;
+  border-radius: 6px;
   font-size: 13px;
   letter-spacing: 0.14em;
 }
@@ -134,119 +126,106 @@ html, body {
   position: absolute;
   font-family: "JetBrains Mono", monospace;
   font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--gold);
-  background: rgba(14, 17, 23, 0.92);
-  padding: 6px 14px;
-  border-left: 3px solid var(--gold);
-  border-radius: 2px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--navy-accent);
+  background: #FFFFFF;
+  padding: 8px 18px;
+  border-left: 4px solid var(--coral-accent);
+  border-radius: 6px;
   z-index: 25;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 18px rgba(38, 70, 83, 0.08);
   text-transform: uppercase;
   opacity: 0;
 }
-.dossier-tag.emerald {
-  color: #52B788;
-  border-left-color: #52B788;
-}
-.dossier-tag.vermilion {
-  color: var(--vermilion);
-  border-left-color: var(--vermilion);
-}
-.dossier-tag.cyan {
-  color: var(--cyan-subtle);
-  border-left-color: var(--cyan-subtle);
-}
+.dossier-tag.emerald { border-left-color: var(--emerald-accent); }
+.dossier-tag.navy { border-left-color: var(--navy-accent); }
 
 /* Ghost Watermark Monogram */
 .ghost-watermark {
   position: absolute;
-  font-family: "Cinzel", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 900;
-  font-size: 180px;
+  font-size: 190px;
   line-height: 0.85;
-  letter-spacing: -0.02em;
-  color: transparent;
-  -webkit-text-stroke: 2px rgba(246, 244, 238, 0.05);
+  letter-spacing: -0.04em;
+  color: rgba(38, 70, 83, 0.035);
   text-align: center;
-  z-index: 6;
+  z-index: 4;
   pointer-events: none;
   white-space: nowrap;
   opacity: 0;
 }
 
-/* Archival Specimen Callout Pill */
+/* Crisp Specimen Pill */
 .specimen-pill {
   position: absolute;
-  padding: 6px 14px;
-  background: rgba(14, 18, 25, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #ECE7DE;
+  padding: 8px 18px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  color: var(--ink-secondary);
   font-family: "JetBrains Mono", monospace;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  border-radius: 9999px;
   z-index: 26;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 16px rgba(38, 70, 83, 0.06);
   white-space: nowrap;
   opacity: 0;
 }
+.specimen-pill.coral { color: var(--coral-accent); border-color: rgba(231,111,81,0.25); }
+.specimen-pill.emerald { color: var(--emerald-accent); border-color: rgba(42,157,143,0.25); }
 
 /* Handwritten Field Notes */
 .hand-note {
   position: absolute;
   font-family: "Instrument Serif", serif;
   font-style: italic;
-  font-size: 34px;
-  line-height: 1.25;
-  color: var(--gold);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+  font-size: 38px;
+  line-height: 1.22;
+  color: var(--coral-accent);
   z-index: 32;
   letter-spacing: 0.01em;
   opacity: 0;
   max-width: 860px;
 }
-.hand-note.emerald { color: #74C69D; }
-.hand-note.cyan { color: var(--cyan-subtle); }
-.hand-note.vermilion { color: var(--vermilion); }
+.hand-note.emerald { color: var(--emerald-accent); }
+.hand-note.navy { color: var(--navy-accent); }
 
 /* Clean Editorial Telemetry Card */
 .telemetry-panel {
   position: absolute;
-  background: rgba(14, 18, 26, 0.94);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 18px 24px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: 16px;
+  padding: 20px 26px;
   box-shadow: var(--card-shadow);
   z-index: 25;
   opacity: 0;
 }
 .telemetry-panel .p-label {
   font-family: "JetBrains Mono", monospace;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--ink-muted);
   letter-spacing: 0.12em;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   text-transform: uppercase;
 }
 .telemetry-panel .p-value {
-  font-family: "Cinzel", serif;
-  font-size: 56px;
-  font-weight: 800;
-  color: var(--gold);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 58px;
+  font-weight: 900;
+  color: var(--coral-accent);
   line-height: 0.95;
 }
-.telemetry-panel .p-value.emerald { color: #52B788; }
-.telemetry-panel .p-value.vermilion { color: var(--vermilion); }
+.telemetry-panel .p-value.emerald { color: var(--emerald-accent); }
+.telemetry-panel .p-value.navy { color: var(--navy-accent); }
 .telemetry-panel .p-unit {
   font-family: "JetBrains Mono", monospace;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--ink-muted);
   margin-left: 8px;
 }
@@ -254,10 +233,10 @@ html, body {
 /* Vector Chart Containers */
 .vector-chart-panel {
   position: absolute;
-  background: rgba(14, 18, 26, 0.95);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 22px 26px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: 18px;
+  padding: 24px 28px;
   box-shadow: var(--card-shadow);
   z-index: 24;
   opacity: 0;
@@ -266,14 +245,14 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 .vector-chart-panel .chart-title {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.10em;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--navy-accent);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 .vector-chart-panel .chart-sub {
@@ -282,137 +261,73 @@ html, body {
   color: var(--ink-muted);
 }
 
-/* Restrained Archival Rubber Stamps */
-.archival-stamp {
+/* Prominent Editorial Transparent Sprites */
+.sprite-cutout {
   position: absolute;
-  padding: 8px 18px;
-  border: 3.5px solid var(--vermilion);
-  color: var(--vermilion);
-  font-family: "Cinzel", serif;
-  font-weight: 900;
-  font-size: 24px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  border-radius: 4px;
-  background: rgba(184, 53, 38, 0.12);
-  mix-blend-mode: screen;
-  z-index: 35;
+  filter: var(--sprite-shadow);
+  z-index: 20;
   opacity: 0;
+  transform-origin: center center;
   pointer-events: none;
 }
-.archival-stamp.gold {
-  border-color: var(--gold);
-  color: var(--gold);
-  background: rgba(212, 163, 115, 0.12);
-}
-.archival-stamp.emerald {
-  border-color: #52B788;
-  color: #52B788;
-  background: rgba(82, 183, 136, 0.12);
-}
 
-/* Primary Editorial Headline Box */
+/* Bold Editorial Headline Bar */
 .editorial-headline-box {
   position: absolute;
-  left: 60px; right: 60px;
-  top: 1340px;
-  background: rgba(14, 18, 26, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-left: 5px solid var(--gold);
-  padding: 22px 26px;
-  border-radius: 8px;
-  box-shadow: var(--card-shadow);
-  z-index: 40;
+  bottom: 230px; left: 60px;
+  width: 960px;
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1.5px solid var(--border-card);
+  box-shadow: 0 20px 48px rgba(38, 70, 83, 0.08);
+  padding: 28px 34px;
+  z-index: 70;
   opacity: 0;
 }
-.editorial-headline-box.emerald { border-left-color: #52B788; }
-.editorial-headline-box.vermilion { border-left-color: var(--vermilion); }
 .editorial-headline-box .h-kicker {
   font-family: "JetBrains Mono", monospace;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--gold);
-  margin-bottom: 6px;
-  text-transform: uppercase;
-}
-.editorial-headline-box.emerald .h-kicker { color: #52B788; }
-.editorial-headline-box.vermilion .h-kicker { color: var(--vermilion); }
-.editorial-headline-box .h-text {
-  font-family: "Inter", sans-serif;
-  font-size: 44px;
+  font-size: 14px;
   font-weight: 800;
-  line-height: 1.20;
-  letter-spacing: -0.015em;
-  color: #FFFFFF;
-}
-
-/* Editorial Highlight Underlines */
-.hl {
-  position: relative;
-  display: inline-block;
-  color: inherit;
-  padding: 0 4px;
-}
-.hl i {
-  position: absolute;
-  left: 0; right: 0; bottom: 2px;
-  height: 5px;
-  background: var(--gold);
-  border-radius: 3px;
-  transform: scaleX(0);
-  transform-origin: left;
-  z-index: -1;
-}
-.hl.g i { background: #52B788; }
-.hl.r i { background: var(--vermilion); }
-
-/* Immediate Opening Macro Curiosity Card */
-#openingMacroCard {
-  position: absolute;
-  top: 360px; left: 60px; right: 60px;
-  background: rgba(14, 18, 26, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-left: 6px solid var(--gold);
-  border-radius: 10px;
-  padding: 40px 36px;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75);
-  z-index: 50;
-}
-#openingMacroCard .kicker {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 16px;
-  font-weight: 700;
+  color: var(--coral-accent);
   letter-spacing: 0.16em;
-  color: var(--gold);
-  margin-bottom: 12px;
   text-transform: uppercase;
+  margin-bottom: 8px;
 }
-#openingMacroCard .title {
-  font-family: "Cinzel", serif;
-  font-size: 56px;
-  font-weight: 900;
-  line-height: 1.12;
+.editorial-headline-box.emerald .h-kicker { color: var(--emerald-accent); }
+.editorial-headline-box.navy .h-kicker { color: var(--navy-accent); }
+.editorial-headline-box .h-text {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--ink-primary);
   letter-spacing: -0.02em;
-  color: #FFFFFF;
-  margin-bottom: 18px;
 }
-#openingMacroCard .meta {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 16px;
-  color: var(--ink-muted);
-  line-height: 1.6;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-  padding-top: 16px;
+.editorial-headline-box .hl {
+  position: relative;
+  display: inline;
+  color: var(--coral-accent);
+  font-weight: 900;
 }
+.editorial-headline-box .hl.g { color: var(--emerald-accent); }
+.editorial-headline-box .hl.n { color: var(--navy-accent); }
+.editorial-headline-box .hl i {
+  position: absolute;
+  left: 0; bottom: 2px;
+  width: 100%; height: 6px;
+  background: rgba(231, 111, 81, 0.28);
+  border-radius: 3px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  pointer-events: none;
+}
+.editorial-headline-box .hl.g i { background: rgba(42, 157, 143, 0.28); }
+.editorial-headline-box .hl.n i { background: rgba(38, 70, 83, 0.25); }
 
-/* Whisper Word-Locked Subtitle Pill (Centered, Mobile-Safe Area) */
+/* Whisper Word-Locked Subtitles Pill */
 #subtitlesContainer {
   position: absolute;
-  left: 50%;
-  bottom: 110px;
-  transform: translateX(-50%);
+  bottom: 110px; left: 90px;
   width: 900px;
   text-align: center;
   pointer-events: none;
@@ -420,33 +335,33 @@ html, body {
 }
 #subtitlePill {
   display: inline-block;
-  background: rgba(12, 14, 18, 0.90);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1.5px solid rgba(24, 26, 30, 0.10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 14px 30px;
   border-radius: 9999px;
-  font-family: "Inter", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
   font-size: 32px;
   line-height: 1.35;
-  color: #ECE7DE;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65);
+  color: var(--ink-primary);
+  box-shadow: 0 12px 32px rgba(38, 70, 83, 0.10);
   max-width: 860px;
 }
 #subtitlePill .hl-word {
-  color: var(--gold);
-  font-weight: 800;
-  text-shadow: 0 0 16px rgba(212, 163, 115, 0.55);
+  color: var(--coral-accent);
+  font-weight: 900;
+  text-shadow: 0 0 12px rgba(231, 111, 81, 0.35);
 }
 
 /* Climax Outro Final Stamp */
 #outroFinalStamp {
   position: absolute;
-  top: 720px; left: 110px; width: 860px; height: 260px;
-  border: 5px solid var(--emerald);
-  background: rgba(42, 92, 69, 0.18);
-  border-radius: 8px;
+  top: 960px; left: 90px; width: 900px; height: 240px;
+  border: 4px solid var(--emerald-accent);
+  background: #FFFFFF;
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -454,22 +369,22 @@ html, body {
   z-index: 45;
   opacity: 0;
   transform-origin: center center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 40px rgba(42, 157, 143, 0.15);
 }
 #outroFinalStamp .stamp-main {
-  font-family: "Cinzel", serif;
-  font-size: 52px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 56px;
   font-weight: 900;
-  letter-spacing: 0.18em;
-  color: #52B788;
+  letter-spacing: 0.14em;
+  color: var(--emerald-accent);
   text-transform: uppercase;
 }
 #outroFinalStamp .stamp-sub {
   font-family: "JetBrains Mono", monospace;
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--gold);
+  letter-spacing: 0.18em;
+  color: var(--navy-accent);
   margin-top: 8px;
 }
 </style>
@@ -477,16 +392,16 @@ html, body {
 </head>
 <body>
 <div id="stage">
+  <div class="grid-overlay"></div>
   <div class="grain-overlay"></div>
-  <div class="vignette"></div>
 
   <!-- Editorial Top Archive Runner -->
   <div id="archiveRunner">
     <div style="display: flex; align-items: center; gap: 14px;">
       <span class="badge">DOSSIER #09</span>
-      <span class="tag">FATHERHOOD INQUIRY · NEUROSCIENCE & ETHICS</span>
+      <span style="font-weight: 700; color: var(--navy-accent);">FATHERHOOD INQUIRY · NEUROSCIENCE & SUNNAH</span>
     </div>
-    <div style="color: var(--ink-muted); font-size: 15px;">YALE & BUKHARI ARCHIVE</div>
+    <div style="color: var(--ink-muted); font-size: 14px; font-weight: 600;">YALE & BUKHARI RESEARCH</div>
   </div>
 
   <!-- Master Camera Rig -->
@@ -494,50 +409,37 @@ html, body {
     <div id="runway">
 
       <!-- ========================================================================= -->
-      <!-- SCENE 1: THE MYTH OF THE FINANCIAL ATM (X = 0)                            -->
+      <!-- SCENE 1: THE ATM DAD FALLACY (X = 0)                                      -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene1">
-        <img class="scene-bg" src="assets/episode9_father_parenting/images/bg_father_study.jpg" alt="Father Study Archive">
-        <div class="scene-scrim"></div>
+        <div class="dossier-tag" style="top: 150px; left: 60px;">PARADIGM INQUIRY // THE FINANCIAL ILLUSION</div>
+        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">ATM DAD</div>
 
-        <div class="dossier-tag vermilion" style="top: 175px; left: 70px;">PARADIGM INQUIRY // THE FINANCIAL ILLUSION</div>
-        <div class="ghost-watermark" style="top: 170px; left: 70px; width: 940px;">ATM</div>
+        <!-- Transparent AI Sprite: Stressed ATM Dad -->
+        <img class="sprite-cutout" id="spriteDadAtm" src="assets/episode9_father_parenting/sprites/sprite_dad_atm_myth.png" 
+             style="top: 260px; right: 30px; width: 500px;" alt="The ATM Dad Fallacy">
 
-        <!-- Opening Macro Curiosity Card (0.0s - 2.8s) -->
-        <div id="openingMacroCard">
-          <div class="kicker">PARENTING COGNITION · CRITICAL FLAW</div>
-          <div class="title">AYAH BUKAN MESIN NAFKAH. INI BUKTI SAINS & ADAB.</div>
-          <div class="meta">
-            Subjek: Neurosains Paternitas & Adab Pengasuhan<br>
-            Fokus: Studi Yale University & Sunnah Nabawi
-          </div>
-        </div>
+        <div class="specimen-pill coral" id="pillMyth1" style="top: 270px; left: 70px;">COMMON TRAP: HUMAN ATM</div>
+        <div class="specimen-pill" id="pillMyth2" style="top: 330px; left: 70px;">ABSENT FATHER RISK: +80% ANXIETY</div>
 
-        <div class="specimen-pill" id="pillMyth1" style="top: 710px; left: 110px;">PARADIGMA UMUM: MESIN TRANSFER</div>
-        <div class="specimen-pill" id="pillMyth2" style="top: 710px; right: 110px;">DAMPAK AYAH ABSEN: +80% ANXIETY</div>
-
-        <div class="hand-note vermilion" id="hn1_1" style="top: 780px; left: 140px; transform: rotate(-2deg);">
-          Nafkah finansial tak pernah menggantikan presensi
+        <div class="hand-note" id="hn1_1" style="top: 420px; left: 70px; transform: rotate(-2deg); max-width: 480px;">
+          Financial support cannot replace emotional presence
         </div>
 
         <!-- Telemetry Panel -->
-        <div class="telemetry-panel" id="cardTelemetry1" style="top: 860px; left: 90px; width: 440px;">
-          <div class="p-label">RISIKO GANGGUAN EMOSI (AYAH ABSEN)</div>
+        <div class="telemetry-panel" id="cardTelemetry1" style="top: 530px; left: 60px; width: 440px;">
+          <div class="p-label">EMOTIONAL DYSREGULATION RISK</div>
           <div style="display: flex; align-items: baseline;">
-            <span class="p-value vermilion">+80%</span>
-            <span class="p-unit">DATA HARVARD</span>
+            <span class="p-value">+80%</span>
+            <span class="p-unit">HARVARD DATA</span>
           </div>
         </div>
 
-        <div class="archival-stamp" id="stampMyth" style="top: 860px; right: 90px; transform: rotate(-6deg);">
-          KEKELIRUAN FATAL
-        </div>
-
         <!-- Beat 1 Headline -->
-        <div class="editorial-headline-box vermilion" id="hlBox1">
-          <div class="h-kicker">KEKELIRUAN PARADIGMA AYAH</div>
+        <div class="editorial-headline-box" id="hlBox1">
+          <div class="h-kicker">CRITICAL PARENTING FLAW</div>
           <div class="h-text">
-            Tugas ayah tidak selesai saat nafkah ditransfer: <span class="hl r" id="hl1"><i></i>ini kekeliruan fatal.</span>
+            Fatherhood does not end when money is transferred: <span class="hl" id="hl1"><i></i>that is a dangerous illusion.</span>
           </div>
         </div>
       </div>
@@ -546,62 +448,52 @@ html, body {
       <!-- SCENE 2: NEUROBIOLOGY & THE PATERNAL BRAIN (X = -1080)                    -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene2">
-        <img class="scene-bg" src="assets/episode9_father_parenting/images/bg_neuroscience_scan.jpg" alt="Neuroscience Scan">
-        <div class="scene-scrim"></div>
+        <div class="dossier-tag emerald" style="top: 150px; left: 60px;">NEUROSCIENCE // YALE CHILD STUDY CENTER</div>
+        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">YALE</div>
 
-        <div class="dossier-tag" style="top: 175px; left: 70px;">NEUROBIOLOGY // YALE CHILD STUDY CENTER</div>
-        <div class="ghost-watermark" style="top: 170px; left: 70px; width: 940px;">YALE</div>
+        <!-- Transparent AI Sprites: Loving Father Cradling Baby & Happy Brain -->
+        <img class="sprite-cutout" id="spriteBabycare" src="assets/episode9_father_parenting/sprites/sprite_father_babycare.png" 
+             style="top: 240px; left: 50px; width: 460px;" alt="Active Paternal Caregiving">
+        <img class="sprite-cutout" id="spriteBrain" src="assets/episode9_father_parenting/sprites/sprite_brain_oxytocin.png" 
+             style="top: 240px; right: 50px; width: 460px;" alt="Oxytocin Surge in Father's Brain">
 
-        <!-- Hand-Crafted SVG Hormonal Shift Calibration Chart -->
-        <div class="vector-chart-panel" id="panelHormone" style="top: 280px; left: 80px; width: 920px; height: 340px;">
+        <!-- Hand-Crafted Modern SVG Hormonal Shift Calibration Chart -->
+        <div class="vector-chart-panel" id="panelHormone" style="top: 750px; left: 60px; width: 960px; height: 320px;">
           <div class="chart-header">
-            <span class="chart-title">Paternal Hormonal Shift During Active Care</span>
+            <span class="chart-title">Paternal Hormonal Shift During Active Caregiving</span>
             <span class="chart-sub">Feldman et al. (Yale University / PNAS)</span>
           </div>
-          <svg width="870" height="230" viewBox="0 0 870 230" style="overflow: visible;">
+          <svg width="900" height="220" viewBox="0 0 900 220" style="overflow: visible;">
             <!-- Grid Lines -->
-            <line x1="60" y1="180" x2="830" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-            <line x1="60" y1="20" x2="60" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <line x1="60" y1="170" x2="860" y2="170" stroke="rgba(24,26,30,0.08)" stroke-width="1.5"/>
+            <line x1="60" y1="20" x2="60" y2="170" stroke="rgba(24,26,30,0.08)" stroke-width="1.5"/>
             <!-- X Axis Marks -->
-            <text x="80" y="205" fill="#8E93A0" font-family="JetBrains Mono" font-size="13">Baseline (Pria Pasif)</text>
-            <text x="460" y="205" fill="#D4A373" font-family="JetBrains Mono" font-size="13">Aktif Mengasuh (Mandikan & Gendong)</text>
-            <!-- Oxytocin Curve (Gold Surge) -->
-            <path id="curveOxytocin" d="M 80 160 Q 300 155, 480 50 T 800 35" fill="none" stroke="#D4A373" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000"/>
-            <text x="680" y="25" fill="#D4A373" font-family="JetBrains Mono" font-weight="700" font-size="14">Oksitosin (+140%)</text>
-            <!-- Testosterone Curve (Cyan Suppression) -->
-            <path id="curveTesto" d="M 80 60 Q 300 65, 480 140 T 800 155" fill="none" stroke="#4EA3A9" stroke-width="3" stroke-dasharray="6 6"/>
-            <text x="600" y="145" fill="#4EA3A9" font-family="JetBrains Mono" font-size="13">Testosteron (-32%)</text>
+            <text x="80" y="195" fill="#848B98" font-family="JetBrains Mono" font-size="14" font-weight="600">Baseline (Passive Father)</text>
+            <text x="480" y="195" fill="#2A9D8F" font-family="JetBrains Mono" font-size="14" font-weight="700">Active Care (Bathing & Carrying)</text>
+            <!-- Oxytocin Curve (Coral/Gold Surge) -->
+            <path id="curveOxytocin" d="M 80 150 Q 320 145, 500 45 T 820 30" fill="none" stroke="#E76F51" stroke-width="5" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+            <text x="700" y="22" fill="#E76F51" font-family="JetBrains Mono" font-weight="800" font-size="15">Oxytocin (+140%)</text>
+            <!-- Testosterone Curve (Navy/Teal Dip) -->
+            <path id="curveTesto" d="M 80 50 Q 320 55, 500 135 T 820 145" fill="none" stroke="#264653" stroke-width="3.5" stroke-dasharray="7 7"/>
+            <text x="640" y="135" fill="#264653" font-family="JetBrains Mono" font-weight="700" font-size="14">Testosterone (-32%)</text>
             <!-- Data Dots -->
-            <circle cx="800" cy="35" r="6" fill="#D4A373"/>
-            <circle cx="800" cy="155" r="5" fill="#4EA3A9"/>
+            <circle cx="820" cy="30" r="7" fill="#E76F51"/>
+            <circle cx="820" cy="145" r="6" fill="#264653"/>
           </svg>
         </div>
 
-        <div class="specimen-pill" id="pillNeuro1" style="top: 670px; left: 110px;">JARINGAN EMPATI: PREFRONTAL CORTEX</div>
-        <div class="specimen-pill" id="pillNeuro2" style="top: 670px; right: 110px;">STATUS OKSITOSIN: SETARA IBU MELAHIRKAN</div>
+        <div class="specimen-pill emerald" id="pillNeuro1" style="top: 1100px; left: 70px;">PREFRONTAL CORTEX: EMPATHY CIRCUITS</div>
+        <div class="specimen-pill" id="pillNeuro2" style="top: 1100px; right: 70px;">OXYTOCIN PEAK: MATCHES NEW MOTHERS</div>
 
-        <div class="hand-note" id="hn2_1" style="top: 740px; left: 120px; transform: rotate(-2.5deg);">
-          Otak ayah berubah secara biologis saat mengasuh
-        </div>
-
-        <!-- Telemetry Panel -->
-        <div class="telemetry-panel" id="cardTelemetry2" style="top: 830px; left: 80px; width: 440px;">
-          <div class="p-label">LONJAKAN HORMON OKSITOSIN</div>
-          <div style="display: flex; align-items: baseline;">
-            <span class="p-value">+140%</span>
-            <span class="p-unit">SURGE EMPATI</span>
-          </div>
-        </div>
-
-        <div class="archival-stamp gold" id="stampNeuro" style="top: 830px; right: 80px; transform: rotate(5deg);">
-          TERBUKTI SAINS
+        <div class="hand-note emerald" id="hn2_1" style="top: 1160px; left: 80px; transform: rotate(-1.5deg);">
+          A father's brain physically rewires when actively caring for his child
         </div>
 
         <!-- Beat 2 Headline -->
-        <div class="editorial-headline-box" id="hlBox2">
-          <div class="h-kicker">NEUROBIOLOGI PATERNITAS</div>
+        <div class="editorial-headline-box emerald" id="hlBox2">
+          <div class="h-kicker">PATERNAL NEUROBIOLOGY</div>
           <div class="h-text">
-            Saat ayah memandikan dan menidurkan anak: <span class="hl" id="hl2"><i></i>sirkuit empati otak aktif seketika.</span>
+            When fathers bathe and carry their kids: <span class="hl g" id="hl2"><i></i>empathy circuits ignite instantly.</span>
           </div>
         </div>
       </div>
@@ -610,151 +502,112 @@ html, body {
       <!-- SCENE 3: ROUGH PLAY & EMOTIONAL REGULATION (X = -2160)                    -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene3">
-        <img class="scene-bg" src="assets/episode9_father_parenting/images/bg_father_study.jpg" alt="Living Study Room">
-        <div class="scene-scrim"></div>
+        <div class="dossier-tag" style="top: 150px; left: 60px;">DEVELOPMENTAL PSYCHOLOGY // HARVARD CENTER</div>
+        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">RESILIENCE</div>
 
-        <div class="dossier-tag cyan" style="top: 175px; left: 70px;">DEVELOPMENTAL PSYCHOLOGY // HARVARD CENTER</div>
-        <div class="ghost-watermark" style="top: 170px; left: 70px; width: 940px;">RESILIENCE</div>
+        <!-- Transparent AI Sprite: Dynamic Father Tossing Kid in Air -->
+        <img class="sprite-cutout" id="spriteAirplane" src="assets/episode9_father_parenting/sprites/sprite_father_airplane.png" 
+             style="top: 220px; left: 180px; width: 720px;" alt="Rough-and-Tumble Airplane Play">
 
-        <!-- SVG Dual-Bar Stress Resilience Comparison -->
-        <div class="vector-chart-panel" id="panelResilience" style="top: 280px; left: 80px; width: 920px; height: 340px;">
+        <!-- Modern SVG Dual-Bar Stress Resilience Benchmark -->
+        <div class="vector-chart-panel" id="panelResilience" style="top: 860px; left: 60px; width: 960px; height: 260px;">
           <div class="chart-header">
             <span class="chart-title">Rough-and-Tumble Play: Impulse Control Index</span>
             <span class="chart-sub">Childhood Stress Resilience Benchmark</span>
           </div>
-          <svg width="870" height="230" viewBox="0 0 870 230" style="overflow: visible;">
-            <!-- Bar 1: Ayah Terlibat Aktif -->
-            <text x="60" y="55" fill="#FFFFFF" font-family="JetBrains Mono" font-weight="700" font-size="14">Ayah Terlibat Aktif (Rough Play)</text>
-            <rect x="60" y="70" width="700" height="36" rx="6" fill="rgba(212,163,115,0.20)" stroke="#D4A373" stroke-width="2"/>
-            <rect id="barActive" x="60" y="70" width="0" height="36" rx="6" fill="#D4A373"/>
-            <text x="780" y="95" fill="#D4A373" font-family="JetBrains Mono" font-weight="700" font-size="16">+40%</text>
+          <svg width="900" height="170" viewBox="0 0 900 170" style="overflow: visible;">
+            <!-- Bar 1: Active Father Play -->
+            <text x="60" y="40" fill="#181A1E" font-family="Plus Jakarta Sans" font-weight="700" font-size="16">Actively Engaged Father (Rough Play)</text>
+            <rect x="60" y="55" width="700" height="34" rx="8" fill="rgba(231,111,81,0.12)" stroke="#E76F51" stroke-width="1.5"/>
+            <rect id="barActive" x="60" y="55" width="0" height="34" rx="8" fill="#E76F51"/>
+            <text x="780" y="78" fill="#E76F51" font-family="JetBrains Mono" font-weight="800" font-size="18">+40%</text>
 
-            <!-- Bar 2: Ayah Pasif / Absen -->
-            <text x="60" y="145" fill="#8E93A0" font-family="JetBrains Mono" font-size="14">Ayah Pasif / Hanya Nafkah</text>
-            <rect x="60" y="160" width="700" height="36" rx="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-            <rect id="barPassive" x="60" y="160" width="0" height="36" rx="6" fill="#606573"/>
-            <text x="780" y="185" fill="#8E93A0" font-family="JetBrains Mono" font-size="15">Baseline</text>
+            <!-- Bar 2: Passive / Absent Father -->
+            <text x="60" y="118" fill="#848B98" font-family="Plus Jakarta Sans" font-weight="600" font-size="15">Passive / Financial-Only Presence</text>
+            <rect x="60" y="130" width="700" height="34" rx="8" fill="rgba(24,26,30,0.05)" stroke="rgba(24,26,30,0.1)" stroke-width="1"/>
+            <rect id="barPassive" x="60" y="130" width="0" height="34" rx="8" fill="#848B98"/>
+            <text x="780" y="153" fill="#848B98" font-family="JetBrains Mono" font-weight="700" font-size="16">Baseline</text>
           </svg>
         </div>
 
-        <div class="specimen-pill" id="pillPlay1" style="top: 670px; left: 110px;">LATIHAN OTAK: KENDALI IMPULS & EMOSI</div>
-        <div class="specimen-pill" id="pillPlay2" style="top: 670px; right: 110px;">RESILIENSI STRES: +40% LEBIH STABIL</div>
-
-        <div class="hand-note cyan" id="hn3_1" style="top: 740px; left: 120px; transform: rotate(-2deg);">
-          Bermain fisik bukan canda belaka—ini latihan ketahanan
-        </div>
-
-        <!-- Telemetry Panel -->
-        <div class="telemetry-panel" id="cardTelemetry3" style="top: 830px; left: 80px; width: 440px;">
-          <div class="p-label">STABILITAS REGULASI EMOSI</div>
-          <div style="display: flex; align-items: baseline;">
-            <span class="p-value">+40%</span>
-            <span class="p-unit">LEBIH TANGGUH</span>
-          </div>
-        </div>
-
-        <div class="archival-stamp gold" id="stampPlay" style="top: 830px; right: 80px; transform: rotate(-5deg);">
-          REGULASI TERUJI
-        </div>
+        <div class="specimen-pill" id="pillPlay1" style="top: 1140px; left: 70px;">NEURAL TRAINING: IMPULSE CONTROL</div>
+        <div class="specimen-pill coral" id="pillPlay2" style="top: 1140px; right: 70px;">STRESS RESILIENCE: +40% HIGHER</div>
 
         <!-- Beat 3 Headline -->
         <div class="editorial-headline-box" id="hlBox3">
-          <div class="h-kicker">PSIKOLOGI PERKEMBANGAN</div>
+          <div class="h-kicker">DEVELOPMENTAL PSYCHOLOGY</div>
           <div class="h-text">
-            Bermain fisik teratur dengan ayah: <span class="hl" id="hl3"><i></i>melatih ketahanan stres dan kendali emosi.</span>
+            Physical play with dad: <span class="hl" id="hl3"><i></i>hardwires emotional control and stress resilience.</span>
           </div>
         </div>
       </div>
 
       <!-- ========================================================================= -->
-      <!-- SCENE 4: ISLAMIC ETHICS & SUNNAH NABAWI (X = -3240)                       -->
+      <!-- SCENE 4: PROPHETIC ETHICS & AR-RA'I (X = -3240)                           -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene4">
-        <img class="scene-bg" src="assets/episode9_father_parenting/images/bg_islamic_archival.jpg" alt="Islamic Archival Manuscript">
-        <div class="scene-scrim"></div>
+        <div class="dossier-tag emerald" style="top: 150px; left: 60px;">PROPHETIC ETHICS // AR-RA'I & MERCY</div>
+        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">AR-RA'I</div>
 
-        <div class="dossier-tag emerald" style="top: 175px; left: 70px;">SUNNAH NABAWI // ADAB & PRESENSI KELUARGA</div>
-        <div class="ghost-watermark" style="top: 170px; left: 70px; width: 940px;">AR-RA'I</div>
+        <!-- Transparent AI Sprite: Golden Shepherd Emblem & Lantern -->
+        <img class="sprite-cutout" id="spriteEmblem" src="assets/episode9_father_parenting/sprites/sprite_prophet_sunnah_emblem.png" 
+             style="top: 220px; left: 260px; width: 560px;" alt="Ar-Rai Shepherd of Mercy Emblem">
 
         <!-- Calligraphic Archival Inscription Card -->
-        <div class="vector-chart-panel" id="panelHadith" style="top: 280px; left: 80px; width: 920px; height: 350px; background: rgba(14, 22, 18, 0.94); border-color: rgba(82, 183, 136, 0.35);">
+        <div class="vector-chart-panel" id="panelHadith" style="top: 800px; left: 60px; width: 960px; height: 310px; border-left: 6px solid var(--emerald-accent);">
           <div class="chart-header">
-            <span class="chart-title" style="color: #74C69D;">Sahih Bukhari No. 5996 & 5997</span>
-            <span class="chart-sub">Keteladanan Rasulullah ﷺ</span>
+            <span class="chart-title" style="color: var(--emerald-accent);">Sahih Bukhari No. 5996 & 5997</span>
+            <span class="chart-sub">Sunnah of the Prophet Muhammad ﷺ</span>
           </div>
-          <div style="font-family: 'Amiri', serif; font-size: 34px; line-height: 1.6; color: #E8F5E9; text-align: right; margin-bottom: 14px;">
+          <div style="font-family: 'Amiri', serif; font-size: 38px; line-height: 1.5; color: #1B5E20; text-align: right; margin-bottom: 12px;">
             مَنْ لا يَرْحَمُ لا يُرْحَمُ
           </div>
-          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 30px; line-height: 1.35; color: #D4A373;">
-            "Siapa yang tidak menyayangi, niscaya tidak akan disayangi."
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 32px; line-height: 1.35; color: var(--navy-accent);">
+            "Whoever does not show mercy, will not be shown mercy."
           </div>
-          <div style="font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.5; color: #A3B19B; margin-top: 10px; border-top: 1px solid rgba(82, 183, 136, 0.2); padding-top: 10px;">
-            Nabi ﷺ menggendong cucunya saat shalat berjamaah, membantah budaya jahiliyah yang gengsi mencium anak.
-          </div>
-        </div>
-
-        <div class="specimen-pill" id="pillIslam1" style="top: 670px; left: 110px;">KONSEP AR-RA'I: PEMIMPIN JIWA & EMOSI</div>
-        <div class="specimen-pill" id="pillIslam2" style="top: 670px; right: 110px;">SURAH LUQMAN: DIALOG AYAH KE ANAK</div>
-
-        <div class="hand-note emerald" id="hn4_1" style="top: 740px; left: 120px; transform: rotate(-2deg);">
-          Rasulullah ﷺ mendahulukan kasih sayang di atas formalitas
-        </div>
-
-        <!-- Telemetry Panel -->
-        <div class="telemetry-panel" id="cardTelemetry4" style="top: 830px; left: 80px; width: 440px;">
-          <div class="p-label">PERAN FUNDAMENTAL AYAH</div>
-          <div style="display: flex; align-items: baseline;">
-            <span class="p-value emerald">AR-RA'I</span>
-            <span class="p-unit">PEMIMPIN JIWA</span>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 19px; line-height: 1.5; color: var(--ink-secondary); margin-top: 10px; border-top: 1px solid var(--border-card); padding-top: 10px;">
+            The Prophet ﷺ carried his grandchildren during communal prayer—shattering toxic customs that viewed fatherly affection as weakness.
           </div>
         </div>
 
-        <div class="archival-stamp emerald" id="stampIslam" style="top: 830px; right: 80px; transform: rotate(5deg);">
-          SUNNAH NABAWI
-        </div>
+        <div class="specimen-pill emerald" id="pillIslam1" style="top: 1140px; left: 70px;">CONCEPT OF AR-RA'I: SHEPHERD OF SOULS</div>
+        <div class="specimen-pill" id="pillIslam2" style="top: 1140px; right: 70px;">SURAH LUQMAN: HEART-TO-HEART DIALOGUE</div>
 
         <!-- Beat 4 Headline -->
         <div class="editorial-headline-box emerald" id="hlBox4">
-          <div class="h-kicker">ADAB & KETELADANAN ISLAM</div>
+          <div class="h-kicker">PROPHETIC WISDOM</div>
           <div class="h-text">
-            Dalam Islam, ayah adalah Ar-Ra'i: <span class="hl g" id="hl4"><i></i>pemimpin jiwa dan pelindung emosional.</span>
+            In Islamic tradition, a father is Ar-Ra'i: <span class="hl g" id="hl4"><i></i>a shepherd of hearts and emotions.</span>
           </div>
         </div>
       </div>
 
       <!-- ========================================================================= -->
-      <!-- SCENE 5: OUTRO & THE ENDURING PRESENCE (X = -4320)                        -->
+      <!-- SCENE 5: THE LIFETIME RECORD & CLIMAX (X = -4320)                         -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene5">
-        <img class="scene-bg" src="assets/episode9_father_parenting/images/bg_father_study.jpg" alt="Father Study Memory">
-        <div class="scene-scrim"></div>
+        <div class="dossier-tag" style="top: 150px; left: 60px;">FINAL VERDICT // THE LIFETIME RECORD</div>
+        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">PRESENCE</div>
 
-        <div class="dossier-tag" style="top: 175px; left: 70px;">FINAL VERDICT // THE LIFETIME RECORD</div>
-        <div class="ghost-watermark" style="top: 170px; left: 70px; width: 940px;">PRESENSI</div>
+        <!-- Transparent AI Sprite: Heartwarming Father & Child Hug -->
+        <img class="sprite-cutout" id="spriteHug" src="assets/episode9_father_parenting/sprites/sprite_father_daughter_hug.png" 
+             style="top: 220px; left: 200px; width: 680px;" alt="The Power of Fatherly Presence">
 
-        <!-- Outro Climax Stamp -->
+        <!-- Climax Outro Final Stamp -->
         <div id="outroFinalStamp">
-          <div class="stamp-main">HADIR SECARA UTUH</div>
-          <div class="stamp-sub">PRESENSI NYATA MELAMPAUI SALDO REKENING</div>
+          <div class="stamp-main">BE TRULY PRESENT</div>
+          <div class="stamp-sub">GENUINE PRESENCE OUTWEIGHS OVERTIME BANK STATEMENTS</div>
         </div>
 
-        <div class="hand-note" id="hn5_1" style="top: 1040px; left: 110px; transform: rotate(-1.5deg);">
-          Anak tidak mengingat saldo tabunganmu—mereka merekam kehadiranmu
-        </div>
-
-        <!-- Telemetry Panel -->
-        <div class="telemetry-panel" id="cardTelemetry5" style="top: 1120px; left: 80px; width: 920px;">
-          <div class="p-label">WARISAN TERBESAR SEORANG AYAH</div>
-          <div style="font-family: 'Cinzel', serif; font-size: 40px; font-weight: 800; color: var(--gold); line-height: 1.2; margin-top: 6px;">
-            KEHANGATAN TANGAN SAAT MEREKA TAKUT
-          </div>
+        <div class="hand-note" id="hn5_1" style="top: 1220px; left: 80px; transform: rotate(-1.5deg);">
+          Your child won't recall your bank balance—their nervous system remembers your warm hand
         </div>
 
         <!-- Beat 5 Headline -->
         <div class="editorial-headline-box" id="hlBox5">
-          <div class="h-kicker">PESAN ABADI SANG AYAH</div>
+          <div class="h-kicker">THE FATHER'S LEGACY</div>
           <div class="h-text">
-            Yang direkam anak seumur hidup: <span class="hl" id="hl5"><i></i>kehadiran dan kehangatan tanganmu.</span>
+            What your child remembers forever: <span class="hl" id="hl5"><i></i>your presence when they were afraid.</span>
           </div>
         </div>
       </div>
@@ -764,12 +617,12 @@ html, body {
 
   <!-- Whisper Word-Locked Subtitles -->
   <div id="subtitlesContainer">
-    <div id="subtitlePill">Mendengarkan...</div>
+    <div id="subtitlePill">Listening...</div>
   </div>
 
   <audio id="audioTrack" preload="auto">
-    <source src="assets/episode9_father_parenting/audio/vo_ep9_master.wav" type="audio/wav">
-    <source src="assets/episode9_father_parenting/audio/vo_ep9_master.mp3" type="audio/mpeg">
+    <source src="assets/episode9_father_parenting/audio_en/vo_ep9_en_master.wav" type="audio/wav">
+    <source src="assets/episode9_father_parenting/audio_en/vo_ep9_en_master.mp3" type="audio/mpeg">
   </audio>
 </div>
 
@@ -777,10 +630,10 @@ html, body {
 const $ = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
 
-const DURATION = 74.56;
-const WORDS = [{"w":"Banyak","s":0.0,"e":0.435,"b":1},{"w":"pria","s":0.494,"e":0.929,"b":1},{"w":"mengira","s":0.988,"e":1.423,"b":1},{"w":"tugas","s":1.481,"e":1.916,"b":1},{"w":"ayah","s":1.975,"e":2.41,"b":1},{"w":"selesai","s":2.469,"e":2.904,"b":1},{"w":"saat","s":2.963,"e":3.398,"b":1},{"w":"nafkah","s":3.457,"e":3.892,"b":1},{"w":"finansial","s":3.95,"e":4.385,"b":1},{"w":"ditransfer","s":4.444,"e":4.879,"b":1},{"w":"ke","s":4.938,"e":5.373,"b":1},{"w":"rekening.","s":5.432,"e":5.867,"b":1},{"w":"Neurosains","s":5.926,"e":6.361,"b":1},{"w":"modern","s":6.42,"e":6.855,"b":1},{"w":"dan","s":6.913,"e":7.348,"b":1},{"w":"tradisi","s":7.407,"e":7.842,"b":1},{"w":"peradaban","s":7.901,"e":8.336,"b":1},{"w":"membuktikan:","s":8.395,"e":8.83,"b":1},{"w":"ini","s":8.889,"e":9.324,"b":1},{"w":"kekeliruan","s":9.382,"e":9.817,"b":1},{"w":"fatal.","s":9.876,"e":10.311,"b":1},{"w":"Studi","s":11.57,"e":12.013,"b":2},{"w":"neurobiologi","s":12.074,"e":12.517,"b":2},{"w":"Yale","s":12.578,"e":13.021,"b":2},{"w":"University","s":13.082,"e":13.525,"b":2},{"w":"mengungkap,","s":13.585,"e":14.028,"b":2},{"w":"ketika","s":14.089,"e":14.532,"b":2},{"w":"seorang","s":14.593,"e":15.036,"b":2},{"w":"ayah","s":15.097,"e":15.54,"b":2},{"w":"aktif","s":15.601,"e":16.044,"b":2},{"w":"mengasuh,","s":16.105,"e":16.548,"b":2},{"w":"memandikan,","s":16.609,"e":17.052,"b":2},{"w":"dan","s":17.113,"e":17.556,"b":2},{"w":"menidurkan","s":17.616,"e":18.059,"b":2},{"w":"anak,","s":18.12,"e":18.563,"b":2},{"w":"otak","s":18.624,"e":19.067,"b":2},{"w":"pria","s":19.128,"e":19.571,"b":2},{"w":"mengalami","s":19.632,"e":20.075,"b":2},{"w":"lonjakan","s":20.136,"e":20.579,"b":2},{"w":"hormon","s":20.64,"e":21.083,"b":2},{"w":"oksitosin","s":21.144,"e":21.587,"b":2},{"w":"yang","s":21.647,"e":22.09,"b":2},{"w":"setara","s":22.151,"e":22.594,"b":2},{"w":"ibu","s":22.655,"e":23.098,"b":2},{"w":"pasca","s":23.159,"e":23.602,"b":2},{"w":"melahirkan.","s":23.663,"e":24.106,"b":2},{"w":"Sirkuit","s":24.167,"e":24.61,"b":2},{"w":"empati","s":24.671,"e":25.114,"b":2},{"w":"prefrontal","s":25.175,"e":25.618,"b":2},{"w":"cortex","s":25.678,"e":26.121,"b":2},{"w":"aktif","s":26.182,"e":26.625,"b":2},{"w":"seketika.","s":26.686,"e":27.129,"b":2},{"w":"Bermain","s":28.49,"e":28.885,"b":3},{"w":"fisik","s":28.938,"e":29.333,"b":3},{"w":"teratur","s":29.387,"e":29.782,"b":3},{"w":"dengan","s":29.835,"e":30.23,"b":3},{"w":"ayah,","s":30.284,"e":30.679,"b":3},{"w":"seperti","s":30.732,"e":31.127,"b":3},{"w":"bergulat","s":31.181,"e":31.576,"b":3},{"w":"ringan","s":31.629,"e":32.024,"b":3},{"w":"dan","s":32.078,"e":32.473,"b":3},{"w":"meluncur,","s":32.526,"e":32.921,"b":3},{"w":"bukan","s":32.974,"e":33.369,"b":3},{"w":"sekadar","s":33.423,"e":33.818,"b":3},{"w":"canda","s":33.871,"e":34.266,"b":3},{"w":"tawa.","s":34.32,"e":34.715,"b":3},{"w":"Ini","s":34.768,"e":35.163,"b":3},{"w":"melatih","s":35.217,"e":35.612,"b":3},{"w":"kendali","s":35.665,"e":36.06,"b":3},{"w":"impuls","s":36.113,"e":36.508,"b":3},{"w":"emosi.","s":36.562,"e":36.957,"b":3},{"w":"Anak","s":37.01,"e":37.405,"b":3},{"w":"yang","s":37.459,"e":37.854,"b":3},{"w":"dekat","s":37.907,"e":38.302,"b":3},{"w":"dengan","s":38.356,"e":38.751,"b":3},{"w":"ayahnya","s":38.804,"e":39.199,"b":3},{"w":"memiliki","s":39.252,"e":39.647,"b":3},{"w":"ketahanan","s":39.701,"e":40.096,"b":3},{"w":"stres","s":40.149,"e":40.544,"b":3},{"w":"empat","s":40.598,"e":40.993,"b":3},{"w":"puluh","s":41.046,"e":41.441,"b":3},{"w":"persen","s":41.495,"e":41.89,"b":3},{"w":"lebih","s":41.943,"e":42.338,"b":3},{"w":"stabil.","s":42.392,"e":42.787,"b":3},{"w":"Empat","s":44.14,"e":44.56,"b":4},{"w":"belas","s":44.617,"e":45.037,"b":4},{"w":"abad","s":45.095,"e":45.515,"b":4},{"w":"silam,","s":45.572,"e":45.992,"b":4},{"w":"Rasulullah","s":46.049,"e":46.469,"b":4},{"w":"shallallahu","s":46.527,"e":46.947,"b":4},{"w":"alaihi","s":47.004,"e":47.424,"b":4},{"w":"wasallam","s":47.482,"e":47.902,"b":4},{"w":"mencontohkan","s":47.959,"e":48.379,"b":4},{"w":"ini","s":48.436,"e":48.856,"b":4},{"w":"secara","s":48.914,"e":49.334,"b":4},{"w":"nyata.","s":49.391,"e":49.811,"b":4},{"w":"Beliau","s":49.868,"e":50.288,"b":4},{"w":"menggendong","s":50.346,"e":50.766,"b":4},{"w":"cucunya","s":50.823,"e":51.243,"b":4},{"w":"saat","s":51.301,"e":51.721,"b":4},{"w":"shalat","s":51.778,"e":52.198,"b":4},{"w":"berjamaah,","s":52.255,"e":52.675,"b":4},{"w":"dan","s":52.733,"e":53.153,"b":4},{"w":"menegur","s":53.21,"e":53.63,"b":4},{"w":"pria","s":53.687,"e":54.107,"b":4},{"w":"yang","s":54.165,"e":54.585,"b":4},{"w":"membanggakan","s":54.642,"e":55.062,"b":4},{"w":"diri","s":55.119,"e":55.539,"b":4},{"w":"tak","s":55.597,"e":56.017,"b":4},{"w":"pernah","s":56.074,"e":56.494,"b":4},{"w":"mencium","s":56.552,"e":56.972,"b":4},{"w":"anaknya.","s":57.029,"e":57.449,"b":4},{"w":"Dalam","s":57.506,"e":57.926,"b":4},{"w":"Islam,","s":57.984,"e":58.404,"b":4},{"w":"ayah","s":58.461,"e":58.881,"b":4},{"w":"adalah","s":58.938,"e":59.358,"b":4},{"w":"Ar-Rai,","s":59.416,"e":59.836,"b":4},{"w":"pemimpin","s":59.893,"e":60.313,"b":4},{"w":"jiwa","s":60.371,"e":60.791,"b":4},{"w":"dan","s":60.848,"e":61.268,"b":4},{"w":"pelindung","s":61.325,"e":61.745,"b":4},{"w":"emosional.","s":61.803,"e":62.223,"b":4},{"w":"Anak","s":63.68,"e":64.055,"b":5},{"w":"tidak","s":64.106,"e":64.481,"b":5},{"w":"akan","s":64.533,"e":64.908,"b":5},{"w":"mengingat","s":64.959,"e":65.334,"b":5},{"w":"berapa","s":65.385,"e":65.76,"b":5},{"w":"digit","s":65.812,"e":66.187,"b":5},{"w":"saldo","s":66.238,"e":66.613,"b":5},{"w":"tabunganmu.","s":66.665,"e":67.04,"b":5},{"w":"Yang","s":67.091,"e":67.466,"b":5},{"w":"mereka","s":67.517,"e":67.892,"b":5},{"w":"rekam","s":67.944,"e":68.319,"b":5},{"w":"seumur","s":68.37,"e":68.745,"b":5},{"w":"hidup","s":68.796,"e":69.171,"b":5},{"w":"adalah","s":69.223,"e":69.598,"b":5},{"w":"kehadiranmu","s":69.649,"e":70.024,"b":5},{"w":"dan","s":70.075,"e":70.45,"b":5},{"w":"kehangatan","s":70.502,"e":70.877,"b":5},{"w":"tanganmu","s":70.928,"e":71.303,"b":5},{"w":"saat","s":71.355,"e":71.73,"b":5},{"w":"mereka","s":71.781,"e":72.156,"b":5},{"w":"merasa","s":72.207,"e":72.582,"b":5},{"w":"takut.","s":72.634,"e":73.009,"b":5}];
+const DURATION = 85.16;
+const WORDS = [{"w":"Many","s":0.0,"e":0.32,"b":1},{"w":"men","s":0.32,"e":0.6,"b":1},{"w":"believe","s":0.6,"e":0.96,"b":1},{"w":"fatherhood","s":0.96,"e":1.54,"b":1},{"w":"ends","s":1.54,"e":1.84,"b":1},{"w":"when","s":1.84,"e":2.14,"b":1},{"w":"money","s":2.14,"e":2.34,"b":1},{"w":"hits","s":2.34,"e":2.64,"b":1},{"w":"the","s":2.64,"e":2.82,"b":1},{"w":"bank","s":2.82,"e":3.0,"b":1},{"w":"account,","s":3.0,"e":3.42,"b":1},{"w":"but","s":3.84,"e":4.64,"b":1},{"w":"developmental","s":4.64,"e":5.0,"b":1},{"w":"neuroscience","s":5.0,"e":5.84,"b":1},{"w":"and","s":5.84,"e":6.28,"b":1},{"w":"ancient","s":6.28,"e":6.54,"b":1},{"w":"wisdom","s":6.54,"e":7.02,"b":1},{"w":"prove","s":7.02,"e":7.4,"b":1},{"w":"that's","s":7.4,"e":8.12,"b":1},{"w":"a","s":8.12,"e":8.2,"b":1},{"w":"dangerous","s":8.2,"e":8.48,"b":1},{"w":"illusion.","s":8.48,"e":9.02,"b":1},{"w":"Kids","s":9.82,"e":10.28,"b":1},{"w":"don't","s":10.28,"e":10.68,"b":1},{"w":"need","s":10.68,"e":10.82,"b":1},{"w":"a","s":10.82,"e":10.88,"b":1},{"w":"human","s":10.88,"e":11.24,"b":1},{"w":"ATM,","s":11.24,"e":11.5,"b":1},{"w":"they","s":12.24,"e":12.36,"b":1},{"w":"need","s":12.36,"e":12.58,"b":1},{"w":"an","s":12.58,"e":12.7,"b":1},{"w":"active","s":12.7,"e":13.0,"b":1},{"w":"dad.","s":13.0,"e":13.4,"b":1},{"w":"Yale","s":15.08,"e":15.8,"b":1},{"w":"University","s":15.8,"e":16.32,"b":2},{"w":"discovered","s":16.32,"e":16.84,"b":2},{"w":"something","s":16.84,"e":17.34,"b":2},{"w":"mind","s":17.34,"e":17.6,"b":2},{"w":"-blowing","s":17.6,"e":18.04,"b":2},{"w":"when","s":18.04,"e":18.54,"b":2},{"w":"fathers","s":18.54,"e":18.96,"b":2},{"w":"actively","s":18.96,"e":19.4,"b":2},{"w":"bathe,","s":19.4,"e":19.98,"b":2},{"w":"carry,","s":20.28,"e":20.4,"b":2},{"w":"and","s":20.98,"e":21.04,"b":2},{"w":"put","s":21.04,"e":21.22,"b":2},{"w":"their","s":21.22,"e":21.4,"b":2},{"w":"kids","s":21.4,"e":21.62,"b":2},{"w":"to","s":21.62,"e":21.88,"b":2},{"w":"sleep,","s":21.88,"e":22.12,"b":2},{"w":"their","s":22.54,"e":22.68,"b":2},{"w":"brains","s":22.68,"e":22.96,"b":2},{"w":"physically","s":22.96,"e":23.42,"b":2},{"w":"rewire.","s":23.42,"e":24.0,"b":2},{"w":"Oxytocin","s":25.18,"e":25.84,"b":2},{"w":"surges","s":25.84,"e":26.04,"b":2},{"w":"by","s":26.04,"e":26.46,"b":2},{"w":"over","s":26.46,"e":26.78,"b":2},{"w":"140%,","s":26.78,"e":27.68,"b":2},{"w":"matching","s":28.52,"e":28.9,"b":2},{"w":"new","s":28.9,"e":29.12,"b":2},{"w":"mothers.","s":29.12,"e":29.4,"b":2},{"w":"Empathy","s":30.48,"e":30.98,"b":2},{"w":"circuits","s":30.98,"e":31.32,"b":2},{"w":"ignite","s":31.32,"e":31.68,"b":2},{"w":"instantly.","s":31.68,"e":32.4,"b":2},{"w":"Ever","s":34.36,"e":34.8,"b":3},{"w":"wrestled","s":34.8,"e":35.26,"b":3},{"w":"on","s":35.26,"e":35.34,"b":3},{"w":"a","s":35.34,"e":35.42,"b":3},{"w":"carpet","s":35.42,"e":35.7,"b":3},{"w":"or","s":35.7,"e":36.02,"b":3},{"w":"tossed","s":36.02,"e":36.22,"b":3},{"w":"your","s":36.22,"e":36.5,"b":3},{"w":"toddler","s":36.5,"e":36.74,"b":3},{"w":"in","s":36.74,"e":37.08,"b":3},{"w":"the","s":37.08,"e":37.18,"b":3},{"w":"air?","s":37.18,"e":37.4,"b":3},{"w":"Science","s":38.36,"e":38.78,"b":3},{"w":"calls","s":38.78,"e":39.12,"b":3},{"w":"this","s":39.12,"e":39.42,"b":3},{"w":"rough","s":39.42,"e":39.74,"b":3},{"w":"and","s":39.74,"e":39.96,"b":3},{"w":"tumble","s":39.96,"e":40.2,"b":3},{"w":"play.","s":40.2,"e":40.56,"b":3},{"w":"Harvard","s":41.5,"e":41.9,"b":3},{"w":"research","s":41.9,"e":42.36,"b":3},{"w":"proves","s":42.36,"e":42.78,"b":3},{"w":"it","s":42.78,"e":43.0,"b":3},{"w":"hardwires","s":43.0,"e":43.46,"b":3},{"w":"emotional","s":43.46,"e":43.72,"b":3},{"w":"regulation","s":43.72,"e":44.38,"b":3},{"w":"and","s":44.38,"e":44.86,"b":3},{"w":"impulse","s":44.86,"e":45.16,"b":3},{"w":"control,","s":45.16,"e":45.68,"b":3},{"w":"boosting","s":46.1,"e":46.5,"b":3},{"w":"childhood","s":46.5,"e":46.84,"b":3},{"w":"stress","s":46.84,"e":47.28,"b":3},{"w":"resilience","s":47.28,"e":47.84,"b":3},{"w":"by","s":47.84,"e":48.18,"b":3},{"w":"40%.","s":48.18,"e":49.3,"b":3},{"w":"14","s":49.3,"e":51.36,"b":3},{"w":"centuries","s":51.36,"e":51.98,"b":4},{"w":"ago,","s":51.98,"e":52.72,"b":4},{"w":"Prophet","s":52.72,"e":53.14,"b":4},{"w":"Muhammad","s":53.14,"e":53.38,"b":4},{"w":"shattered","s":53.38,"e":53.9,"b":4},{"w":"toxic","s":53.9,"e":54.36,"b":4},{"w":"emotional","s":54.36,"e":54.82,"b":4},{"w":"distance.","s":54.82,"e":55.44,"b":4},{"w":"When","s":56.6,"e":56.82,"b":4},{"w":"achieved","s":56.82,"e":57.06,"b":4},{"w":"and","s":57.06,"e":57.36,"b":4},{"w":"boasted","s":57.36,"e":57.6,"b":4},{"w":"he","s":57.6,"e":57.92,"b":4},{"w":"never","s":57.92,"e":58.12,"b":4},{"w":"kissed","s":58.12,"e":58.42,"b":4},{"w":"his","s":58.42,"e":58.68,"b":4},{"w":"10","s":58.68,"e":58.9,"b":4},{"w":"children,","s":58.9,"e":59.32,"b":4},{"w":"the","s":59.64,"e":59.76,"b":4},{"w":"Prophet","s":59.76,"e":60.06,"b":4},{"w":"warned,","s":60.06,"e":60.4,"b":4},{"w":"whoever","s":60.9,"e":61.06,"b":4},{"w":"does","s":61.06,"e":61.34,"b":4},{"w":"not","s":61.34,"e":61.56,"b":4},{"w":"show","s":61.56,"e":61.88,"b":4},{"w":"mercy","s":61.88,"e":62.16,"b":4},{"w":"will","s":62.16,"e":62.76,"b":4},{"w":"not","s":62.76,"e":62.94,"b":4},{"w":"be","s":62.94,"e":63.14,"b":4},{"w":"shown","s":63.14,"e":63.36,"b":4},{"w":"mercy.","s":63.36,"e":63.72,"b":4},{"w":"In","s":64.88,"e":64.98,"b":4},{"w":"Islam,","s":64.98,"e":65.24,"b":4},{"w":"a","s":65.66,"e":65.76,"b":4},{"w":"father","s":65.76,"e":66.08,"b":4},{"w":"is","s":66.08,"e":66.32,"b":4},{"w":"a","s":66.32,"e":66.42,"b":4},{"w":"RAI,","s":66.42,"e":67.2,"b":4},{"w":"a","s":67.4,"e":67.52,"b":4},{"w":"shepherd","s":67.52,"e":67.72,"b":4},{"w":"of","s":67.72,"e":68.02,"b":4},{"w":"hearts","s":68.02,"e":68.24,"b":4},{"w":"and","s":68.24,"e":68.5,"b":4},{"w":"souls.","s":68.5,"e":68.82,"b":4},{"w":"Decades","s":71.04,"e":71.6,"b":5},{"w":"from","s":71.6,"e":71.78,"b":5},{"w":"now,","s":71.78,"e":72.04,"b":5},{"w":"your","s":72.4,"e":72.56,"b":5},{"w":"child","s":72.56,"e":72.86,"b":5},{"w":"won't","s":72.86,"e":73.24,"b":5},{"w":"remember","s":73.24,"e":73.44,"b":5},{"w":"your","s":73.44,"e":73.74,"b":5},{"w":"overtime","s":73.74,"e":74.04,"b":5},{"w":"bank","s":74.04,"e":74.52,"b":5},{"w":"statements.","s":74.52,"e":75.04,"b":5},{"w":"What","s":75.9,"e":76.4,"b":5},{"w":"their","s":76.4,"e":76.58,"b":5},{"w":"nervous","s":76.58,"e":76.82,"b":5},{"w":"system","s":76.82,"e":77.32,"b":5},{"w":"forever","s":77.32,"e":77.6,"b":5},{"w":"records","s":77.6,"e":78.14,"b":5},{"w":"is","s":78.14,"e":78.46,"b":5},{"w":"the","s":78.46,"e":78.6,"b":5},{"w":"warm","s":78.6,"e":78.78,"b":5},{"w":"hand","s":78.78,"e":79.16,"b":5},{"w":"that","s":79.16,"e":79.36,"b":5},{"w":"held","s":79.36,"e":79.56,"b":5},{"w":"them","s":79.56,"e":79.76,"b":5},{"w":"when","s":79.76,"e":79.92,"b":5},{"w":"they","s":79.92,"e":80.06,"b":5},{"w":"were","s":80.06,"e":80.18,"b":5},{"w":"scared.","s":80.18,"e":80.44,"b":5},{"w":"Show","s":80.44,"e":81.86,"b":5},{"w":"up.","s":81.86,"e":82.1,"b":5},{"w":"Be","s":83.0,"e":83.26,"b":5},{"w":"truly","s":83.26,"e":83.58,"b":5},{"w":"present.","s":83.58,"e":84.06,"b":5}];
 
-/* Dynamic Subtitles Logic */
+/* Dynamic English Subtitles Logic */
 function updateDynamicSubtitles(t) {
   let activeWord = null;
   let activeIdx = -1;
@@ -821,7 +674,6 @@ function updateDynamicSubtitles(t) {
     pill.innerHTML = html.trim();
     pill.style.opacity = '1';
   } else {
-    // Between words or silent gap
     let closestPrev = null;
     for (let i = WORDS.length - 1; i >= 0; i--) {
       if (t >= WORDS[i].e) {
@@ -842,7 +694,7 @@ const tl = gsap.timeline({ paused: true });
 const cameraRig = $('#cameraRig');
 const runway = $('#runway');
 
-function glideTo(time, targetX, dur = 0.85) {
+function glideTo(time, targetX, dur = 0.90) {
   tl.to(runway, { x: targetX, duration: dur, ease: 'power3.inOut' }, time);
 }
 
@@ -861,115 +713,108 @@ function hideHeadline(boxId, time) {
   tl.to(boxId, { opacity: 0, y: -20, duration: 0.45, ease: 'power2.in' }, time);
 }
 
-function slamStamp(stampId, time) {
-  tl.fromTo(stampId, 
-    { opacity: 0, scale: 2.2, rotate: -18 }, 
-    { opacity: 1, scale: 1, rotate: 0, duration: 0.28, ease: 'power4.in' }, 
+function popSprite(spriteId, time, scale = 1.0) {
+  tl.fromTo(spriteId, 
+    { opacity: 0, scale: 0.6, y: 40 }, 
+    { opacity: 1, scale: scale, y: 0, duration: 0.75, ease: 'back.out(1.8)' }, 
     time
   );
 }
 
 // =========================================================================
-// SCENE 1: HOOK & THE MYTH OF NAFKAH (0.0s - 10.37s)
+// SCENE 1: HOOK & THE ATM FALLACY (0.0s - 14.5s)
 // =========================================================================
-cameraPush(0.0, 1.04, 10.0);
-tl.fromTo('#openingMacroCard', { opacity: 0, y: 35, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.75, ease: 'power3.out' }, 0.2);
-tl.to('#openingMacroCard', { opacity: 0, y: -20, duration: 0.55, ease: 'power2.in' }, 2.8);
+cameraPush(0.0, 1.03, 14.0);
+tl.to(['#scene1 .dossier-tag', '#scene1 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 0.3);
 
-tl.to(['#scene1 .dossier-tag', '#scene1 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 3.2);
-tl.fromTo(['#pillMyth1', '#pillMyth2'], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 3.6);
-tl.fromTo('#hn1_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 4.2);
-tl.fromTo('#cardTelemetry1', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 4.8);
-slamStamp('#stampMyth', 5.6);
+popSprite('#spriteDadAtm', 0.6, 1.0);
+tl.fromTo(['#pillMyth1', '#pillMyth2'], { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }, 1.2);
+tl.fromTo('#hn1_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 2.0);
+tl.fromTo('#cardTelemetry1', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 3.0);
 
-showHeadline('#hlBox1', 3.4, '#hl1');
-hideHeadline('#hlBox1', 10.6);
+showHeadline('#hlBox1', 1.0, '#hl1');
+hideHeadline('#hlBox1', 14.5);
 
 // =========================================================================
-// TRANSITION TO SCENE 2: NEUROBIOLOGY (10.6s - 11.57s)
+// TRANSITION TO SCENE 2: NEUROBIOLOGY (14.5s - 15.45s)
 // =========================================================================
-glideTo(10.6, -1080, 0.85);
+glideTo(14.5, -1080, 0.90);
 
 // =========================================================================
-// SCENE 2: YALE NEUROBIOLOGY & HORMONAL SURGE (11.57s - 27.19s)
+// SCENE 2: YALE NEUROBIOLOGY & OXYTOCIN (15.45s - 33.45s)
 // =========================================================================
-tl.to(['#scene2 .dossier-tag', '#scene2 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 11.6);
-tl.fromTo('#panelHormone', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }, 12.0);
+tl.to(['#scene2 .dossier-tag', '#scene2 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 15.6);
+popSprite('#spriteBabycare', 15.8, 1.0);
+popSprite('#spriteBrain', 16.4, 1.0);
 
-// Draw Oxytocin curve
-tl.fromTo('#curveOxytocin', { strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' }, 12.6);
+tl.fromTo('#panelHormone', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }, 17.0);
+// Draw curves
+tl.fromTo('#curveOxytocin', { strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut' }, 18.0);
 
-tl.fromTo(['#pillNeuro1', '#pillNeuro2'], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 14.0);
-tl.fromTo('#hn2_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 14.8);
-tl.fromTo('#cardTelemetry2', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 15.6);
-slamStamp('#stampNeuro', 17.0);
+tl.fromTo(['#pillNeuro1', '#pillNeuro2'], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }, 20.0);
+tl.fromTo('#hn2_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 22.0);
 
-showHeadline('#hlBox2', 12.2, '#hl2');
-hideHeadline('#hlBox2', 27.2);
-
-// =========================================================================
-// TRANSITION TO SCENE 3: ROUGH PLAY & REGULATION (27.2s - 28.49s)
-// =========================================================================
-glideTo(27.2, -2160, 0.85);
+showHeadline('#hlBox2', 16.0, '#hl2');
+hideHeadline('#hlBox2', 33.5);
 
 // =========================================================================
-// SCENE 3: PSYCHOLOGY & ROUGH-AND-TUMBLE PLAY (28.49s - 42.84s)
+// TRANSITION TO SCENE 3: ROUGH PLAY & RESILIENCE (33.45s - 34.4s)
 // =========================================================================
-tl.to(['#scene3 .dossier-tag', '#scene3 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 28.6);
-tl.fromTo('#panelResilience', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }, 29.0);
-
-// Animate dual bars
-tl.to('#barActive', { width: 560, duration: 1.1, ease: 'power2.out' }, 29.6);
-tl.to('#barPassive', { width: 280, duration: 0.9, ease: 'power2.out' }, 30.2);
-
-tl.fromTo(['#pillPlay1', '#pillPlay2'], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 31.0);
-tl.fromTo('#hn3_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 31.8);
-tl.fromTo('#cardTelemetry3', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 32.6);
-slamStamp('#stampPlay', 34.0);
-
-showHeadline('#hlBox3', 29.0, '#hl3');
-hideHeadline('#hlBox3', 42.8);
+glideTo(33.5, -2160, 0.90);
 
 // =========================================================================
-// TRANSITION TO SCENE 4: SUNNAH NABAWI & ADAB (42.8s - 44.14s)
+// SCENE 3: ROUGH PLAY & HARVARD BENCHMARK (34.4s - 49.9s)
 // =========================================================================
-glideTo(42.8, -3240, 0.85);
+tl.to(['#scene3 .dossier-tag', '#scene3 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 34.6);
+popSprite('#spriteAirplane', 34.8, 1.0);
+
+tl.fromTo('#panelResilience', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }, 36.0);
+tl.to('#barActive', { width: 560, duration: 1.2, ease: 'power2.out' }, 37.0);
+tl.to('#barPassive', { width: 280, duration: 1.0, ease: 'power2.out' }, 37.6);
+
+tl.fromTo(['#pillPlay1', '#pillPlay2'], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }, 39.0);
+
+showHeadline('#hlBox3', 35.0, '#hl3');
+hideHeadline('#hlBox3', 49.9);
 
 // =========================================================================
-// SCENE 4: ISLAMIC ETHICS & KETELADANAN AR-RA'I (44.14s - 62.28s)
+// TRANSITION TO SCENE 4: PROPHETIC MERCY & AR-RA'I (49.9s - 50.85s)
 // =========================================================================
-tl.to(['#scene4 .dossier-tag', '#scene4 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 44.2);
-tl.fromTo('#panelHadith', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.70, ease: 'power3.out' }, 44.8);
-
-tl.fromTo(['#pillIslam1', '#pillIslam2'], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, ease: 'power3.out' }, 46.5);
-tl.fromTo('#hn4_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 47.5);
-tl.fromTo('#cardTelemetry4', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 48.5);
-slamStamp('#stampIslam', 50.0);
-
-showHeadline('#hlBox4', 45.0, '#hl4');
-hideHeadline('#hlBox4', 62.2);
+glideTo(49.9, -3240, 0.95);
 
 // =========================================================================
-// TRANSITION TO SCENE 5: OUTRO & THE ENDURING PRESENCE (62.2s - 63.68s)
+// SCENE 4: ISLAMIC ETHICS & SUNNAH (50.85s - 69.91s)
 // =========================================================================
-glideTo(62.2, -4320, 0.90);
+tl.to(['#scene4 .dossier-tag', '#scene4 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 51.0);
+popSprite('#spriteEmblem', 51.2, 1.0);
+
+tl.fromTo('#panelHadith', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.70, ease: 'power3.out' }, 53.0);
+tl.fromTo(['#pillIslam1', '#pillIslam2'], { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }, 55.5);
+
+showHeadline('#hlBox4', 51.5, '#hl4');
+hideHeadline('#hlBox4', 69.9);
 
 // =========================================================================
-// SCENE 5: OUTRO & FINAL VERDICT (63.68s - 74.56s)
+// TRANSITION TO SCENE 5: OUTRO & THE ENDURING PRESENCE (69.91s - 70.86s)
 // =========================================================================
-tl.to(['#scene5 .dossier-tag', '#scene5 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 63.8);
+glideTo(69.9, -4320, 0.95);
+
+// =========================================================================
+// SCENE 5: OUTRO & FINAL VERDICT (70.86s - 85.16s)
+// =========================================================================
+tl.to(['#scene5 .dossier-tag', '#scene5 .ghost-watermark'], { opacity: 1, duration: 0.6, ease: 'power2.out' }, 71.0);
+popSprite('#spriteHug', 71.2, 1.0);
+
 tl.fromTo('#outroFinalStamp', 
   { opacity: 0, scale: 2.2, rotate: -8 }, 
-  { opacity: 1, scale: 1, rotate: 0, duration: 0.35, ease: 'power4.in' }, 
-  64.5
+  { opacity: 1, scale: 1, rotate: 0, duration: 0.40, ease: 'power4.in' }, 
+  73.0
 );
-tl.fromTo('#hn5_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 65.5);
-tl.fromTo('#cardTelemetry5', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 66.2);
+tl.fromTo('#hn5_1', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }, 74.5);
 
-showHeadline('#hlBox5', 64.2, '#hl5');
+showHeadline('#hlBox5', 72.0, '#hl5');
 
-// Final camera breath
-cameraPush(64.0, 0.98, 9.0);
+cameraPush(71.0, 0.98, 12.0);
 
 /* Headless Puppeteer Seek Hook */
 window.BANG_MOTION = {

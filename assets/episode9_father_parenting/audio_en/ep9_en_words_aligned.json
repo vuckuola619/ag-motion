@@ -1,0 +1,1139 @@
+{
+  "title": "Episode 9 (English Edition): The Father's Brain // Ar-Ra'i",
+  "language": "en",
+  "voice": "en-US-ChristopherNeural",
+  "total_duration": 85.16,
+  "beats": [
+    {
+      "index": 1,
+      "id": "hook_atm_myth",
+      "act": 1,
+      "title": "The Financial ATM Fallacy",
+      "text": "Many men believe fatherhood ends when money hits the bank account. But developmental neuroscience and ancient wisdom prove: that's a dangerous illusion. Kids don't need a human ATM—they need an active dad.",
+      "audio_file": "vo_ep9_beat_1_hook_atm_myth.mp3",
+      "start": 0.0,
+      "end": 14.5,
+      "duration": 14.5
+    },
+    {
+      "index": 2,
+      "id": "act1_neurobiology",
+      "act": 2,
+      "title": "The Paternal Brain",
+      "text": "Yale University discovered something mind-blowing: when fathers actively bathe, carry, and put their kids to sleep, their brains physically rewire. Oxytocin surges by over one hundred and forty percent—matching new mothers! Empathy circuits ignite instantly.",
+      "audio_file": "vo_ep9_beat_2_act1_neurobiology.mp3",
+      "start": 15.45,
+      "end": 33.45,
+      "duration": 18.0
+    },
+    {
+      "index": 3,
+      "id": "act2_rough_play",
+      "act": 3,
+      "title": "Rough Play & Stress Resilience",
+      "text": "Ever wrestled on the carpet or tossed your toddler in the air? Science calls this 'Rough-and-Tumble Play'. Harvard research proves it hardwires emotional regulation and impulse control, boosting childhood stress resilience by forty percent!",
+      "audio_file": "vo_ep9_beat_3_act2_rough_play.mp3",
+      "start": 34.4,
+      "end": 49.9,
+      "duration": 15.5
+    },
+    {
+      "index": 4,
+      "id": "act3_sunnah_adab",
+      "act": 4,
+      "title": "Prophetic Mercy & Ar-Ra'i",
+      "text": "Fourteen centuries ago, Prophet Muhammad ﷺ shattered toxic emotional distance. When a chieftain boasted he never kissed his ten children, the Prophet warned: 'Whoever does not show mercy, will not be shown mercy.' In Islam, a father is Ar-Ra'i: a shepherd of hearts and souls.",
+      "audio_file": "vo_ep9_beat_4_act3_sunnah_adab.mp3",
+      "start": 50.85,
+      "end": 69.91,
+      "duration": 19.06
+    },
+    {
+      "index": 5,
+      "id": "outro_presence",
+      "act": 5,
+      "title": "The Lifetime Record",
+      "text": "Decades from now, your child won't remember your overtime bank statements. What their nervous system forever records is the warm hand that held them when they were scared. Show up. Be truly present.",
+      "audio_file": "vo_ep9_beat_5_outro_presence.mp3",
+      "start": 70.86,
+      "end": 85.0,
+      "duration": 14.14
+    }
+  ],
+  "words": [
+    {
+      "word": "Many",
+      "start": 0.0,
+      "end": 0.32,
+      "beat": 1
+    },
+    {
+      "word": "men",
+      "start": 0.32,
+      "end": 0.6,
+      "beat": 1
+    },
+    {
+      "word": "believe",
+      "start": 0.6,
+      "end": 0.96,
+      "beat": 1
+    },
+    {
+      "word": "fatherhood",
+      "start": 0.96,
+      "end": 1.54,
+      "beat": 1
+    },
+    {
+      "word": "ends",
+      "start": 1.54,
+      "end": 1.84,
+      "beat": 1
+    },
+    {
+      "word": "when",
+      "start": 1.84,
+      "end": 2.14,
+      "beat": 1
+    },
+    {
+      "word": "money",
+      "start": 2.14,
+      "end": 2.34,
+      "beat": 1
+    },
+    {
+      "word": "hits",
+      "start": 2.34,
+      "end": 2.64,
+      "beat": 1
+    },
+    {
+      "word": "the",
+      "start": 2.64,
+      "end": 2.82,
+      "beat": 1
+    },
+    {
+      "word": "bank",
+      "start": 2.82,
+      "end": 3.0,
+      "beat": 1
+    },
+    {
+      "word": "account,",
+      "start": 3.0,
+      "end": 3.42,
+      "beat": 1
+    },
+    {
+      "word": "but",
+      "start": 3.84,
+      "end": 4.64,
+      "beat": 1
+    },
+    {
+      "word": "developmental",
+      "start": 4.64,
+      "end": 5.0,
+      "beat": 1
+    },
+    {
+      "word": "neuroscience",
+      "start": 5.0,
+      "end": 5.84,
+      "beat": 1
+    },
+    {
+      "word": "and",
+      "start": 5.84,
+      "end": 6.28,
+      "beat": 1
+    },
+    {
+      "word": "ancient",
+      "start": 6.28,
+      "end": 6.54,
+      "beat": 1
+    },
+    {
+      "word": "wisdom",
+      "start": 6.54,
+      "end": 7.02,
+      "beat": 1
+    },
+    {
+      "word": "prove",
+      "start": 7.02,
+      "end": 7.4,
+      "beat": 1
+    },
+    {
+      "word": "that's",
+      "start": 7.4,
+      "end": 8.12,
+      "beat": 1
+    },
+    {
+      "word": "a",
+      "start": 8.12,
+      "end": 8.2,
+      "beat": 1
+    },
+    {
+      "word": "dangerous",
+      "start": 8.2,
+      "end": 8.48,
+      "beat": 1
+    },
+    {
+      "word": "illusion.",
+      "start": 8.48,
+      "end": 9.02,
+      "beat": 1
+    },
+    {
+      "word": "Kids",
+      "start": 9.82,
+      "end": 10.28,
+      "beat": 1
+    },
+    {
+      "word": "don't",
+      "start": 10.28,
+      "end": 10.68,
+      "beat": 1
+    },
+    {
+      "word": "need",
+      "start": 10.68,
+      "end": 10.82,
+      "beat": 1
+    },
+    {
+      "word": "a",
+      "start": 10.82,
+      "end": 10.88,
+      "beat": 1
+    },
+    {
+      "word": "human",
+      "start": 10.88,
+      "end": 11.24,
+      "beat": 1
+    },
+    {
+      "word": "ATM,",
+      "start": 11.24,
+      "end": 11.5,
+      "beat": 1
+    },
+    {
+      "word": "they",
+      "start": 12.24,
+      "end": 12.36,
+      "beat": 1
+    },
+    {
+      "word": "need",
+      "start": 12.36,
+      "end": 12.58,
+      "beat": 1
+    },
+    {
+      "word": "an",
+      "start": 12.58,
+      "end": 12.7,
+      "beat": 1
+    },
+    {
+      "word": "active",
+      "start": 12.7,
+      "end": 13.0,
+      "beat": 1
+    },
+    {
+      "word": "dad.",
+      "start": 13.0,
+      "end": 13.4,
+      "beat": 1
+    },
+    {
+      "word": "Yale",
+      "start": 15.08,
+      "end": 15.8,
+      "beat": 1
+    },
+    {
+      "word": "University",
+      "start": 15.8,
+      "end": 16.32,
+      "beat": 2
+    },
+    {
+      "word": "discovered",
+      "start": 16.32,
+      "end": 16.84,
+      "beat": 2
+    },
+    {
+      "word": "something",
+      "start": 16.84,
+      "end": 17.34,
+      "beat": 2
+    },
+    {
+      "word": "mind",
+      "start": 17.34,
+      "end": 17.6,
+      "beat": 2
+    },
+    {
+      "word": "-blowing",
+      "start": 17.6,
+      "end": 18.04,
+      "beat": 2
+    },
+    {
+      "word": "when",
+      "start": 18.04,
+      "end": 18.54,
+      "beat": 2
+    },
+    {
+      "word": "fathers",
+      "start": 18.54,
+      "end": 18.96,
+      "beat": 2
+    },
+    {
+      "word": "actively",
+      "start": 18.96,
+      "end": 19.4,
+      "beat": 2
+    },
+    {
+      "word": "bathe,",
+      "start": 19.4,
+      "end": 19.98,
+      "beat": 2
+    },
+    {
+      "word": "carry,",
+      "start": 20.28,
+      "end": 20.4,
+      "beat": 2
+    },
+    {
+      "word": "and",
+      "start": 20.98,
+      "end": 21.04,
+      "beat": 2
+    },
+    {
+      "word": "put",
+      "start": 21.04,
+      "end": 21.22,
+      "beat": 2
+    },
+    {
+      "word": "their",
+      "start": 21.22,
+      "end": 21.4,
+      "beat": 2
+    },
+    {
+      "word": "kids",
+      "start": 21.4,
+      "end": 21.62,
+      "beat": 2
+    },
+    {
+      "word": "to",
+      "start": 21.62,
+      "end": 21.88,
+      "beat": 2
+    },
+    {
+      "word": "sleep,",
+      "start": 21.88,
+      "end": 22.12,
+      "beat": 2
+    },
+    {
+      "word": "their",
+      "start": 22.54,
+      "end": 22.68,
+      "beat": 2
+    },
+    {
+      "word": "brains",
+      "start": 22.68,
+      "end": 22.96,
+      "beat": 2
+    },
+    {
+      "word": "physically",
+      "start": 22.96,
+      "end": 23.42,
+      "beat": 2
+    },
+    {
+      "word": "rewire.",
+      "start": 23.42,
+      "end": 24.0,
+      "beat": 2
+    },
+    {
+      "word": "Oxytocin",
+      "start": 25.18,
+      "end": 25.84,
+      "beat": 2
+    },
+    {
+      "word": "surges",
+      "start": 25.84,
+      "end": 26.04,
+      "beat": 2
+    },
+    {
+      "word": "by",
+      "start": 26.04,
+      "end": 26.46,
+      "beat": 2
+    },
+    {
+      "word": "over",
+      "start": 26.46,
+      "end": 26.78,
+      "beat": 2
+    },
+    {
+      "word": "140%,",
+      "start": 26.78,
+      "end": 27.68,
+      "beat": 2
+    },
+    {
+      "word": "matching",
+      "start": 28.52,
+      "end": 28.9,
+      "beat": 2
+    },
+    {
+      "word": "new",
+      "start": 28.9,
+      "end": 29.12,
+      "beat": 2
+    },
+    {
+      "word": "mothers.",
+      "start": 29.12,
+      "end": 29.4,
+      "beat": 2
+    },
+    {
+      "word": "Empathy",
+      "start": 30.48,
+      "end": 30.98,
+      "beat": 2
+    },
+    {
+      "word": "circuits",
+      "start": 30.98,
+      "end": 31.32,
+      "beat": 2
+    },
+    {
+      "word": "ignite",
+      "start": 31.32,
+      "end": 31.68,
+      "beat": 2
+    },
+    {
+      "word": "instantly.",
+      "start": 31.68,
+      "end": 32.4,
+      "beat": 2
+    },
+    {
+      "word": "Ever",
+      "start": 34.36,
+      "end": 34.8,
+      "beat": 3
+    },
+    {
+      "word": "wrestled",
+      "start": 34.8,
+      "end": 35.26,
+      "beat": 3
+    },
+    {
+      "word": "on",
+      "start": 35.26,
+      "end": 35.34,
+      "beat": 3
+    },
+    {
+      "word": "a",
+      "start": 35.34,
+      "end": 35.42,
+      "beat": 3
+    },
+    {
+      "word": "carpet",
+      "start": 35.42,
+      "end": 35.7,
+      "beat": 3
+    },
+    {
+      "word": "or",
+      "start": 35.7,
+      "end": 36.02,
+      "beat": 3
+    },
+    {
+      "word": "tossed",
+      "start": 36.02,
+      "end": 36.22,
+      "beat": 3
+    },
+    {
+      "word": "your",
+      "start": 36.22,
+      "end": 36.5,
+      "beat": 3
+    },
+    {
+      "word": "toddler",
+      "start": 36.5,
+      "end": 36.74,
+      "beat": 3
+    },
+    {
+      "word": "in",
+      "start": 36.74,
+      "end": 37.08,
+      "beat": 3
+    },
+    {
+      "word": "the",
+      "start": 37.08,
+      "end": 37.18,
+      "beat": 3
+    },
+    {
+      "word": "air?",
+      "start": 37.18,
+      "end": 37.4,
+      "beat": 3
+    },
+    {
+      "word": "Science",
+      "start": 38.36,
+      "end": 38.78,
+      "beat": 3
+    },
+    {
+      "word": "calls",
+      "start": 38.78,
+      "end": 39.12,
+      "beat": 3
+    },
+    {
+      "word": "this",
+      "start": 39.12,
+      "end": 39.42,
+      "beat": 3
+    },
+    {
+      "word": "rough",
+      "start": 39.42,
+      "end": 39.74,
+      "beat": 3
+    },
+    {
+      "word": "and",
+      "start": 39.74,
+      "end": 39.96,
+      "beat": 3
+    },
+    {
+      "word": "tumble",
+      "start": 39.96,
+      "end": 40.2,
+      "beat": 3
+    },
+    {
+      "word": "play.",
+      "start": 40.2,
+      "end": 40.56,
+      "beat": 3
+    },
+    {
+      "word": "Harvard",
+      "start": 41.5,
+      "end": 41.9,
+      "beat": 3
+    },
+    {
+      "word": "research",
+      "start": 41.9,
+      "end": 42.36,
+      "beat": 3
+    },
+    {
+      "word": "proves",
+      "start": 42.36,
+      "end": 42.78,
+      "beat": 3
+    },
+    {
+      "word": "it",
+      "start": 42.78,
+      "end": 43.0,
+      "beat": 3
+    },
+    {
+      "word": "hardwires",
+      "start": 43.0,
+      "end": 43.46,
+      "beat": 3
+    },
+    {
+      "word": "emotional",
+      "start": 43.46,
+      "end": 43.72,
+      "beat": 3
+    },
+    {
+      "word": "regulation",
+      "start": 43.72,
+      "end": 44.38,
+      "beat": 3
+    },
+    {
+      "word": "and",
+      "start": 44.38,
+      "end": 44.86,
+      "beat": 3
+    },
+    {
+      "word": "impulse",
+      "start": 44.86,
+      "end": 45.16,
+      "beat": 3
+    },
+    {
+      "word": "control,",
+      "start": 45.16,
+      "end": 45.68,
+      "beat": 3
+    },
+    {
+      "word": "boosting",
+      "start": 46.1,
+      "end": 46.5,
+      "beat": 3
+    },
+    {
+      "word": "childhood",
+      "start": 46.5,
+      "end": 46.84,
+      "beat": 3
+    },
+    {
+      "word": "stress",
+      "start": 46.84,
+      "end": 47.28,
+      "beat": 3
+    },
+    {
+      "word": "resilience",
+      "start": 47.28,
+      "end": 47.84,
+      "beat": 3
+    },
+    {
+      "word": "by",
+      "start": 47.84,
+      "end": 48.18,
+      "beat": 3
+    },
+    {
+      "word": "40%.",
+      "start": 48.18,
+      "end": 49.3,
+      "beat": 3
+    },
+    {
+      "word": "14",
+      "start": 49.3,
+      "end": 51.36,
+      "beat": 3
+    },
+    {
+      "word": "centuries",
+      "start": 51.36,
+      "end": 51.98,
+      "beat": 4
+    },
+    {
+      "word": "ago,",
+      "start": 51.98,
+      "end": 52.72,
+      "beat": 4
+    },
+    {
+      "word": "Prophet",
+      "start": 52.72,
+      "end": 53.14,
+      "beat": 4
+    },
+    {
+      "word": "Muhammad",
+      "start": 53.14,
+      "end": 53.38,
+      "beat": 4
+    },
+    {
+      "word": "shattered",
+      "start": 53.38,
+      "end": 53.9,
+      "beat": 4
+    },
+    {
+      "word": "toxic",
+      "start": 53.9,
+      "end": 54.36,
+      "beat": 4
+    },
+    {
+      "word": "emotional",
+      "start": 54.36,
+      "end": 54.82,
+      "beat": 4
+    },
+    {
+      "word": "distance.",
+      "start": 54.82,
+      "end": 55.44,
+      "beat": 4
+    },
+    {
+      "word": "When",
+      "start": 56.6,
+      "end": 56.82,
+      "beat": 4
+    },
+    {
+      "word": "achieved",
+      "start": 56.82,
+      "end": 57.06,
+      "beat": 4
+    },
+    {
+      "word": "and",
+      "start": 57.06,
+      "end": 57.36,
+      "beat": 4
+    },
+    {
+      "word": "boasted",
+      "start": 57.36,
+      "end": 57.6,
+      "beat": 4
+    },
+    {
+      "word": "he",
+      "start": 57.6,
+      "end": 57.92,
+      "beat": 4
+    },
+    {
+      "word": "never",
+      "start": 57.92,
+      "end": 58.12,
+      "beat": 4
+    },
+    {
+      "word": "kissed",
+      "start": 58.12,
+      "end": 58.42,
+      "beat": 4
+    },
+    {
+      "word": "his",
+      "start": 58.42,
+      "end": 58.68,
+      "beat": 4
+    },
+    {
+      "word": "10",
+      "start": 58.68,
+      "end": 58.9,
+      "beat": 4
+    },
+    {
+      "word": "children,",
+      "start": 58.9,
+      "end": 59.32,
+      "beat": 4
+    },
+    {
+      "word": "the",
+      "start": 59.64,
+      "end": 59.76,
+      "beat": 4
+    },
+    {
+      "word": "Prophet",
+      "start": 59.76,
+      "end": 60.06,
+      "beat": 4
+    },
+    {
+      "word": "warned,",
+      "start": 60.06,
+      "end": 60.4,
+      "beat": 4
+    },
+    {
+      "word": "whoever",
+      "start": 60.9,
+      "end": 61.06,
+      "beat": 4
+    },
+    {
+      "word": "does",
+      "start": 61.06,
+      "end": 61.34,
+      "beat": 4
+    },
+    {
+      "word": "not",
+      "start": 61.34,
+      "end": 61.56,
+      "beat": 4
+    },
+    {
+      "word": "show",
+      "start": 61.56,
+      "end": 61.88,
+      "beat": 4
+    },
+    {
+      "word": "mercy",
+      "start": 61.88,
+      "end": 62.16,
+      "beat": 4
+    },
+    {
+      "word": "will",
+      "start": 62.16,
+      "end": 62.76,
+      "beat": 4
+    },
+    {
+      "word": "not",
+      "start": 62.76,
+      "end": 62.94,
+      "beat": 4
+    },
+    {
+      "word": "be",
+      "start": 62.94,
+      "end": 63.14,
+      "beat": 4
+    },
+    {
+      "word": "shown",
+      "start": 63.14,
+      "end": 63.36,
+      "beat": 4
+    },
+    {
+      "word": "mercy.",
+      "start": 63.36,
+      "end": 63.72,
+      "beat": 4
+    },
+    {
+      "word": "In",
+      "start": 64.88,
+      "end": 64.98,
+      "beat": 4
+    },
+    {
+      "word": "Islam,",
+      "start": 64.98,
+      "end": 65.24,
+      "beat": 4
+    },
+    {
+      "word": "a",
+      "start": 65.66,
+      "end": 65.76,
+      "beat": 4
+    },
+    {
+      "word": "father",
+      "start": 65.76,
+      "end": 66.08,
+      "beat": 4
+    },
+    {
+      "word": "is",
+      "start": 66.08,
+      "end": 66.32,
+      "beat": 4
+    },
+    {
+      "word": "a",
+      "start": 66.32,
+      "end": 66.42,
+      "beat": 4
+    },
+    {
+      "word": "RAI,",
+      "start": 66.42,
+      "end": 67.2,
+      "beat": 4
+    },
+    {
+      "word": "a",
+      "start": 67.4,
+      "end": 67.52,
+      "beat": 4
+    },
+    {
+      "word": "shepherd",
+      "start": 67.52,
+      "end": 67.72,
+      "beat": 4
+    },
+    {
+      "word": "of",
+      "start": 67.72,
+      "end": 68.02,
+      "beat": 4
+    },
+    {
+      "word": "hearts",
+      "start": 68.02,
+      "end": 68.24,
+      "beat": 4
+    },
+    {
+      "word": "and",
+      "start": 68.24,
+      "end": 68.5,
+      "beat": 4
+    },
+    {
+      "word": "souls.",
+      "start": 68.5,
+      "end": 68.82,
+      "beat": 4
+    },
+    {
+      "word": "Decades",
+      "start": 71.04,
+      "end": 71.6,
+      "beat": 5
+    },
+    {
+      "word": "from",
+      "start": 71.6,
+      "end": 71.78,
+      "beat": 5
+    },
+    {
+      "word": "now,",
+      "start": 71.78,
+      "end": 72.04,
+      "beat": 5
+    },
+    {
+      "word": "your",
+      "start": 72.4,
+      "end": 72.56,
+      "beat": 5
+    },
+    {
+      "word": "child",
+      "start": 72.56,
+      "end": 72.86,
+      "beat": 5
+    },
+    {
+      "word": "won't",
+      "start": 72.86,
+      "end": 73.24,
+      "beat": 5
+    },
+    {
+      "word": "remember",
+      "start": 73.24,
+      "end": 73.44,
+      "beat": 5
+    },
+    {
+      "word": "your",
+      "start": 73.44,
+      "end": 73.74,
+      "beat": 5
+    },
+    {
+      "word": "overtime",
+      "start": 73.74,
+      "end": 74.04,
+      "beat": 5
+    },
+    {
+      "word": "bank",
+      "start": 74.04,
+      "end": 74.52,
+      "beat": 5
+    },
+    {
+      "word": "statements.",
+      "start": 74.52,
+      "end": 75.04,
+      "beat": 5
+    },
+    {
+      "word": "What",
+      "start": 75.9,
+      "end": 76.4,
+      "beat": 5
+    },
+    {
+      "word": "their",
+      "start": 76.4,
+      "end": 76.58,
+      "beat": 5
+    },
+    {
+      "word": "nervous",
+      "start": 76.58,
+      "end": 76.82,
+      "beat": 5
+    },
+    {
+      "word": "system",
+      "start": 76.82,
+      "end": 77.32,
+      "beat": 5
+    },
+    {
+      "word": "forever",
+      "start": 77.32,
+      "end": 77.6,
+      "beat": 5
+    },
+    {
+      "word": "records",
+      "start": 77.6,
+      "end": 78.14,
+      "beat": 5
+    },
+    {
+      "word": "is",
+      "start": 78.14,
+      "end": 78.46,
+      "beat": 5
+    },
+    {
+      "word": "the",
+      "start": 78.46,
+      "end": 78.6,
+      "beat": 5
+    },
+    {
+      "word": "warm",
+      "start": 78.6,
+      "end": 78.78,
+      "beat": 5
+    },
+    {
+      "word": "hand",
+      "start": 78.78,
+      "end": 79.16,
+      "beat": 5
+    },
+    {
+      "word": "that",
+      "start": 79.16,
+      "end": 79.36,
+      "beat": 5
+    },
+    {
+      "word": "held",
+      "start": 79.36,
+      "end": 79.56,
+      "beat": 5
+    },
+    {
+      "word": "them",
+      "start": 79.56,
+      "end": 79.76,
+      "beat": 5
+    },
+    {
+      "word": "when",
+      "start": 79.76,
+      "end": 79.92,
+      "beat": 5
+    },
+    {
+      "word": "they",
+      "start": 79.92,
+      "end": 80.06,
+      "beat": 5
+    },
+    {
+      "word": "were",
+      "start": 80.06,
+      "end": 80.18,
+      "beat": 5
+    },
+    {
+      "word": "scared.",
+      "start": 80.18,
+      "end": 80.44,
+      "beat": 5
+    },
+    {
+      "word": "Show",
+      "start": 80.44,
+      "end": 81.86,
+      "beat": 5
+    },
+    {
+      "word": "up.",
+      "start": 81.86,
+      "end": 82.1,
+      "beat": 5
+    },
+    {
+      "word": "Be",
+      "start": 83.0,
+      "end": 83.26,
+      "beat": 5
+    },
+    {
+      "word": "truly",
+      "start": 83.26,
+      "end": 83.58,
+      "beat": 5
+    },
+    {
+      "word": "present.",
+      "start": 83.58,
+      "end": 84.06,
+      "beat": 5
+    }
+  ]
+}
