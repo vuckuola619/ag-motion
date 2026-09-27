@@ -1,0 +1,47 @@
+1
+00:00:01,000 --> 00:00:11,690
+On the night of August 15, 1977, deep in the Ohio countryside, a football-field-sized radio telescope known as Big Ear was silently listening to the cosmos.
+
+2
+00:00:12,990 --> 00:00:21,500
+Humanity had just launched Project SETI: searching fifty channels simultaneously for a deliberate artificial broadcast from an alien civilization.
+
+3
+00:00:22,900 --> 00:00:30,520
+Big Ear was completely immobile. It had no steering motors, relying entirely on the Earth's rotation to sweep across the starry sky.
+
+4
+00:00:31,720 --> 00:00:40,810
+Because of its beam width, any genuine point source from deep space could only be heard for exactly seventy-two seconds, rising and falling in a textbook bell curve.
+
+5
+00:00:42,310 --> 00:00:50,270
+A few days later, astronomer Jerry Ehman arrived to review stacks of tractor-feed paper from the IBM 1130 mainframe.
+
+6
+00:00:51,470 --> 00:01:03,590
+Amidst the random background noise of ones and twos, channel two suddenly spiked into letters: six, E, Q, U, J, five. A signal thirty times stronger than deep space background radiation.
+
+7
+00:01:04,890 --> 00:01:18,780
+Even more astonishing, it was broadcasting at 1420.405 megahertz: the exact emission frequency of neutral hydrogen, the cosmic waterhole where alien civilizations would theoretically transmit.
+
+8
+00:01:20,280 --> 00:01:27,260
+Stunned, Jerry grabbed a red Pilot pen, circled the six characters, and scribbled a single word in the margin: Wow!
+
+9
+00:01:28,560 --> 00:01:39,950
+For nearly half a century, astronomers tested every terrestrial explanation: classified military satellites, aircraft reflections, passing comets. Every single hypothesis failed.
+
+10
+00:01:41,450 --> 00:01:51,070
+The Very Large Array and Green Bank telescopes returned to those exact coordinates near Chi Sagittarii over a hundred times. The patch of sky was dead silent.
+
+11
+00:01:52,370 --> 00:01:58,770
+A solitary seventy-two-second transmission, broadcast across thousands of light-years, never to be heard again.
+
+12
+00:01:59,970 --> 00:02:05,090
+The greatest unsolved mystery in the history of deep space astronomy. The Wow! Signal.

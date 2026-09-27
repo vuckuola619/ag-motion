@@ -16,12 +16,54 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
-from googleapiclient.http import MediaFileUpload
+from googleapiclient.http import MediaFileUpload, build_http
+import httplib2
+import google_auth_httplib2
+import requests
+import urllib3
+
+urllib3.disable_warnings()
 
 # If modifying these scopes, delete token.json.
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
 PROJECTS_CONFIG = {
+    'episode8_voynich_manuscript': {
+        'name': 'episode8_voynich_manuscript',
+        'title': "The 600-Year-Old Code That Even Modern AI Can't Crack (The Voynich Manuscript)",
+        'dir': 'output/episode8_voynich_manuscript',
+        'files': [
+            'episode8_voynich_manuscript.mp4',
+            'voynich_subtitles.srt',
+            'voynich_subtitles.vtt',
+            'tiktok_metadata_ep8.md',
+        ],
+        'include_snapshots': True,
+    },
+    'episode7_wow_signal': {
+        'name': 'episode7_wow_signal',
+        'title': "The 72-Second Deep Space Transmission That Science Still Can't Explain (The Wow! Signal)",
+        'dir': 'output/episode7_wow_signal',
+        'files': [
+            'episode7_wow_signal.mp4',
+            'wow_signal_subtitles.srt',
+            'wow_signal_subtitles.vtt',
+            'tiktok_metadata_ep7.md',
+        ],
+        'include_snapshots': True,
+    },
+    'episode6_project_azorian': {
+        'name': 'episode6_project_azorian',
+        'title': "How the CIA Secretly Stole a Soviet Nuclear Submarine from 3 Miles Deep (Project Azorian)",
+        'dir': 'output/episode6_project_azorian',
+        'files': [
+            'episode6_project_azorian.mp4',
+            'azorian_subtitles.srt',
+            'azorian_subtitles.vtt',
+            'tiktok_metadata_ep6.md',
+        ],
+        'include_snapshots': True,
+    },
     'episode5_iridium_layer': {
         'name': 'episode5_iridium_layer',
         'title': "The 1-Centimeter Layer of Mud That Solved Earth's Biggest Murder Mystery",
@@ -102,7 +144,9 @@ def authenticate(creds_path: str = 'google.json', token_path: str = 'token.json'
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             print("[*] Refreshing expired credentials...", flush=True)
-            creds.refresh(Request())
+            session = requests.Session()
+            session.verify = False
+            creds.refresh(Request(session=session))
         else:
             if not os.path.exists(creds_path):
                 raise FileNotFoundError(
@@ -310,7 +354,10 @@ def main():
 
     print("[*] Authenticating with Google Drive API...")
     creds = authenticate(args.creds, args.token)
-    service = build('drive', 'v3', credentials=creds)
+    http = build_http()
+    http.disable_ssl_certificate_validation = True
+    authorized_http = google_auth_httplib2.AuthorizedHttp(creds, http=http)
+    service = build('drive', 'v3', http=authorized_http)
 
     parent_folder_id = None
     if args.parent_folder.strip():

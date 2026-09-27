@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Project Azorian — How the CIA Secretly Stole a Soviet Nuclear Submarine (Vox Visual Journalism)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B0E14;
+  --panel-bg: #11151F;
+  --ink: #FFFFFF;
+  --ink-dim: #A2AAB8;
+  --yel: #FFDE38;
+  --red: #E11D48;
+  --amber-ink: #F59E0B;
+  --cyan: #38BDF8;
+  --navy: #0A192F;
+  --border-dim: rgba(255, 255, 255, 0.14);
+  --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 2px 10px rgba(0, 0, 0, 0.40);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+html, body {
+  width: 100%; height: 100%;
+  background: #06080C;
+  overflow: hidden;
+  font-family: "Barlow Condensed", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+/* 1080x1920 Stage Canvas */
+#stage {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 1080px; height: 1920px;
+  background: #0B0E14;
+  overflow: hidden;
+  transform-origin: center center;
+  box-shadow: 0 0 120px rgba(0, 0, 0, 0.98);
+}
+
+/* Authentic Archival Film Grain Overlay */
+.grain-overlay {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Vignette */
+.vignette {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 50%, rgba(5, 7, 12, 0.60) 100%);
+  z-index: 51;
+}
+
+/* Optical Motion Streak */
+#motionStreak {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 222, 56, 0.35) 50%, transparent 100%);
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 55;
+  opacity: 0;
+}
+
+/* Persistent Vox Header Runner */
+#voxRunner {
+  position: absolute;
+  top: 75px; left: 60px; right: 60px;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(14, 18, 26, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 0 24px;
+  border-radius: 8px;
+  border: 1px solid var(--border-dim);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  z-index: 60;
+}
+#voxRunner .badge {
+  background: var(--yel);
+  color: #0A0D14;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-size: 18px;
+}
+#voxRunner .tag {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* 6-Scene Panoramic Runway */
+#runway {
+  position: absolute;
+  top: 0; left: 0;
+  width: 6480px; height: 1920px; /* 6 scenes x 1080px */
+  display: flex;
+  will-change: transform;
+}
+
+.scene-dossier {
+  position: relative;
+  width: 1080px; height: 1920px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* 100% Full Bleed Background Documents */
+.scene-bg-doc {
+  position: absolute;
+  inset: 0;
+  width: 1080px; height: 1920px;
+  object-fit: cover;
+  filter: brightness(0.68) contrast(1.18);
+  transform: scale(1.04);
+  transform-origin: center center;
+}
+
+/* High-Contrast Archival Source Tag */
+.source-tag {
+  position: absolute;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--yel);
+  background: rgba(10, 14, 22, 0.88);
+  padding: 6px 14px;
+  border-left: 4px solid var(--yel);
+  border-radius: 2px;
+  z-index: 25;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+/* Specimen Cutout Sprites */
+.specimen-sprite {
+  position: absolute;
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.75));
+  will-change: transform;
+  z-index: 20;
+}
+.specimen-sprite img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+
+/* Handwritten Editorial Notes */
+.hand-note {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--yel);
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.9));
+  z-index: 32;
+  white-space: nowrap;
+}
+.hand-note.red {
+  color: var(--red);
+}
+
+/* High-Contrast Vox Journalistic Caption Box */
+.vox-caption-box {
+  position: absolute;
+  left: 60px; right: 60px;
+  background: rgba(10, 14, 22, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-left: 6px solid var(--yel);
+  padding: 24px 30px;
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.80);
+  z-index: 40;
+}
+.vox-caption-box.red-border {
+  border-left-color: var(--red);
+}
+.vox-caption-box .caption-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--yel);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.vox-caption-box.red-border .caption-tag {
+  color: var(--red);
+}
+.vox-caption-box .caption-text {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+/* Neon Yellow & Red Highlighters */
+.hl {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  padding: 0 8px;
+  margin: 0 2px;
+  white-space: nowrap;
+  vertical-align: baseline;
+  transition: color 0.15s ease;
+}
+.hl i {
+  position: absolute;
+  left: 0; right: 0; top: 6%; bottom: 4%;
+  background: var(--yel);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: -1;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(255, 222, 56, 0.45);
+}
+.hl.r i {
+  background: var(--red);
+  box-shadow: 0 2px 10px rgba(225, 29, 72, 0.50);
+}
+
+/* Telemetry Data Counter Card */
+.telemetry-card {
+  position: absolute;
+  background: rgba(15, 20, 30, 0.95);
+  border: 1px solid var(--border-dim);
+  border-radius: 8px;
+  padding: 22px 28px;
+  box-shadow: var(--card-shadow);
+  z-index: 24;
+}
+.telemetry-card .label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.telemetry-card .counter-value {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 82px;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 0.95;
+}
+.telemetry-card .unit {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--yel);
+  margin-left: 8px;
+}
+
+/* Red Rubber Stamp (Top Secret Declassified) */
+.case-solved-stamp {
+  position: absolute;
+  width: 980px; height: 420px;
+  transform: rotate(-8deg) scale(2.8);
+  opacity: 0;
+  z-index: 48;
+  filter: drop-shadow(0 20px 45px rgba(225, 29, 72, 0.70));
+}
+
+/* Intro Manila Folder Card */
+#introOverlay {
+  position: absolute; inset: 0;
+  background: rgba(6, 8, 12, 0.90);
+  z-index: 70;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#introFolderCard {
+  width: 920px; height: 1380px;
+  position: relative;
+  background: #E8DFCB;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  border: 2px solid #C4B598;
+}
+
+/* Debug Scrubber Panel */
+#dbg {
+  position: fixed;
+  left: 50%; bottom: 25px;
+  transform: translateX(-50%);
+  display: none;
+  gap: 16px; align-items: center;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: rgba(20, 22, 26, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFF;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  z-index: 999;
+}
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <div class="grain-overlay"></div>
+  <div class="vignette"></div>
+  <div id="motionStreak"></div>
+
+  <!-- Persistent Header Runner -->
+  <div id="voxRunner">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span class="badge">AZORIAN</span>
+      <span class="tag" id="runnerDossier">DOSSIER #01: PACIFIC SECTOR 1968</span>
+    </div>
+    <div id="runnerTimeline" style="color: var(--ink-dim); font-size: 18px;">MARCH 1968</div>
+  </div>
+
+  <!-- 6-Scene Panoramic Runway Container -->
+  <div id="runway">
+
+    <!-- ========================================================================= -->
+    <!-- ACT 1: THE GHOST IN THE PACIFIC (X = 0)                                   -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene1">
+      <img class="scene-bg-doc" src="assets/episode6_project_azorian/images/bg_pacific_sonar_bathymetry.png" alt="Pacific Bathymetry Map">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">FORENSIC DOSSIER // SOVIET GOLF-II K-129 · NORTH PACIFIC</div>
+
+      <!-- Hero Cutout: Soviet Golf-II Submarine K-129 -->
+      <div class="specimen-sprite" id="spriteK129" style="top: 260px; left: 60px; width: 960px; height: 380px;">
+        <img src="assets/episode6_project_azorian/images/submarine_k129_profile.png" alt="Soviet Golf-II K-129 Submarine">
+      </div>
+
+      <!-- SOSUS Seismograph / Acoustic Recording Trace -->
+      <div class="specimen-sprite" id="spriteSosus" style="top: 660px; left: 60px; width: 560px; height: 420px; transform: rotate(-3deg);">
+        <img src="assets/episode6_project_azorian/images/seismic_acoustic_hydrophone_recording.png" alt="SOSUS Hydrophone Recording">
+      </div>
+
+      <!-- Rotating Tactical Radar Reticle -->
+      <div class="specimen-sprite" id="reticleRadar1" style="top: 680px; left: 620px; width: 380px; height: 380px;">
+        <img src="assets/episode6_project_azorian/images/radar_targeting_reticle.png" alt="Radar Reticle">
+      </div>
+
+      <!-- Deep Sea Acoustic Sonar Sled Robot -->
+      <div class="specimen-sprite" id="spriteSonarRobot" style="top: 1040px; left: 80px; width: 440px; height: 340px; transform: rotate(5deg);">
+        <img src="assets/episode6_project_azorian/images/deepsea_sonar_scanner_robot.png" alt="Deep-sea Sonar Sled">
+      </div>
+
+      <!-- Telemetry Card: Depth 16,200 FT -->
+      <div class="telemetry-card" id="telemetryDepth" style="top: 1100px; left: 540px; width: 460px;">
+        <div class="label">TARGET SEABED DEPTH</div>
+        <div class="counter-value" id="valDepth">16,200<span class="unit">FT</span></div>
+      </div>
+
+      <div class="hand-note red" id="notePacific" style="top: 610px; left: 80px; transform: rotate(-4deg);">
+        SOSUS hydrophones triangulated acoustic blast ↙
+      </div>
+
+      <!-- Caption Box Act 1 -->
+      <div class="vox-caption-box" id="boxScene1" style="bottom: 120px;">
+        <div class="caption-tag">DEEP SEA FORENSICS // 16,000 FT DEPTH</div>
+        <div class="caption-text">
+          Soviet Sub <span class="hl" id="hl1a">K-129<i></i></span> Vanished. Moscow Found Nothing. America Found It <span class="hl r" id="hl1b">3 Miles Deep<i></i></span>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ACT 2: THE $4 BILLION COVER STORY (X = -1080)                            -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene2">
+      <img class="scene-bg-doc" src="assets/episode6_project_azorian/images/bg_cia_topsecret_memo.png" alt="CIA Top Secret Memo">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">SPECIAL ACTIVITIES // PROJECT AZORIAN · HUGHES COVER</div>
+
+      <!-- Glomar Explorer Ship -->
+      <div class="specimen-sprite" id="spriteShip" style="top: 250px; left: 50px; width: 980px; height: 420px;">
+        <img src="assets/episode6_project_azorian/images/glomar_explorer_ship.png" alt="Hughes Glomar Explorer">
+      </div>
+
+      <!-- CIA Coded Telegram Cable (EYES ONLY) -->
+      <div class="specimen-sprite" id="spriteTelegram" style="top: 680px; left: 60px; width: 480px; height: 500px; transform: rotate(-5deg);">
+        <img src="assets/episode6_project_azorian/images/cia_coded_telegram_cable.png" alt="CIA Coded Telegram Cable">
+      </div>
+
+      <!-- Real Glomar Explorer Historical Photo -->
+      <div class="specimen-sprite" id="spriteGlomarReal" style="top: 690px; left: 540px; width: 480px; height: 320px; transform: rotate(4deg);">
+        <img src="assets/episode6_project_azorian/images/glomar_explorer_real.jpg" alt="Historical Glomar Explorer Photo">
+      </div>
+
+      <!-- Manganese Nodule Specimen (Cover Story) -->
+      <div class="specimen-sprite" id="spriteManganese" style="top: 1040px; left: 560px; width: 440px; height: 340px; transform: rotate(-2deg);">
+        <img src="assets/episode6_project_azorian/images/manganese_nodule_specimen.png" alt="Deep Sea Manganese Nodule">
+      </div>
+
+      <div class="hand-note" id="noteHughes" style="top: 630px; left: 530px; transform: rotate(-3deg);">
+        Official Cover: Commercial Manganese Mining ↗
+      </div>
+
+      <!-- Caption Box Act 2 -->
+      <div class="vox-caption-box" id="boxScene2" style="bottom: 120px;">
+        <div class="caption-tag">COLD WAR HEIST // $4 BILLION BLACK BUDGET</div>
+        <div class="caption-text">
+          CIA Recruited Billionaire <span class="hl" id="hl2a">Howard Hughes<i></i></span> To Build A <span class="hl r" id="hl2b">Fake Mining Fleet<i></i></span>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ACT 3: THE IMPOSSIBLE MACHINE (X = -2160)                                 -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene3">
+      <img class="scene-bg-doc" src="assets/episode6_project_azorian/images/bg_ocean_floor_claw_diagram.png" alt="Ocean Floor Claw Diagram">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">ENGINEERING SCHEMATIC // CAPTURE VEHICLE 'CLEMENTINE'</div>
+
+      <!-- Massive Clementine Claw -->
+      <div class="specimen-sprite" id="spriteClaw" style="top: 230px; left: 160px; width: 760px; height: 600px; transform: rotate(-10deg);">
+        <img src="assets/episode6_project_azorian/images/clementine_claw_rusty.png" alt="Clementine Giant Capture Claw">
+      </div>
+
+      <!-- Heavy Pipe String Elevator Coupling -->
+      <div class="specimen-sprite" id="spritePipeElevator" style="top: 760px; left: 70px; width: 420px; height: 440px; transform: rotate(-4deg);">
+        <img src="assets/episode6_project_azorian/images/heavy_pipe_string_elevator.png" alt="Heavy Pipe String Elevator">
+      </div>
+
+      <!-- Sunken K-129 Model Waiting on Seabed -->
+      <div class="specimen-sprite" id="spriteSubDeep" style="top: 960px; left: 460px; width: 560px; height: 380px; opacity: 0.85;">
+        <img src="assets/episode6_project_azorian/images/cia_model_sunken_k129.jpg" alt="Sunken K-129 Seabed Model">
+      </div>
+
+      <!-- Telemetry Card: Claw Pressure -->
+      <div class="telemetry-card" id="telemetryClaw" style="top: 1160px; left: 70px; width: 440px;">
+        <div class="label">HYDROSTATIC PRESSURE</div>
+        <div class="counter-value" id="valPressure">7,100<span class="unit">PSI</span></div>
+      </div>
+
+      <div class="hand-note" id="notePressure" style="top: 710px; left: 520px; transform: rotate(4deg);">
+        50-meter hydraulic talons lock on target ↙
+      </div>
+
+      <!-- Caption Box Act 3 -->
+      <div class="vox-caption-box" id="boxScene3" style="bottom: 120px;">
+        <div class="caption-tag">ABYSSAL RECOVERY // 3 MILES OF STEEL PIPE</div>
+        <div class="caption-text">
+          A 50-Meter Claw Called <span class="hl" id="hl3a">Clementine<i></i></span> Lowered Through <span class="hl r" id="hl3b">3 Miles Of Steel String<i></i></span>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ACT 4: THE CATASTROPHIC BREAK (X = -3240)                                -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene4">
+      <img class="scene-bg-doc" src="assets/episode6_project_azorian/images/bg_hughes_mining_schematic.png" alt="Hughes Mining Schematic">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">STRUCTURAL FAILURE // AUGUST 4, 1974 · DEPTH 9,000 FT</div>
+
+      <!-- Recovered Bow Section (held in claw) -->
+      <div class="specimen-sprite" id="spriteSevered" style="top: 250px; left: 60px; width: 480px; height: 360px;">
+        <img src="assets/episode6_project_azorian/images/severed_k129_hull_section.png" alt="Recovered Bow Hull Section">
+      </div>
+
+      <!-- Snapped 2/3 Hull Plunging Down -->
+      <div class="specimen-sprite" id="spritePlunging" style="top: 360px; left: 480px; width: 540px; height: 340px;">
+        <img src="assets/episode6_project_azorian/images/submarine_k129_profile.png" alt="Plunging Broken Hull">
+      </div>
+
+      <!-- Soviet DP-5V Military Dosimeter with probe -->
+      <div class="specimen-sprite" id="spriteDp5v" style="top: 680px; left: 60px; width: 500px; height: 480px; transform: rotate(-3deg);">
+        <img src="assets/episode6_project_azorian/images/soviet_dp5v_dosimeter.png" alt="Soviet DP-5V Dosimeter">
+      </div>
+
+      <!-- Radioactive Hazard Tag -->
+      <div class="specimen-sprite" id="spriteRadTag" style="top: 700px; left: 580px; width: 440px; height: 440px; transform: rotate(10deg);">
+        <img src="assets/episode6_project_azorian/images/radioactive_hazard_tag.png" alt="Radioactive Hazard Tag">
+      </div>
+
+      <!-- Geiger Counter Analog -->
+      <div class="specimen-sprite" id="spriteGeiger" style="top: 1040px; left: 560px; width: 440px; height: 380px; transform: rotate(-5deg);">
+        <img src="assets/episode6_project_azorian/images/geiger_counter_ussr.png" alt="USSR Geiger Counter">
+      </div>
+
+      <div class="hand-note red" id="noteSnap" style="top: 620px; left: 100px; transform: rotate(-5deg);">
+        Catastrophic claw failure! 2/3 hull plunges into abyss ↙
+      </div>
+
+      <!-- Caption Box Act 4 -->
+      <div class="vox-caption-box red-border" id="boxScene4" style="bottom: 120px;">
+        <div class="caption-tag">CRITICAL FAILURE // RADIATION ALARM</div>
+        <div class="caption-text">
+          At 9,000 Feet, The Claw <span class="hl r" id="hl4a">Fractured<i></i></span>. Two-Thirds Slipped Away, Triggering <span class="hl r" id="hl4b">Radiation Alarms<i></i></span>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ACT 5: THE SECRET FUNERAL & LEAKS (X = -4320)                            -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene5">
+      <img class="scene-bg-doc" src="assets/episode6_project_azorian/images/bg_burial_protocol_doc.png" alt="Secret Burial Protocol Document">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">HONORS PROTOCOL // SECRET BURIAL AT SEA · CIA FILM RECORD</div>
+
+      <!-- Authentic Soviet Naval Ensign Flag -->
+      <div class="specimen-sprite" id="spriteEnsign" style="top: 240px; left: 60px; width: 500px; height: 340px; transform: rotate(-3deg);">
+        <img src="assets/episode6_project_azorian/images/soviet_naval_ensign_flag_ceremonial.png" alt="Soviet Naval Ensign Flag">
+      </div>
+
+      <!-- Soviet Submariner Crew Vintage Photo -->
+      <div class="specimen-sprite" id="spriteSailorsPhoto" style="top: 240px; left: 560px; width: 460px; height: 340px; transform: rotate(4deg);">
+        <img src="assets/episode6_project_azorian/images/soviet_sailors_vintage_photo.png" alt="Soviet Submarine Sailors">
+      </div>
+
+      <!-- Vintage Submarine Brass Ship's Bell 1968 -->
+      <div class="specimen-sprite" id="spriteBell" style="top: 620px; left: 60px; width: 440px; height: 460px; transform: rotate(-4deg);">
+        <img src="assets/episode6_project_azorian/images/vintage_submarine_brass_bell.png" alt="Vintage Submarine Bell">
+      </div>
+
+      <!-- Soviet Naval Order Medal (Order of the Red Star) -->
+      <div class="specimen-sprite" id="spriteMedal" style="top: 620px; left: 560px; width: 440px; height: 460px; transform: rotate(6deg);">
+        <img src="assets/episode6_project_azorian/images/soviet_naval_order_medal.png" alt="Soviet Order of the Red Star Medal">
+      </div>
+
+      <!-- Technical Cutaway: Nuclear Torpedo Warhead -->
+      <div class="specimen-sprite" id="spriteWarhead" style="top: 1040px; left: 80px; width: 460px; height: 380px; transform: rotate(-2deg);">
+        <img src="assets/episode6_project_azorian/images/nuclear_warhead_cross_section.png" alt="Nuclear Warhead Cutaway">
+      </div>
+
+      <!-- Telemetry Card: Soviet Sailors Recovered -->
+      <div class="telemetry-card" id="telemetryMariners" style="top: 1100px; left: 560px; width: 440px;">
+        <div class="label">FALLEN SOVIET MARINERS</div>
+        <div class="counter-value" id="valMariners">6<span class="unit">CREW</span></div>
+      </div>
+
+      <div class="hand-note" id="noteAnthem" style="top: 570px; left: 80px; transform: rotate(-2deg);">
+        Buried with full military honors while USSR anthem played ↗
+      </div>
+
+      <!-- Caption Box Act 5 -->
+      <div class="vox-caption-box" id="boxScene5" style="bottom: 120px;">
+        <div class="caption-tag">MILITARY HONORS // THE GLOMAR RESPONSE</div>
+        <div class="caption-text">
+          CIA Buried 6 Soviet Sailors <span class="hl" id="hl5a">At Sea With USSR Anthem<i></i></span>. The Leak Birthed: <span class="hl r" id="hl5b">Neither Confirm Nor Deny<i></i></span>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- OUTRO: DECLASSIFIED HERO STAMP (X = -5400)                                -->
+    <!-- NO POPUP CARD — DIRECT STAMP ON HISTORICAL DOCUMENT                       -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene6">
+      <img class="scene-bg-doc" src="assets/episode6_project_azorian/images/bg_cia_topsecret_memo.png" alt="Declassified CIA Document">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">DECLASSIFIED MEMO // CENTRAL INTELLIGENCE AGENCY · 1975</div>
+
+      <!-- Real Declassified Submarine Photo & Model -->
+      <div class="specimen-sprite" id="spriteOutroPhoto" style="top: 270px; left: 70px; width: 940px; height: 520px;">
+        <img src="assets/episode6_project_azorian/images/submarine_k129_profile.png" alt="Declassified K-129">
+      </div>
+
+      <!-- Manila Dossier Underneath -->
+      <div class="specimen-sprite" id="spriteOutroFolder" style="top: 760px; left: 80px; width: 920px; height: 600px; transform: rotate(-2deg);">
+        <img src="assets/episode6_project_azorian/images/manila_dossier_folder.png" alt="Manila Dossier Folder">
+      </div>
+
+      <!-- HERO STAMP: DIRECT RED RUBBER STAMP ON TOP OF DOCUMENT (NO POPUP CARD!) -->
+      <img class="case-solved-stamp" id="stampAzorian" style="top: 820px; left: 80px;" src="assets/episode6_project_azorian/images/case_solved_stamp.png" alt="Investigation Solved Top Secret Stamp">
+
+      <!-- Final Journalistic Verdict Box -->
+      <div class="vox-caption-box" id="boxScene6" style="bottom: 120px;">
+        <div class="caption-tag">MISSION VERDICT // DECLASSIFIED ARCHIVE</div>
+        <div class="caption-text">
+          The Deepest <span class="hl" id="hl6a">Secret Heist<i></i></span> In History: <span class="hl r" id="hl6b">Project Azorian<i></i></span>.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /#runway -->
+
+  <!-- Opening Folder Overlay (0.0s - 1.0s intro transition) -->
+  <div id="introOverlay">
+    <div id="introFolderCard">
+      <img src="assets/episode6_project_azorian/images/manila_dossier_folder.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Dossier Folder">
+      <div style="position: absolute; top: 120px; left: 80px; right: 80px; font-family: 'IBM Plex Mono', monospace;">
+        <div style="background: var(--red); color: #FFF; display: inline-block; padding: 6px 18px; font-weight: 800; font-size: 24px; letter-spacing: 0.15em; margin-bottom: 20px;">TOP SECRET // EYES ONLY</div>
+        <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 64px; font-weight: 900; line-height: 1.05; color: #1A1A1A; margin-bottom: 15px;">PROJECT AZORIAN</div>
+        <div style="font-size: 20px; color: #4A4A4A; line-height: 1.4;">RECOVERY OF SUNKEN SOVIET SUBMARINE K-129<br>PACIFIC OCEAN · 16,200 FT DEPTH · CIA DECLASSIFIED</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /#stage -->
+
+<!-- Audio Track -->
+<audio id="bgAudio" src="assets/episode6_project_azorian/audio/vo_azorian_cinematic_full.mp3" preload="auto"></audio>
+
+<!-- Debug Control Bar -->
+<div id="dbg">
+  <button id="dPlay" style="background:#FFDE38;color:#000;border:none;padding:6px 16px;border-radius:16px;font-weight:700;cursor:pointer;">Play</button>
+  <span id="dClock" style="min-width:70px;text-align:center;">0.00s</span>
+  <input type="range" id="dScrub" min="0" max="13800" value="0" style="width:500px;">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const isDebug = location.search.includes('debug=1');
+const isClean = location.search.includes('clean=1');
+const audio = $('#bgAudio');
+
+// Responsive stage scale to fit viewport
+function fitStage() {
+  const stage = $('#stage');
+  const scale = Math.min(window.innerWidth / 1080, window.innerHeight / 1920);
+  stage.style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+window.addEventListener('resize', fitStage);
+fitStage();
+
+// GSAP Master Timeline (138.0s Unhurried Narrative Pacing)
+const tl = gsap.timeline({ paused: true });
+
+const runway = $('#runway');
+const X_CAM = [0, -1080, -2160, -3240, -4320, -5400];
+
+function triggerMotionStreak(at) {
+  tl.fromTo('#motionStreak', { opacity: 0, x: -1080 }, { opacity: 0.85, x: 1080, duration: 0.75, ease: 'power2.inOut' }, at);
+}
+
+// Initial States
+tl.set(runway, { x: 0 }, 0);
+tl.set('#introOverlay', { opacity: 1 }, 0);
+tl.set('#introFolderCard', { scale: 1.04, y: 0, opacity: 1 }, 0);
+tl.set('#voxRunner', { opacity: 0 }, 0);
+
+tl.set(['#spriteK129', '#spriteSosus', '#reticleRadar1', '#spriteSonarRobot', '#telemetryDepth', '#notePacific', '#boxScene1'], { opacity: 0 }, 0);
+tl.set(['#spriteShip', '#spriteTelegram', '#spriteGlomarReal', '#spriteManganese', '#noteHughes', '#boxScene2'], { opacity: 0 }, 0);
+tl.set(['#spriteClaw', '#spritePipeElevator', '#spriteSubDeep', '#telemetryClaw', '#notePressure', '#boxScene3'], { opacity: 0 }, 0);
+tl.set(['#spriteSevered', '#spritePlunging', '#spriteDp5v', '#spriteRadTag', '#spriteGeiger', '#noteSnap', '#boxScene4'], { opacity: 0 }, 0);
+tl.set(['#spriteEnsign', '#spriteSailorsPhoto', '#spriteBell', '#spriteMedal', '#spriteWarhead', '#telemetryMariners', '#noteAnthem', '#boxScene5'], { opacity: 0 }, 0);
+tl.set(['#spriteOutroPhoto', '#spriteOutroFolder', '#stampAzorian', '#boxScene6'], { opacity: 0 }, 0);
+
+// Global background parallax
+tl.to('.scene-bg-doc', { y: '-=40', duration: 138.0, ease: 'none' }, 0);
+
+// =============================================================
+// INTRO OPENING (0.0s – 1.0s)
+// =============================================================
+tl.set('#runnerDossier', { textContent: 'DOSSIER #01: PACIFIC SECTOR 1968' }, 0);
+tl.set('#runnerTimeline', { textContent: 'MARCH 1968' }, 0);
+
+tl.to('#introFolderCard', { scale: 1.0, duration: 0.45, ease: 'power2.out' }, 0);
+tl.to('#introFolderCard', { y: -1400, rotate: -4, scale: 1.06, duration: 0.65, ease: 'power3.in' }, 0.50);
+tl.to('#introOverlay', { opacity: 0, duration: 0.50, ease: 'power2.inOut' }, 0.60);
+tl.to('#voxRunner', { opacity: 1, duration: 0.50, ease: 'power2.out' }, 0.75);
+
+// =============================================================
+// ACT 1: THE GHOST IN THE PACIFIC (1.0s – 26.5s)
+// =============================================================
+tl.fromTo('#spriteK129', { opacity: 0, scale: 0.88, x: -60 }, { opacity: 1, scale: 1.0, x: 0, duration: 1.0, ease: 'power3.out' }, 1.0);
+tl.fromTo('#spriteSosus', { opacity: 0, scale: 0.75, rotate: -15 }, { opacity: 1, scale: 1.0, rotate: -3, duration: 0.95, ease: 'back.out(1.4)' }, 12.0);
+tl.fromTo('#reticleRadar1', { opacity: 0, scale: 0.7 }, { opacity: 0.9, scale: 1.0, duration: 0.8, ease: 'power2.out' }, 2.0);
+tl.to('#reticleRadar1', { rotate: 360, duration: 24.0, ease: 'none' }, 2.0);
+
+tl.fromTo('#spriteSonarRobot', { opacity: 0, scale: 0.8, y: 50 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.9, ease: 'power3.out' }, 15.0);
+tl.fromTo('#telemetryDepth', { opacity: 0, y: 35 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 18.0);
+tl.fromTo('#notePacific', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.5)' }, 13.5);
+
+// Gentle submarine breathing float
+tl.to('#spriteK129', { y: '-=16', duration: 4.2, yoyo: true, repeat: 5, ease: 'sine.inOut' }, 2.0);
+
+// Caption Box & Highlighters Act 1
+tl.fromTo('#boxScene1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' }, 1.5);
+tl.to('#hl1a', { color: '#0A0D14', duration: 0.15 }, 3.5);
+tl.to('#hl1a i', { scaleX: 1, duration: 0.45, ease: 'power2.out' }, 3.5);
+tl.to('#hl1b', { color: '#FFFFFF', duration: 0.15 }, 22.0);
+tl.to('#hl1b i', { scaleX: 1, duration: 0.50, ease: 'power2.out' }, 22.0);
+
+// Transition to Act 2 (Trigger at 26.5s)
+triggerMotionStreak(26.5);
+tl.to(runway, { x: X_CAM[1], duration: 1.1, ease: 'power3.inOut' }, 26.5);
+tl.set('#runnerDossier', { textContent: 'DOSSIER #02: THE $4B COVER STORY' }, 27.2);
+tl.set('#runnerTimeline', { textContent: 'JULY 1974' }, 27.2);
+
+// =============================================================
+// ACT 2: THE $4 BILLION COVER STORY (27.5s – 53.5s)
+// =============================================================
+tl.fromTo('#spriteShip', { opacity: 0, scale: 0.9, y: 60 }, { opacity: 1, scale: 1.0, y: 0, duration: 1.0, ease: 'power3.out' }, 28.0);
+tl.fromTo('#spriteTelegram', { opacity: 0, scale: 0.8, rotate: -18 }, { opacity: 1, scale: 1.0, rotate: -5, duration: 0.9, ease: 'back.out(1.4)' }, 29.5);
+tl.fromTo('#spriteGlomarReal', { opacity: 0, scale: 0.8, rotate: 12 }, { opacity: 1, scale: 1.0, rotate: 4, duration: 0.9, ease: 'power2.out' }, 40.5);
+tl.fromTo('#spriteManganese', { opacity: 0, scale: 0.75, y: 40 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.85, ease: 'back.out(1.5)' }, 45.0);
+tl.fromTo('#noteHughes', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.5)' }, 42.0);
+
+// Ambient float on Glomar Explorer
+tl.to('#spriteShip', { y: '-=12', duration: 4.5, yoyo: true, repeat: 5, ease: 'sine.inOut' }, 29.0);
+
+// Caption Box & Highlighters Act 2
+tl.fromTo('#boxScene2', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' }, 28.2);
+tl.to('#hl2a', { color: '#0A0D14', duration: 0.15 }, 42.5);
+tl.to('#hl2a i', { scaleX: 1, duration: 0.45, ease: 'power2.out' }, 42.5);
+tl.to('#hl2b', { color: '#FFFFFF', duration: 0.15 }, 48.0);
+tl.to('#hl2b i', { scaleX: 1, duration: 0.50, ease: 'power2.out' }, 48.0);
+
+// Transition to Act 3 (Trigger at 53.5s)
+triggerMotionStreak(53.5);
+tl.to(runway, { x: X_CAM[2], duration: 1.1, ease: 'power3.inOut' }, 53.5);
+tl.set('#runnerDossier', { textContent: 'DOSSIER #03: MECHANICAL MONSTER CLEMENTINE' }, 54.2);
+tl.set('#runnerTimeline', { textContent: 'AUGUST 1, 1974' }, 54.2);
+
+// =============================================================
+// ACT 3: THE IMPOSSIBLE MACHINE (54.5s – 77.0s)
+// =============================================================
+tl.fromTo('#spriteClaw', { opacity: 0, scale: 0.75, y: -120, rotate: -22 }, { opacity: 1, scale: 1.0, y: 0, rotate: -10, duration: 1.2, ease: 'power3.out' }, 55.0);
+tl.fromTo('#spritePipeElevator', { opacity: 0, scale: 0.8, x: -50 }, { opacity: 1, scale: 1.0, x: 0, duration: 0.9, ease: 'power2.out' }, 65.5);
+tl.fromTo('#spriteSubDeep', { opacity: 0, scale: 0.9, y: 50 }, { opacity: 0.85, scale: 1.0, y: 0, duration: 1.0, ease: 'power2.out' }, 56.5);
+tl.fromTo('#telemetryClaw', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 66.5);
+tl.fromTo('#notePressure', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.5)' }, 68.0);
+
+// Clementine hydraulic descent movement toward submarine
+tl.to('#spriteClaw', { y: '+=80', rotate: -4, duration: 16.0, ease: 'power1.inOut' }, 56.0);
+
+// Caption Box & Highlighters Act 3
+tl.fromTo('#boxScene3', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' }, 55.2);
+tl.to('#hl3a', { color: '#0A0D14', duration: 0.15 }, 58.5);
+tl.to('#hl3a i', { scaleX: 1, duration: 0.50, ease: 'power2.out' }, 58.5);
+tl.to('#hl3b', { color: '#FFFFFF', duration: 0.15 }, 68.5);
+tl.to('#hl3b i', { scaleX: 1, duration: 0.50, ease: 'power2.out' }, 68.5);
+
+// Transition to Act 4 (Trigger at 77.0s)
+triggerMotionStreak(77.0);
+tl.to(runway, { x: X_CAM[3], duration: 1.1, ease: 'power3.inOut' }, 77.0);
+tl.set('#runnerDossier', { textContent: 'DOSSIER #04: CATASTROPHIC HULL SNAP' }, 77.7);
+tl.set('#runnerTimeline', { textContent: 'AUGUST 4, 1974' }, 77.7);
+
+// =============================================================
+// ACT 4: THE CATASTROPHIC BREAK (78.0s – 101.0s)
+// =============================================================
+tl.fromTo('#spriteSevered', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1.0, duration: 0.85, ease: 'power3.out' }, 78.5);
+tl.fromTo('#spritePlunging', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1.0, duration: 0.85, ease: 'power3.out' }, 78.5);
+
+// VIOLENT CLAW SNAP AT 86.8s: stage camera earthquake recoil
+tl.to('#stage', { x: '+=22', y: '-=15', duration: 0.05, repeat: 9, yoyo: true, ease: 'none' }, 86.8);
+
+// Snapped 2/3 hull plunges down into deep oblivion
+tl.to('#spritePlunging', { y: '+=500', rotate: 65, opacity: 0.1, duration: 5.5, ease: 'power2.in' }, 86.9);
+// Bow section vibrates under sudden shock
+tl.to('#spriteSevered', { x: '+=10', yoyo: true, repeat: 7, duration: 0.08, ease: 'sine.inOut' }, 86.9);
+
+// Soviet DP-5V Dosimeter, Radiation Tag, and Geiger Counter emerge
+tl.fromTo('#spriteDp5v', { opacity: 0, scale: 0.75, y: 50 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.9, ease: 'back.out(1.4)' }, 89.0);
+tl.fromTo('#spriteRadTag', { opacity: 0, scale: 0.6, rotate: -20 }, { opacity: 1, scale: 1.0, rotate: 10, duration: 0.8, ease: 'back.out(1.5)' }, 91.0);
+tl.fromTo('#spriteGeiger', { opacity: 0, scale: 0.75, y: 40 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.85, ease: 'back.out(1.4)' }, 93.0);
+tl.fromTo('#noteSnap', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, 88.0);
+
+// Radiation meter gauge jitter
+tl.to('#spriteGeiger', { rotate: '-=4', yoyo: true, repeat: 16, duration: 0.10, ease: 'sine.inOut' }, 91.5);
+
+// Caption Box & Highlighters Act 4
+tl.fromTo('#boxScene4', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' }, 78.8);
+tl.to('#hl4a', { color: '#FFFFFF', duration: 0.15 }, 87.5);
+tl.to('#hl4a i', { scaleX: 1, duration: 0.45, ease: 'power2.out' }, 87.5);
+tl.to('#hl4b', { color: '#FFFFFF', duration: 0.15 }, 96.0);
+tl.to('#hl4b i', { scaleX: 1, duration: 0.50, ease: 'power2.out' }, 96.0);
+
+// Transition to Act 5 (Trigger at 101.0s)
+triggerMotionStreak(101.0);
+tl.to(runway, { x: X_CAM[4], duration: 1.1, ease: 'power3.inOut' }, 101.0);
+tl.set('#runnerDossier', { textContent: 'DOSSIER #05: SECRET BURIAL AT SEA' }, 101.7);
+tl.set('#runnerTimeline', { textContent: 'SEPTEMBER 4, 1974' }, 101.7);
+
+// =============================================================
+// ACT 5: THE SECRET FUNERAL & LEAKS (101.5s – 129.5s)
+// =============================================================
+tl.fromTo('#spriteEnsign', { opacity: 0, scale: 0.85, y: -40 }, { opacity: 1, scale: 1.0, y: 0, duration: 1.0, ease: 'power3.out' }, 102.0);
+tl.fromTo('#spriteSailorsPhoto', { opacity: 0, scale: 0.8, rotate: -6 }, { opacity: 1, scale: 1.0, rotate: 4, duration: 0.95, ease: 'power2.out' }, 103.0);
+tl.fromTo('#spriteBell', { opacity: 0, scale: 0.75, rotate: -15 }, { opacity: 1, scale: 1.0, rotate: -4, duration: 0.9, ease: 'back.out(1.4)' }, 104.5);
+tl.fromTo('#spriteMedal', { opacity: 0, scale: 0.75, rotate: 18 }, { opacity: 1, scale: 1.0, rotate: 6, duration: 0.9, ease: 'back.out(1.5)' }, 106.0);
+tl.fromTo('#spriteWarhead', { opacity: 0, scale: 0.8, y: 40 }, { opacity: 1, scale: 1.0, y: 0, duration: 0.9, ease: 'power2.out' }, 107.5);
+tl.fromTo('#telemetryMariners', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 104.0);
+tl.fromTo('#noteAnthem', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, 109.0);
+
+// Ceremonial flag subtle solemn flutter
+tl.to('#spriteEnsign', { rotate: 2.0, duration: 4.8, yoyo: true, repeat: 5, ease: 'sine.inOut' }, 103.0);
+
+// Caption Box & Highlighters Act 5
+tl.fromTo('#boxScene5', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' }, 102.3);
+tl.to('#hl5a', { color: '#0A0D14', duration: 0.15 }, 111.0);
+tl.to('#hl5a i', { scaleX: 1, duration: 0.45, ease: 'power2.out' }, 111.0);
+tl.to('#hl5b', { color: '#FFFFFF', duration: 0.15 }, 125.0);
+tl.to('#hl5b i', { scaleX: 1, duration: 0.50, ease: 'power2.out' }, 125.0);
+
+// Transition to Outro (Trigger at 129.5s)
+triggerMotionStreak(129.5);
+tl.to(runway, { x: X_CAM[5], duration: 1.1, ease: 'power3.inOut' }, 129.5);
+tl.set('#runnerDossier', { textContent: 'MISSION VERDICT // DECLASSIFIED' }, 130.2);
+tl.set('#runnerTimeline', { textContent: 'CASE CLOSED' }, 130.2);
+
+// =============================================================
+// OUTRO: DECLASSIFIED HERO STAMP (130.0s – 138.0s)
+// DIRECT STAMP ON HISTORICAL DOCUMENT (NO POPUP CARD!)
+// =============================================================
+tl.fromTo('#spriteOutroPhoto', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1.0, duration: 0.8, ease: 'power2.out' }, 130.2);
+tl.fromTo('#spriteOutroFolder', { opacity: 0, scale: 0.85, rotate: -8 }, { opacity: 1, scale: 1.0, rotate: -2, duration: 0.85, ease: 'back.out(1.3)' }, 130.8);
+tl.fromTo('#boxScene6', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, 130.5);
+
+tl.to('#hl6a', { color: '#0A0D14', duration: 0.15 }, 131.5);
+tl.to('#hl6a i', { scaleX: 1, duration: 0.40, ease: 'power2.out' }, 131.5);
+tl.to('#hl6b', { color: '#FFFFFF', duration: 0.15 }, 133.0);
+tl.to('#hl6b i', { scaleX: 1, duration: 0.40, ease: 'power2.out' }, 133.0);
+
+// HERO CLIMAX: RED RUBBER STAMP SLAM AT 133.2s!
+tl.fromTo('#stampAzorian', 
+  { opacity: 0, scale: 3.6, rotate: 28 }, 
+  { opacity: 1, scale: 1.0, rotate: -8, duration: 0.28, ease: 'power4.in' }, 
+  133.2
+);
+// Stage camera recoil on stamp slam
+tl.to('#stage', { y: '+=18', duration: 0.06, yoyo: true, repeat: 3, ease: 'none' }, 133.48);
+
+// Hold outro to 138.0s
+tl.to({}, { duration: 0.1 }, 138.0);
+
+// Deterministic seek hook for Headless Render FFmpeg / Puppeteer
+window.BANG_MOTION = {
+  ready: true,
+  seekFrame(t) {
+    tl.seek(t);
+  }
+};
+
+// Autoplay / Debug Scrub Wiring
+if (isDebug) {
+  $('#dbg').style.display = 'flex';
+  const scrub = $('#dScrub'), clock = $('#dClock'), pBtn = $('#dPlay');
+  scrub.addEventListener('input', () => {
+    const t = scrub.value / 100;
+    tl.seek(t);
+    clock.textContent = t.toFixed(2) + 's';
+    if (audio) audio.currentTime = t;
+  });
+  pBtn.addEventListener('click', () => {
+    if (tl.paused()) {
+      tl.play();
+      if (audio) audio.play();
+      pBtn.textContent = 'Pause';
+    } else {
+      tl.pause();
+      if (audio) audio.pause();
+      pBtn.textContent = 'Play';
+    }
+  });
+} else if (!isClean) {
+  tl.play();
+  if (audio) {
+    audio.play().catch(() => {});
+  }
+}
+</script>
+</body>
+</html>

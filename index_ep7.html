@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>The Wow! Signal — The 72-Second Deep Space Transmission (Vox Visual Journalism)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #090C12;
+  --panel-bg: #10141E;
+  --ink: #FFFFFF;
+  --ink-dim: #9FA8B8;
+  --yel: #FFDE38;
+  --red: #E11D48;
+  --amber-ink: #F59E0B;
+  --cyan: #38BDF8;
+  --border-dim: rgba(255, 255, 255, 0.14);
+  --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+html, body {
+  width: 100%; height: 100%;
+  background: #05070B;
+  overflow: hidden;
+  font-family: "Barlow Condensed", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+/* 1080x1920 Stage Canvas */
+#stage {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 1080px; height: 1920px;
+  background: #090C12;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  box-shadow: 0 0 120px rgba(0, 0, 0, 0.98);
+}
+
+/* Authentic Archival Film Grain Overlay */
+.grain-overlay {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Vignette */
+.vignette {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 48%, rgba(5, 7, 11, 0.65) 100%);
+  z-index: 51;
+}
+
+/* Optical Motion Streak */
+#motionStreak {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 222, 56, 0.30) 50%, transparent 100%);
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 55;
+  opacity: 0;
+}
+
+/* Persistent Vox Header Runner */
+#voxRunner {
+  position: absolute;
+  top: 75px; left: 60px; right: 60px;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(14, 18, 26, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 0 24px;
+  border-radius: 8px;
+  border: 1px solid var(--border-dim);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.50);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  z-index: 60;
+}
+#voxRunner .badge {
+  background: var(--yel);
+  color: #0A0D14;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-size: 18px;
+}
+#voxRunner .tag {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* 6-Scene Panoramic Runway */
+#runway {
+  position: absolute;
+  top: 0; left: 0;
+  width: 6480px; height: 1920px; /* 6 scenes x 1080px */
+  display: flex;
+  will-change: transform;
+}
+
+.scene-dossier {
+  position: relative;
+  width: 1080px; height: 1920px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* 100% Full Bleed Background Documents */
+.scene-bg-doc {
+  position: absolute;
+  inset: 0;
+  width: 1080px; height: 1920px;
+  object-fit: cover;
+  filter: brightness(0.65) contrast(1.18);
+  transform: scale(1.04);
+  transform-origin: center center;
+}
+
+/* High-Contrast Archival Source Tag */
+.source-tag {
+  position: absolute;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--yel);
+  background: rgba(10, 14, 22, 0.90);
+  padding: 6px 14px;
+  border-left: 4px solid var(--yel);
+  border-radius: 2px;
+  z-index: 25;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+.source-tag.red-accent {
+  color: var(--red);
+  border-left-color: var(--red);
+}
+
+/* Specimen Cutout Sprites */
+.specimen-sprite {
+  position: absolute;
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.80));
+  will-change: transform;
+  z-index: 20;
+}
+.specimen-sprite img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+
+/* Handwritten Editorial Notes */
+.hand-note {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--yel);
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.9));
+  z-index: 32;
+  white-space: nowrap;
+}
+.hand-note.red {
+  color: var(--red);
+}
+.hand-note.cyan {
+  color: var(--cyan);
+}
+
+/* High-Contrast Vox Journalistic Caption Box */
+.vox-caption-box {
+  position: absolute;
+  left: 60px; right: 60px;
+  background: rgba(10, 14, 22, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-left: 6px solid var(--yel);
+  padding: 24px 30px;
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+  z-index: 40;
+}
+.vox-caption-box.red-border {
+  border-left-color: var(--red);
+}
+.vox-caption-box.cyan-border {
+  border-left-color: var(--cyan);
+}
+.vox-caption-box .caption-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--yel);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.vox-caption-box.red-border .caption-tag {
+  color: var(--red);
+}
+.vox-caption-box.cyan-border .caption-tag {
+  color: var(--cyan);
+}
+.vox-caption-box .caption-text {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+/* Neon Yellow & Red Highlighters */
+.hl {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  padding: 0 8px;
+  margin: 0 2px;
+  white-space: nowrap;
+  vertical-align: baseline;
+  transition: color 0.15s ease;
+}
+.hl i {
+  position: absolute;
+  left: 0; right: 0; top: 6%; bottom: 4%;
+  background: var(--yel);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: -1;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(255, 222, 56, 0.45);
+}
+.hl.r i {
+  background: var(--red);
+  box-shadow: 0 2px 10px rgba(225, 29, 72, 0.50);
+}
+.hl.c i {
+  background: var(--cyan);
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.50);
+}
+
+/* Telemetry Data Counter Card */
+.telemetry-card {
+  position: absolute;
+  background: rgba(15, 20, 30, 0.96);
+  border: 1px solid var(--border-dim);
+  border-radius: 8px;
+  padding: 22px 28px;
+  box-shadow: var(--card-shadow);
+  z-index: 24;
+}
+.telemetry-card .label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.telemetry-card .counter-value {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 82px;
+  font-weight: 900;
+  color: var(--yel);
+  line-height: 0.95;
+}
+.telemetry-card .counter-value.red {
+  color: var(--red);
+}
+.telemetry-card .counter-value.cyan {
+  color: var(--cyan);
+}
+.telemetry-card .unit {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  margin-left: 8px;
+}
+
+/* Red Rubber Stamp (Investigation Unsolved) */
+.case-solved-stamp {
+  position: absolute;
+  width: 960px; height: 380px;
+  transform: rotate(-7deg) scale(2.6);
+  opacity: 0;
+  z-index: 48;
+  filter: drop-shadow(0 20px 45px rgba(225, 29, 72, 0.75));
+}
+
+/* Intro Manila Folder Card (Clean, Sharp Unsealing without Dark Block Stains) */
+#introOverlay {
+  position: absolute; inset: 0;
+  background: rgba(6, 8, 12, 0.88);
+  z-index: 70;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#introFolderCard {
+  width: 920px; height: 1360px;
+  position: relative;
+  background: #E8DFCB;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.70);
+  overflow: hidden;
+  border: 2px solid #C4B598;
+}
+
+/* Debug Scrubber Panel */
+#dbg {
+  position: fixed;
+  left: 50%; bottom: 25px;
+  transform: translateX(-50%);
+  display: none;
+  gap: 16px; align-items: center;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: rgba(20, 22, 26, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFF;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  z-index: 999;
+}
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <div class="grain-overlay"></div>
+  <div class="vignette"></div>
+  <div id="motionStreak"></div>
+
+  <!-- Persistent Header Runner -->
+  <div id="voxRunner">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span class="badge">SETI 1977</span>
+      <span class="tag" id="runnerDossier">DOSSIER #07: OHIO STATE BIG EAR</span>
+    </div>
+    <div id="runnerTimeline" style="color: var(--ink-dim); font-size: 18px;">AUGUST 15, 1977</div>
+  </div>
+
+  <!-- 6-Scene Panoramic Runway Container -->
+  <div id="runway">
+
+    <!-- ========================================================================= -->
+    <!-- ACT 1: THE LISTENING EAR (X = 0)                                          -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene1">
+      <img class="scene-bg-doc" src="assets/episode7_wow_signal/images/bg_ohio_observatory_blueprint.png" alt="Big Ear Blueprint">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">OBSERVATORY ARCHIVE // OHIO STATE UNIVERSITY · 1977</div>
+
+      <!-- Hero Cutout: Big Ear Horn Antenna -->
+      <div class="specimen-sprite" id="spriteBigEar" style="top: 250px; left: 70px; width: 940px; height: 440px;">
+        <img src="assets/episode7_wow_signal/images/sprite_big_ear_antenna.png" alt="Big Ear Horn Antenna">
+      </div>
+
+      <!-- Official OSU Emblem Badge -->
+      <div class="specimen-sprite" id="spriteOSUBadge" style="top: 200px; right: 80px; width: 200px; height: 200px;">
+        <img src="assets/episode7_wow_signal/images/sprite_ohio_state_badge.png" alt="Ohio State Observatory Emblem">
+      </div>
+
+      <!-- SETI Tape Recorder Specimen -->
+      <div class="specimen-sprite" id="spriteTapeRecorder" style="top: 730px; left: 90px; width: 440px; height: 380px;">
+        <img src="assets/episode7_wow_signal/images/sprite_seti_tape_recorder.png" alt="SETI Tape Deck">
+      </div>
+
+      <!-- SETI Project Official Seal -->
+      <div class="specimen-sprite" id="spriteSETISeal" style="top: 750px; right: 90px; width: 340px; height: 340px;">
+        <img src="assets/episode7_wow_signal/images/sprite_seti_institute_seal.png" alt="SETI Institute Seal">
+      </div>
+
+      <!-- Handwritten Notes -->
+      <div class="hand-note" id="noteBigEar" style="top: 670px; left: 100px; transform: rotate(-3deg);">
+        Field-Sized Antenna: 110m × 30m
+      </div>
+      <div class="hand-note cyan" id="noteChannels" style="top: 1100px; right: 100px; transform: rotate(2deg);">
+        50 Narrowband Channels (10 kHz)
+      </div>
+
+      <!-- Caption Box 1: Beat 1 -->
+      <div class="vox-caption-box" id="caption1_1" style="bottom: 180px;">
+        <div class="caption-tag">15 AUGUST 1977 · DELAWARE, OHIO</div>
+        <div class="caption-text">
+          A football-field radio telescope known as <span class="hl" id="hl1_1"><i></i>Big Ear</span> was silently scanning the deep cosmos.
+        </div>
+      </div>
+
+      <!-- Caption Box 2: Beat 2 -->
+      <div class="vox-caption-box cyan-border" id="caption1_2" style="bottom: 180px; opacity: 0;">
+        <div class="caption-tag">PROJECT SETI · EXTRATERRESTRIAL SEARCH</div>
+        <div class="caption-text">
+          Searching <span class="hl c" id="hl1_2"><i></i>50 simultaneous channels</span> for an artificial broadcast from an alien civilization.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ACT 2: THE 72-SECOND WINDOW (X = -1080)                                   -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene2">
+      <img class="scene-bg-doc" src="assets/episode7_wow_signal/images/bg_sagittarius_constellation_map.png" alt="Sagittarius Star Map">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">BEAM GEOMETRY // DRIFT-SCAN OBSERVATION PROFILE</div>
+
+      <!-- Star Cluster Target Frame -->
+      <div class="specimen-sprite" id="spriteStarCluster" style="top: 250px; left: 140px; width: 800px; height: 460px;">
+        <img src="assets/episode7_wow_signal/images/sprite_chi_sagittarii_cluster.png" alt="Chi Sagittarii Deep Sky Target">
+      </div>
+
+      <!-- Targeting Reticle Overlay -->
+      <div class="specimen-sprite" id="spriteReticle" style="top: 270px; left: 290px; width: 500px; height: 500px; opacity: 0.85;">
+        <img src="assets/episode7_wow_signal/images/sprite_telescope_reticle.png" alt="Telescope Reticle">
+      </div>
+
+      <!-- 72-Second Bell Curve Graph -->
+      <div class="specimen-sprite" id="spriteBellCurve" style="top: 760px; left: 80px; width: 920px; height: 380px;">
+        <img src="assets/episode7_wow_signal/images/sprite_bell_curve_graph.png" alt="72-Second Bell Curve Profile">
+      </div>
+
+      <!-- Telemetry Card: 72s Transit Window -->
+      <div class="telemetry-card" id="cardTransitWindow" style="top: 1130px; left: 80px; width: 440px;">
+        <div class="label">BEAM TRANSIT WINDOW</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="counter-value" id="valTransitSec">0</span>
+          <span class="unit">SECONDS</span>
+        </div>
+      </div>
+
+      <!-- Telemetry Card: Antenna Steering -->
+      <div class="telemetry-card" id="cardSteering" style="top: 1130px; right: 80px; width: 440px;">
+        <div class="label">STEERING MOTORS</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="counter-value red" style="font-size: 64px;">NONE</span>
+          <span class="unit">(EARTH ROT.)</span>
+        </div>
+      </div>
+
+      <div class="hand-note" id="noteBellCurve" style="top: 720px; right: 100px; transform: rotate(2deg);">
+        Gaussian Bell Curve Response
+      </div>
+
+      <!-- Caption Box 3: Beat 3 -->
+      <div class="vox-caption-box" id="caption2_1" style="bottom: 180px;">
+        <div class="caption-tag">TRANSIT MECHANICS · EARTH ROTATION</div>
+        <div class="caption-text">
+          Big Ear was <span class="hl" id="hl2_1"><i></i>completely immobile</span>, relying purely on Earth's rotation to sweep the sky.
+        </div>
+      </div>
+
+      <!-- Caption Box 4: Beat 4 -->
+      <div class="vox-caption-box red-border" id="caption2_2" style="bottom: 180px; opacity: 0;">
+        <div class="caption-tag">72-SECOND SIGNATURE · POINT SOURCE</div>
+        <div class="caption-text">
+          A genuine interstellar point source could only be heard for <span class="hl r" id="hl2_2"><i></i>exactly 72 seconds</span>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ACT 3: DECODING 6EQUJ5 (X = -2160)                                        -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene3">
+      <img class="scene-bg-doc" src="assets/episode7_wow_signal/images/bg_ibm1130_dotmatrix_printout.png" alt="IBM 1130 Dot Matrix Printout">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">MAINFRAME FORENSICS // IBM 1130 CONTINUOUS TRACTOR FEED</div>
+
+      <!-- Mainframe Console -->
+      <div class="specimen-sprite" id="spriteIBMMainframe" style="top: 240px; left: 70px; width: 480px; height: 420px;">
+        <img src="assets/episode7_wow_signal/images/sprite_ibm1130_mainframe.png" alt="IBM 1130 Mainframe Console">
+      </div>
+
+      <!-- Young Jerry Ehman Portrait Cutout -->
+      <div class="specimen-sprite" id="spriteJerryEhman" style="top: 240px; right: 70px; width: 440px; height: 420px;">
+        <img src="assets/episode7_wow_signal/images/sprite_jerry_ehman_astronomer.png" alt="Astronomer Jerry Ehman">
+      </div>
+
+      <!-- Hero Specimen: 6EQUJ5 Mainframe Printout Section -->
+      <div class="specimen-sprite" id="spritePrintout6EQUJ5" style="top: 680px; left: 80px; width: 920px; height: 420px;">
+        <img src="assets/episode7_wow_signal/images/sprite_wow_printout_6equj5.png" alt="6EQUJ5 Printout Cutout">
+      </div>
+
+      <!-- Telemetry Card: Signal Strength Sigma -->
+      <div class="telemetry-card" id="cardSigma" style="top: 1110px; left: 80px; width: 440px;">
+        <div class="label">PEAK SIGNAL INTENSITY</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="counter-value red" id="valSigma">0</span>
+          <span class="unit">× BACKGROUND</span>
+        </div>
+      </div>
+
+      <!-- Telemetry Card: Neutral Hydrogen Line -->
+      <div class="telemetry-card" id="cardFrequency" style="top: 1110px; right: 80px; width: 440px;">
+        <div class="label">HYDROGEN LINE (21 CM)</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="counter-value cyan" id="valFreq">0000.000</span>
+          <span class="unit">MHZ</span>
+        </div>
+      </div>
+
+      <div class="hand-note red" id="noteSurge" style="top: 650px; right: 100px; transform: rotate(-3deg);">
+        1, 2, 3 → Letters: 6 E Q U J 5!
+      </div>
+
+      <!-- Caption Box 5: Beat 5 -->
+      <div class="vox-caption-box" id="caption3_1" style="bottom: 180px;">
+        <div class="caption-tag">ASTRONOMICAL AUDIT · JERRY EHMAN</div>
+        <div class="caption-text">
+          Astronomer Jerry Ehman reviewed the <span class="hl" id="hl3_1"><i></i>IBM 1130 dot-matrix printout</span> paper by paper.
+        </div>
+      </div>
+
+      <!-- Caption Box 6: Beat 6 -->
+      <div class="vox-caption-box red-border" id="caption3_2" style="bottom: 180px; opacity: 0;">
+        <div class="caption-tag">CHANNEL 2 SPIKE · 30X BACKGROUND</div>
+        <div class="caption-text">
+          Channel 2 suddenly surged into letters: <span class="hl r" id="hl3_2"><i></i>6 - E - Q - U - J - 5</span>.
+        </div>
+      </div>
+
+      <!-- Caption Box 7: Beat 7 -->
+      <div class="vox-caption-box cyan-border" id="caption3_3" style="bottom: 180px; opacity: 0;">
+        <div class="caption-tag">1420.405 MHZ · THE COSMIC WATERHOLE</div>
+        <div class="caption-text">
+          Broadcasting on the <span class="hl c" id="hl3_3"><i></i>hydrogen line</span>: the quietest cosmic channel in existence.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ACT 4: THE FAILED EXPLANATIONS (X = -3240)                                -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene4">
+      <img class="scene-bg-doc" src="assets/episode7_wow_signal/images/bg_astronomical_logbook.png" alt="Astronomical Logbook">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">FORENSIC CROSS-EXAMINATION // 50 YEARS OF FAILED THEORIES</div>
+
+      <!-- Vintage Red Pilot Pen -->
+      <div class="specimen-sprite" id="spritePilotPen" style="top: 250px; left: 80px; width: 440px; height: 380px;">
+        <img src="assets/episode7_wow_signal/images/sprite_red_pilot_pen.png" alt="Vintage Red Pilot Pen">
+      </div>
+
+      <!-- Red Pen Wow Annotation Ink Cutout -->
+      <div class="specimen-sprite" id="spriteWowInk" style="top: 250px; right: 80px; width: 460px; height: 380px;">
+        <img src="assets/episode7_wow_signal/images/sprite_wow_annotation_ink.png" alt="Red Pen Wow Annotation">
+      </div>
+
+      <!-- Comet Hypothesis Orbit Diagram -->
+      <div class="specimen-sprite" id="spriteCometDiagram" style="top: 660px; left: 80px; width: 920px; height: 420px;">
+        <img src="assets/episode7_wow_signal/images/sprite_comet_hypothesis_diagram.png" alt="Comet Hypothesis Diagram">
+      </div>
+
+      <!-- Scotch Tape Vintage Strip -->
+      <div class="specimen-sprite" id="spriteTape" style="top: 640px; left: 60px; width: 280px; height: 120px;">
+        <img src="assets/episode7_wow_signal/images/sprite_vintage_scotch_tape.png" alt="Scotch Tape Strip">
+      </div>
+
+      <!-- Ruled Out Theories Slate -->
+      <div class="telemetry-card" id="cardTheories" style="top: 1100px; left: 80px; right: 80px;">
+        <div class="label">TERRESTRIAL CANDIDATES TESTED & RULED OUT</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+          <div style="font-size: 28px; font-weight: 700; color: #FFFFFF; line-height: 1.4;">
+            <div style="text-decoration: line-through; color: var(--ink-dim);">• CLASSIFIED MILITARY SATELLITES</div>
+            <div style="text-decoration: line-through; color: var(--ink-dim);">• TERRESTRIAL AIRCRAFT REFLECTIONS</div>
+            <div style="text-decoration: line-through; color: var(--ink-dim);">• COMETS 266P/CHRISTENSEN & GIBBS</div>
+          </div>
+          <div style="font-family: 'Barlow Condensed'; font-size: 64px; font-weight: 900; color: var(--red);">
+            ALL FAILED
+          </div>
+        </div>
+      </div>
+
+      <div class="hand-note red" id="noteJerryWow" style="top: 230px; left: 90px; transform: rotate(-3deg); font-size: 38px;">
+        "Wow!" — Dr. Jerry Ehman
+      </div>
+
+      <!-- Caption Box 8: Beat 8 -->
+      <div class="vox-caption-box red-border" id="caption4_1" style="bottom: 180px;">
+        <div class="caption-tag">THE RED PEN · ICONIC NOTATION</div>
+        <div class="caption-text">
+          Jerry grabbed a red Pilot pen, circled the characters, and scribbled: <span class="hl r" id="hl4_1"><i></i>"Wow!"</span>.
+        </div>
+      </div>
+
+      <!-- Caption Box 9: Beat 9 -->
+      <div class="vox-caption-box" id="caption4_2" style="bottom: 180px; opacity: 0;">
+        <div class="caption-tag">50 YEARS OF INQUIRY · ALL THEORIES COLLAPSE</div>
+        <div class="caption-text">
+          Satellites, reflections, comets. For 50 years, <span class="hl" id="hl4_2"><i></i>every explanation failed</span>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ACT 5: THE SILENT VOID (X = -4320)                                        -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene5">
+      <img class="scene-bg-doc" src="assets/episode7_wow_signal/images/bg_radio_spectrograph_waterfall.png" alt="Radio Waterfall Display">
+
+      <div class="source-tag" style="top: 180px; left: 70px;">DEEP SPACE COORDINATES // RA 19h 22m 24s · DEC -27° 00'</div>
+
+      <!-- Modern VLA Radio Dish Antenna -->
+      <div class="specimen-sprite" id="spriteVLADish" style="top: 250px; left: 70px; width: 500px; height: 460px;">
+        <img src="assets/episode7_wow_signal/images/sprite_radio_dish_vla.png" alt="VLA Deep Space Dish">
+      </div>
+
+      <!-- Star Field Chi Sagittarii Target -->
+      <div class="specimen-sprite" id="spriteSilentStars" style="top: 270px; right: 70px; width: 460px; height: 460px;">
+        <img src="assets/episode7_wow_signal/images/sprite_chi_sagittarii_cluster.png" alt="Sagittarius Star Field">
+      </div>
+
+      <!-- Reticle Crosshair Pulsing on Target -->
+      <div class="specimen-sprite" id="spriteVoidReticle" style="top: 250px; right: 50px; width: 500px; height: 500px; opacity: 0.8;">
+        <img src="assets/episode7_wow_signal/images/sprite_telescope_reticle.png" alt="Observing Reticle">
+      </div>
+
+      <!-- Telemetry Card: Re-observation Count -->
+      <div class="telemetry-card" id="cardObservations" style="top: 760px; left: 80px; width: 440px;">
+        <div class="label">TELESCOPE RE-OBSERVATIONS</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="counter-value cyan" id="valReobserve">0</span>
+          <span class="unit">SCANS</span>
+        </div>
+      </div>
+
+      <!-- Telemetry Card: Coordinate Status -->
+      <div class="telemetry-card" id="cardCoordStatus" style="top: 760px; right: 80px; width: 440px;">
+        <div class="label">COSMIC SIGNAL STATUS</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="counter-value" style="color: #64748B; font-size: 68px;">DEAD SILENT</span>
+        </div>
+      </div>
+
+      <div class="hand-note cyan" id="noteLightYears" style="top: 1040px; left: 100px; transform: rotate(-2deg);">
+        Origin Distance: 1,800+ Light-Years Away
+      </div>
+
+      <!-- Caption Box 10: Beat 10 -->
+      <div class="vox-caption-box cyan-border" id="caption5_1" style="bottom: 180px;">
+        <div class="caption-tag">OVER 100 ATTEMPTS · GREEN BANK & VLA</div>
+        <div class="caption-text">
+          Earth's greatest telescopes scanned the spot <span class="hl c" id="hl5_1"><i></i>over 100 times</span>. The sky was silent.
+        </div>
+      </div>
+
+      <!-- Caption Box 11: Beat 11 -->
+      <div class="vox-caption-box" id="caption5_2" style="bottom: 180px; opacity: 0;">
+        <div class="caption-tag">COSMIC WHISPER · NEVER HEARD AGAIN</div>
+        <div class="caption-text">
+          A solitary 72-second transmission, <span class="hl" id="hl5_2"><i></i>never to be heard again</span>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 6 / OUTRO: INVESTIGATION UNSOLVED (X = -5400)                       -->
+    <!-- Slammed directly onto 6EQUJ5 Printout (NO popup card)                     -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene6">
+      <img class="scene-bg-doc" src="assets/episode7_wow_signal/images/bg_ibm1130_dotmatrix_printout.png" alt="IBM 1130 Printout">
+
+      <div class="source-tag red-accent" style="top: 180px; left: 70px;">UNSOLVED COSMIC ANOMALY // SETI FORENSIC DOSSIER #07</div>
+
+      <!-- Macro 6EQUJ5 Printout Centerpiece -->
+      <div class="specimen-sprite" id="spriteHeroPrintout" style="top: 360px; left: 60px; width: 960px; height: 780px;">
+        <img src="assets/episode7_wow_signal/images/sprite_wow_printout_6equj5.png" alt="6EQUJ5 Printout">
+      </div>
+
+      <!-- Red Pilot Pen Circling Loop and "Wow!" Annotation on Top -->
+      <div class="specimen-sprite" id="spriteHeroWow" style="top: 420px; left: 160px; width: 760px; height: 620px;">
+        <img src="assets/episode7_wow_signal/images/sprite_wow_annotation_ink.png" alt="Hero Wow Ink Annotation">
+      </div>
+
+      <!-- RED RUBBER STAMP: INVESTIGATION UNSOLVED -->
+      <img class="case-solved-stamp" id="outroStamp" src="assets/episode7_wow_signal/images/sprite_investigation_unsolved_stamp.png" alt="INVESTIGATION UNSOLVED STAMP" style="top: 680px; left: 60px;">
+
+      <!-- Outro Final Caption Box (Direct, crisp, high contrast) -->
+      <div class="vox-caption-box red-border" id="captionOutro" style="bottom: 180px;">
+        <div class="caption-tag">CASE STATUS // CLASSIFIED SIGNAL</div>
+        <div class="caption-text">
+          The greatest unsolved mystery in deep space astronomy. <span class="hl r" id="hlOutro"><i></i>The Wow! Signal.</span>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- /runway -->
+
+  <!-- ========================================================================= -->
+  <!-- INTRO UNSEALING FOLDER (Clean, Transparent, No Black Blotches)            -->
+  <!-- ========================================================================= -->
+  <div id="introOverlay">
+    <div id="introFolderCard">
+      <!-- Folder Tab -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 110px; background: #D9CDAF; border-bottom: 2px solid #B8A885; display: flex; align-items: center; padding: 0 40px; justify-content: space-between;">
+        <span style="font-family: 'IBM Plex Mono'; font-weight: 700; font-size: 24px; color: #3A3528; letter-spacing: 0.1em;">
+          TOP SECRET // PROJECT SETI
+        </span>
+        <span style="font-family: 'IBM Plex Mono'; font-weight: 600; font-size: 20px; color: #756B54;">
+          DELAWARE, OHIO · 1977
+        </span>
+      </div>
+
+      <!-- Folder Document Face -->
+      <div style="padding: 150px 60px 60px 60px; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'IBM Plex Mono'; font-size: 19px; color: var(--red); font-weight: 700; letter-spacing: 0.15em; margin-bottom: 20px;">
+            EVIDENCE DOSSIER #07 · CLASSIFIED COSMIC ANOMALY
+          </div>
+          <div style="font-family: 'Barlow Condensed'; font-size: 88px; font-weight: 900; line-height: 0.95; color: #1A1814; letter-spacing: -0.02em;">
+            THE 72-SECOND TRANSMISSION SCIENCE CANNOT EXPLAIN
+          </div>
+          <div style="margin-top: 40px; font-family: 'IBM Plex Mono'; font-size: 24px; color: #4A4437; line-height: 1.5;">
+            Subject: Extraterrestrial Narrowband Signal (1420.405 MHz)<br>
+            Detection Apparatus: Ohio State "Big Ear" Radio Observatory<br>
+            Observer: Dr. Jerry R. Ehman, Ph.D.
+          </div>
+        </div>
+
+        <!-- Red Archive Seal Bar -->
+        <div id="introTapeBar" style="width: 100%; height: 130px; background: var(--red); border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(225, 29, 72, 0.40);">
+          <span style="font-family: 'Barlow Condensed'; font-weight: 900; font-size: 48px; letter-spacing: 0.12em; color: #FFFFFF;">
+            UNSEALING DEEP SPACE ARCHIVE
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- /stage -->
+
+<!-- Debug Scrubber UI -->
+<div id="dbg">
+  <button id="btnPlay" style="padding: 6px 14px; background: var(--yel); border: none; font-weight: 700; cursor: pointer; border-radius: 4px;">PAUSE</button>
+  <input type="range" id="scrubRange" min="0" max="128.59" step="0.05" value="0" style="width: 480px;">
+  <span id="timeDisplay" style="min-width: 90px;">00:00.00</span>
+</div>
+
+<!-- GSAP 3.12.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function() {
+  const TOTAL_DURATION = 128.59;
+  const tl = gsap.timeline({ paused: true });
+
+  // Update Telemetry Counters deterministically
+  function updateTelemetry(t) {
+    const elTransit = document.getElementById("valTransitSec");
+    if (elTransit) {
+      if (t < 33.0) elTransit.textContent = "0";
+      else if (t >= 37.5) elTransit.textContent = "72";
+      else elTransit.textContent = Math.round(((t - 33.0) / 4.5) * 72);
+    }
+
+    const elSigma = document.getElementById("valSigma");
+    if (elSigma) {
+      if (t < 54.0) elSigma.textContent = "1.0";
+      else if (t >= 58.0) elSigma.textContent = "30.5";
+      else elSigma.textContent = (1.0 + ((t - 54.0) / 4.0) * 29.5).toFixed(1);
+    }
+
+    const elFreq = document.getElementById("valFreq");
+    if (elFreq) {
+      if (t < 66.0) elFreq.textContent = "1400.000";
+      else if (t >= 69.5) elFreq.textContent = "1420.405";
+      else elFreq.textContent = (1400.000 + ((t - 66.0) / 3.5) * 20.405).toFixed(3);
+    }
+
+    const elReobs = document.getElementById("valReobserve");
+    if (elReobs) {
+      if (t < 103.5) elReobs.textContent = "0";
+      else if (t >= 107.0) elReobs.textContent = "104+";
+      else elReobs.textContent = Math.round(((t - 103.5) / 3.5) * 104) + "+";
+    }
+  }
+
+  // Expose deterministic frame-by-frame renderer API
+  window.BANG_MOTION = {
+    ready: true,
+    seekFrame: function(t) {
+      tl.seek(t);
+      updateTelemetry(t);
+    }
+  };
+
+  // Build Master GSAP Timeline
+  function buildTimeline() {
+    tl.clear();
+
+    // =========================================================================
+    // 0. INTRO UNSEALING (0.0s - 2.0s)
+    // Clean folder unsealing without solid black blotches
+    // =========================================================================
+    tl.set("#introOverlay", { opacity: 1, display: "flex" });
+    tl.to("#introTapeBar", { scaleX: 0, opacity: 0, duration: 0.7, ease: "power3.inOut" }, 0.6);
+    tl.to("#introFolderCard", { scale: 1.15, opacity: 0, duration: 0.8, ease: "power2.inOut" }, 1.1);
+    tl.to("#introOverlay", { opacity: 0, duration: 0.5, onComplete: () => {
+      document.getElementById("introOverlay").style.display = "none";
+    }}, 1.5);
+
+    // =========================================================================
+    // ACT 1: THE LISTENING EAR (1.0s - 21.5s) [Runway X = 0]
+    // =========================================================================
+    // Header runner
+    tl.call(() => {
+      document.getElementById("runnerDossier").textContent = "DOSSIER #07: OHIO STATE BIG EAR";
+      document.getElementById("runnerTimeline").textContent = "AUGUST 15, 1977";
+    }, null, 0.5);
+
+    // Sprites entrance
+    tl.fromTo("#spriteBigEar", { y: 60, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 1.0);
+    tl.fromTo("#spriteOSUBadge", { scale: 0, rotation: -20, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.9, ease: "back.out(1.5)" }, 1.4);
+    tl.fromTo("#noteBigEar", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8 }, 2.2);
+
+    // Ken Burns subtle zoom
+    tl.to("#spriteBigEar", { scale: 1.05, duration: 10, ease: "none" }, 1.5);
+
+    // Beat 1: Highlighter (1.0s - 11.69s)
+    tl.fromTo("#caption1_1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 1.2);
+    tl.to("#hl1_1 i", { scaleX: 1, duration: 0.45, ease: "power2.out" }, 5.2);
+
+    // Beat 2 transition (12.5s)
+    tl.to("#caption1_1", { opacity: 0, y: -20, duration: 0.5 }, 12.0);
+    tl.fromTo("#caption1_2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 12.8);
+
+    tl.fromTo("#spriteTapeRecorder", { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1.0, ease: "power2.out" }, 13.0);
+    tl.fromTo("#spriteSETISeal", { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 1.0, ease: "power2.out" }, 13.4);
+    tl.fromTo("#noteChannels", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8 }, 14.5);
+
+    // Beat 2: Highlighter
+    tl.to("#hl1_2 i", { scaleX: 1, duration: 0.5, ease: "power2.out" }, 15.6);
+
+    // Micro-pause & prepare camera glide (21.5s - 22.8s)
+    tl.to("#caption1_2", { opacity: 0, duration: 0.5 }, 21.6);
+
+    // =========================================================================
+    // TRANSITION 1 -> 2: Camera Glide to Scene 2 (21.8s - 23.0s)
+    // =========================================================================
+    tl.to("#motionStreak", { opacity: 0.8, x: "100%", duration: 0.6, ease: "power2.inOut" }, 21.8);
+    tl.to("#runway", { x: -1080, duration: 1.1, ease: "power3.inOut" }, 22.0);
+    tl.to("#motionStreak", { opacity: 0, duration: 0.3 }, 22.7);
+
+    // =========================================================================
+    // ACT 2: THE 72-SECOND WINDOW (22.9s - 40.81s) [Runway X = -1080]
+    // =========================================================================
+    tl.call(() => {
+      document.getElementById("runnerDossier").textContent = "TRANSIT BEAM GEOMETRY";
+      document.getElementById("runnerTimeline").textContent = "SIDEREAL WINDOW: 72s";
+    }, null, 22.5);
+
+    tl.fromTo("#spriteStarCluster", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: "power2.out" }, 22.8);
+    tl.fromTo("#spriteReticle", { scale: 1.4, opacity: 0, rotation: 45 }, { scale: 1, opacity: 0.85, rotation: 0, duration: 1.4, ease: "power2.out" }, 23.2);
+
+    // Beat 3 Caption (22.9s - 30.52s)
+    tl.fromTo("#caption2_1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 23.2);
+    tl.to("#hl2_1 i", { scaleX: 1, duration: 0.45 }, 24.8);
+
+    // Beat 4: 72s Bell Curve (31.72s - 40.81s)
+    tl.to("#caption2_1", { opacity: 0, y: -20, duration: 0.5 }, 31.0);
+    tl.fromTo("#caption2_2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, 31.6);
+
+    tl.fromTo("#spriteBellCurve", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1.0, ease: "power2.out" }, 32.0);
+    tl.fromTo("#noteBellCurve", { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.8 }, 33.2);
+    tl.fromTo("#cardTransitWindow", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 32.5);
+    tl.fromTo("#cardSteering", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 33.0);
+
+    // Number roll up for 72 seconds
+    const transitObj = { sec: 0 };
+    tl.to(transitObj, {
+      sec: 72,
+      duration: 4.5,
+      ease: "power2.out",
+      onUpdate: () => {
+        document.getElementById("valTransitSec").textContent = Math.round(transitObj.sec);
+      }
+    }, 33.0);
+
+    tl.to("#hl2_2 i", { scaleX: 1, duration: 0.5 }, 36.4);
+
+    tl.to("#caption2_2", { opacity: 0, duration: 0.5 }, 40.8);
+
+    // =========================================================================
+    // TRANSITION 2 -> 3: Camera Glide to Scene 3 (41.2s - 42.4s)
+    // =========================================================================
+    tl.to("#motionStreak", { opacity: 0.8, x: "100%", duration: 0.6, ease: "power2.inOut" }, 41.2);
+    tl.to("#runway", { x: -2160, duration: 1.1, ease: "power3.inOut" }, 41.4);
+    tl.to("#motionStreak", { opacity: 0, duration: 0.3 }, 42.1);
+
+    // =========================================================================
+    // ACT 3: DECODING 6EQUJ5 (42.31s - 78.78s) [Runway X = -2160]
+    // =========================================================================
+    tl.call(() => {
+      document.getElementById("runnerDossier").textContent = "IBM 1130 TELEMETRY DECODE";
+      document.getElementById("runnerTimeline").textContent = "CHANNEL 2 // 1420.405 MHZ";
+    }, null, 42.0);
+
+    tl.fromTo("#spriteIBMMainframe", { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 1.0 }, 42.3);
+    tl.fromTo("#spriteJerryEhman", { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 1.0 }, 42.6);
+
+    // Beat 5 Caption (42.31s - 50.27s)
+    tl.fromTo("#caption3_1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 42.6);
+    tl.to("#hl3_1 i", { scaleX: 1, duration: 0.5 }, 46.5);
+
+    // Beat 6: The 6EQUJ5 Surge (51.47s - 63.59s)
+    tl.to("#caption3_1", { opacity: 0, y: -20, duration: 0.5 }, 50.8);
+    tl.fromTo("#caption3_2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, 51.5);
+
+    tl.fromTo("#spritePrintout6EQUJ5", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: "back.out(1.2)" }, 51.8);
+    tl.fromTo("#noteSurge", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.8 }, 53.5);
+    tl.fromTo("#cardSigma", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 53.0);
+
+    // Counter Sigma: 1 -> 30x
+    const sigmaObj = { val: 1.0 };
+    tl.to(sigmaObj, {
+      val: 30.5,
+      duration: 4.0,
+      ease: "power2.out",
+      onUpdate: () => {
+        document.getElementById("valSigma").textContent = sigmaObj.val.toFixed(1);
+      }
+    }, 54.0);
+
+    tl.to("#hl3_2 i", { scaleX: 1, duration: 0.6 }, 56.5);
+
+    // Beat 7: The Hydrogen Line (64.89s - 78.78s)
+    tl.to("#caption3_2", { opacity: 0, y: -20, duration: 0.5 }, 64.0);
+    tl.fromTo("#caption3_3", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, 64.8);
+    tl.fromTo("#cardFrequency", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 65.2);
+
+    // Frequency Counter: 0000.000 -> 1420.405
+    const freqObj = { val: 1400.000 };
+    tl.to(freqObj, {
+      val: 1420.405,
+      duration: 3.5,
+      ease: "power2.out",
+      onUpdate: () => {
+        document.getElementById("valFreq").textContent = freqObj.val.toFixed(3);
+      }
+    }, 66.0);
+
+    tl.to("#hl3_3 i", { scaleX: 1, duration: 0.5 }, 71.0);
+
+    tl.to("#caption3_3", { opacity: 0, duration: 0.5 }, 78.8);
+
+    // =========================================================================
+    // TRANSITION 3 -> 4: Camera Glide to Scene 4 (79.2s - 80.4s)
+    // =========================================================================
+    tl.to("#motionStreak", { opacity: 0.8, x: "100%", duration: 0.6, ease: "power2.inOut" }, 79.2);
+    tl.to("#runway", { x: -3240, duration: 1.1, ease: "power3.inOut" }, 79.4);
+    tl.to("#motionStreak", { opacity: 0, duration: 0.3 }, 80.1);
+
+    // =========================================================================
+    // ACT 4: THE FAILED EXPLANATIONS (80.28s - 99.95s) [Runway X = -3240]
+    // =========================================================================
+    tl.call(() => {
+      document.getElementById("runnerDossier").textContent = "HYPOTHESIS FORENSICS";
+      document.getElementById("runnerTimeline").textContent = "50-YEAR VERIFICATION AUDIT";
+    }, null, 80.0);
+
+    tl.fromTo("#spritePilotPen", { y: -60, rotation: -25, opacity: 0 }, { y: 0, rotation: 0, opacity: 1, duration: 1.0, ease: "power2.out" }, 80.3);
+    tl.fromTo("#spriteWowInk", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9, ease: "back.out(1.5)" }, 81.0);
+    tl.fromTo("#noteJerryWow", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8 }, 82.2);
+
+    // Beat 8 Caption (80.28s - 87.26s)
+    tl.fromTo("#caption4_1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 80.6);
+    tl.to("#hl4_1 i", { scaleX: 1, duration: 0.4 }, 85.2);
+
+    // Beat 9: Failed Hypotheses (88.56s - 99.95s)
+    tl.to("#caption4_1", { opacity: 0, y: -20, duration: 0.5 }, 87.8);
+    tl.fromTo("#caption4_2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, 88.6);
+
+    tl.fromTo("#spriteCometDiagram", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.0 }, 89.0);
+    tl.fromTo("#spriteTape", { opacity: 0 }, { opacity: 0.85, duration: 0.6 }, 89.5);
+    tl.fromTo("#cardTheories", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 90.0);
+
+    tl.to("#hl4_2 i", { scaleX: 1, duration: 0.5 }, 95.5);
+
+    tl.to("#caption4_2", { opacity: 0, duration: 0.5 }, 100.0);
+
+    // =========================================================================
+    // TRANSITION 4 -> 5: Camera Glide to Scene 5 (100.4s - 101.5s)
+    // =========================================================================
+    tl.to("#motionStreak", { opacity: 0.8, x: "100%", duration: 0.6, ease: "power2.inOut" }, 100.4);
+    tl.to("#runway", { x: -4320, duration: 1.1, ease: "power3.inOut" }, 100.6);
+    tl.to("#motionStreak", { opacity: 0, duration: 0.3 }, 101.3);
+
+    // =========================================================================
+    // ACT 5: THE SILENT VOID (101.45s - 118.77s) [Runway X = -4320]
+    // =========================================================================
+    tl.call(() => {
+      document.getElementById("runnerDossier").textContent = "DEEP SCAN VERIFICATION";
+      document.getElementById("runnerTimeline").textContent = "VLA & GREEN BANK · NULL SIGNAL";
+    }, null, 101.0);
+
+    tl.fromTo("#spriteVLADish", { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: "power2.out" }, 101.5);
+    tl.fromTo("#spriteSilentStars", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2 }, 101.8);
+    tl.fromTo("#spriteVoidReticle", { opacity: 0, rotation: -90 }, { opacity: 0.8, rotation: 0, duration: 2.0 }, 102.2);
+
+    tl.fromTo("#cardObservations", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 103.0);
+    tl.fromTo("#cardCoordStatus", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 103.5);
+    tl.fromTo("#noteLightYears", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8 }, 104.5);
+
+    // Counter reobservations: 0 -> 100+
+    const reobsObj = { count: 0 };
+    tl.to(reobsObj, {
+      count: 104,
+      duration: 3.5,
+      ease: "power2.out",
+      onUpdate: () => {
+        document.getElementById("valReobserve").textContent = Math.round(reobsObj.count) + "+";
+      }
+    }, 103.5);
+
+    // Beat 10 Caption (101.45s - 111.07s)
+    tl.fromTo("#caption5_1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 102.0);
+    tl.to("#hl5_1 i", { scaleX: 1, duration: 0.5 }, 106.8);
+
+    // Beat 11 Caption (112.37s - 118.77s)
+    tl.to("#caption5_1", { opacity: 0, y: -20, duration: 0.5 }, 111.5);
+    tl.fromTo("#caption5_2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, 112.4);
+    tl.to("#hl5_2 i", { scaleX: 1, duration: 0.5 }, 116.0);
+
+    tl.to("#caption5_2", { opacity: 0, duration: 0.5 }, 118.8);
+
+    // =========================================================================
+    // TRANSITION 5 -> 6: Outro Camera Glide (119.0s - 120.0s)
+    // =========================================================================
+    tl.to("#motionStreak", { opacity: 0.8, x: "100%", duration: 0.6, ease: "power2.inOut" }, 119.0);
+    tl.to("#runway", { x: -5400, duration: 1.0, ease: "power3.inOut" }, 119.2);
+    tl.to("#motionStreak", { opacity: 0, duration: 0.3 }, 119.8);
+
+    // =========================================================================
+    // SCENE 6: OUTRO · INVESTIGATION UNSOLVED (120.0s - 128.59s) [Runway X = -5400]
+    // Slammed directly onto 6EQUJ5 Printout (NO popup card)
+    // =========================================================================
+    tl.call(() => {
+      document.getElementById("runnerDossier").textContent = "CASE STATUS: UNSOLVED";
+      document.getElementById("runnerTimeline").textContent = "FORENSIC SETI CLASSIFICATION";
+    }, null, 119.5);
+
+    tl.fromTo("#spriteHeroPrintout", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8 }, 119.5);
+    tl.fromTo("#spriteHeroWow", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8 }, 119.8);
+
+    // OUTRO SLAM: Red Rubber Stamp "INVESTIGATION UNSOLVED" slams directly at 120.2s!
+    tl.fromTo("#outroStamp", 
+      { scale: 2.8, rotation: -18, opacity: 0 },
+      { scale: 1.0, rotation: -7, opacity: 1, duration: 0.35, ease: "back.out(1.8)" },
+      120.2
+    );
+
+    // Screen camera shake shockwave impact on runway
+    tl.to("#runway", { x: "-=18", duration: 0.05, yoyo: true, repeat: 4 }, 120.35);
+
+    // Outro Final Caption (120.5s - 128.59s)
+    tl.fromTo("#captionOutro", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 120.5);
+    tl.to("#hlOutro i", { scaleX: 1, duration: 0.5 }, 123.5);
+
+    // Deterministic telemetry counters on timeline update
+    tl.eventCallback("onUpdate", () => {
+      updateTelemetry(tl.time());
+    });
+  }
+
+  // Responsive stage fit
+  function fitStage() {
+    const stage = document.getElementById('stage');
+    const scale = Math.min(window.innerWidth / 1080, window.innerHeight / 1920);
+    stage.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  }
+  window.addEventListener('resize', fitStage);
+  fitStage();
+
+  // Initialize
+  buildTimeline();
+
+  // Debug scrubber setup if ?debug=1
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("debug") === "1") {
+    const dbg = document.getElementById("dbg");
+    dbg.style.display = "flex";
+    const btnPlay = document.getElementById("btnPlay");
+    const scrubRange = document.getElementById("scrubRange");
+    const timeDisplay = document.getElementById("timeDisplay");
+
+    let isPlaying = false;
+    btnPlay.addEventListener("click", () => {
+      if (isPlaying) {
+        tl.pause();
+        btnPlay.textContent = "PLAY";
+      } else {
+        tl.play();
+        btnPlay.textContent = "PAUSE";
+      }
+      isPlaying = !isPlaying;
+    });
+
+    scrubRange.addEventListener("input", (e) => {
+      tl.seek(parseFloat(e.target.value));
+    });
+
+    tl.eventCallback("onUpdate", () => {
+      const cur = tl.time();
+      scrubRange.value = cur;
+      const m = Math.floor(cur / 60);
+      const s = cur % 60;
+      timeDisplay.textContent = `${String(m).padStart(2, '0')}:${s.toFixed(2).padStart(5, '0')}`;
+    });
+  }
+
+  // If autoplay requested (default without clean=1)
+  if (urlParams.get("clean") !== "1") {
+    tl.play();
+  }
+})();
+</script>
+</body>
+</html>

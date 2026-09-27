@@ -1,0 +1,140 @@
+{
+  "project": "episode8_voynich_manuscript",
+  "title": "The 600-Year-Old Code That Even Modern AI Can't Crack (The Voynich Manuscript)",
+  "sample_rate": 24000,
+  "total_duration": 152.923,
+  "beats": [
+    {
+      "index": 1,
+      "id": "act1_beat1",
+      "act": 1,
+      "title": "Act 1 · The Monastery Discovery",
+      "text": "In 1912, deep inside a secluded Jesuit college near Rome, an antique book dealer named Wilfrid Voynich uncovered an enigmatic manuscript bound in aged goat vellum.",
+      "start": 0.0,
+      "end": 10.688,
+      "duration": 10.688,
+      "audio_file": "voynich_beat_1.wav"
+    },
+    {
+      "index": 2,
+      "id": "act1_beat2",
+      "act": 1,
+      "title": "Act 1 · The Unknown Script",
+      "text": "Inside were two hundred and forty illustrated pages, written in an elegant, unbroken script that no scholar, historian, or linguist on Earth had ever seen.",
+      "start": 11.988,
+      "end": 20.756,
+      "duration": 8.768,
+      "audio_file": "voynich_beat_2.wav"
+    },
+    {
+      "index": 3,
+      "id": "act2_beat1",
+      "act": 2,
+      "title": "Act 2 · Impossible Botany",
+      "text": "Every folio was covered in hand-painted drawings of bizarre plants: impossible botanical hybrids with roots shaped like claws and leaves with unnatural vascular systems. Not a single plant exists in nature.",
+      "start": 22.156,
+      "end": 34.721,
+      "duration": 12.565,
+      "audio_file": "voynich_beat_3.wav"
+    },
+    {
+      "index": 4,
+      "id": "act2_beat2",
+      "act": 2,
+      "title": "Act 2 · Cosmological Wheels",
+      "text": "Other fold-outs revealed cosmological star wheels, unknown zodiac constellations, and miniature figures floating through intricate labyrinths of organic plumbing tubes.",
+      "start": 36.021,
+      "end": 46.005,
+      "duration": 9.984,
+      "audio_file": "voynich_beat_4.wav"
+    },
+    {
+      "index": 5,
+      "id": "act3_beat1",
+      "act": 3,
+      "title": "Act 3 · The Hoax Accusation",
+      "text": "For nearly a century, skeptics insisted the entire manuscript was an elaborate Renaissance hoax, forged by alchemists to swindle wealthy emperors out of gold.",
+      "start": 47.505,
+      "end": 57.041,
+      "duration": 9.536,
+      "audio_file": "voynich_beat_5.wav"
+    },
+    {
+      "index": 6,
+      "id": "act3_beat2",
+      "act": 3,
+      "title": "Act 3 · The Arizona Carbon Test",
+      "text": "Until 2009. Physicists at the University of Arizona extracted four micro-samples of the calfskin parchment for accelerator mass spectrometry radiocarbon dating.",
+      "start": 58.341,
+      "end": 68.923,
+      "duration": 10.581,
+      "audio_file": "voynich_beat_6.wav"
+    },
+    {
+      "index": 7,
+      "id": "act3_beat3",
+      "act": 3,
+      "title": "Act 3 · 600 Years Old",
+      "text": "The scientific verdict was indisputable: the vellum was prepared between 1404 and 1438. The Voynich Manuscript is genuinely six hundred years old.",
+      "start": 70.223,
+      "end": 81.401,
+      "duration": 11.179,
+      "audio_file": "voynich_beat_7.wav"
+    },
+    {
+      "index": 8,
+      "id": "act4_beat1",
+      "act": 4,
+      "title": "Act 4 · Zipf's Law Proof",
+      "text": "If it was a hoax, its author was centuries ahead of modern science. Statistical analysis proved the text strictly obeys Zipf's Law, matching the exact mathematical frequency distribution of genuine spoken languages.",
+      "start": 82.901,
+      "end": 95.979,
+      "duration": 13.077,
+      "audio_file": "voynich_beat_8.wav"
+    },
+    {
+      "index": 9,
+      "id": "act4_beat2",
+      "act": 4,
+      "title": "Act 4 · Linguistic Architecture",
+      "text": "The words follow strict grammatical rules, complete with prefixes, roots, and suffixes. Mathematically, it is virtually impossible for these 170,000 glyphs to be random medieval gibberish.",
+      "start": 97.279,
+      "end": 110.1,
+      "duration": 12.821,
+      "audio_file": "voynich_beat_9.wav"
+    },
+    {
+      "index": 10,
+      "id": "act5_beat1",
+      "act": 5,
+      "title": "Act 5 · The Cryptanalyst Defeat",
+      "text": "During World War Two, William Friedman, the legendary cryptanalyst who broke Japan's PURPLE cipher, dedicated thirty years trying to decipher the book. He died without decoding a single word.",
+      "start": 111.6,
+      "end": 122.949,
+      "duration": 11.349,
+      "audio_file": "voynich_beat_10.wav"
+    },
+    {
+      "index": 11,
+      "id": "act5_beat2",
+      "act": 5,
+      "title": "Act 5 · Supercomputers and AI",
+      "text": "Decades later, the National Security Agency, quantum computing clusters, and modern neural network language models were unleashed on the text. Every single model collapsed into statistical contradictions.",
+      "start": 124.249,
+      "end": 136.175,
+      "duration": 11.925,
+      "audio_file": "voynich_beat_11.wav"
+    },
+    {
+      "index": 12,
+      "id": "outro_beat1",
+      "act": 6,
+      "title": "Outro · The Silent Vault",
+      "text": "Today, cataloged as MS 408, it rests locked inside the climate-controlled vault of Yale University's Beinecke Library. Six centuries of human intelligence, and the Voynich cipher remains completely unbroken.",
+      "start": 137.675,
+      "end": 150.923,
+      "duration": 13.248,
+      "audio_file": "voynich_beat_12.wav"
+    }
+  ]
+}

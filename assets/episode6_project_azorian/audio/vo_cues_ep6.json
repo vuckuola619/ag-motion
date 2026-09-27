@@ -1,0 +1,50 @@
+[
+  {
+    "beat_id": "beat_1",
+    "title": "Scene 1 \u00b7 The Vanished Submarine",
+    "start": 1.5,
+    "duration": 10.13,
+    "end": 11.63,
+    "text": "In March 1968, Soviet nuclear sub K-129 vanished in the Pacific. Moscow found nothing. But the US Navy pinpointed the wreck: three miles deep."
+  },
+  {
+    "beat_id": "beat_2",
+    "title": "Scene 2 \u00b7 The Billionaire Cover Story",
+    "start": 12.4,
+    "duration": 9.02,
+    "end": 21.42,
+    "text": "To recover it, the CIA hatched the most audacious heist in Cold War history. Their cover story: billionaire Howard Hughes was mining deep-sea manganese."
+  },
+  {
+    "beat_id": "beat_3",
+    "title": "Scene 3 \u00b7 The Mechanical Monster",
+    "start": 23.4,
+    "duration": 9.22,
+    "end": 32.62,
+    "text": "Beneath Hughes' ship hung Clementine: a massive mechanical claw lowered on three miles of steel pipe string. In pitch-black abyss, its talons locked onto the submarine."
+  },
+  {
+    "beat_id": "beat_4",
+    "title": "Scene 4 \u00b7 The Snap & Radiation",
+    "start": 34.4,
+    "duration": 8.47,
+    "end": 42.87,
+    "text": "Nine thousand feet up, disaster struck. The claw fractured. Two-thirds of the nuclear submarine snapped off and plunged back into the deep, contaminating the deck."
+  },
+  {
+    "beat_id": "beat_5",
+    "title": "Scene 5 \u00b7 The Secret Burial at Sea",
+    "start": 45.4,
+    "duration": 9.02,
+    "end": 54.42,
+    "text": "Inside the recovered bow lay six Soviet submariners. In complete secrecy, the crew gave them an honorable burial at sea, playing the Soviet national anthem."
+  },
+  {
+    "beat_id": "beat_6",
+    "title": "Scene 6 \u00b7 Case Solved Outro",
+    "start": 55.0,
+    "duration": 3.99,
+    "end": 58.99,
+    "text": "A half-billion-dollar operation. The deepest secret heist in human history."
+  }
+]

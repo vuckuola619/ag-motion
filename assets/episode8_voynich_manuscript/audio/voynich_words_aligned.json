@@ -1,0 +1,5144 @@
+{
+  "project": "episode8_voynich_manuscript",
+  "total_words": 315,
+  "beats": [
+    {
+      "beat_index": 1,
+      "beat_id": "act1_beat1",
+      "start": 0.0,
+      "end": 10.688,
+      "words": [
+        {
+          "word": "In",
+          "local_start": 0.0,
+          "local_end": 0.08,
+          "global_start": 0.0,
+          "global_end": 0.08,
+          "beat_index": 1
+        },
+        {
+          "word": "1912,",
+          "local_start": 0.08,
+          "local_end": 0.88,
+          "global_start": 0.08,
+          "global_end": 0.88,
+          "beat_index": 1
+        },
+        {
+          "word": "deep",
+          "local_start": 1.32,
+          "local_end": 1.62,
+          "global_start": 1.32,
+          "global_end": 1.62,
+          "beat_index": 1
+        },
+        {
+          "word": "inside",
+          "local_start": 1.62,
+          "local_end": 2.04,
+          "global_start": 1.62,
+          "global_end": 2.04,
+          "beat_index": 1
+        },
+        {
+          "word": "a",
+          "local_start": 2.04,
+          "local_end": 2.24,
+          "global_start": 2.04,
+          "global_end": 2.24,
+          "beat_index": 1
+        },
+        {
+          "word": "secluded",
+          "local_start": 2.24,
+          "local_end": 2.56,
+          "global_start": 2.24,
+          "global_end": 2.56,
+          "beat_index": 1
+        },
+        {
+          "word": "Jesuit",
+          "local_start": 2.56,
+          "local_end": 2.86,
+          "global_start": 2.56,
+          "global_end": 2.86,
+          "beat_index": 1
+        },
+        {
+          "word": "college",
+          "local_start": 2.86,
+          "local_end": 3.38,
+          "global_start": 2.86,
+          "global_end": 3.38,
+          "beat_index": 1
+        },
+        {
+          "word": "near",
+          "local_start": 3.38,
+          "local_end": 3.72,
+          "global_start": 3.38,
+          "global_end": 3.72,
+          "beat_index": 1
+        },
+        {
+          "word": "Rome,",
+          "local_start": 3.72,
+          "local_end": 4.04,
+          "global_start": 3.72,
+          "global_end": 4.04,
+          "beat_index": 1
+        },
+        {
+          "word": "an",
+          "local_start": 4.54,
+          "local_end": 4.58,
+          "global_start": 4.54,
+          "global_end": 4.58,
+          "beat_index": 1
+        },
+        {
+          "word": "antique",
+          "local_start": 4.58,
+          "local_end": 4.84,
+          "global_start": 4.58,
+          "global_end": 4.84,
+          "beat_index": 1
+        },
+        {
+          "word": "book",
+          "local_start": 4.84,
+          "local_end": 5.16,
+          "global_start": 4.84,
+          "global_end": 5.16,
+          "beat_index": 1
+        },
+        {
+          "word": "dealer",
+          "local_start": 5.16,
+          "local_end": 5.34,
+          "global_start": 5.16,
+          "global_end": 5.34,
+          "beat_index": 1
+        },
+        {
+          "word": "named",
+          "local_start": 5.34,
+          "local_end": 5.78,
+          "global_start": 5.34,
+          "global_end": 5.78,
+          "beat_index": 1
+        },
+        {
+          "word": "Wilfred",
+          "local_start": 5.78,
+          "local_end": 6.24,
+          "global_start": 5.78,
+          "global_end": 6.24,
+          "beat_index": 1
+        },
+        {
+          "word": "Voynish",
+          "local_start": 6.24,
+          "local_end": 6.7,
+          "global_start": 6.24,
+          "global_end": 6.7,
+          "beat_index": 1
+        },
+        {
+          "word": "uncovered",
+          "local_start": 6.7,
+          "local_end": 7.18,
+          "global_start": 6.7,
+          "global_end": 7.18,
+          "beat_index": 1
+        },
+        {
+          "word": "an",
+          "local_start": 7.18,
+          "local_end": 7.5,
+          "global_start": 7.18,
+          "global_end": 7.5,
+          "beat_index": 1
+        },
+        {
+          "word": "enigmatic",
+          "local_start": 7.5,
+          "local_end": 7.7,
+          "global_start": 7.5,
+          "global_end": 7.7,
+          "beat_index": 1
+        },
+        {
+          "word": "manuscript",
+          "local_start": 7.7,
+          "local_end": 8.58,
+          "global_start": 7.7,
+          "global_end": 8.58,
+          "beat_index": 1
+        },
+        {
+          "word": "bound",
+          "local_start": 8.58,
+          "local_end": 9.04,
+          "global_start": 8.58,
+          "global_end": 9.04,
+          "beat_index": 1
+        },
+        {
+          "word": "in",
+          "local_start": 9.04,
+          "local_end": 9.38,
+          "global_start": 9.04,
+          "global_end": 9.38,
+          "beat_index": 1
+        },
+        {
+          "word": "aged",
+          "local_start": 9.38,
+          "local_end": 9.64,
+          "global_start": 9.38,
+          "global_end": 9.64,
+          "beat_index": 1
+        },
+        {
+          "word": "goat",
+          "local_start": 9.64,
+          "local_end": 10.12,
+          "global_start": 9.64,
+          "global_end": 10.12,
+          "beat_index": 1
+        },
+        {
+          "word": "vellum.",
+          "local_start": 10.12,
+          "local_end": 10.56,
+          "global_start": 10.12,
+          "global_end": 10.56,
+          "beat_index": 1
+        }
+      ]
+    },
+    {
+      "beat_index": 2,
+      "beat_id": "act1_beat2",
+      "start": 11.988,
+      "end": 20.756,
+      "words": [
+        {
+          "word": "Inside",
+          "local_start": 0.0,
+          "local_end": 0.34,
+          "global_start": 11.988,
+          "global_end": 12.328,
+          "beat_index": 2
+        },
+        {
+          "word": "were",
+          "local_start": 0.34,
+          "local_end": 0.62,
+          "global_start": 12.328,
+          "global_end": 12.608,
+          "beat_index": 2
+        },
+        {
+          "word": "240",
+          "local_start": 0.62,
+          "local_end": 0.86,
+          "global_start": 12.608,
+          "global_end": 12.848,
+          "beat_index": 2
+        },
+        {
+          "word": "illustrated",
+          "local_start": 0.86,
+          "local_end": 1.9,
+          "global_start": 12.848,
+          "global_end": 13.888,
+          "beat_index": 2
+        },
+        {
+          "word": "pages,",
+          "local_start": 1.9,
+          "local_end": 2.44,
+          "global_start": 13.888,
+          "global_end": 14.428,
+          "beat_index": 2
+        },
+        {
+          "word": "written",
+          "local_start": 3.18,
+          "local_end": 3.24,
+          "global_start": 15.168,
+          "global_end": 15.228,
+          "beat_index": 2
+        },
+        {
+          "word": "in",
+          "local_start": 3.24,
+          "local_end": 3.42,
+          "global_start": 15.228,
+          "global_end": 15.408,
+          "beat_index": 2
+        },
+        {
+          "word": "an",
+          "local_start": 3.42,
+          "local_end": 3.52,
+          "global_start": 15.408,
+          "global_end": 15.508,
+          "beat_index": 2
+        },
+        {
+          "word": "elegant,",
+          "local_start": 3.52,
+          "local_end": 3.82,
+          "global_start": 15.508,
+          "global_end": 15.808,
+          "beat_index": 2
+        },
+        {
+          "word": "unbroken",
+          "local_start": 4.16,
+          "local_end": 4.52,
+          "global_start": 16.148,
+          "global_end": 16.508,
+          "beat_index": 2
+        },
+        {
+          "word": "script",
+          "local_start": 4.52,
+          "local_end": 5.0,
+          "global_start": 16.508,
+          "global_end": 16.988,
+          "beat_index": 2
+        },
+        {
+          "word": "that",
+          "local_start": 5.0,
+          "local_end": 5.26,
+          "global_start": 16.988,
+          "global_end": 17.248,
+          "beat_index": 2
+        },
+        {
+          "word": "no",
+          "local_start": 5.26,
+          "local_end": 5.44,
+          "global_start": 17.248,
+          "global_end": 17.428,
+          "beat_index": 2
+        },
+        {
+          "word": "scholar",
+          "local_start": 5.44,
+          "local_end": 5.82,
+          "global_start": 17.428,
+          "global_end": 17.808,
+          "beat_index": 2
+        },
+        {
+          "word": "historian",
+          "local_start": 5.82,
+          "local_end": 6.24,
+          "global_start": 17.808,
+          "global_end": 18.228,
+          "beat_index": 2
+        },
+        {
+          "word": "or",
+          "local_start": 6.24,
+          "local_end": 6.92,
+          "global_start": 18.228,
+          "global_end": 18.908,
+          "beat_index": 2
+        },
+        {
+          "word": "linguist",
+          "local_start": 6.92,
+          "local_end": 7.42,
+          "global_start": 18.908,
+          "global_end": 19.408,
+          "beat_index": 2
+        },
+        {
+          "word": "on",
+          "local_start": 7.42,
+          "local_end": 7.54,
+          "global_start": 19.408,
+          "global_end": 19.528,
+          "beat_index": 2
+        },
+        {
+          "word": "Earth",
+          "local_start": 7.54,
+          "local_end": 7.8,
+          "global_start": 19.528,
+          "global_end": 19.788,
+          "beat_index": 2
+        },
+        {
+          "word": "had",
+          "local_start": 7.8,
+          "local_end": 7.96,
+          "global_start": 19.788,
+          "global_end": 19.948,
+          "beat_index": 2
+        },
+        {
+          "word": "ever",
+          "local_start": 7.96,
+          "local_end": 8.18,
+          "global_start": 19.948,
+          "global_end": 20.168,
+          "beat_index": 2
+        },
+        {
+          "word": "seen.",
+          "local_start": 8.18,
+          "local_end": 8.5,
+          "global_start": 20.168,
+          "global_end": 20.488,
+          "beat_index": 2
+        }
+      ]
+    },
+    {
+      "beat_index": 3,
+      "beat_id": "act2_beat1",
+      "start": 22.156,
+      "end": 34.721,
+      "words": [
+        {
+          "word": "Every",
+          "local_start": 0.0,
+          "local_end": 0.2,
+          "global_start": 22.156,
+          "global_end": 22.356,
+          "beat_index": 3
+        },
+        {
+          "word": "folio",
+          "local_start": 0.2,
+          "local_end": 0.66,
+          "global_start": 22.356,
+          "global_end": 22.816,
+          "beat_index": 3
+        },
+        {
+          "word": "was",
+          "local_start": 0.66,
+          "local_end": 0.9,
+          "global_start": 22.816,
+          "global_end": 23.056,
+          "beat_index": 3
+        },
+        {
+          "word": "covered",
+          "local_start": 0.9,
+          "local_end": 1.18,
+          "global_start": 23.056,
+          "global_end": 23.336,
+          "beat_index": 3
+        },
+        {
+          "word": "in",
+          "local_start": 1.18,
+          "local_end": 1.42,
+          "global_start": 23.336,
+          "global_end": 23.576,
+          "beat_index": 3
+        },
+        {
+          "word": "hand",
+          "local_start": 1.42,
+          "local_end": 1.62,
+          "global_start": 23.576,
+          "global_end": 23.776,
+          "beat_index": 3
+        },
+        {
+          "word": "-painted",
+          "local_start": 1.62,
+          "local_end": 1.98,
+          "global_start": 23.776,
+          "global_end": 24.136,
+          "beat_index": 3
+        },
+        {
+          "word": "drawings",
+          "local_start": 1.98,
+          "local_end": 2.34,
+          "global_start": 24.136,
+          "global_end": 24.496,
+          "beat_index": 3
+        },
+        {
+          "word": "of",
+          "local_start": 2.34,
+          "local_end": 2.7,
+          "global_start": 24.496,
+          "global_end": 24.856,
+          "beat_index": 3
+        },
+        {
+          "word": "bizarre",
+          "local_start": 2.7,
+          "local_end": 2.86,
+          "global_start": 24.856,
+          "global_end": 25.016,
+          "beat_index": 3
+        },
+        {
+          "word": "plants,",
+          "local_start": 2.86,
+          "local_end": 3.52,
+          "global_start": 25.016,
+          "global_end": 25.676,
+          "beat_index": 3
+        },
+        {
+          "word": "impossible",
+          "local_start": 3.82,
+          "local_end": 4.34,
+          "global_start": 25.976,
+          "global_end": 26.496,
+          "beat_index": 3
+        },
+        {
+          "word": "botanical",
+          "local_start": 4.34,
+          "local_end": 5.04,
+          "global_start": 26.496,
+          "global_end": 27.196,
+          "beat_index": 3
+        },
+        {
+          "word": "hybrids",
+          "local_start": 5.04,
+          "local_end": 5.44,
+          "global_start": 27.196,
+          "global_end": 27.596,
+          "beat_index": 3
+        },
+        {
+          "word": "with",
+          "local_start": 5.44,
+          "local_end": 5.86,
+          "global_start": 27.596,
+          "global_end": 28.016,
+          "beat_index": 3
+        },
+        {
+          "word": "roots",
+          "local_start": 5.86,
+          "local_end": 6.1,
+          "global_start": 28.016,
+          "global_end": 28.256,
+          "beat_index": 3
+        },
+        {
+          "word": "shaped",
+          "local_start": 6.1,
+          "local_end": 6.5,
+          "global_start": 28.256,
+          "global_end": 28.656,
+          "beat_index": 3
+        },
+        {
+          "word": "like",
+          "local_start": 6.5,
+          "local_end": 6.86,
+          "global_start": 28.656,
+          "global_end": 29.016,
+          "beat_index": 3
+        },
+        {
+          "word": "claws",
+          "local_start": 6.86,
+          "local_end": 7.16,
+          "global_start": 29.016,
+          "global_end": 29.316,
+          "beat_index": 3
+        },
+        {
+          "word": "and",
+          "local_start": 7.16,
+          "local_end": 7.54,
+          "global_start": 29.316,
+          "global_end": 29.696,
+          "beat_index": 3
+        },
+        {
+          "word": "leaves",
+          "local_start": 7.54,
+          "local_end": 7.72,
+          "global_start": 29.696,
+          "global_end": 29.876,
+          "beat_index": 3
+        },
+        {
+          "word": "with",
+          "local_start": 7.72,
+          "local_end": 8.1,
+          "global_start": 29.876,
+          "global_end": 30.256,
+          "beat_index": 3
+        },
+        {
+          "word": "unnatural",
+          "local_start": 8.1,
+          "local_end": 8.46,
+          "global_start": 30.256,
+          "global_end": 30.616,
+          "beat_index": 3
+        },
+        {
+          "word": "vascular",
+          "local_start": 8.46,
+          "local_end": 9.02,
+          "global_start": 30.616,
+          "global_end": 31.176,
+          "beat_index": 3
+        },
+        {
+          "word": "systems.",
+          "local_start": 9.02,
+          "local_end": 9.72,
+          "global_start": 31.176,
+          "global_end": 31.876,
+          "beat_index": 3
+        },
+        {
+          "word": "Not",
+          "local_start": 10.54,
+          "local_end": 10.58,
+          "global_start": 32.696,
+          "global_end": 32.736,
+          "beat_index": 3
+        },
+        {
+          "word": "a",
+          "local_start": 10.58,
+          "local_end": 10.7,
+          "global_start": 32.736,
+          "global_end": 32.856,
+          "beat_index": 3
+        },
+        {
+          "word": "single",
+          "local_start": 10.7,
+          "local_end": 10.88,
+          "global_start": 32.856,
+          "global_end": 33.036,
+          "beat_index": 3
+        },
+        {
+          "word": "plant",
+          "local_start": 10.88,
+          "local_end": 11.32,
+          "global_start": 33.036,
+          "global_end": 33.476,
+          "beat_index": 3
+        },
+        {
+          "word": "exists",
+          "local_start": 11.32,
+          "local_end": 11.56,
+          "global_start": 33.476,
+          "global_end": 33.716,
+          "beat_index": 3
+        },
+        {
+          "word": "in",
+          "local_start": 11.56,
+          "local_end": 12.0,
+          "global_start": 33.716,
+          "global_end": 34.156,
+          "beat_index": 3
+        },
+        {
+          "word": "nature.",
+          "local_start": 12.0,
+          "local_end": 12.22,
+          "global_start": 34.156,
+          "global_end": 34.376,
+          "beat_index": 3
+        }
+      ]
+    },
+    {
+      "beat_index": 4,
+      "beat_id": "act2_beat2",
+      "start": 36.021,
+      "end": 46.005,
+      "words": [
+        {
+          "word": "Other",
+          "local_start": 0.0,
+          "local_end": 0.2,
+          "global_start": 36.021,
+          "global_end": 36.221,
+          "beat_index": 4
+        },
+        {
+          "word": "fold",
+          "local_start": 0.2,
+          "local_end": 0.4,
+          "global_start": 36.221,
+          "global_end": 36.421,
+          "beat_index": 4
+        },
+        {
+          "word": "-outs",
+          "local_start": 0.4,
+          "local_end": 0.74,
+          "global_start": 36.421,
+          "global_end": 36.761,
+          "beat_index": 4
+        },
+        {
+          "word": "revealed",
+          "local_start": 0.74,
+          "local_end": 1.08,
+          "global_start": 36.761,
+          "global_end": 37.101,
+          "beat_index": 4
+        },
+        {
+          "word": "cosmological",
+          "local_start": 1.08,
+          "local_end": 2.02,
+          "global_start": 37.101,
+          "global_end": 38.041,
+          "beat_index": 4
+        },
+        {
+          "word": "star",
+          "local_start": 2.02,
+          "local_end": 2.38,
+          "global_start": 38.041,
+          "global_end": 38.401,
+          "beat_index": 4
+        },
+        {
+          "word": "wheels,",
+          "local_start": 2.38,
+          "local_end": 2.76,
+          "global_start": 38.401,
+          "global_end": 38.781,
+          "beat_index": 4
+        },
+        {
+          "word": "unknown",
+          "local_start": 3.3,
+          "local_end": 3.6,
+          "global_start": 39.321,
+          "global_end": 39.621,
+          "beat_index": 4
+        },
+        {
+          "word": "zodiac",
+          "local_start": 3.6,
+          "local_end": 4.42,
+          "global_start": 39.621,
+          "global_end": 40.441,
+          "beat_index": 4
+        },
+        {
+          "word": "constellations,",
+          "local_start": 4.42,
+          "local_end": 5.26,
+          "global_start": 40.441,
+          "global_end": 41.281,
+          "beat_index": 4
+        },
+        {
+          "word": "and",
+          "local_start": 5.7,
+          "local_end": 5.86,
+          "global_start": 41.721,
+          "global_end": 41.881,
+          "beat_index": 4
+        },
+        {
+          "word": "miniature",
+          "local_start": 5.86,
+          "local_end": 6.1,
+          "global_start": 41.881,
+          "global_end": 42.121,
+          "beat_index": 4
+        },
+        {
+          "word": "figures",
+          "local_start": 6.1,
+          "local_end": 6.46,
+          "global_start": 42.121,
+          "global_end": 42.481,
+          "beat_index": 4
+        },
+        {
+          "word": "floating",
+          "local_start": 6.46,
+          "local_end": 6.88,
+          "global_start": 42.481,
+          "global_end": 42.901,
+          "beat_index": 4
+        },
+        {
+          "word": "through",
+          "local_start": 6.88,
+          "local_end": 7.28,
+          "global_start": 42.901,
+          "global_end": 43.301,
+          "beat_index": 4
+        },
+        {
+          "word": "intricate",
+          "local_start": 7.28,
+          "local_end": 7.62,
+          "global_start": 43.301,
+          "global_end": 43.641,
+          "beat_index": 4
+        },
+        {
+          "word": "labyrinths",
+          "local_start": 7.62,
+          "local_end": 8.34,
+          "global_start": 43.641,
+          "global_end": 44.361,
+          "beat_index": 4
+        },
+        {
+          "word": "of",
+          "local_start": 8.34,
+          "local_end": 8.44,
+          "global_start": 44.361,
+          "global_end": 44.461,
+          "beat_index": 4
+        },
+        {
+          "word": "organic",
+          "local_start": 8.44,
+          "local_end": 8.72,
+          "global_start": 44.461,
+          "global_end": 44.741,
+          "beat_index": 4
+        },
+        {
+          "word": "plumbing",
+          "local_start": 8.72,
+          "local_end": 9.26,
+          "global_start": 44.741,
+          "global_end": 45.281,
+          "beat_index": 4
+        },
+        {
+          "word": "tubes.",
+          "local_start": 9.26,
+          "local_end": 9.54,
+          "global_start": 45.281,
+          "global_end": 45.561,
+          "beat_index": 4
+        }
+      ]
+    },
+    {
+      "beat_index": 5,
+      "beat_id": "act3_beat1",
+      "start": 47.505,
+      "end": 57.041,
+      "words": [
+        {
+          "word": "For",
+          "local_start": 0.0,
+          "local_end": 0.1,
+          "global_start": 47.505,
+          "global_end": 47.605,
+          "beat_index": 5
+        },
+        {
+          "word": "nearly",
+          "local_start": 0.1,
+          "local_end": 0.26,
+          "global_start": 47.605,
+          "global_end": 47.765,
+          "beat_index": 5
+        },
+        {
+          "word": "a",
+          "local_start": 0.26,
+          "local_end": 0.48,
+          "global_start": 47.765,
+          "global_end": 47.985,
+          "beat_index": 5
+        },
+        {
+          "word": "century,",
+          "local_start": 0.48,
+          "local_end": 0.98,
+          "global_start": 47.985,
+          "global_end": 48.485,
+          "beat_index": 5
+        },
+        {
+          "word": "skeptics",
+          "local_start": 1.58,
+          "local_end": 1.58,
+          "global_start": 49.085,
+          "global_end": 49.085,
+          "beat_index": 5
+        },
+        {
+          "word": "insisted",
+          "local_start": 1.58,
+          "local_end": 1.98,
+          "global_start": 49.085,
+          "global_end": 49.485,
+          "beat_index": 5
+        },
+        {
+          "word": "the",
+          "local_start": 1.98,
+          "local_end": 2.46,
+          "global_start": 49.485,
+          "global_end": 49.965,
+          "beat_index": 5
+        },
+        {
+          "word": "entire",
+          "local_start": 2.46,
+          "local_end": 2.7,
+          "global_start": 49.965,
+          "global_end": 50.205,
+          "beat_index": 5
+        },
+        {
+          "word": "manuscript",
+          "local_start": 2.7,
+          "local_end": 3.28,
+          "global_start": 50.205,
+          "global_end": 50.785,
+          "beat_index": 5
+        },
+        {
+          "word": "was",
+          "local_start": 3.28,
+          "local_end": 3.86,
+          "global_start": 50.785,
+          "global_end": 51.365,
+          "beat_index": 5
+        },
+        {
+          "word": "an",
+          "local_start": 3.86,
+          "local_end": 3.98,
+          "global_start": 51.365,
+          "global_end": 51.485,
+          "beat_index": 5
+        },
+        {
+          "word": "elaborate",
+          "local_start": 3.98,
+          "local_end": 4.26,
+          "global_start": 51.485,
+          "global_end": 51.765,
+          "beat_index": 5
+        },
+        {
+          "word": "Renaissance",
+          "local_start": 4.26,
+          "local_end": 4.74,
+          "global_start": 51.765,
+          "global_end": 52.245,
+          "beat_index": 5
+        },
+        {
+          "word": "hoax,",
+          "local_start": 4.74,
+          "local_end": 5.3,
+          "global_start": 52.245,
+          "global_end": 52.805,
+          "beat_index": 5
+        },
+        {
+          "word": "forged",
+          "local_start": 5.84,
+          "local_end": 6.06,
+          "global_start": 53.345,
+          "global_end": 53.565,
+          "beat_index": 5
+        },
+        {
+          "word": "by",
+          "local_start": 6.06,
+          "local_end": 6.4,
+          "global_start": 53.565,
+          "global_end": 53.905,
+          "beat_index": 5
+        },
+        {
+          "word": "alchemists",
+          "local_start": 6.4,
+          "local_end": 7.1,
+          "global_start": 53.905,
+          "global_end": 54.605,
+          "beat_index": 5
+        },
+        {
+          "word": "to",
+          "local_start": 7.1,
+          "local_end": 7.3,
+          "global_start": 54.605,
+          "global_end": 54.805,
+          "beat_index": 5
+        },
+        {
+          "word": "swindle",
+          "local_start": 7.3,
+          "local_end": 7.64,
+          "global_start": 54.805,
+          "global_end": 55.145,
+          "beat_index": 5
+        },
+        {
+          "word": "wealthy",
+          "local_start": 7.64,
+          "local_end": 7.88,
+          "global_start": 55.145,
+          "global_end": 55.385,
+          "beat_index": 5
+        },
+        {
+          "word": "emperors",
+          "local_start": 7.88,
+          "local_end": 8.52,
+          "global_start": 55.385,
+          "global_end": 56.025,
+          "beat_index": 5
+        },
+        {
+          "word": "out",
+          "local_start": 8.52,
+          "local_end": 8.82,
+          "global_start": 56.025,
+          "global_end": 56.325,
+          "beat_index": 5
+        },
+        {
+          "word": "of",
+          "local_start": 8.82,
+          "local_end": 8.94,
+          "global_start": 56.325,
+          "global_end": 56.445,
+          "beat_index": 5
+        },
+        {
+          "word": "gold.",
+          "local_start": 8.94,
+          "local_end": 9.12,
+          "global_start": 56.445,
+          "global_end": 56.625,
+          "beat_index": 5
+        }
+      ]
+    },
+    {
+      "beat_index": 6,
+      "beat_id": "act3_beat2",
+      "start": 58.341,
+      "end": 68.923,
+      "words": [
+        {
+          "word": "until",
+          "local_start": 0.0,
+          "local_end": 0.22,
+          "global_start": 58.341,
+          "global_end": 58.561,
+          "beat_index": 6
+        },
+        {
+          "word": "2009.",
+          "local_start": 0.22,
+          "local_end": 1.28,
+          "global_start": 58.561,
+          "global_end": 59.621,
+          "beat_index": 6
+        },
+        {
+          "word": "Physicists",
+          "local_start": 1.9,
+          "local_end": 2.46,
+          "global_start": 60.241,
+          "global_end": 60.801,
+          "beat_index": 6
+        },
+        {
+          "word": "at",
+          "local_start": 2.46,
+          "local_end": 2.58,
+          "global_start": 60.801,
+          "global_end": 60.921,
+          "beat_index": 6
+        },
+        {
+          "word": "the",
+          "local_start": 2.58,
+          "local_end": 2.66,
+          "global_start": 60.921,
+          "global_end": 61.001,
+          "beat_index": 6
+        },
+        {
+          "word": "University",
+          "local_start": 2.66,
+          "local_end": 3.1,
+          "global_start": 61.001,
+          "global_end": 61.441,
+          "beat_index": 6
+        },
+        {
+          "word": "of",
+          "local_start": 3.1,
+          "local_end": 3.46,
+          "global_start": 61.441,
+          "global_end": 61.801,
+          "beat_index": 6
+        },
+        {
+          "word": "Arizona",
+          "local_start": 3.46,
+          "local_end": 3.86,
+          "global_start": 61.801,
+          "global_end": 62.201,
+          "beat_index": 6
+        },
+        {
+          "word": "extracted",
+          "local_start": 3.86,
+          "local_end": 4.46,
+          "global_start": 62.201,
+          "global_end": 62.801,
+          "beat_index": 6
+        },
+        {
+          "word": "four",
+          "local_start": 4.46,
+          "local_end": 5.02,
+          "global_start": 62.801,
+          "global_end": 63.361,
+          "beat_index": 6
+        },
+        {
+          "word": "micro",
+          "local_start": 5.02,
+          "local_end": 5.34,
+          "global_start": 63.361,
+          "global_end": 63.681,
+          "beat_index": 6
+        },
+        {
+          "word": "samples",
+          "local_start": 5.34,
+          "local_end": 5.66,
+          "global_start": 63.681,
+          "global_end": 64.001,
+          "beat_index": 6
+        },
+        {
+          "word": "of",
+          "local_start": 5.66,
+          "local_end": 6.06,
+          "global_start": 64.001,
+          "global_end": 64.401,
+          "beat_index": 6
+        },
+        {
+          "word": "the",
+          "local_start": 6.06,
+          "local_end": 6.16,
+          "global_start": 64.401,
+          "global_end": 64.501,
+          "beat_index": 6
+        },
+        {
+          "word": "calfskin",
+          "local_start": 6.16,
+          "local_end": 6.6,
+          "global_start": 64.501,
+          "global_end": 64.941,
+          "beat_index": 6
+        },
+        {
+          "word": "parchment",
+          "local_start": 6.6,
+          "local_end": 6.86,
+          "global_start": 64.941,
+          "global_end": 65.201,
+          "beat_index": 6
+        },
+        {
+          "word": "for",
+          "local_start": 6.86,
+          "local_end": 7.54,
+          "global_start": 65.201,
+          "global_end": 65.881,
+          "beat_index": 6
+        },
+        {
+          "word": "accelerator",
+          "local_start": 7.54,
+          "local_end": 7.94,
+          "global_start": 65.881,
+          "global_end": 66.281,
+          "beat_index": 6
+        },
+        {
+          "word": "mass",
+          "local_start": 7.94,
+          "local_end": 8.36,
+          "global_start": 66.281,
+          "global_end": 66.701,
+          "beat_index": 6
+        },
+        {
+          "word": "spectrometry",
+          "local_start": 8.36,
+          "local_end": 9.24,
+          "global_start": 66.701,
+          "global_end": 67.581,
+          "beat_index": 6
+        },
+        {
+          "word": "radiocarbon",
+          "local_start": 9.24,
+          "local_end": 9.88,
+          "global_start": 67.581,
+          "global_end": 68.221,
+          "beat_index": 6
+        },
+        {
+          "word": "dating.",
+          "local_start": 9.88,
+          "local_end": 10.22,
+          "global_start": 68.221,
+          "global_end": 68.561,
+          "beat_index": 6
+        }
+      ]
+    },
+    {
+      "beat_index": 7,
+      "beat_id": "act3_beat3",
+      "start": 70.223,
+      "end": 81.401,
+      "words": [
+        {
+          "word": "The",
+          "local_start": 0.0,
+          "local_end": 0.08,
+          "global_start": 70.223,
+          "global_end": 70.303,
+          "beat_index": 7
+        },
+        {
+          "word": "scientific",
+          "local_start": 0.08,
+          "local_end": 0.38,
+          "global_start": 70.303,
+          "global_end": 70.603,
+          "beat_index": 7
+        },
+        {
+          "word": "verdict",
+          "local_start": 0.38,
+          "local_end": 0.84,
+          "global_start": 70.603,
+          "global_end": 71.063,
+          "beat_index": 7
+        },
+        {
+          "word": "was",
+          "local_start": 0.84,
+          "local_end": 1.24,
+          "global_start": 71.063,
+          "global_end": 71.463,
+          "beat_index": 7
+        },
+        {
+          "word": "indisputable.",
+          "local_start": 1.24,
+          "local_end": 1.92,
+          "global_start": 71.463,
+          "global_end": 72.143,
+          "beat_index": 7
+        },
+        {
+          "word": "The",
+          "local_start": 2.54,
+          "local_end": 2.56,
+          "global_start": 72.763,
+          "global_end": 72.783,
+          "beat_index": 7
+        },
+        {
+          "word": "vellum",
+          "local_start": 2.56,
+          "local_end": 2.86,
+          "global_start": 72.783,
+          "global_end": 73.083,
+          "beat_index": 7
+        },
+        {
+          "word": "was",
+          "local_start": 2.86,
+          "local_end": 2.96,
+          "global_start": 73.083,
+          "global_end": 73.183,
+          "beat_index": 7
+        },
+        {
+          "word": "prepared",
+          "local_start": 2.96,
+          "local_end": 3.26,
+          "global_start": 73.183,
+          "global_end": 73.483,
+          "beat_index": 7
+        },
+        {
+          "word": "between",
+          "local_start": 3.26,
+          "local_end": 3.68,
+          "global_start": 73.483,
+          "global_end": 73.903,
+          "beat_index": 7
+        },
+        {
+          "word": "1",
+          "local_start": 3.68,
+          "local_end": 4.02,
+          "global_start": 73.903,
+          "global_end": 74.243,
+          "beat_index": 7
+        },
+        {
+          "word": ",404",
+          "local_start": 4.02,
+          "local_end": 4.66,
+          "global_start": 74.243,
+          "global_end": 74.883,
+          "beat_index": 7
+        },
+        {
+          "word": "and",
+          "local_start": 4.66,
+          "local_end": 5.64,
+          "global_start": 74.883,
+          "global_end": 75.863,
+          "beat_index": 7
+        },
+        {
+          "word": "1",
+          "local_start": 5.64,
+          "local_end": 5.86,
+          "global_start": 75.863,
+          "global_end": 76.083,
+          "beat_index": 7
+        },
+        {
+          "word": ",438.",
+          "local_start": 5.86,
+          "local_end": 6.8,
+          "global_start": 76.083,
+          "global_end": 77.023,
+          "beat_index": 7
+        },
+        {
+          "word": "The",
+          "local_start": 7.88,
+          "local_end": 8.04,
+          "global_start": 78.103,
+          "global_end": 78.263,
+          "beat_index": 7
+        },
+        {
+          "word": "Voynish",
+          "local_start": 8.04,
+          "local_end": 8.42,
+          "global_start": 78.263,
+          "global_end": 78.643,
+          "beat_index": 7
+        },
+        {
+          "word": "manuscript",
+          "local_start": 8.42,
+          "local_end": 8.68,
+          "global_start": 78.643,
+          "global_end": 78.903,
+          "beat_index": 7
+        },
+        {
+          "word": "is",
+          "local_start": 8.68,
+          "local_end": 9.26,
+          "global_start": 78.903,
+          "global_end": 79.483,
+          "beat_index": 7
+        },
+        {
+          "word": "genuinely",
+          "local_start": 9.26,
+          "local_end": 9.68,
+          "global_start": 79.483,
+          "global_end": 79.903,
+          "beat_index": 7
+        },
+        {
+          "word": "600",
+          "local_start": 9.68,
+          "local_end": 10.12,
+          "global_start": 79.903,
+          "global_end": 80.343,
+          "beat_index": 7
+        },
+        {
+          "word": "years",
+          "local_start": 10.12,
+          "local_end": 10.58,
+          "global_start": 80.343,
+          "global_end": 80.803,
+          "beat_index": 7
+        },
+        {
+          "word": "old.",
+          "local_start": 10.58,
+          "local_end": 10.9,
+          "global_start": 80.803,
+          "global_end": 81.123,
+          "beat_index": 7
+        }
+      ]
+    },
+    {
+      "beat_index": 8,
+      "beat_id": "act4_beat1",
+      "start": 82.901,
+      "end": 95.979,
+      "words": [
+        {
+          "word": "If",
+          "local_start": 0.0,
+          "local_end": 0.06,
+          "global_start": 82.901,
+          "global_end": 82.961,
+          "beat_index": 8
+        },
+        {
+          "word": "it",
+          "local_start": 0.06,
+          "local_end": 0.14,
+          "global_start": 82.961,
+          "global_end": 83.041,
+          "beat_index": 8
+        },
+        {
+          "word": "was",
+          "local_start": 0.14,
+          "local_end": 0.26,
+          "global_start": 83.041,
+          "global_end": 83.161,
+          "beat_index": 8
+        },
+        {
+          "word": "a",
+          "local_start": 0.26,
+          "local_end": 0.38,
+          "global_start": 83.161,
+          "global_end": 83.281,
+          "beat_index": 8
+        },
+        {
+          "word": "hoax,",
+          "local_start": 0.38,
+          "local_end": 0.56,
+          "global_start": 83.281,
+          "global_end": 83.461,
+          "beat_index": 8
+        },
+        {
+          "word": "its",
+          "local_start": 1.1,
+          "local_end": 1.24,
+          "global_start": 84.001,
+          "global_end": 84.141,
+          "beat_index": 8
+        },
+        {
+          "word": "author",
+          "local_start": 1.24,
+          "local_end": 1.42,
+          "global_start": 84.141,
+          "global_end": 84.321,
+          "beat_index": 8
+        },
+        {
+          "word": "was",
+          "local_start": 1.42,
+          "local_end": 1.66,
+          "global_start": 84.321,
+          "global_end": 84.561,
+          "beat_index": 8
+        },
+        {
+          "word": "centuries",
+          "local_start": 1.66,
+          "local_end": 1.88,
+          "global_start": 84.561,
+          "global_end": 84.781,
+          "beat_index": 8
+        },
+        {
+          "word": "ahead",
+          "local_start": 1.88,
+          "local_end": 2.42,
+          "global_start": 84.781,
+          "global_end": 85.321,
+          "beat_index": 8
+        },
+        {
+          "word": "of",
+          "local_start": 2.42,
+          "local_end": 2.5,
+          "global_start": 85.321,
+          "global_end": 85.401,
+          "beat_index": 8
+        },
+        {
+          "word": "modern",
+          "local_start": 2.5,
+          "local_end": 2.66,
+          "global_start": 85.401,
+          "global_end": 85.561,
+          "beat_index": 8
+        },
+        {
+          "word": "science.",
+          "local_start": 2.66,
+          "local_end": 3.36,
+          "global_start": 85.561,
+          "global_end": 86.261,
+          "beat_index": 8
+        },
+        {
+          "word": "Statistical",
+          "local_start": 3.82,
+          "local_end": 4.14,
+          "global_start": 86.721,
+          "global_end": 87.041,
+          "beat_index": 8
+        },
+        {
+          "word": "analysis",
+          "local_start": 4.14,
+          "local_end": 4.82,
+          "global_start": 87.041,
+          "global_end": 87.721,
+          "beat_index": 8
+        },
+        {
+          "word": "proved",
+          "local_start": 4.82,
+          "local_end": 5.3,
+          "global_start": 87.721,
+          "global_end": 88.201,
+          "beat_index": 8
+        },
+        {
+          "word": "the",
+          "local_start": 5.3,
+          "local_end": 5.56,
+          "global_start": 88.201,
+          "global_end": 88.461,
+          "beat_index": 8
+        },
+        {
+          "word": "text",
+          "local_start": 5.56,
+          "local_end": 5.76,
+          "global_start": 88.461,
+          "global_end": 88.661,
+          "beat_index": 8
+        },
+        {
+          "word": "strictly",
+          "local_start": 5.76,
+          "local_end": 6.2,
+          "global_start": 88.661,
+          "global_end": 89.101,
+          "beat_index": 8
+        },
+        {
+          "word": "obeys",
+          "local_start": 6.2,
+          "local_end": 6.96,
+          "global_start": 89.101,
+          "global_end": 89.861,
+          "beat_index": 8
+        },
+        {
+          "word": "Zipp's",
+          "local_start": 6.96,
+          "local_end": 7.34,
+          "global_start": 89.861,
+          "global_end": 90.241,
+          "beat_index": 8
+        },
+        {
+          "word": "law,",
+          "local_start": 7.34,
+          "local_end": 7.54,
+          "global_start": 90.241,
+          "global_end": 90.441,
+          "beat_index": 8
+        },
+        {
+          "word": "matching",
+          "local_start": 8.04,
+          "local_end": 8.38,
+          "global_start": 90.941,
+          "global_end": 91.281,
+          "beat_index": 8
+        },
+        {
+          "word": "the",
+          "local_start": 8.38,
+          "local_end": 8.56,
+          "global_start": 91.281,
+          "global_end": 91.461,
+          "beat_index": 8
+        },
+        {
+          "word": "exact",
+          "local_start": 8.56,
+          "local_end": 8.78,
+          "global_start": 91.461,
+          "global_end": 91.681,
+          "beat_index": 8
+        },
+        {
+          "word": "mathematical",
+          "local_start": 8.78,
+          "local_end": 9.58,
+          "global_start": 91.681,
+          "global_end": 92.481,
+          "beat_index": 8
+        },
+        {
+          "word": "frequency",
+          "local_start": 9.58,
+          "local_end": 10.12,
+          "global_start": 92.481,
+          "global_end": 93.021,
+          "beat_index": 8
+        },
+        {
+          "word": "distribution",
+          "local_start": 10.12,
+          "local_end": 10.82,
+          "global_start": 93.021,
+          "global_end": 93.721,
+          "beat_index": 8
+        },
+        {
+          "word": "of",
+          "local_start": 10.82,
+          "local_end": 11.34,
+          "global_start": 93.721,
+          "global_end": 94.241,
+          "beat_index": 8
+        },
+        {
+          "word": "genuine",
+          "local_start": 11.34,
+          "local_end": 11.68,
+          "global_start": 94.241,
+          "global_end": 94.581,
+          "beat_index": 8
+        },
+        {
+          "word": "spoken",
+          "local_start": 11.68,
+          "local_end": 12.08,
+          "global_start": 94.581,
+          "global_end": 94.981,
+          "beat_index": 8
+        },
+        {
+          "word": "languages.",
+          "local_start": 12.08,
+          "local_end": 12.7,
+          "global_start": 94.981,
+          "global_end": 95.601,
+          "beat_index": 8
+        }
+      ]
+    },
+    {
+      "beat_index": 9,
+      "beat_id": "act4_beat2",
+      "start": 97.279,
+      "end": 110.1,
+      "words": [
+        {
+          "word": "The",
+          "local_start": 0.0,
+          "local_end": 0.08,
+          "global_start": 97.279,
+          "global_end": 97.359,
+          "beat_index": 9
+        },
+        {
+          "word": "words",
+          "local_start": 0.08,
+          "local_end": 0.24,
+          "global_start": 97.359,
+          "global_end": 97.519,
+          "beat_index": 9
+        },
+        {
+          "word": "follow",
+          "local_start": 0.24,
+          "local_end": 0.62,
+          "global_start": 97.519,
+          "global_end": 97.899,
+          "beat_index": 9
+        },
+        {
+          "word": "strict",
+          "local_start": 0.62,
+          "local_end": 1.0,
+          "global_start": 97.899,
+          "global_end": 98.279,
+          "beat_index": 9
+        },
+        {
+          "word": "grammatical",
+          "local_start": 1.0,
+          "local_end": 1.66,
+          "global_start": 98.279,
+          "global_end": 98.939,
+          "beat_index": 9
+        },
+        {
+          "word": "rules,",
+          "local_start": 1.66,
+          "local_end": 2.08,
+          "global_start": 98.939,
+          "global_end": 99.359,
+          "beat_index": 9
+        },
+        {
+          "word": "complete",
+          "local_start": 2.44,
+          "local_end": 2.8,
+          "global_start": 99.719,
+          "global_end": 100.079,
+          "beat_index": 9
+        },
+        {
+          "word": "with",
+          "local_start": 2.8,
+          "local_end": 2.98,
+          "global_start": 100.079,
+          "global_end": 100.259,
+          "beat_index": 9
+        },
+        {
+          "word": "prefixes,",
+          "local_start": 2.98,
+          "local_end": 3.6,
+          "global_start": 100.259,
+          "global_end": 100.879,
+          "beat_index": 9
+        },
+        {
+          "word": "roots,",
+          "local_start": 3.84,
+          "local_end": 4.0,
+          "global_start": 101.119,
+          "global_end": 101.279,
+          "beat_index": 9
+        },
+        {
+          "word": "and",
+          "local_start": 4.34,
+          "local_end": 4.4,
+          "global_start": 101.619,
+          "global_end": 101.679,
+          "beat_index": 9
+        },
+        {
+          "word": "suffixes.",
+          "local_start": 4.4,
+          "local_end": 4.98,
+          "global_start": 101.679,
+          "global_end": 102.259,
+          "beat_index": 9
+        },
+        {
+          "word": "Mathematically",
+          "local_start": 5.64,
+          "local_end": 6.34,
+          "global_start": 102.919,
+          "global_end": 103.619,
+          "beat_index": 9
+        },
+        {
+          "word": "it",
+          "local_start": 6.34,
+          "local_end": 6.66,
+          "global_start": 103.619,
+          "global_end": 103.939,
+          "beat_index": 9
+        },
+        {
+          "word": "is",
+          "local_start": 6.66,
+          "local_end": 6.76,
+          "global_start": 103.939,
+          "global_end": 104.039,
+          "beat_index": 9
+        },
+        {
+          "word": "virtually",
+          "local_start": 6.76,
+          "local_end": 7.04,
+          "global_start": 104.039,
+          "global_end": 104.319,
+          "beat_index": 9
+        },
+        {
+          "word": "impossible",
+          "local_start": 7.04,
+          "local_end": 7.56,
+          "global_start": 104.319,
+          "global_end": 104.839,
+          "beat_index": 9
+        },
+        {
+          "word": "for",
+          "local_start": 7.56,
+          "local_end": 8.04,
+          "global_start": 104.839,
+          "global_end": 105.319,
+          "beat_index": 9
+        },
+        {
+          "word": "these",
+          "local_start": 8.04,
+          "local_end": 8.16,
+          "global_start": 105.319,
+          "global_end": 105.439,
+          "beat_index": 9
+        },
+        {
+          "word": "170",
+          "local_start": 8.16,
+          "local_end": 8.5,
+          "global_start": 105.439,
+          "global_end": 105.779,
+          "beat_index": 9
+        },
+        {
+          "word": ",000",
+          "local_start": 8.5,
+          "local_end": 9.76,
+          "global_start": 105.779,
+          "global_end": 107.039,
+          "beat_index": 9
+        },
+        {
+          "word": "glyphs",
+          "local_start": 9.76,
+          "local_end": 10.92,
+          "global_start": 107.039,
+          "global_end": 108.199,
+          "beat_index": 9
+        },
+        {
+          "word": "to",
+          "local_start": 10.92,
+          "local_end": 11.0,
+          "global_start": 108.199,
+          "global_end": 108.279,
+          "beat_index": 9
+        },
+        {
+          "word": "be",
+          "local_start": 11.0,
+          "local_end": 11.1,
+          "global_start": 108.279,
+          "global_end": 108.379,
+          "beat_index": 9
+        },
+        {
+          "word": "random",
+          "local_start": 11.1,
+          "local_end": 11.44,
+          "global_start": 108.379,
+          "global_end": 108.719,
+          "beat_index": 9
+        },
+        {
+          "word": "medieval",
+          "local_start": 11.44,
+          "local_end": 11.86,
+          "global_start": 108.719,
+          "global_end": 109.139,
+          "beat_index": 9
+        },
+        {
+          "word": "gibberish.",
+          "local_start": 11.86,
+          "local_end": 12.62,
+          "global_start": 109.139,
+          "global_end": 109.899,
+          "beat_index": 9
+        }
+      ]
+    },
+    {
+      "beat_index": 10,
+      "beat_id": "act5_beat1",
+      "start": 111.6,
+      "end": 122.949,
+      "words": [
+        {
+          "word": "During",
+          "local_start": 0.0,
+          "local_end": 0.18,
+          "global_start": 111.6,
+          "global_end": 111.78,
+          "beat_index": 10
+        },
+        {
+          "word": "World",
+          "local_start": 0.18,
+          "local_end": 0.38,
+          "global_start": 111.78,
+          "global_end": 111.98,
+          "beat_index": 10
+        },
+        {
+          "word": "War",
+          "local_start": 0.38,
+          "local_end": 0.74,
+          "global_start": 111.98,
+          "global_end": 112.34,
+          "beat_index": 10
+        },
+        {
+          "word": "II,",
+          "local_start": 0.74,
+          "local_end": 1.08,
+          "global_start": 112.34,
+          "global_end": 112.68,
+          "beat_index": 10
+        },
+        {
+          "word": "William",
+          "local_start": 1.42,
+          "local_end": 1.74,
+          "global_start": 113.02,
+          "global_end": 113.34,
+          "beat_index": 10
+        },
+        {
+          "word": "Friedman,",
+          "local_start": 1.74,
+          "local_end": 2.02,
+          "global_start": 113.34,
+          "global_end": 113.62,
+          "beat_index": 10
+        },
+        {
+          "word": "the",
+          "local_start": 2.58,
+          "local_end": 2.7,
+          "global_start": 114.18,
+          "global_end": 114.3,
+          "beat_index": 10
+        },
+        {
+          "word": "legendary",
+          "local_start": 2.7,
+          "local_end": 2.96,
+          "global_start": 114.3,
+          "global_end": 114.56,
+          "beat_index": 10
+        },
+        {
+          "word": "cryptanalyst",
+          "local_start": 2.96,
+          "local_end": 3.86,
+          "global_start": 114.56,
+          "global_end": 115.46,
+          "beat_index": 10
+        },
+        {
+          "word": "who",
+          "local_start": 3.86,
+          "local_end": 4.08,
+          "global_start": 115.46,
+          "global_end": 115.68,
+          "beat_index": 10
+        },
+        {
+          "word": "broke",
+          "local_start": 4.08,
+          "local_end": 4.26,
+          "global_start": 115.68,
+          "global_end": 115.86,
+          "beat_index": 10
+        },
+        {
+          "word": "Japan's",
+          "local_start": 4.26,
+          "local_end": 4.86,
+          "global_start": 115.86,
+          "global_end": 116.46,
+          "beat_index": 10
+        },
+        {
+          "word": "purple",
+          "local_start": 4.86,
+          "local_end": 5.04,
+          "global_start": 116.46,
+          "global_end": 116.64,
+          "beat_index": 10
+        },
+        {
+          "word": "cipher,",
+          "local_start": 5.04,
+          "local_end": 5.44,
+          "global_start": 116.64,
+          "global_end": 117.04,
+          "beat_index": 10
+        },
+        {
+          "word": "dedicated",
+          "local_start": 5.98,
+          "local_end": 6.26,
+          "global_start": 117.58,
+          "global_end": 117.86,
+          "beat_index": 10
+        },
+        {
+          "word": "30",
+          "local_start": 6.26,
+          "local_end": 6.76,
+          "global_start": 117.86,
+          "global_end": 118.36,
+          "beat_index": 10
+        },
+        {
+          "word": "years",
+          "local_start": 6.76,
+          "local_end": 7.18,
+          "global_start": 118.36,
+          "global_end": 118.78,
+          "beat_index": 10
+        },
+        {
+          "word": "trying",
+          "local_start": 7.18,
+          "local_end": 7.5,
+          "global_start": 118.78,
+          "global_end": 119.1,
+          "beat_index": 10
+        },
+        {
+          "word": "to",
+          "local_start": 7.5,
+          "local_end": 7.7,
+          "global_start": 119.1,
+          "global_end": 119.3,
+          "beat_index": 10
+        },
+        {
+          "word": "decipher",
+          "local_start": 7.7,
+          "local_end": 7.88,
+          "global_start": 119.3,
+          "global_end": 119.48,
+          "beat_index": 10
+        },
+        {
+          "word": "the",
+          "local_start": 7.88,
+          "local_end": 8.32,
+          "global_start": 119.48,
+          "global_end": 119.92,
+          "beat_index": 10
+        },
+        {
+          "word": "book.",
+          "local_start": 8.32,
+          "local_end": 8.46,
+          "global_start": 119.92,
+          "global_end": 120.06,
+          "beat_index": 10
+        },
+        {
+          "word": "He",
+          "local_start": 9.1,
+          "local_end": 9.24,
+          "global_start": 120.7,
+          "global_end": 120.84,
+          "beat_index": 10
+        },
+        {
+          "word": "died",
+          "local_start": 9.24,
+          "local_end": 9.44,
+          "global_start": 120.84,
+          "global_end": 121.04,
+          "beat_index": 10
+        },
+        {
+          "word": "without",
+          "local_start": 9.44,
+          "local_end": 9.74,
+          "global_start": 121.04,
+          "global_end": 121.34,
+          "beat_index": 10
+        },
+        {
+          "word": "decoding",
+          "local_start": 9.74,
+          "local_end": 10.06,
+          "global_start": 121.34,
+          "global_end": 121.66,
+          "beat_index": 10
+        },
+        {
+          "word": "a",
+          "local_start": 10.06,
+          "local_end": 10.46,
+          "global_start": 121.66,
+          "global_end": 122.06,
+          "beat_index": 10
+        },
+        {
+          "word": "single",
+          "local_start": 10.46,
+          "local_end": 10.62,
+          "global_start": 122.06,
+          "global_end": 122.22,
+          "beat_index": 10
+        },
+        {
+          "word": "word.",
+          "local_start": 10.62,
+          "local_end": 11.08,
+          "global_start": 122.22,
+          "global_end": 122.68,
+          "beat_index": 10
+        }
+      ]
+    },
+    {
+      "beat_index": 11,
+      "beat_id": "act5_beat2",
+      "start": 124.249,
+      "end": 136.175,
+      "words": [
+        {
+          "word": "Decades",
+          "local_start": 0.0,
+          "local_end": 0.44,
+          "global_start": 124.249,
+          "global_end": 124.689,
+          "beat_index": 11
+        },
+        {
+          "word": "later,",
+          "local_start": 0.44,
+          "local_end": 0.7,
+          "global_start": 124.689,
+          "global_end": 124.949,
+          "beat_index": 11
+        },
+        {
+          "word": "the",
+          "local_start": 1.04,
+          "local_end": 1.18,
+          "global_start": 125.289,
+          "global_end": 125.429,
+          "beat_index": 11
+        },
+        {
+          "word": "National",
+          "local_start": 1.18,
+          "local_end": 1.36,
+          "global_start": 125.429,
+          "global_end": 125.609,
+          "beat_index": 11
+        },
+        {
+          "word": "Security",
+          "local_start": 1.36,
+          "local_end": 1.82,
+          "global_start": 125.609,
+          "global_end": 126.069,
+          "beat_index": 11
+        },
+        {
+          "word": "Agency,",
+          "local_start": 1.82,
+          "local_end": 2.56,
+          "global_start": 126.069,
+          "global_end": 126.809,
+          "beat_index": 11
+        },
+        {
+          "word": "quantum",
+          "local_start": 2.92,
+          "local_end": 3.14,
+          "global_start": 127.169,
+          "global_end": 127.389,
+          "beat_index": 11
+        },
+        {
+          "word": "computing",
+          "local_start": 3.14,
+          "local_end": 3.76,
+          "global_start": 127.389,
+          "global_end": 128.009,
+          "beat_index": 11
+        },
+        {
+          "word": "clusters,",
+          "local_start": 3.76,
+          "local_end": 4.08,
+          "global_start": 128.009,
+          "global_end": 128.329,
+          "beat_index": 11
+        },
+        {
+          "word": "and",
+          "local_start": 4.6,
+          "local_end": 4.68,
+          "global_start": 128.849,
+          "global_end": 128.929,
+          "beat_index": 11
+        },
+        {
+          "word": "modern",
+          "local_start": 4.68,
+          "local_end": 4.88,
+          "global_start": 128.929,
+          "global_end": 129.129,
+          "beat_index": 11
+        },
+        {
+          "word": "neural",
+          "local_start": 4.88,
+          "local_end": 5.22,
+          "global_start": 129.129,
+          "global_end": 129.469,
+          "beat_index": 11
+        },
+        {
+          "word": "network",
+          "local_start": 5.22,
+          "local_end": 5.64,
+          "global_start": 129.469,
+          "global_end": 129.889,
+          "beat_index": 11
+        },
+        {
+          "word": "language",
+          "local_start": 5.64,
+          "local_end": 6.2,
+          "global_start": 129.889,
+          "global_end": 130.449,
+          "beat_index": 11
+        },
+        {
+          "word": "models",
+          "local_start": 6.2,
+          "local_end": 6.56,
+          "global_start": 130.449,
+          "global_end": 130.809,
+          "beat_index": 11
+        },
+        {
+          "word": "were",
+          "local_start": 6.56,
+          "local_end": 6.86,
+          "global_start": 130.809,
+          "global_end": 131.109,
+          "beat_index": 11
+        },
+        {
+          "word": "unleashed",
+          "local_start": 6.86,
+          "local_end": 7.16,
+          "global_start": 131.109,
+          "global_end": 131.409,
+          "beat_index": 11
+        },
+        {
+          "word": "on",
+          "local_start": 7.16,
+          "local_end": 7.52,
+          "global_start": 131.409,
+          "global_end": 131.769,
+          "beat_index": 11
+        },
+        {
+          "word": "the",
+          "local_start": 7.52,
+          "local_end": 7.64,
+          "global_start": 131.769,
+          "global_end": 131.889,
+          "beat_index": 11
+        },
+        {
+          "word": "text.",
+          "local_start": 7.64,
+          "local_end": 7.86,
+          "global_start": 131.889,
+          "global_end": 132.109,
+          "beat_index": 11
+        },
+        {
+          "word": "Every",
+          "local_start": 8.64,
+          "local_end": 8.7,
+          "global_start": 132.889,
+          "global_end": 132.949,
+          "beat_index": 11
+        },
+        {
+          "word": "single",
+          "local_start": 8.7,
+          "local_end": 9.0,
+          "global_start": 132.949,
+          "global_end": 133.249,
+          "beat_index": 11
+        },
+        {
+          "word": "model",
+          "local_start": 9.0,
+          "local_end": 9.46,
+          "global_start": 133.249,
+          "global_end": 133.709,
+          "beat_index": 11
+        },
+        {
+          "word": "collapsed",
+          "local_start": 9.46,
+          "local_end": 9.72,
+          "global_start": 133.709,
+          "global_end": 133.969,
+          "beat_index": 11
+        },
+        {
+          "word": "into",
+          "local_start": 9.72,
+          "local_end": 10.24,
+          "global_start": 133.969,
+          "global_end": 134.489,
+          "beat_index": 11
+        },
+        {
+          "word": "statistical",
+          "local_start": 10.24,
+          "local_end": 10.74,
+          "global_start": 134.489,
+          "global_end": 134.989,
+          "beat_index": 11
+        },
+        {
+          "word": "contradictions.",
+          "local_start": 10.74,
+          "local_end": 11.36,
+          "global_start": 134.989,
+          "global_end": 135.609,
+          "beat_index": 11
+        }
+      ]
+    },
+    {
+      "beat_index": 12,
+      "beat_id": "outro_beat1",
+      "start": 137.675,
+      "end": 150.923,
+      "words": [
+        {
+          "word": "Today,",
+          "local_start": 0.0,
+          "local_end": 0.22,
+          "global_start": 137.675,
+          "global_end": 137.895,
+          "beat_index": 12
+        },
+        {
+          "word": "cataloged",
+          "local_start": 0.62,
+          "local_end": 1.34,
+          "global_start": 138.295,
+          "global_end": 139.015,
+          "beat_index": 12
+        },
+        {
+          "word": "as",
+          "local_start": 1.34,
+          "local_end": 1.46,
+          "global_start": 139.015,
+          "global_end": 139.135,
+          "beat_index": 12
+        },
+        {
+          "word": "MS",
+          "local_start": 1.46,
+          "local_end": 1.6,
+          "global_start": 139.135,
+          "global_end": 139.275,
+          "beat_index": 12
+        },
+        {
+          "word": "-408,",
+          "local_start": 1.6,
+          "local_end": 2.24,
+          "global_start": 139.275,
+          "global_end": 139.915,
+          "beat_index": 12
+        },
+        {
+          "word": "it",
+          "local_start": 2.78,
+          "local_end": 2.98,
+          "global_start": 140.455,
+          "global_end": 140.655,
+          "beat_index": 12
+        },
+        {
+          "word": "rests",
+          "local_start": 2.98,
+          "local_end": 3.16,
+          "global_start": 140.655,
+          "global_end": 140.835,
+          "beat_index": 12
+        },
+        {
+          "word": "locked",
+          "local_start": 3.16,
+          "local_end": 3.58,
+          "global_start": 140.835,
+          "global_end": 141.255,
+          "beat_index": 12
+        },
+        {
+          "word": "inside",
+          "local_start": 3.58,
+          "local_end": 3.92,
+          "global_start": 141.255,
+          "global_end": 141.595,
+          "beat_index": 12
+        },
+        {
+          "word": "the",
+          "local_start": 3.92,
+          "local_end": 4.22,
+          "global_start": 141.595,
+          "global_end": 141.895,
+          "beat_index": 12
+        },
+        {
+          "word": "climate",
+          "local_start": 4.22,
+          "local_end": 4.48,
+          "global_start": 141.895,
+          "global_end": 142.155,
+          "beat_index": 12
+        },
+        {
+          "word": "-controlled",
+          "local_start": 4.48,
+          "local_end": 4.98,
+          "global_start": 142.155,
+          "global_end": 142.655,
+          "beat_index": 12
+        },
+        {
+          "word": "vault",
+          "local_start": 4.98,
+          "local_end": 5.4,
+          "global_start": 142.655,
+          "global_end": 143.075,
+          "beat_index": 12
+        },
+        {
+          "word": "of",
+          "local_start": 5.4,
+          "local_end": 5.66,
+          "global_start": 143.075,
+          "global_end": 143.335,
+          "beat_index": 12
+        },
+        {
+          "word": "Yale",
+          "local_start": 5.66,
+          "local_end": 5.82,
+          "global_start": 143.335,
+          "global_end": 143.495,
+          "beat_index": 12
+        },
+        {
+          "word": "University's",
+          "local_start": 5.82,
+          "local_end": 6.72,
+          "global_start": 143.495,
+          "global_end": 144.395,
+          "beat_index": 12
+        },
+        {
+          "word": "Banach",
+          "local_start": 6.72,
+          "local_end": 7.08,
+          "global_start": 144.395,
+          "global_end": 144.755,
+          "beat_index": 12
+        },
+        {
+          "word": "Library.",
+          "local_start": 7.08,
+          "local_end": 7.44,
+          "global_start": 144.755,
+          "global_end": 145.115,
+          "beat_index": 12
+        },
+        {
+          "word": "Six",
+          "local_start": 8.3,
+          "local_end": 8.46,
+          "global_start": 145.975,
+          "global_end": 146.135,
+          "beat_index": 12
+        },
+        {
+          "word": "centuries",
+          "local_start": 8.46,
+          "local_end": 8.88,
+          "global_start": 146.135,
+          "global_end": 146.555,
+          "beat_index": 12
+        },
+        {
+          "word": "of",
+          "local_start": 8.88,
+          "local_end": 9.12,
+          "global_start": 146.555,
+          "global_end": 146.795,
+          "beat_index": 12
+        },
+        {
+          "word": "human",
+          "local_start": 9.12,
+          "local_end": 9.36,
+          "global_start": 146.795,
+          "global_end": 147.035,
+          "beat_index": 12
+        },
+        {
+          "word": "intelligence",
+          "local_start": 9.36,
+          "local_end": 9.7,
+          "global_start": 147.035,
+          "global_end": 147.375,
+          "beat_index": 12
+        },
+        {
+          "word": "and",
+          "local_start": 9.7,
+          "local_end": 10.46,
+          "global_start": 147.375,
+          "global_end": 148.135,
+          "beat_index": 12
+        },
+        {
+          "word": "the",
+          "local_start": 10.46,
+          "local_end": 10.58,
+          "global_start": 148.135,
+          "global_end": 148.255,
+          "beat_index": 12
+        },
+        {
+          "word": "Voynish",
+          "local_start": 10.58,
+          "local_end": 10.98,
+          "global_start": 148.255,
+          "global_end": 148.655,
+          "beat_index": 12
+        },
+        {
+          "word": "cipher",
+          "local_start": 10.98,
+          "local_end": 11.18,
+          "global_start": 148.655,
+          "global_end": 148.855,
+          "beat_index": 12
+        },
+        {
+          "word": "remains",
+          "local_start": 11.18,
+          "local_end": 11.66,
+          "global_start": 148.855,
+          "global_end": 149.335,
+          "beat_index": 12
+        },
+        {
+          "word": "completely",
+          "local_start": 11.66,
+          "local_end": 12.26,
+          "global_start": 149.335,
+          "global_end": 149.935,
+          "beat_index": 12
+        },
+        {
+          "word": "unbroken.",
+          "local_start": 12.26,
+          "local_end": 12.86,
+          "global_start": 149.935,
+          "global_end": 150.535,
+          "beat_index": 12
+        }
+      ]
+    }
+  ],
+  "global_words": [
+    {
+      "word": "In",
+      "local_start": 0.0,
+      "local_end": 0.08,
+      "global_start": 0.0,
+      "global_end": 0.08,
+      "beat_index": 1
+    },
+    {
+      "word": "1912,",
+      "local_start": 0.08,
+      "local_end": 0.88,
+      "global_start": 0.08,
+      "global_end": 0.88,
+      "beat_index": 1
+    },
+    {
+      "word": "deep",
+      "local_start": 1.32,
+      "local_end": 1.62,
+      "global_start": 1.32,
+      "global_end": 1.62,
+      "beat_index": 1
+    },
+    {
+      "word": "inside",
+      "local_start": 1.62,
+      "local_end": 2.04,
+      "global_start": 1.62,
+      "global_end": 2.04,
+      "beat_index": 1
+    },
+    {
+      "word": "a",
+      "local_start": 2.04,
+      "local_end": 2.24,
+      "global_start": 2.04,
+      "global_end": 2.24,
+      "beat_index": 1
+    },
+    {
+      "word": "secluded",
+      "local_start": 2.24,
+      "local_end": 2.56,
+      "global_start": 2.24,
+      "global_end": 2.56,
+      "beat_index": 1
+    },
+    {
+      "word": "Jesuit",
+      "local_start": 2.56,
+      "local_end": 2.86,
+      "global_start": 2.56,
+      "global_end": 2.86,
+      "beat_index": 1
+    },
+    {
+      "word": "college",
+      "local_start": 2.86,
+      "local_end": 3.38,
+      "global_start": 2.86,
+      "global_end": 3.38,
+      "beat_index": 1
+    },
+    {
+      "word": "near",
+      "local_start": 3.38,
+      "local_end": 3.72,
+      "global_start": 3.38,
+      "global_end": 3.72,
+      "beat_index": 1
+    },
+    {
+      "word": "Rome,",
+      "local_start": 3.72,
+      "local_end": 4.04,
+      "global_start": 3.72,
+      "global_end": 4.04,
+      "beat_index": 1
+    },
+    {
+      "word": "an",
+      "local_start": 4.54,
+      "local_end": 4.58,
+      "global_start": 4.54,
+      "global_end": 4.58,
+      "beat_index": 1
+    },
+    {
+      "word": "antique",
+      "local_start": 4.58,
+      "local_end": 4.84,
+      "global_start": 4.58,
+      "global_end": 4.84,
+      "beat_index": 1
+    },
+    {
+      "word": "book",
+      "local_start": 4.84,
+      "local_end": 5.16,
+      "global_start": 4.84,
+      "global_end": 5.16,
+      "beat_index": 1
+    },
+    {
+      "word": "dealer",
+      "local_start": 5.16,
+      "local_end": 5.34,
+      "global_start": 5.16,
+      "global_end": 5.34,
+      "beat_index": 1
+    },
+    {
+      "word": "named",
+      "local_start": 5.34,
+      "local_end": 5.78,
+      "global_start": 5.34,
+      "global_end": 5.78,
+      "beat_index": 1
+    },
+    {
+      "word": "Wilfred",
+      "local_start": 5.78,
+      "local_end": 6.24,
+      "global_start": 5.78,
+      "global_end": 6.24,
+      "beat_index": 1
+    },
+    {
+      "word": "Voynish",
+      "local_start": 6.24,
+      "local_end": 6.7,
+      "global_start": 6.24,
+      "global_end": 6.7,
+      "beat_index": 1
+    },
+    {
+      "word": "uncovered",
+      "local_start": 6.7,
+      "local_end": 7.18,
+      "global_start": 6.7,
+      "global_end": 7.18,
+      "beat_index": 1
+    },
+    {
+      "word": "an",
+      "local_start": 7.18,
+      "local_end": 7.5,
+      "global_start": 7.18,
+      "global_end": 7.5,
+      "beat_index": 1
+    },
+    {
+      "word": "enigmatic",
+      "local_start": 7.5,
+      "local_end": 7.7,
+      "global_start": 7.5,
+      "global_end": 7.7,
+      "beat_index": 1
+    },
+    {
+      "word": "manuscript",
+      "local_start": 7.7,
+      "local_end": 8.58,
+      "global_start": 7.7,
+      "global_end": 8.58,
+      "beat_index": 1
+    },
+    {
+      "word": "bound",
+      "local_start": 8.58,
+      "local_end": 9.04,
+      "global_start": 8.58,
+      "global_end": 9.04,
+      "beat_index": 1
+    },
+    {
+      "word": "in",
+      "local_start": 9.04,
+      "local_end": 9.38,
+      "global_start": 9.04,
+      "global_end": 9.38,
+      "beat_index": 1
+    },
+    {
+      "word": "aged",
+      "local_start": 9.38,
+      "local_end": 9.64,
+      "global_start": 9.38,
+      "global_end": 9.64,
+      "beat_index": 1
+    },
+    {
+      "word": "goat",
+      "local_start": 9.64,
+      "local_end": 10.12,
+      "global_start": 9.64,
+      "global_end": 10.12,
+      "beat_index": 1
+    },
+    {
+      "word": "vellum.",
+      "local_start": 10.12,
+      "local_end": 10.56,
+      "global_start": 10.12,
+      "global_end": 10.56,
+      "beat_index": 1
+    },
+    {
+      "word": "Inside",
+      "local_start": 0.0,
+      "local_end": 0.34,
+      "global_start": 11.988,
+      "global_end": 12.328,
+      "beat_index": 2
+    },
+    {
+      "word": "were",
+      "local_start": 0.34,
+      "local_end": 0.62,
+      "global_start": 12.328,
+      "global_end": 12.608,
+      "beat_index": 2
+    },
+    {
+      "word": "240",
+      "local_start": 0.62,
+      "local_end": 0.86,
+      "global_start": 12.608,
+      "global_end": 12.848,
+      "beat_index": 2
+    },
+    {
+      "word": "illustrated",
+      "local_start": 0.86,
+      "local_end": 1.9,
+      "global_start": 12.848,
+      "global_end": 13.888,
+      "beat_index": 2
+    },
+    {
+      "word": "pages,",
+      "local_start": 1.9,
+      "local_end": 2.44,
+      "global_start": 13.888,
+      "global_end": 14.428,
+      "beat_index": 2
+    },
+    {
+      "word": "written",
+      "local_start": 3.18,
+      "local_end": 3.24,
+      "global_start": 15.168,
+      "global_end": 15.228,
+      "beat_index": 2
+    },
+    {
+      "word": "in",
+      "local_start": 3.24,
+      "local_end": 3.42,
+      "global_start": 15.228,
+      "global_end": 15.408,
+      "beat_index": 2
+    },
+    {
+      "word": "an",
+      "local_start": 3.42,
+      "local_end": 3.52,
+      "global_start": 15.408,
+      "global_end": 15.508,
+      "beat_index": 2
+    },
+    {
+      "word": "elegant,",
+      "local_start": 3.52,
+      "local_end": 3.82,
+      "global_start": 15.508,
+      "global_end": 15.808,
+      "beat_index": 2
+    },
+    {
+      "word": "unbroken",
+      "local_start": 4.16,
+      "local_end": 4.52,
+      "global_start": 16.148,
+      "global_end": 16.508,
+      "beat_index": 2
+    },
+    {
+      "word": "script",
+      "local_start": 4.52,
+      "local_end": 5.0,
+      "global_start": 16.508,
+      "global_end": 16.988,
+      "beat_index": 2
+    },
+    {
+      "word": "that",
+      "local_start": 5.0,
+      "local_end": 5.26,
+      "global_start": 16.988,
+      "global_end": 17.248,
+      "beat_index": 2
+    },
+    {
+      "word": "no",
+      "local_start": 5.26,
+      "local_end": 5.44,
+      "global_start": 17.248,
+      "global_end": 17.428,
+      "beat_index": 2
+    },
+    {
+      "word": "scholar",
+      "local_start": 5.44,
+      "local_end": 5.82,
+      "global_start": 17.428,
+      "global_end": 17.808,
+      "beat_index": 2
+    },
+    {
+      "word": "historian",
+      "local_start": 5.82,
+      "local_end": 6.24,
+      "global_start": 17.808,
+      "global_end": 18.228,
+      "beat_index": 2
+    },
+    {
+      "word": "or",
+      "local_start": 6.24,
+      "local_end": 6.92,
+      "global_start": 18.228,
+      "global_end": 18.908,
+      "beat_index": 2
+    },
+    {
+      "word": "linguist",
+      "local_start": 6.92,
+      "local_end": 7.42,
+      "global_start": 18.908,
+      "global_end": 19.408,
+      "beat_index": 2
+    },
+    {
+      "word": "on",
+      "local_start": 7.42,
+      "local_end": 7.54,
+      "global_start": 19.408,
+      "global_end": 19.528,
+      "beat_index": 2
+    },
+    {
+      "word": "Earth",
+      "local_start": 7.54,
+      "local_end": 7.8,
+      "global_start": 19.528,
+      "global_end": 19.788,
+      "beat_index": 2
+    },
+    {
+      "word": "had",
+      "local_start": 7.8,
+      "local_end": 7.96,
+      "global_start": 19.788,
+      "global_end": 19.948,
+      "beat_index": 2
+    },
+    {
+      "word": "ever",
+      "local_start": 7.96,
+      "local_end": 8.18,
+      "global_start": 19.948,
+      "global_end": 20.168,
+      "beat_index": 2
+    },
+    {
+      "word": "seen.",
+      "local_start": 8.18,
+      "local_end": 8.5,
+      "global_start": 20.168,
+      "global_end": 20.488,
+      "beat_index": 2
+    },
+    {
+      "word": "Every",
+      "local_start": 0.0,
+      "local_end": 0.2,
+      "global_start": 22.156,
+      "global_end": 22.356,
+      "beat_index": 3
+    },
+    {
+      "word": "folio",
+      "local_start": 0.2,
+      "local_end": 0.66,
+      "global_start": 22.356,
+      "global_end": 22.816,
+      "beat_index": 3
+    },
+    {
+      "word": "was",
+      "local_start": 0.66,
+      "local_end": 0.9,
+      "global_start": 22.816,
+      "global_end": 23.056,
+      "beat_index": 3
+    },
+    {
+      "word": "covered",
+      "local_start": 0.9,
+      "local_end": 1.18,
+      "global_start": 23.056,
+      "global_end": 23.336,
+      "beat_index": 3
+    },
+    {
+      "word": "in",
+      "local_start": 1.18,
+      "local_end": 1.42,
+      "global_start": 23.336,
+      "global_end": 23.576,
+      "beat_index": 3
+    },
+    {
+      "word": "hand",
+      "local_start": 1.42,
+      "local_end": 1.62,
+      "global_start": 23.576,
+      "global_end": 23.776,
+      "beat_index": 3
+    },
+    {
+      "word": "-painted",
+      "local_start": 1.62,
+      "local_end": 1.98,
+      "global_start": 23.776,
+      "global_end": 24.136,
+      "beat_index": 3
+    },
+    {
+      "word": "drawings",
+      "local_start": 1.98,
+      "local_end": 2.34,
+      "global_start": 24.136,
+      "global_end": 24.496,
+      "beat_index": 3
+    },
+    {
+      "word": "of",
+      "local_start": 2.34,
+      "local_end": 2.7,
+      "global_start": 24.496,
+      "global_end": 24.856,
+      "beat_index": 3
+    },
+    {
+      "word": "bizarre",
+      "local_start": 2.7,
+      "local_end": 2.86,
+      "global_start": 24.856,
+      "global_end": 25.016,
+      "beat_index": 3
+    },
+    {
+      "word": "plants,",
+      "local_start": 2.86,
+      "local_end": 3.52,
+      "global_start": 25.016,
+      "global_end": 25.676,
+      "beat_index": 3
+    },
+    {
+      "word": "impossible",
+      "local_start": 3.82,
+      "local_end": 4.34,
+      "global_start": 25.976,
+      "global_end": 26.496,
+      "beat_index": 3
+    },
+    {
+      "word": "botanical",
+      "local_start": 4.34,
+      "local_end": 5.04,
+      "global_start": 26.496,
+      "global_end": 27.196,
+      "beat_index": 3
+    },
+    {
+      "word": "hybrids",
+      "local_start": 5.04,
+      "local_end": 5.44,
+      "global_start": 27.196,
+      "global_end": 27.596,
+      "beat_index": 3
+    },
+    {
+      "word": "with",
+      "local_start": 5.44,
+      "local_end": 5.86,
+      "global_start": 27.596,
+      "global_end": 28.016,
+      "beat_index": 3
+    },
+    {
+      "word": "roots",
+      "local_start": 5.86,
+      "local_end": 6.1,
+      "global_start": 28.016,
+      "global_end": 28.256,
+      "beat_index": 3
+    },
+    {
+      "word": "shaped",
+      "local_start": 6.1,
+      "local_end": 6.5,
+      "global_start": 28.256,
+      "global_end": 28.656,
+      "beat_index": 3
+    },
+    {
+      "word": "like",
+      "local_start": 6.5,
+      "local_end": 6.86,
+      "global_start": 28.656,
+      "global_end": 29.016,
+      "beat_index": 3
+    },
+    {
+      "word": "claws",
+      "local_start": 6.86,
+      "local_end": 7.16,
+      "global_start": 29.016,
+      "global_end": 29.316,
+      "beat_index": 3
+    },
+    {
+      "word": "and",
+      "local_start": 7.16,
+      "local_end": 7.54,
+      "global_start": 29.316,
+      "global_end": 29.696,
+      "beat_index": 3
+    },
+    {
+      "word": "leaves",
+      "local_start": 7.54,
+      "local_end": 7.72,
+      "global_start": 29.696,
+      "global_end": 29.876,
+      "beat_index": 3
+    },
+    {
+      "word": "with",
+      "local_start": 7.72,
+      "local_end": 8.1,
+      "global_start": 29.876,
+      "global_end": 30.256,
+      "beat_index": 3
+    },
+    {
+      "word": "unnatural",
+      "local_start": 8.1,
+      "local_end": 8.46,
+      "global_start": 30.256,
+      "global_end": 30.616,
+      "beat_index": 3
+    },
+    {
+      "word": "vascular",
+      "local_start": 8.46,
+      "local_end": 9.02,
+      "global_start": 30.616,
+      "global_end": 31.176,
+      "beat_index": 3
+    },
+    {
+      "word": "systems.",
+      "local_start": 9.02,
+      "local_end": 9.72,
+      "global_start": 31.176,
+      "global_end": 31.876,
+      "beat_index": 3
+    },
+    {
+      "word": "Not",
+      "local_start": 10.54,
+      "local_end": 10.58,
+      "global_start": 32.696,
+      "global_end": 32.736,
+      "beat_index": 3
+    },
+    {
+      "word": "a",
+      "local_start": 10.58,
+      "local_end": 10.7,
+      "global_start": 32.736,
+      "global_end": 32.856,
+      "beat_index": 3
+    },
+    {
+      "word": "single",
+      "local_start": 10.7,
+      "local_end": 10.88,
+      "global_start": 32.856,
+      "global_end": 33.036,
+      "beat_index": 3
+    },
+    {
+      "word": "plant",
+      "local_start": 10.88,
+      "local_end": 11.32,
+      "global_start": 33.036,
+      "global_end": 33.476,
+      "beat_index": 3
+    },
+    {
+      "word": "exists",
+      "local_start": 11.32,
+      "local_end": 11.56,
+      "global_start": 33.476,
+      "global_end": 33.716,
+      "beat_index": 3
+    },
+    {
+      "word": "in",
+      "local_start": 11.56,
+      "local_end": 12.0,
+      "global_start": 33.716,
+      "global_end": 34.156,
+      "beat_index": 3
+    },
+    {
+      "word": "nature.",
+      "local_start": 12.0,
+      "local_end": 12.22,
+      "global_start": 34.156,
+      "global_end": 34.376,
+      "beat_index": 3
+    },
+    {
+      "word": "Other",
+      "local_start": 0.0,
+      "local_end": 0.2,
+      "global_start": 36.021,
+      "global_end": 36.221,
+      "beat_index": 4
+    },
+    {
+      "word": "fold",
+      "local_start": 0.2,
+      "local_end": 0.4,
+      "global_start": 36.221,
+      "global_end": 36.421,
+      "beat_index": 4
+    },
+    {
+      "word": "-outs",
+      "local_start": 0.4,
+      "local_end": 0.74,
+      "global_start": 36.421,
+      "global_end": 36.761,
+      "beat_index": 4
+    },
+    {
+      "word": "revealed",
+      "local_start": 0.74,
+      "local_end": 1.08,
+      "global_start": 36.761,
+      "global_end": 37.101,
+      "beat_index": 4
+    },
+    {
+      "word": "cosmological",
+      "local_start": 1.08,
+      "local_end": 2.02,
+      "global_start": 37.101,
+      "global_end": 38.041,
+      "beat_index": 4
+    },
+    {
+      "word": "star",
+      "local_start": 2.02,
+      "local_end": 2.38,
+      "global_start": 38.041,
+      "global_end": 38.401,
+      "beat_index": 4
+    },
+    {
+      "word": "wheels,",
+      "local_start": 2.38,
+      "local_end": 2.76,
+      "global_start": 38.401,
+      "global_end": 38.781,
+      "beat_index": 4
+    },
+    {
+      "word": "unknown",
+      "local_start": 3.3,
+      "local_end": 3.6,
+      "global_start": 39.321,
+      "global_end": 39.621,
+      "beat_index": 4
+    },
+    {
+      "word": "zodiac",
+      "local_start": 3.6,
+      "local_end": 4.42,
+      "global_start": 39.621,
+      "global_end": 40.441,
+      "beat_index": 4
+    },
+    {
+      "word": "constellations,",
+      "local_start": 4.42,
+      "local_end": 5.26,
+      "global_start": 40.441,
+      "global_end": 41.281,
+      "beat_index": 4
+    },
+    {
+      "word": "and",
+      "local_start": 5.7,
+      "local_end": 5.86,
+      "global_start": 41.721,
+      "global_end": 41.881,
+      "beat_index": 4
+    },
+    {
+      "word": "miniature",
+      "local_start": 5.86,
+      "local_end": 6.1,
+      "global_start": 41.881,
+      "global_end": 42.121,
+      "beat_index": 4
+    },
+    {
+      "word": "figures",
+      "local_start": 6.1,
+      "local_end": 6.46,
+      "global_start": 42.121,
+      "global_end": 42.481,
+      "beat_index": 4
+    },
+    {
+      "word": "floating",
+      "local_start": 6.46,
+      "local_end": 6.88,
+      "global_start": 42.481,
+      "global_end": 42.901,
+      "beat_index": 4
+    },
+    {
+      "word": "through",
+      "local_start": 6.88,
+      "local_end": 7.28,
+      "global_start": 42.901,
+      "global_end": 43.301,
+      "beat_index": 4
+    },
+    {
+      "word": "intricate",
+      "local_start": 7.28,
+      "local_end": 7.62,
+      "global_start": 43.301,
+      "global_end": 43.641,
+      "beat_index": 4
+    },
+    {
+      "word": "labyrinths",
+      "local_start": 7.62,
+      "local_end": 8.34,
+      "global_start": 43.641,
+      "global_end": 44.361,
+      "beat_index": 4
+    },
+    {
+      "word": "of",
+      "local_start": 8.34,
+      "local_end": 8.44,
+      "global_start": 44.361,
+      "global_end": 44.461,
+      "beat_index": 4
+    },
+    {
+      "word": "organic",
+      "local_start": 8.44,
+      "local_end": 8.72,
+      "global_start": 44.461,
+      "global_end": 44.741,
+      "beat_index": 4
+    },
+    {
+      "word": "plumbing",
+      "local_start": 8.72,
+      "local_end": 9.26,
+      "global_start": 44.741,
+      "global_end": 45.281,
+      "beat_index": 4
+    },
+    {
+      "word": "tubes.",
+      "local_start": 9.26,
+      "local_end": 9.54,
+      "global_start": 45.281,
+      "global_end": 45.561,
+      "beat_index": 4
+    },
+    {
+      "word": "For",
+      "local_start": 0.0,
+      "local_end": 0.1,
+      "global_start": 47.505,
+      "global_end": 47.605,
+      "beat_index": 5
+    },
+    {
+      "word": "nearly",
+      "local_start": 0.1,
+      "local_end": 0.26,
+      "global_start": 47.605,
+      "global_end": 47.765,
+      "beat_index": 5
+    },
+    {
+      "word": "a",
+      "local_start": 0.26,
+      "local_end": 0.48,
+      "global_start": 47.765,
+      "global_end": 47.985,
+      "beat_index": 5
+    },
+    {
+      "word": "century,",
+      "local_start": 0.48,
+      "local_end": 0.98,
+      "global_start": 47.985,
+      "global_end": 48.485,
+      "beat_index": 5
+    },
+    {
+      "word": "skeptics",
+      "local_start": 1.58,
+      "local_end": 1.58,
+      "global_start": 49.085,
+      "global_end": 49.085,
+      "beat_index": 5
+    },
+    {
+      "word": "insisted",
+      "local_start": 1.58,
+      "local_end": 1.98,
+      "global_start": 49.085,
+      "global_end": 49.485,
+      "beat_index": 5
+    },
+    {
+      "word": "the",
+      "local_start": 1.98,
+      "local_end": 2.46,
+      "global_start": 49.485,
+      "global_end": 49.965,
+      "beat_index": 5
+    },
+    {
+      "word": "entire",
+      "local_start": 2.46,
+      "local_end": 2.7,
+      "global_start": 49.965,
+      "global_end": 50.205,
+      "beat_index": 5
+    },
+    {
+      "word": "manuscript",
+      "local_start": 2.7,
+      "local_end": 3.28,
+      "global_start": 50.205,
+      "global_end": 50.785,
+      "beat_index": 5
+    },
+    {
+      "word": "was",
+      "local_start": 3.28,
+      "local_end": 3.86,
+      "global_start": 50.785,
+      "global_end": 51.365,
+      "beat_index": 5
+    },
+    {
+      "word": "an",
+      "local_start": 3.86,
+      "local_end": 3.98,
+      "global_start": 51.365,
+      "global_end": 51.485,
+      "beat_index": 5
+    },
+    {
+      "word": "elaborate",
+      "local_start": 3.98,
+      "local_end": 4.26,
+      "global_start": 51.485,
+      "global_end": 51.765,
+      "beat_index": 5
+    },
+    {
+      "word": "Renaissance",
+      "local_start": 4.26,
+      "local_end": 4.74,
+      "global_start": 51.765,
+      "global_end": 52.245,
+      "beat_index": 5
+    },
+    {
+      "word": "hoax,",
+      "local_start": 4.74,
+      "local_end": 5.3,
+      "global_start": 52.245,
+      "global_end": 52.805,
+      "beat_index": 5
+    },
+    {
+      "word": "forged",
+      "local_start": 5.84,
+      "local_end": 6.06,
+      "global_start": 53.345,
+      "global_end": 53.565,
+      "beat_index": 5
+    },
+    {
+      "word": "by",
+      "local_start": 6.06,
+      "local_end": 6.4,
+      "global_start": 53.565,
+      "global_end": 53.905,
+      "beat_index": 5
+    },
+    {
+      "word": "alchemists",
+      "local_start": 6.4,
+      "local_end": 7.1,
+      "global_start": 53.905,
+      "global_end": 54.605,
+      "beat_index": 5
+    },
+    {
+      "word": "to",
+      "local_start": 7.1,
+      "local_end": 7.3,
+      "global_start": 54.605,
+      "global_end": 54.805,
+      "beat_index": 5
+    },
+    {
+      "word": "swindle",
+      "local_start": 7.3,
+      "local_end": 7.64,
+      "global_start": 54.805,
+      "global_end": 55.145,
+      "beat_index": 5
+    },
+    {
+      "word": "wealthy",
+      "local_start": 7.64,
+      "local_end": 7.88,
+      "global_start": 55.145,
+      "global_end": 55.385,
+      "beat_index": 5
+    },
+    {
+      "word": "emperors",
+      "local_start": 7.88,
+      "local_end": 8.52,
+      "global_start": 55.385,
+      "global_end": 56.025,
+      "beat_index": 5
+    },
+    {
+      "word": "out",
+      "local_start": 8.52,
+      "local_end": 8.82,
+      "global_start": 56.025,
+      "global_end": 56.325,
+      "beat_index": 5
+    },
+    {
+      "word": "of",
+      "local_start": 8.82,
+      "local_end": 8.94,
+      "global_start": 56.325,
+      "global_end": 56.445,
+      "beat_index": 5
+    },
+    {
+      "word": "gold.",
+      "local_start": 8.94,
+      "local_end": 9.12,
+      "global_start": 56.445,
+      "global_end": 56.625,
+      "beat_index": 5
+    },
+    {
+      "word": "until",
+      "local_start": 0.0,
+      "local_end": 0.22,
+      "global_start": 58.341,
+      "global_end": 58.561,
+      "beat_index": 6
+    },
+    {
+      "word": "2009.",
+      "local_start": 0.22,
+      "local_end": 1.28,
+      "global_start": 58.561,
+      "global_end": 59.621,
+      "beat_index": 6
+    },
+    {
+      "word": "Physicists",
+      "local_start": 1.9,
+      "local_end": 2.46,
+      "global_start": 60.241,
+      "global_end": 60.801,
+      "beat_index": 6
+    },
+    {
+      "word": "at",
+      "local_start": 2.46,
+      "local_end": 2.58,
+      "global_start": 60.801,
+      "global_end": 60.921,
+      "beat_index": 6
+    },
+    {
+      "word": "the",
+      "local_start": 2.58,
+      "local_end": 2.66,
+      "global_start": 60.921,
+      "global_end": 61.001,
+      "beat_index": 6
+    },
+    {
+      "word": "University",
+      "local_start": 2.66,
+      "local_end": 3.1,
+      "global_start": 61.001,
+      "global_end": 61.441,
+      "beat_index": 6
+    },
+    {
+      "word": "of",
+      "local_start": 3.1,
+      "local_end": 3.46,
+      "global_start": 61.441,
+      "global_end": 61.801,
+      "beat_index": 6
+    },
+    {
+      "word": "Arizona",
+      "local_start": 3.46,
+      "local_end": 3.86,
+      "global_start": 61.801,
+      "global_end": 62.201,
+      "beat_index": 6
+    },
+    {
+      "word": "extracted",
+      "local_start": 3.86,
+      "local_end": 4.46,
+      "global_start": 62.201,
+      "global_end": 62.801,
+      "beat_index": 6
+    },
+    {
+      "word": "four",
+      "local_start": 4.46,
+      "local_end": 5.02,
+      "global_start": 62.801,
+      "global_end": 63.361,
+      "beat_index": 6
+    },
+    {
+      "word": "micro",
+      "local_start": 5.02,
+      "local_end": 5.34,
+      "global_start": 63.361,
+      "global_end": 63.681,
+      "beat_index": 6
+    },
+    {
+      "word": "samples",
+      "local_start": 5.34,
+      "local_end": 5.66,
+      "global_start": 63.681,
+      "global_end": 64.001,
+      "beat_index": 6
+    },
+    {
+      "word": "of",
+      "local_start": 5.66,
+      "local_end": 6.06,
+      "global_start": 64.001,
+      "global_end": 64.401,
+      "beat_index": 6
+    },
+    {
+      "word": "the",
+      "local_start": 6.06,
+      "local_end": 6.16,
+      "global_start": 64.401,
+      "global_end": 64.501,
+      "beat_index": 6
+    },
+    {
+      "word": "calfskin",
+      "local_start": 6.16,
+      "local_end": 6.6,
+      "global_start": 64.501,
+      "global_end": 64.941,
+      "beat_index": 6
+    },
+    {
+      "word": "parchment",
+      "local_start": 6.6,
+      "local_end": 6.86,
+      "global_start": 64.941,
+      "global_end": 65.201,
+      "beat_index": 6
+    },
+    {
+      "word": "for",
+      "local_start": 6.86,
+      "local_end": 7.54,
+      "global_start": 65.201,
+      "global_end": 65.881,
+      "beat_index": 6
+    },
+    {
+      "word": "accelerator",
+      "local_start": 7.54,
+      "local_end": 7.94,
+      "global_start": 65.881,
+      "global_end": 66.281,
+      "beat_index": 6
+    },
+    {
+      "word": "mass",
+      "local_start": 7.94,
+      "local_end": 8.36,
+      "global_start": 66.281,
+      "global_end": 66.701,
+      "beat_index": 6
+    },
+    {
+      "word": "spectrometry",
+      "local_start": 8.36,
+      "local_end": 9.24,
+      "global_start": 66.701,
+      "global_end": 67.581,
+      "beat_index": 6
+    },
+    {
+      "word": "radiocarbon",
+      "local_start": 9.24,
+      "local_end": 9.88,
+      "global_start": 67.581,
+      "global_end": 68.221,
+      "beat_index": 6
+    },
+    {
+      "word": "dating.",
+      "local_start": 9.88,
+      "local_end": 10.22,
+      "global_start": 68.221,
+      "global_end": 68.561,
+      "beat_index": 6
+    },
+    {
+      "word": "The",
+      "local_start": 0.0,
+      "local_end": 0.08,
+      "global_start": 70.223,
+      "global_end": 70.303,
+      "beat_index": 7
+    },
+    {
+      "word": "scientific",
+      "local_start": 0.08,
+      "local_end": 0.38,
+      "global_start": 70.303,
+      "global_end": 70.603,
+      "beat_index": 7
+    },
+    {
+      "word": "verdict",
+      "local_start": 0.38,
+      "local_end": 0.84,
+      "global_start": 70.603,
+      "global_end": 71.063,
+      "beat_index": 7
+    },
+    {
+      "word": "was",
+      "local_start": 0.84,
+      "local_end": 1.24,
+      "global_start": 71.063,
+      "global_end": 71.463,
+      "beat_index": 7
+    },
+    {
+      "word": "indisputable.",
+      "local_start": 1.24,
+      "local_end": 1.92,
+      "global_start": 71.463,
+      "global_end": 72.143,
+      "beat_index": 7
+    },
+    {
+      "word": "The",
+      "local_start": 2.54,
+      "local_end": 2.56,
+      "global_start": 72.763,
+      "global_end": 72.783,
+      "beat_index": 7
+    },
+    {
+      "word": "vellum",
+      "local_start": 2.56,
+      "local_end": 2.86,
+      "global_start": 72.783,
+      "global_end": 73.083,
+      "beat_index": 7
+    },
+    {
+      "word": "was",
+      "local_start": 2.86,
+      "local_end": 2.96,
+      "global_start": 73.083,
+      "global_end": 73.183,
+      "beat_index": 7
+    },
+    {
+      "word": "prepared",
+      "local_start": 2.96,
+      "local_end": 3.26,
+      "global_start": 73.183,
+      "global_end": 73.483,
+      "beat_index": 7
+    },
+    {
+      "word": "between",
+      "local_start": 3.26,
+      "local_end": 3.68,
+      "global_start": 73.483,
+      "global_end": 73.903,
+      "beat_index": 7
+    },
+    {
+      "word": "1",
+      "local_start": 3.68,
+      "local_end": 4.02,
+      "global_start": 73.903,
+      "global_end": 74.243,
+      "beat_index": 7
+    },
+    {
+      "word": ",404",
+      "local_start": 4.02,
+      "local_end": 4.66,
+      "global_start": 74.243,
+      "global_end": 74.883,
+      "beat_index": 7
+    },
+    {
+      "word": "and",
+      "local_start": 4.66,
+      "local_end": 5.64,
+      "global_start": 74.883,
+      "global_end": 75.863,
+      "beat_index": 7
+    },
+    {
+      "word": "1",
+      "local_start": 5.64,
+      "local_end": 5.86,
+      "global_start": 75.863,
+      "global_end": 76.083,
+      "beat_index": 7
+    },
+    {
+      "word": ",438.",
+      "local_start": 5.86,
+      "local_end": 6.8,
+      "global_start": 76.083,
+      "global_end": 77.023,
+      "beat_index": 7
+    },
+    {
+      "word": "The",
+      "local_start": 7.88,
+      "local_end": 8.04,
+      "global_start": 78.103,
+      "global_end": 78.263,
+      "beat_index": 7
+    },
+    {
+      "word": "Voynish",
+      "local_start": 8.04,
+      "local_end": 8.42,
+      "global_start": 78.263,
+      "global_end": 78.643,
+      "beat_index": 7
+    },
+    {
+      "word": "manuscript",
+      "local_start": 8.42,
+      "local_end": 8.68,
+      "global_start": 78.643,
+      "global_end": 78.903,
+      "beat_index": 7
+    },
+    {
+      "word": "is",
+      "local_start": 8.68,
+      "local_end": 9.26,
+      "global_start": 78.903,
+      "global_end": 79.483,
+      "beat_index": 7
+    },
+    {
+      "word": "genuinely",
+      "local_start": 9.26,
+      "local_end": 9.68,
+      "global_start": 79.483,
+      "global_end": 79.903,
+      "beat_index": 7
+    },
+    {
+      "word": "600",
+      "local_start": 9.68,
+      "local_end": 10.12,
+      "global_start": 79.903,
+      "global_end": 80.343,
+      "beat_index": 7
+    },
+    {
+      "word": "years",
+      "local_start": 10.12,
+      "local_end": 10.58,
+      "global_start": 80.343,
+      "global_end": 80.803,
+      "beat_index": 7
+    },
+    {
+      "word": "old.",
+      "local_start": 10.58,
+      "local_end": 10.9,
+      "global_start": 80.803,
+      "global_end": 81.123,
+      "beat_index": 7
+    },
+    {
+      "word": "If",
+      "local_start": 0.0,
+      "local_end": 0.06,
+      "global_start": 82.901,
+      "global_end": 82.961,
+      "beat_index": 8
+    },
+    {
+      "word": "it",
+      "local_start": 0.06,
+      "local_end": 0.14,
+      "global_start": 82.961,
+      "global_end": 83.041,
+      "beat_index": 8
+    },
+    {
+      "word": "was",
+      "local_start": 0.14,
+      "local_end": 0.26,
+      "global_start": 83.041,
+      "global_end": 83.161,
+      "beat_index": 8
+    },
+    {
+      "word": "a",
+      "local_start": 0.26,
+      "local_end": 0.38,
+      "global_start": 83.161,
+      "global_end": 83.281,
+      "beat_index": 8
+    },
+    {
+      "word": "hoax,",
+      "local_start": 0.38,
+      "local_end": 0.56,
+      "global_start": 83.281,
+      "global_end": 83.461,
+      "beat_index": 8
+    },
+    {
+      "word": "its",
+      "local_start": 1.1,
+      "local_end": 1.24,
+      "global_start": 84.001,
+      "global_end": 84.141,
+      "beat_index": 8
+    },
+    {
+      "word": "author",
+      "local_start": 1.24,
+      "local_end": 1.42,
+      "global_start": 84.141,
+      "global_end": 84.321,
+      "beat_index": 8
+    },
+    {
+      "word": "was",
+      "local_start": 1.42,
+      "local_end": 1.66,
+      "global_start": 84.321,
+      "global_end": 84.561,
+      "beat_index": 8
+    },
+    {
+      "word": "centuries",
+      "local_start": 1.66,
+      "local_end": 1.88,
+      "global_start": 84.561,
+      "global_end": 84.781,
+      "beat_index": 8
+    },
+    {
+      "word": "ahead",
+      "local_start": 1.88,
+      "local_end": 2.42,
+      "global_start": 84.781,
+      "global_end": 85.321,
+      "beat_index": 8
+    },
+    {
+      "word": "of",
+      "local_start": 2.42,
+      "local_end": 2.5,
+      "global_start": 85.321,
+      "global_end": 85.401,
+      "beat_index": 8
+    },
+    {
+      "word": "modern",
+      "local_start": 2.5,
+      "local_end": 2.66,
+      "global_start": 85.401,
+      "global_end": 85.561,
+      "beat_index": 8
+    },
+    {
+      "word": "science.",
+      "local_start": 2.66,
+      "local_end": 3.36,
+      "global_start": 85.561,
+      "global_end": 86.261,
+      "beat_index": 8
+    },
+    {
+      "word": "Statistical",
+      "local_start": 3.82,
+      "local_end": 4.14,
+      "global_start": 86.721,
+      "global_end": 87.041,
+      "beat_index": 8
+    },
+    {
+      "word": "analysis",
+      "local_start": 4.14,
+      "local_end": 4.82,
+      "global_start": 87.041,
+      "global_end": 87.721,
+      "beat_index": 8
+    },
+    {
+      "word": "proved",
+      "local_start": 4.82,
+      "local_end": 5.3,
+      "global_start": 87.721,
+      "global_end": 88.201,
+      "beat_index": 8
+    },
+    {
+      "word": "the",
+      "local_start": 5.3,
+      "local_end": 5.56,
+      "global_start": 88.201,
+      "global_end": 88.461,
+      "beat_index": 8
+    },
+    {
+      "word": "text",
+      "local_start": 5.56,
+      "local_end": 5.76,
+      "global_start": 88.461,
+      "global_end": 88.661,
+      "beat_index": 8
+    },
+    {
+      "word": "strictly",
+      "local_start": 5.76,
+      "local_end": 6.2,
+      "global_start": 88.661,
+      "global_end": 89.101,
+      "beat_index": 8
+    },
+    {
+      "word": "obeys",
+      "local_start": 6.2,
+      "local_end": 6.96,
+      "global_start": 89.101,
+      "global_end": 89.861,
+      "beat_index": 8
+    },
+    {
+      "word": "Zipp's",
+      "local_start": 6.96,
+      "local_end": 7.34,
+      "global_start": 89.861,
+      "global_end": 90.241,
+      "beat_index": 8
+    },
+    {
+      "word": "law,",
+      "local_start": 7.34,
+      "local_end": 7.54,
+      "global_start": 90.241,
+      "global_end": 90.441,
+      "beat_index": 8
+    },
+    {
+      "word": "matching",
+      "local_start": 8.04,
+      "local_end": 8.38,
+      "global_start": 90.941,
+      "global_end": 91.281,
+      "beat_index": 8
+    },
+    {
+      "word": "the",
+      "local_start": 8.38,
+      "local_end": 8.56,
+      "global_start": 91.281,
+      "global_end": 91.461,
+      "beat_index": 8
+    },
+    {
+      "word": "exact",
+      "local_start": 8.56,
+      "local_end": 8.78,
+      "global_start": 91.461,
+      "global_end": 91.681,
+      "beat_index": 8
+    },
+    {
+      "word": "mathematical",
+      "local_start": 8.78,
+      "local_end": 9.58,
+      "global_start": 91.681,
+      "global_end": 92.481,
+      "beat_index": 8
+    },
+    {
+      "word": "frequency",
+      "local_start": 9.58,
+      "local_end": 10.12,
+      "global_start": 92.481,
+      "global_end": 93.021,
+      "beat_index": 8
+    },
+    {
+      "word": "distribution",
+      "local_start": 10.12,
+      "local_end": 10.82,
+      "global_start": 93.021,
+      "global_end": 93.721,
+      "beat_index": 8
+    },
+    {
+      "word": "of",
+      "local_start": 10.82,
+      "local_end": 11.34,
+      "global_start": 93.721,
+      "global_end": 94.241,
+      "beat_index": 8
+    },
+    {
+      "word": "genuine",
+      "local_start": 11.34,
+      "local_end": 11.68,
+      "global_start": 94.241,
+      "global_end": 94.581,
+      "beat_index": 8
+    },
+    {
+      "word": "spoken",
+      "local_start": 11.68,
+      "local_end": 12.08,
+      "global_start": 94.581,
+      "global_end": 94.981,
+      "beat_index": 8
+    },
+    {
+      "word": "languages.",
+      "local_start": 12.08,
+      "local_end": 12.7,
+      "global_start": 94.981,
+      "global_end": 95.601,
+      "beat_index": 8
+    },
+    {
+      "word": "The",
+      "local_start": 0.0,
+      "local_end": 0.08,
+      "global_start": 97.279,
+      "global_end": 97.359,
+      "beat_index": 9
+    },
+    {
+      "word": "words",
+      "local_start": 0.08,
+      "local_end": 0.24,
+      "global_start": 97.359,
+      "global_end": 97.519,
+      "beat_index": 9
+    },
+    {
+      "word": "follow",
+      "local_start": 0.24,
+      "local_end": 0.62,
+      "global_start": 97.519,
+      "global_end": 97.899,
+      "beat_index": 9
+    },
+    {
+      "word": "strict",
+      "local_start": 0.62,
+      "local_end": 1.0,
+      "global_start": 97.899,
+      "global_end": 98.279,
+      "beat_index": 9
+    },
+    {
+      "word": "grammatical",
+      "local_start": 1.0,
+      "local_end": 1.66,
+      "global_start": 98.279,
+      "global_end": 98.939,
+      "beat_index": 9
+    },
+    {
+      "word": "rules,",
+      "local_start": 1.66,
+      "local_end": 2.08,
+      "global_start": 98.939,
+      "global_end": 99.359,
+      "beat_index": 9
+    },
+    {
+      "word": "complete",
+      "local_start": 2.44,
+      "local_end": 2.8,
+      "global_start": 99.719,
+      "global_end": 100.079,
+      "beat_index": 9
+    },
+    {
+      "word": "with",
+      "local_start": 2.8,
+      "local_end": 2.98,
+      "global_start": 100.079,
+      "global_end": 100.259,
+      "beat_index": 9
+    },
+    {
+      "word": "prefixes,",
+      "local_start": 2.98,
+      "local_end": 3.6,
+      "global_start": 100.259,
+      "global_end": 100.879,
+      "beat_index": 9
+    },
+    {
+      "word": "roots,",
+      "local_start": 3.84,
+      "local_end": 4.0,
+      "global_start": 101.119,
+      "global_end": 101.279,
+      "beat_index": 9
+    },
+    {
+      "word": "and",
+      "local_start": 4.34,
+      "local_end": 4.4,
+      "global_start": 101.619,
+      "global_end": 101.679,
+      "beat_index": 9
+    },
+    {
+      "word": "suffixes.",
+      "local_start": 4.4,
+      "local_end": 4.98,
+      "global_start": 101.679,
+      "global_end": 102.259,
+      "beat_index": 9
+    },
+    {
+      "word": "Mathematically",
+      "local_start": 5.64,
+      "local_end": 6.34,
+      "global_start": 102.919,
+      "global_end": 103.619,
+      "beat_index": 9
+    },
+    {
+      "word": "it",
+      "local_start": 6.34,
+      "local_end": 6.66,
+      "global_start": 103.619,
+      "global_end": 103.939,
+      "beat_index": 9
+    },
+    {
+      "word": "is",
+      "local_start": 6.66,
+      "local_end": 6.76,
+      "global_start": 103.939,
+      "global_end": 104.039,
+      "beat_index": 9
+    },
+    {
+      "word": "virtually",
+      "local_start": 6.76,
+      "local_end": 7.04,
+      "global_start": 104.039,
+      "global_end": 104.319,
+      "beat_index": 9
+    },
+    {
+      "word": "impossible",
+      "local_start": 7.04,
+      "local_end": 7.56,
+      "global_start": 104.319,
+      "global_end": 104.839,
+      "beat_index": 9
+    },
+    {
+      "word": "for",
+      "local_start": 7.56,
+      "local_end": 8.04,
+      "global_start": 104.839,
+      "global_end": 105.319,
+      "beat_index": 9
+    },
+    {
+      "word": "these",
+      "local_start": 8.04,
+      "local_end": 8.16,
+      "global_start": 105.319,
+      "global_end": 105.439,
+      "beat_index": 9
+    },
+    {
+      "word": "170",
+      "local_start": 8.16,
+      "local_end": 8.5,
+      "global_start": 105.439,
+      "global_end": 105.779,
+      "beat_index": 9
+    },
+    {
+      "word": ",000",
+      "local_start": 8.5,
+      "local_end": 9.76,
+      "global_start": 105.779,
+      "global_end": 107.039,
+      "beat_index": 9
+    },
+    {
+      "word": "glyphs",
+      "local_start": 9.76,
+      "local_end": 10.92,
+      "global_start": 107.039,
+      "global_end": 108.199,
+      "beat_index": 9
+    },
+    {
+      "word": "to",
+      "local_start": 10.92,
+      "local_end": 11.0,
+      "global_start": 108.199,
+      "global_end": 108.279,
+      "beat_index": 9
+    },
+    {
+      "word": "be",
+      "local_start": 11.0,
+      "local_end": 11.1,
+      "global_start": 108.279,
+      "global_end": 108.379,
+      "beat_index": 9
+    },
+    {
+      "word": "random",
+      "local_start": 11.1,
+      "local_end": 11.44,
+      "global_start": 108.379,
+      "global_end": 108.719,
+      "beat_index": 9
+    },
+    {
+      "word": "medieval",
+      "local_start": 11.44,
+      "local_end": 11.86,
+      "global_start": 108.719,
+      "global_end": 109.139,
+      "beat_index": 9
+    },
+    {
+      "word": "gibberish.",
+      "local_start": 11.86,
+      "local_end": 12.62,
+      "global_start": 109.139,
+      "global_end": 109.899,
+      "beat_index": 9
+    },
+    {
+      "word": "During",
+      "local_start": 0.0,
+      "local_end": 0.18,
+      "global_start": 111.6,
+      "global_end": 111.78,
+      "beat_index": 10
+    },
+    {
+      "word": "World",
+      "local_start": 0.18,
+      "local_end": 0.38,
+      "global_start": 111.78,
+      "global_end": 111.98,
+      "beat_index": 10
+    },
+    {
+      "word": "War",
+      "local_start": 0.38,
+      "local_end": 0.74,
+      "global_start": 111.98,
+      "global_end": 112.34,
+      "beat_index": 10
+    },
+    {
+      "word": "II,",
+      "local_start": 0.74,
+      "local_end": 1.08,
+      "global_start": 112.34,
+      "global_end": 112.68,
+      "beat_index": 10
+    },
+    {
+      "word": "William",
+      "local_start": 1.42,
+      "local_end": 1.74,
+      "global_start": 113.02,
+      "global_end": 113.34,
+      "beat_index": 10
+    },
+    {
+      "word": "Friedman,",
+      "local_start": 1.74,
+      "local_end": 2.02,
+      "global_start": 113.34,
+      "global_end": 113.62,
+      "beat_index": 10
+    },
+    {
+      "word": "the",
+      "local_start": 2.58,
+      "local_end": 2.7,
+      "global_start": 114.18,
+      "global_end": 114.3,
+      "beat_index": 10
+    },
+    {
+      "word": "legendary",
+      "local_start": 2.7,
+      "local_end": 2.96,
+      "global_start": 114.3,
+      "global_end": 114.56,
+      "beat_index": 10
+    },
+    {
+      "word": "cryptanalyst",
+      "local_start": 2.96,
+      "local_end": 3.86,
+      "global_start": 114.56,
+      "global_end": 115.46,
+      "beat_index": 10
+    },
+    {
+      "word": "who",
+      "local_start": 3.86,
+      "local_end": 4.08,
+      "global_start": 115.46,
+      "global_end": 115.68,
+      "beat_index": 10
+    },
+    {
+      "word": "broke",
+      "local_start": 4.08,
+      "local_end": 4.26,
+      "global_start": 115.68,
+      "global_end": 115.86,
+      "beat_index": 10
+    },
+    {
+      "word": "Japan's",
+      "local_start": 4.26,
+      "local_end": 4.86,
+      "global_start": 115.86,
+      "global_end": 116.46,
+      "beat_index": 10
+    },
+    {
+      "word": "purple",
+      "local_start": 4.86,
+      "local_end": 5.04,
+      "global_start": 116.46,
+      "global_end": 116.64,
+      "beat_index": 10
+    },
+    {
+      "word": "cipher,",
+      "local_start": 5.04,
+      "local_end": 5.44,
+      "global_start": 116.64,
+      "global_end": 117.04,
+      "beat_index": 10
+    },
+    {
+      "word": "dedicated",
+      "local_start": 5.98,
+      "local_end": 6.26,
+      "global_start": 117.58,
+      "global_end": 117.86,
+      "beat_index": 10
+    },
+    {
+      "word": "30",
+      "local_start": 6.26,
+      "local_end": 6.76,
+      "global_start": 117.86,
+      "global_end": 118.36,
+      "beat_index": 10
+    },
+    {
+      "word": "years",
+      "local_start": 6.76,
+      "local_end": 7.18,
+      "global_start": 118.36,
+      "global_end": 118.78,
+      "beat_index": 10
+    },
+    {
+      "word": "trying",
+      "local_start": 7.18,
+      "local_end": 7.5,
+      "global_start": 118.78,
+      "global_end": 119.1,
+      "beat_index": 10
+    },
+    {
+      "word": "to",
+      "local_start": 7.5,
+      "local_end": 7.7,
+      "global_start": 119.1,
+      "global_end": 119.3,
+      "beat_index": 10
+    },
+    {
+      "word": "decipher",
+      "local_start": 7.7,
+      "local_end": 7.88,
+      "global_start": 119.3,
+      "global_end": 119.48,
+      "beat_index": 10
+    },
+    {
+      "word": "the",
+      "local_start": 7.88,
+      "local_end": 8.32,
+      "global_start": 119.48,
+      "global_end": 119.92,
+      "beat_index": 10
+    },
+    {
+      "word": "book.",
+      "local_start": 8.32,
+      "local_end": 8.46,
+      "global_start": 119.92,
+      "global_end": 120.06,
+      "beat_index": 10
+    },
+    {
+      "word": "He",
+      "local_start": 9.1,
+      "local_end": 9.24,
+      "global_start": 120.7,
+      "global_end": 120.84,
+      "beat_index": 10
+    },
+    {
+      "word": "died",
+      "local_start": 9.24,
+      "local_end": 9.44,
+      "global_start": 120.84,
+      "global_end": 121.04,
+      "beat_index": 10
+    },
+    {
+      "word": "without",
+      "local_start": 9.44,
+      "local_end": 9.74,
+      "global_start": 121.04,
+      "global_end": 121.34,
+      "beat_index": 10
+    },
+    {
+      "word": "decoding",
+      "local_start": 9.74,
+      "local_end": 10.06,
+      "global_start": 121.34,
+      "global_end": 121.66,
+      "beat_index": 10
+    },
+    {
+      "word": "a",
+      "local_start": 10.06,
+      "local_end": 10.46,
+      "global_start": 121.66,
+      "global_end": 122.06,
+      "beat_index": 10
+    },
+    {
+      "word": "single",
+      "local_start": 10.46,
+      "local_end": 10.62,
+      "global_start": 122.06,
+      "global_end": 122.22,
+      "beat_index": 10
+    },
+    {
+      "word": "word.",
+      "local_start": 10.62,
+      "local_end": 11.08,
+      "global_start": 122.22,
+      "global_end": 122.68,
+      "beat_index": 10
+    },
+    {
+      "word": "Decades",
+      "local_start": 0.0,
+      "local_end": 0.44,
+      "global_start": 124.249,
+      "global_end": 124.689,
+      "beat_index": 11
+    },
+    {
+      "word": "later,",
+      "local_start": 0.44,
+      "local_end": 0.7,
+      "global_start": 124.689,
+      "global_end": 124.949,
+      "beat_index": 11
+    },
+    {
+      "word": "the",
+      "local_start": 1.04,
+      "local_end": 1.18,
+      "global_start": 125.289,
+      "global_end": 125.429,
+      "beat_index": 11
+    },
+    {
+      "word": "National",
+      "local_start": 1.18,
+      "local_end": 1.36,
+      "global_start": 125.429,
+      "global_end": 125.609,
+      "beat_index": 11
+    },
+    {
+      "word": "Security",
+      "local_start": 1.36,
+      "local_end": 1.82,
+      "global_start": 125.609,
+      "global_end": 126.069,
+      "beat_index": 11
+    },
+    {
+      "word": "Agency,",
+      "local_start": 1.82,
+      "local_end": 2.56,
+      "global_start": 126.069,
+      "global_end": 126.809,
+      "beat_index": 11
+    },
+    {
+      "word": "quantum",
+      "local_start": 2.92,
+      "local_end": 3.14,
+      "global_start": 127.169,
+      "global_end": 127.389,
+      "beat_index": 11
+    },
+    {
+      "word": "computing",
+      "local_start": 3.14,
+      "local_end": 3.76,
+      "global_start": 127.389,
+      "global_end": 128.009,
+      "beat_index": 11
+    },
+    {
+      "word": "clusters,",
+      "local_start": 3.76,
+      "local_end": 4.08,
+      "global_start": 128.009,
+      "global_end": 128.329,
+      "beat_index": 11
+    },
+    {
+      "word": "and",
+      "local_start": 4.6,
+      "local_end": 4.68,
+      "global_start": 128.849,
+      "global_end": 128.929,
+      "beat_index": 11
+    },
+    {
+      "word": "modern",
+      "local_start": 4.68,
+      "local_end": 4.88,
+      "global_start": 128.929,
+      "global_end": 129.129,
+      "beat_index": 11
+    },
+    {
+      "word": "neural",
+      "local_start": 4.88,
+      "local_end": 5.22,
+      "global_start": 129.129,
+      "global_end": 129.469,
+      "beat_index": 11
+    },
+    {
+      "word": "network",
+      "local_start": 5.22,
+      "local_end": 5.64,
+      "global_start": 129.469,
+      "global_end": 129.889,
+      "beat_index": 11
+    },
+    {
+      "word": "language",
+      "local_start": 5.64,
+      "local_end": 6.2,
+      "global_start": 129.889,
+      "global_end": 130.449,
+      "beat_index": 11
+    },
+    {
+      "word": "models",
+      "local_start": 6.2,
+      "local_end": 6.56,
+      "global_start": 130.449,
+      "global_end": 130.809,
+      "beat_index": 11
+    },
+    {
+      "word": "were",
+      "local_start": 6.56,
+      "local_end": 6.86,
+      "global_start": 130.809,
+      "global_end": 131.109,
+      "beat_index": 11
+    },
+    {
+      "word": "unleashed",
+      "local_start": 6.86,
+      "local_end": 7.16,
+      "global_start": 131.109,
+      "global_end": 131.409,
+      "beat_index": 11
+    },
+    {
+      "word": "on",
+      "local_start": 7.16,
+      "local_end": 7.52,
+      "global_start": 131.409,
+      "global_end": 131.769,
+      "beat_index": 11
+    },
+    {
+      "word": "the",
+      "local_start": 7.52,
+      "local_end": 7.64,
+      "global_start": 131.769,
+      "global_end": 131.889,
+      "beat_index": 11
+    },
+    {
+      "word": "text.",
+      "local_start": 7.64,
+      "local_end": 7.86,
+      "global_start": 131.889,
+      "global_end": 132.109,
+      "beat_index": 11
+    },
+    {
+      "word": "Every",
+      "local_start": 8.64,
+      "local_end": 8.7,
+      "global_start": 132.889,
+      "global_end": 132.949,
+      "beat_index": 11
+    },
+    {
+      "word": "single",
+      "local_start": 8.7,
+      "local_end": 9.0,
+      "global_start": 132.949,
+      "global_end": 133.249,
+      "beat_index": 11
+    },
+    {
+      "word": "model",
+      "local_start": 9.0,
+      "local_end": 9.46,
+      "global_start": 133.249,
+      "global_end": 133.709,
+      "beat_index": 11
+    },
+    {
+      "word": "collapsed",
+      "local_start": 9.46,
+      "local_end": 9.72,
+      "global_start": 133.709,
+      "global_end": 133.969,
+      "beat_index": 11
+    },
+    {
+      "word": "into",
+      "local_start": 9.72,
+      "local_end": 10.24,
+      "global_start": 133.969,
+      "global_end": 134.489,
+      "beat_index": 11
+    },
+    {
+      "word": "statistical",
+      "local_start": 10.24,
+      "local_end": 10.74,
+      "global_start": 134.489,
+      "global_end": 134.989,
+      "beat_index": 11
+    },
+    {
+      "word": "contradictions.",
+      "local_start": 10.74,
+      "local_end": 11.36,
+      "global_start": 134.989,
+      "global_end": 135.609,
+      "beat_index": 11
+    },
+    {
+      "word": "Today,",
+      "local_start": 0.0,
+      "local_end": 0.22,
+      "global_start": 137.675,
+      "global_end": 137.895,
+      "beat_index": 12
+    },
+    {
+      "word": "cataloged",
+      "local_start": 0.62,
+      "local_end": 1.34,
+      "global_start": 138.295,
+      "global_end": 139.015,
+      "beat_index": 12
+    },
+    {
+      "word": "as",
+      "local_start": 1.34,
+      "local_end": 1.46,
+      "global_start": 139.015,
+      "global_end": 139.135,
+      "beat_index": 12
+    },
+    {
+      "word": "MS",
+      "local_start": 1.46,
+      "local_end": 1.6,
+      "global_start": 139.135,
+      "global_end": 139.275,
+      "beat_index": 12
+    },
+    {
+      "word": "-408,",
+      "local_start": 1.6,
+      "local_end": 2.24,
+      "global_start": 139.275,
+      "global_end": 139.915,
+      "beat_index": 12
+    },
+    {
+      "word": "it",
+      "local_start": 2.78,
+      "local_end": 2.98,
+      "global_start": 140.455,
+      "global_end": 140.655,
+      "beat_index": 12
+    },
+    {
+      "word": "rests",
+      "local_start": 2.98,
+      "local_end": 3.16,
+      "global_start": 140.655,
+      "global_end": 140.835,
+      "beat_index": 12
+    },
+    {
+      "word": "locked",
+      "local_start": 3.16,
+      "local_end": 3.58,
+      "global_start": 140.835,
+      "global_end": 141.255,
+      "beat_index": 12
+    },
+    {
+      "word": "inside",
+      "local_start": 3.58,
+      "local_end": 3.92,
+      "global_start": 141.255,
+      "global_end": 141.595,
+      "beat_index": 12
+    },
+    {
+      "word": "the",
+      "local_start": 3.92,
+      "local_end": 4.22,
+      "global_start": 141.595,
+      "global_end": 141.895,
+      "beat_index": 12
+    },
+    {
+      "word": "climate",
+      "local_start": 4.22,
+      "local_end": 4.48,
+      "global_start": 141.895,
+      "global_end": 142.155,
+      "beat_index": 12
+    },
+    {
+      "word": "-controlled",
+      "local_start": 4.48,
+      "local_end": 4.98,
+      "global_start": 142.155,
+      "global_end": 142.655,
+      "beat_index": 12
+    },
+    {
+      "word": "vault",
+      "local_start": 4.98,
+      "local_end": 5.4,
+      "global_start": 142.655,
+      "global_end": 143.075,
+      "beat_index": 12
+    },
+    {
+      "word": "of",
+      "local_start": 5.4,
+      "local_end": 5.66,
+      "global_start": 143.075,
+      "global_end": 143.335,
+      "beat_index": 12
+    },
+    {
+      "word": "Yale",
+      "local_start": 5.66,
+      "local_end": 5.82,
+      "global_start": 143.335,
+      "global_end": 143.495,
+      "beat_index": 12
+    },
+    {
+      "word": "University's",
+      "local_start": 5.82,
+      "local_end": 6.72,
+      "global_start": 143.495,
+      "global_end": 144.395,
+      "beat_index": 12
+    },
+    {
+      "word": "Banach",
+      "local_start": 6.72,
+      "local_end": 7.08,
+      "global_start": 144.395,
+      "global_end": 144.755,
+      "beat_index": 12
+    },
+    {
+      "word": "Library.",
+      "local_start": 7.08,
+      "local_end": 7.44,
+      "global_start": 144.755,
+      "global_end": 145.115,
+      "beat_index": 12
+    },
+    {
+      "word": "Six",
+      "local_start": 8.3,
+      "local_end": 8.46,
+      "global_start": 145.975,
+      "global_end": 146.135,
+      "beat_index": 12
+    },
+    {
+      "word": "centuries",
+      "local_start": 8.46,
+      "local_end": 8.88,
+      "global_start": 146.135,
+      "global_end": 146.555,
+      "beat_index": 12
+    },
+    {
+      "word": "of",
+      "local_start": 8.88,
+      "local_end": 9.12,
+      "global_start": 146.555,
+      "global_end": 146.795,
+      "beat_index": 12
+    },
+    {
+      "word": "human",
+      "local_start": 9.12,
+      "local_end": 9.36,
+      "global_start": 146.795,
+      "global_end": 147.035,
+      "beat_index": 12
+    },
+    {
+      "word": "intelligence",
+      "local_start": 9.36,
+      "local_end": 9.7,
+      "global_start": 147.035,
+      "global_end": 147.375,
+      "beat_index": 12
+    },
+    {
+      "word": "and",
+      "local_start": 9.7,
+      "local_end": 10.46,
+      "global_start": 147.375,
+      "global_end": 148.135,
+      "beat_index": 12
+    },
+    {
+      "word": "the",
+      "local_start": 10.46,
+      "local_end": 10.58,
+      "global_start": 148.135,
+      "global_end": 148.255,
+      "beat_index": 12
+    },
+    {
+      "word": "Voynish",
+      "local_start": 10.58,
+      "local_end": 10.98,
+      "global_start": 148.255,
+      "global_end": 148.655,
+      "beat_index": 12
+    },
+    {
+      "word": "cipher",
+      "local_start": 10.98,
+      "local_end": 11.18,
+      "global_start": 148.655,
+      "global_end": 148.855,
+      "beat_index": 12
+    },
+    {
+      "word": "remains",
+      "local_start": 11.18,
+      "local_end": 11.66,
+      "global_start": 148.855,
+      "global_end": 149.335,
+      "beat_index": 12
+    },
+    {
+      "word": "completely",
+      "local_start": 11.66,
+      "local_end": 12.26,
+      "global_start": 149.335,
+      "global_end": 149.935,
+      "beat_index": 12
+    },
+    {
+      "word": "unbroken.",
+      "local_start": 12.26,
+      "local_end": 12.86,
+      "global_start": 149.935,
+      "global_end": 150.535,
+      "beat_index": 12
+    }
+  ]
+}

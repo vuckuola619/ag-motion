@@ -1,0 +1,126 @@
+{
+  "total_duration": 128.59,
+  "sample_rate": 24000,
+  "cues": [
+    {
+      "beat_id": "act1_beat1",
+      "act": 1,
+      "title": "Act 1 \u00b7 The Listening Ear",
+      "start": 1.0,
+      "duration": 10.69,
+      "end": 11.69,
+      "text": "On the night of August 15, 1977, deep in the Ohio countryside, a football-field-sized radio telescope known as Big Ear was silently listening to the cosmos.",
+      "filename": "wow_signal_beat_1.wav"
+    },
+    {
+      "beat_id": "act1_beat2",
+      "act": 1,
+      "title": "Act 1 \u00b7 Project SETI",
+      "start": 12.99,
+      "duration": 8.51,
+      "end": 21.5,
+      "text": "Humanity had just launched Project SETI: searching fifty channels simultaneously for a deliberate artificial broadcast from an alien civilization.",
+      "filename": "wow_signal_beat_2.wav"
+    },
+    {
+      "beat_id": "act2_beat1",
+      "act": 2,
+      "title": "Act 2 \u00b7 Earth's Rotation Window",
+      "start": 22.9,
+      "duration": 7.62,
+      "end": 30.52,
+      "text": "Big Ear was completely immobile. It had no steering motors, relying entirely on the Earth's rotation to sweep across the starry sky.",
+      "filename": "wow_signal_beat_3.wav"
+    },
+    {
+      "beat_id": "act2_beat2",
+      "act": 2,
+      "title": "Act 2 \u00b7 The 72-Second Bell Curve",
+      "start": 31.72,
+      "duration": 9.09,
+      "end": 40.81,
+      "text": "Because of its beam width, any genuine point source from deep space could only be heard for exactly seventy-two seconds, rising and falling in a textbook bell curve.",
+      "filename": "wow_signal_beat_4.wav"
+    },
+    {
+      "beat_id": "act3_beat1",
+      "act": 3,
+      "title": "Act 3 \u00b7 The Mainframe Printout",
+      "start": 42.31,
+      "duration": 7.96,
+      "end": 50.27,
+      "text": "A few days later, astronomer Jerry Ehman arrived to review stacks of tractor-feed paper from the IBM 1130 mainframe.",
+      "filename": "wow_signal_beat_5.wav"
+    },
+    {
+      "beat_id": "act3_beat2",
+      "act": 3,
+      "title": "Act 3 \u00b7 The 6EQUJ5 Surge",
+      "start": 51.47,
+      "duration": 12.12,
+      "end": 63.59,
+      "text": "Amidst the random background noise of ones and twos, channel two suddenly spiked into letters: six, E, Q, U, J, five. A signal thirty times stronger than deep space background radiation.",
+      "filename": "wow_signal_beat_6.wav"
+    },
+    {
+      "beat_id": "act3_beat3",
+      "act": 3,
+      "title": "Act 3 \u00b7 The Hydrogen Line",
+      "start": 64.89,
+      "duration": 13.89,
+      "end": 78.78,
+      "text": "Even more astonishing, it was broadcasting at 1420.405 megahertz: the exact emission frequency of neutral hydrogen, the cosmic waterhole where alien civilizations would theoretically transmit.",
+      "filename": "wow_signal_beat_7.wav"
+    },
+    {
+      "beat_id": "act4_beat1",
+      "act": 4,
+      "title": "Act 4 \u00b7 The Red Pen & The 'Wow!'",
+      "start": 80.28,
+      "duration": 6.98,
+      "end": 87.26,
+      "text": "Stunned, Jerry grabbed a red Pilot pen, circled the six characters, and scribbled a single word in the margin: Wow!",
+      "filename": "wow_signal_beat_8.wav"
+    },
+    {
+      "beat_id": "act4_beat2",
+      "act": 4,
+      "title": "Act 4 \u00b7 Failed Hypotheses",
+      "start": 88.56,
+      "duration": 11.39,
+      "end": 99.95,
+      "text": "For nearly half a century, astronomers tested every terrestrial explanation: classified military satellites, aircraft reflections, passing comets. Every single hypothesis failed.",
+      "filename": "wow_signal_beat_9.wav"
+    },
+    {
+      "beat_id": "act5_beat1",
+      "act": 5,
+      "title": "Act 5 \u00b7 The Silent Void",
+      "start": 101.45,
+      "duration": 9.62,
+      "end": 111.07,
+      "text": "The Very Large Array and Green Bank telescopes returned to those exact coordinates near Chi Sagittarii over a hundred times. The patch of sky was dead silent.",
+      "filename": "wow_signal_beat_10.wav"
+    },
+    {
+      "beat_id": "act5_beat2",
+      "act": 5,
+      "title": "Act 5 \u00b7 Cosmic Whisper",
+      "start": 112.37,
+      "duration": 6.4,
+      "end": 118.77,
+      "text": "A solitary seventy-two-second transmission, broadcast across thousands of light-years, never to be heard again.",
+      "filename": "wow_signal_beat_11.wav"
+    },
+    {
+      "beat_id": "outro_beat",
+      "act": 6,
+      "title": "Outro \u00b7 Investigation Unsolved",
+      "start": 119.97,
+      "duration": 5.12,
+      "end": 125.09,
+      "text": "The greatest unsolved mystery in the history of deep space astronomy. The Wow! Signal.",
+      "filename": "wow_signal_beat_12.wav"
+    }
+  ]
+}

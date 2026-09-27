@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>The Voynich Manuscript — Vox Visual Journalism Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=IBM+Plex+Mono:ital,wght@0,500;0,600;0,700;1,500&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #07090E;
+  --panel: #0E131E;
+  --ink: #FFFFFF;
+  --ink-dim: #94A3B8;
+  --yel: #FFDE38;
+  --red: #E11D48;
+  --cyan: #38BDF8;
+  --green: #22C55E;
+  --border: rgba(255, 255, 255, 0.14);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+html, body {
+  width: 100%; height: 100%;
+  background: #040508;
+  overflow: hidden;
+  font-family: "Barlow Condensed", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+/* 1080x1920 Stage Canvas */
+#stage {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 1080px; height: 1920px;
+  background: var(--bg);
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  box-shadow: 0 0 120px rgba(0, 0, 0, 0.98);
+}
+
+/* 35mm Archival Film Grain */
+.grain-overlay {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Vignette */
+.vignette {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 50%, rgba(4, 5, 8, 0.75) 100%);
+  z-index: 51;
+}
+
+/* Optical Transit Streak */
+#motionStreak {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 222, 56, 0.28) 50%, transparent 100%);
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 55;
+  opacity: 0;
+}
+
+/* Persistent Top Header Runner */
+#voxRunner {
+  position: absolute;
+  top: 70px; left: 60px; right: 60px;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(12, 16, 24, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0 24px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.60);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  z-index: 60;
+}
+#voxRunner .badge {
+  background: var(--yel);
+  color: #0A0D14;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+}
+#voxRunner .tag {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* 6-Scene Continuous Horizontal Runway */
+#runway {
+  position: absolute;
+  top: 0; left: 0;
+  width: 6480px; height: 1920px; /* 6 scenes x 1080px */
+  display: flex;
+  will-change: transform;
+}
+
+.scene-dossier {
+  position: relative;
+  width: 1080px; height: 1920px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Full Bleed Background Documents */
+.scene-bg-doc {
+  position: absolute;
+  inset: 0;
+  width: 1080px; height: 1920px;
+  object-fit: cover;
+  filter: brightness(0.62) contrast(1.18);
+  transform: scale(1.03);
+  transform-origin: center center;
+}
+
+/* Archival Source Tag */
+.source-tag {
+  position: absolute;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--yel);
+  background: rgba(10, 14, 22, 0.92);
+  padding: 6px 14px;
+  border-left: 4px solid var(--yel);
+  border-radius: 2px;
+  z-index: 25;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+.source-tag.red-accent {
+  color: var(--red);
+  border-left-color: var(--red);
+}
+.source-tag.cyan-accent {
+  color: var(--cyan);
+  border-left-color: var(--cyan);
+}
+
+/* Ghost Watermark Numbers */
+.ghost {
+  position: absolute;
+  font-weight: 900;
+  font-size: 210px;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.08);
+  text-align: center;
+  z-index: 5;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Specimen Cutout Sprites */
+.specimen-sprite {
+  position: absolute;
+  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.88));
+  will-change: transform;
+  z-index: 20;
+}
+.specimen-sprite img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+
+/* Specimen Details Label Tag */
+.spec-tag {
+  position: absolute;
+  padding: 6px 14px;
+  background: rgba(10, 14, 22, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #F8FAFC;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  border-radius: 4px;
+  z-index: 26;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Handwritten Editorial Notes */
+.hand-note {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--yel);
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.9));
+  z-index: 32;
+  white-space: nowrap;
+}
+.hand-note.red { color: var(--red); }
+.hand-note.cyan { color: var(--cyan); }
+
+/* Telemetry Data Counter Card */
+.telemetry-card {
+  position: absolute;
+  background: rgba(14, 19, 28, 0.96);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 26px;
+  box-shadow: var(--shadow);
+  z-index: 24;
+}
+.telemetry-card .t-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.telemetry-card .t-value {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--yel);
+  line-height: 0.95;
+}
+.telemetry-card .t-value.red { color: var(--red); }
+.telemetry-card .t-value.cyan { color: var(--cyan); }
+.telemetry-card .t-value.green { color: var(--green); }
+.telemetry-card .t-unit {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  margin-left: 8px;
+}
+
+/* Rubber Stamps */
+.rubber-stamp {
+  position: absolute;
+  padding: 8px 24px;
+  border: 5px solid var(--red);
+  border-radius: 8px;
+  color: var(--red);
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+  font-size: 38px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(10, 14, 22, 0.90);
+  box-shadow: 0 10px 30px rgba(225, 29, 72, 0.35);
+  z-index: 35;
+  white-space: nowrap;
+  opacity: 0;
+}
+.rubber-stamp.green {
+  border-color: var(--green);
+  color: var(--green);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.35);
+}
+.rubber-stamp.yellow {
+  border-color: var(--yel);
+  color: var(--yel);
+  box-shadow: 0 10px 30px rgba(255, 222, 56, 0.35);
+}
+
+/* Vox Punchy Editorial Headline Box (No Wall of Text!) */
+.vox-headline-box {
+  position: absolute;
+  left: 60px; right: 60px;
+  top: 1300px;
+  background: rgba(10, 14, 22, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-left: 6px solid var(--yel);
+  padding: 22px 28px;
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+  z-index: 40;
+  opacity: 0;
+}
+.vox-headline-box.red-border { border-left-color: var(--red); }
+.vox-headline-box.cyan-border { border-left-color: var(--cyan); }
+.vox-headline-box .h-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--yel);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.vox-headline-box.red-border .h-tag { color: var(--red); }
+.vox-headline-box.cyan-border .h-tag { color: var(--cyan); }
+.vox-headline-box .h-text {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+/* Sweeping Yellow / Red Highlighters */
+.hl {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  padding: 0 8px;
+  margin: 0 2px;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.hl i {
+  position: absolute;
+  left: 0; right: 0; top: 10%; bottom: 6%;
+  background: var(--yel);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: -1;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(255, 222, 56, 0.45);
+}
+.hl.r i {
+  background: var(--red);
+  box-shadow: 0 2px 10px rgba(225, 29, 72, 0.50);
+}
+.hl.c i {
+  background: var(--cyan);
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.50);
+}
+
+/* Dynamic Spoken TikTok Caption Pill (Compact & Precise) */
+#captionPillContainer {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  z-index: 65;
+  pointer-events: none;
+}
+#captionPill {
+  background: rgba(10, 14, 22, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 14px 32px;
+  border-radius: 999px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.85);
+  font-family: "Barlow Condensed", system-ui, sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.sub-word {
+  display: inline-block;
+  color: #E2E8F0;
+  transition: color 0.1s ease, transform 0.1s ease;
+}
+.sub-word.active {
+  color: var(--yel);
+  font-weight: 900;
+  transform: scale(1.12);
+  text-shadow: 0 0 20px rgba(255, 222, 56, 0.85);
+}
+.sub-word.past {
+  color: #94A3B8;
+}
+
+/* Outro Resolution Rubber Stamp */
+#outroBigStamp {
+  position: absolute;
+  top: 760px; left: 50%;
+  width: 880px; height: 320px;
+  transform: translate(-50%, 0) rotate(-6deg) scale(2.5);
+  opacity: 0;
+  z-index: 48;
+  filter: drop-shadow(0 20px 50px rgba(225, 29, 72, 0.85));
+}
+
+/* Intro Confidential Casefile Folder Card */
+#introOverlay {
+  position: absolute; inset: 0;
+  background: rgba(6, 8, 12, 0.92);
+  z-index: 70;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#introFolderCard {
+  width: 920px; height: 1360px;
+  position: relative;
+  background: #EAE3D2;
+  border-radius: 12px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  border: 2px solid #C8BC9F;
+}
+#introFolderCard .folder-tab {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 90px;
+  background: #DDD4C0;
+  border-bottom: 2px solid #C8BC9F;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #554D3E;
+  letter-spacing: 0.12em;
+}
+#introFolderCard .folder-body {
+  padding: 130px 60px 60px 60px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+#introFolderCard .folder-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 19px;
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+#introFolderCard .folder-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 84px;
+  font-weight: 900;
+  line-height: 0.95;
+  color: #1A1814;
+  letter-spacing: -0.02em;
+}
+#introFolderCard .folder-meta {
+  margin-top: 36px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 23px;
+  color: #4A4437;
+  line-height: 1.5;
+}
+#introFolderCard .folder-meta strong {
+  color: #1A1814;
+}
+#introTapeBar {
+  width: 100%; height: 130px;
+  background: var(--red);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.40);
+  transform-origin: center;
+}
+#introTapeBar span {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+  font-size: 46px;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <div class="grain-overlay"></div>
+  <div class="vignette"></div>
+  <div id="motionStreak"></div>
+
+  <!-- Intro Casefile Folder Overlay -->
+  <div id="introOverlay">
+    <div id="introFolderCard">
+      <div class="folder-tab">
+        <span>TOP SECRET // INVESTIGATION DOSSIER</span>
+        <span>YALE BEINECKE ARCHIVE</span>
+      </div>
+      <div class="folder-body">
+        <div>
+          <div class="folder-badge">EVIDENCE DOSSIER #08 · UNRESOLVED HISTORICAL CIPHER</div>
+          <div class="folder-title">
+            THE 600-YEAR-OLD CODE THAT EVEN MODERN AI CANNOT CRACK
+          </div>
+          <div class="folder-meta">
+            <strong>Artifact:</strong> Yale Beinecke Rare Book MS 408<br>
+            <strong>Carbon Chronology:</strong> 1404–1438 AD (Univ. of Arizona)<br>
+            <strong>Classification:</strong> 100% Undeciphered Historical Enigma
+          </div>
+        </div>
+        <div id="introTapeBar">
+          <span>UNSEALING RESTRICTED MANUSCRIPT ARCHIVE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Persistent Header Runner -->
+  <div id="voxRunner">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span class="badge">VOX INVESTIGATION</span>
+      <span class="tag" id="runnerDossier">DOSSIER #08: THE VOYNICH CIPHER</span>
+    </div>
+    <div id="runnerTimeline" style="color: var(--ink-dim); font-size: 18px;">1404 · BEINECKE MS 408</div>
+  </div>
+
+  <!-- 6-Scene Runway Container -->
+  <div id="runway">
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 1: THE MONASTERY DISCOVERY (X = 0)                                 -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene1">
+      <img class="scene-bg-doc" src="assets/episode8_voynich_manuscript/images/bg_monastery_library_vault.png" alt="Jesuit Vault">
+      <div class="source-tag" style="top: 175px; left: 70px;">JESUIT ARCHIVE // VILLA MONDRAGONE · 1912</div>
+      <div class="ghost" style="top: 180px; left: 70px; width: 940px;">1912</div>
+
+      <!-- Closed Vellum Book Hero Cutout -->
+      <div class="specimen-sprite" id="spBook" style="top: 270px; left: 140px; width: 800px; height: 480px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_voynich_closed_book.png" alt="Voynich Closed Book">
+      </div>
+
+      <!-- Red Wax Seal Broken -->
+      <div class="specimen-sprite" id="spWax" style="top: 240px; right: 90px; width: 220px; height: 220px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_red_wax_seal_broken.png" alt="Broken Wax Seal">
+      </div>
+
+      <!-- Quill & Inkwell -->
+      <div class="specimen-sprite" id="spQuill" style="top: 750px; left: 90px; width: 360px; height: 340px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_quill_ink_well.png" alt="Quill and Ink">
+      </div>
+
+      <!-- Open Spread Teaser -->
+      <div class="specimen-sprite" id="spOpenSpread1" style="top: 760px; right: 90px; width: 480px; height: 320px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_voynich_open_spread.png" alt="Open Folio Spread">
+      </div>
+
+      <div class="spec-tag" style="top: 700px; left: 110px;">BINDING: AGED CALFSKIN VELLUM</div>
+      <div class="spec-tag" style="top: 700px; right: 110px;">VOLUME: 240 FOLIO PAGES</div>
+
+      <!-- Handwritten Notes -->
+      <div class="hand-note" id="hn1_1" style="top: 650px; left: 140px; transform: rotate(-3deg);">
+        Found inside a Jesuit wooden chest!
+      </div>
+      <div class="hand-note cyan" id="hn1_2" style="top: 1110px; right: 110px; transform: rotate(2deg);">
+        Unbroken script never seen before!
+      </div>
+
+      <!-- Telemetry Card -->
+      <div class="telemetry-card" id="cardTelemetry1" style="top: 1120px; left: 70px; width: 440px;">
+        <div class="t-label">SURVIVING FOLIOS</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="t-value" id="valFolios">240</span>
+          <span class="t-unit">PAGES</span>
+        </div>
+      </div>
+
+      <!-- Rubber Stamp -->
+      <div class="rubber-stamp" id="stampArtifact" style="top: 1130px; right: 90px; transform: rotate(-8deg);">
+        AUTHENTIC ARTIFACT
+      </div>
+
+      <!-- Vox Headlines (Swapping cleanly without text clutter) -->
+      <div class="vox-headline-box" id="hlBox1_1">
+        <div class="h-tag">ROME, ITALY · 1912 DISCOVERY</div>
+        <div class="h-text">
+          Antique book dealer Wilfrid Voynich uncovered an <span class="hl" id="hl1_1"><i></i>unbreakable 600-year enigma.</span>
+        </div>
+      </div>
+
+      <div class="vox-headline-box cyan-border" id="hlBox1_2">
+        <div class="h-tag">THE UNKNOWN SCRIPT</div>
+        <div class="h-text">
+          240 illustrated folios written in a <span class="hl c" id="hl1_2"><i></i>completely unknown language.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 2: IMPOSSIBLE BOTANY & COSMOLOGY (X = -1080)                        -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene2">
+      <img class="scene-bg-doc" src="assets/episode8_voynich_manuscript/images/bg_botanical_herbal_folio.png" alt="Botanical Folio">
+      <div class="source-tag" style="top: 175px; left: 70px;">BOTANICAL SECTION // UNCLASSIFIED FLORA</div>
+      <div class="ghost" style="top: 180px; left: 70px; width: 940px;">FOLIO 42</div>
+
+      <!-- Alien Flower Cutout -->
+      <div class="specimen-sprite" id="spAlienFlower" style="top: 260px; left: 100px; width: 480px; height: 460px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_alien_flower_cutout.png" alt="Impossible Flower">
+      </div>
+
+      <!-- Vascular Leaf Cutout -->
+      <div class="specimen-sprite" id="spVascularLeaf" style="top: 280px; right: 90px; width: 380px; height: 420px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_alien_vascular_leaf.png" alt="Alien Leaf Structure">
+      </div>
+
+      <!-- Magnifying Glass -->
+      <div class="specimen-sprite" id="spMagnifier" style="top: 340px; right: 130px; width: 280px; height: 280px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_magnifying_glass.png" alt="Magnifying Glass">
+      </div>
+
+      <!-- Zodiac Star Wheel -->
+      <div class="specimen-sprite" id="spZodiac" style="top: 750px; left: 90px; width: 440px; height: 360px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_zodiac_star_wheel.png" alt="Zodiac Wheel">
+      </div>
+
+      <!-- Balneological Tubes -->
+      <div class="specimen-sprite" id="spTubes" style="top: 750px; right: 90px; width: 440px; height: 360px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_balneological_tubes.png" alt="Organic Plumbing">
+      </div>
+
+      <div class="spec-tag" style="top: 700px; left: 100px;">ROOT STRUCTURE: PREDATORY CLAWS</div>
+      <div class="spec-tag" style="top: 700px; right: 100px;">ZODIAC: UNMAPPED CONSTELLATIONS</div>
+
+      <!-- Handwritten Notes -->
+      <div class="hand-note" id="hn2_1" style="top: 650px; left: 140px; transform: rotate(-4deg);">
+        Roots shaped like animal claws!
+      </div>
+      <div class="hand-note cyan" id="hn2_2" style="top: 1110px; right: 110px; transform: rotate(2deg);">
+        Organic plumbing labyrinth!
+      </div>
+
+      <!-- Telemetry Card -->
+      <div class="telemetry-card" id="cardTelemetry2" style="top: 1120px; left: 70px; width: 460px;">
+        <div class="t-label">KNOWN EARTH SPECIES MATCH</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="t-value red" id="valPlantMatch">0%</span>
+          <span class="t-unit">OF 300+ TESTED</span>
+        </div>
+      </div>
+
+      <!-- Vox Headlines -->
+      <div class="vox-headline-box" id="hlBox2_1">
+        <div class="h-tag">IMPOSSIBLE BOTANY</div>
+        <div class="h-text">
+          Folios depict <span class="hl" id="hl2_1"><i></i>bizarre botanical hybrids</span> that do not exist on Earth.
+        </div>
+      </div>
+
+      <div class="vox-headline-box cyan-border" id="hlBox2_2">
+        <div class="h-tag">COSMOLOGICAL WHEELS</div>
+        <div class="h-text">
+          Cosmological star wheels and <span class="hl c" id="hl2_2"><i></i>unmapped zodiac constellations.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 3: THE HOAX ACCUSATION & ARIZONA DATING (X = -2160)                 -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene3">
+      <img class="scene-bg-doc" src="assets/episode8_voynich_manuscript/images/bg_accelerator_mass_spectrometry.png" alt="AMS Laboratory">
+      <div class="source-tag" style="top: 175px; left: 70px;">LABORATORY ANALYSIS // UNIV. OF ARIZONA AMS</div>
+      <div class="ghost" style="top: 180px; left: 70px; width: 940px;">1404 AD</div>
+
+      <!-- Arizona AMS Core Cutout -->
+      <div class="specimen-sprite" id="spAmsCore" style="top: 260px; left: 90px; width: 500px; height: 460px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_arizona_ams_core.png" alt="Arizona AMS Core">
+      </div>
+
+      <!-- Vintage Ruler Scale -->
+      <div class="specimen-sprite" id="spRuler" style="top: 310px; right: 90px; width: 380px; height: 380px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_vintage_ruler_scale.png" alt="Archival Ruler">
+      </div>
+
+      <!-- Carbon Dating Graph -->
+      <div class="specimen-sprite" id="spCarbonGraph" style="top: 750px; left: 90px; width: 900px; height: 350px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_carbon_dating_graph.png" alt="Carbon Dating Graph">
+      </div>
+
+      <div class="spec-tag" style="top: 700px; left: 110px;">TEST: ACCELERATOR MASS SPECTROMETRY</div>
+      <div class="spec-tag" style="top: 700px; right: 110px;">CONFIDENCE: 95% INTERVAL</div>
+
+      <!-- Handwritten Notes -->
+      <div class="hand-note red" id="hn3_1" style="top: 650px; left: 140px; transform: rotate(-3deg);">
+        Skeptics claimed Renaissance forgery!
+      </div>
+      <div class="hand-note" id="hn3_2" style="top: 1110px; right: 110px; transform: rotate(2deg);">
+        Genuinely 600 years old!
+      </div>
+
+      <!-- Telemetry Card -->
+      <div class="telemetry-card" id="cardTelemetry3" style="top: 1120px; left: 70px; width: 480px;">
+        <div class="t-label">CALIBRATED CARBON DATE</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="t-value" id="valCarbonDate">1404</span>
+          <span class="t-unit">– 1438 AD</span>
+        </div>
+      </div>
+
+      <!-- Rubber Stamp: Hoax Debunked -->
+      <div class="rubber-stamp green" id="stampDebunked" style="top: 1130px; right: 80px; transform: rotate(6deg);">
+        HOAX DEBUNKED
+      </div>
+
+      <!-- Vox Headlines -->
+      <div class="vox-headline-box red-border" id="hlBox3_1">
+        <div class="h-tag">THE HOAX THEORY</div>
+        <div class="h-text">
+          For nearly a century, skeptics called it an <span class="hl r" id="hl3_1"><i></i>elaborate Renaissance forgery.</span>
+        </div>
+      </div>
+
+      <div class="vox-headline-box" id="hlBox3_2">
+        <div class="h-tag">PHYSICS DISPROVES THE SKEPTICS</div>
+        <div class="h-text">
+          Physicists tested parchment samples using <span class="hl" id="hl3_2"><i></i>accelerator mass spectrometry.</span>
+        </div>
+      </div>
+
+      <div class="vox-headline-box" id="hlBox3_3">
+        <div class="h-tag">SCIENTIFIC VERDICT</div>
+        <div class="h-text">
+          The parchment was harvested <span class="hl" id="hl3_3"><i></i>between 1404 and 1438 AD.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 4: ZIPF'S LAW & LINGUISTIC ARCHITECTURE (X = -3240)                 -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene4">
+      <img class="scene-bg-doc" src="assets/episode8_voynich_manuscript/images/bg_ancient_vellum_parchment.png" alt="Ancient Parchment">
+      <div class="source-tag" style="top: 175px; left: 70px;">CRYPTANALYSIS // MATHEMATICAL FREQUENCY MODEL</div>
+      <div class="ghost" style="top: 180px; left: 70px; width: 940px;">ZIPF</div>
+
+      <!-- Zipf's Law Curve Cutout -->
+      <div class="specimen-sprite" id="spZipfCurve" style="top: 260px; left: 90px; width: 900px; height: 440px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_zipf_law_curve.png" alt="Zipf's Law Curve">
+      </div>
+
+      <!-- Alphabet Sample Cutout -->
+      <div class="specimen-sprite" id="spAlphabet" style="top: 740px; left: 90px; width: 900px; height: 360px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_voynich_alphabet_sample.png" alt="Voynich Alphabet">
+      </div>
+
+      <div class="spec-tag" style="top: 690px; left: 110px;">FREQUENCY SLOPE: -1.02</div>
+      <div class="spec-tag" style="top: 690px; right: 110px;">ENTROPY: NATURAL LANGUAGE PROFILE</div>
+
+      <!-- Handwritten Notes -->
+      <div class="hand-note" id="hn4_1" style="top: 640px; left: 140px; transform: rotate(-3deg);">
+        Matches genuine human speech!
+      </div>
+      <div class="hand-note cyan" id="hn4_2" style="top: 1110px; right: 110px; transform: rotate(2deg);">
+        Prefixes, roots, and suffixes!
+      </div>
+
+      <!-- Telemetry Card -->
+      <div class="telemetry-card" id="cardTelemetry4" style="top: 1120px; left: 70px; width: 440px;">
+        <div class="t-label">TOTAL CIPHER GLYPHS</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="t-value" id="valGlyphs">170,000</span>
+          <span class="t-unit">SIGNS</span>
+        </div>
+      </div>
+
+      <!-- Rubber Stamp: Zipf Confirmed -->
+      <div class="rubber-stamp yellow" id="stampZipf" style="top: 1130px; right: 80px; transform: rotate(-5deg);">
+        ZIPF'S LAW CONFIRMED
+      </div>
+
+      <!-- Vox Headlines -->
+      <div class="vox-headline-box" id="hlBox4_1">
+        <div class="h-tag">MATHEMATICAL PROOF</div>
+        <div class="h-text">
+          Statistical analysis proved the cipher strictly obeys <span class="hl" id="hl4_1"><i></i>Zipf's Law.</span>
+        </div>
+      </div>
+
+      <div class="vox-headline-box cyan-border" id="hlBox4_2">
+        <div class="h-tag">LINGUISTIC ARCHITECTURE</div>
+        <div class="h-text">
+          A rigorous grammar of prefixes and roots — <span class="hl c" id="hl4_2"><i></i>not random medieval noise.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 5: MILITARY CRYPTOGRAPHY & MODERN AI (X = -4320)                    -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene5">
+      <img class="scene-bg-doc" src="assets/episode8_voynich_manuscript/images/bg_ancient_vellum_parchment.png" alt="Ancient Parchment">
+      <div class="source-tag red-accent" style="top: 175px; left: 70px;">MILITARY CRYPTANALYSIS // NSA & AI LABS</div>
+      <div class="ghost" style="top: 180px; left: 70px; width: 940px;">NSA / AI</div>
+
+      <!-- William Friedman Portrait -->
+      <div class="specimen-sprite" id="spFriedman" style="top: 260px; left: 100px; width: 420px; height: 440px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_william_friedman_portrait.png" alt="William Friedman">
+      </div>
+
+      <!-- NSA Cryptanalysis Seal -->
+      <div class="specimen-sprite" id="spNsaSeal" style="top: 280px; right: 100px; width: 400px; height: 400px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_nsa_cryptanalysis_seal.png" alt="NSA Cryptanalysis Seal">
+      </div>
+
+      <!-- Neural Network Nodes -->
+      <div class="specimen-sprite" id="spNeuralNet" style="top: 740px; left: 90px; width: 900px; height: 360px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_neural_network_nodes.png" alt="Neural Network Nodes">
+      </div>
+
+      <div class="spec-tag" style="top: 690px; left: 110px;">WWII CODEBREAKERS: DEFEATED</div>
+      <div class="spec-tag" style="top: 690px; right: 110px;">NEURAL NETWORKS: ZERO SUCCESS</div>
+
+      <!-- Handwritten Notes -->
+      <div class="hand-note red" id="hn5_1" style="top: 640px; left: 140px; transform: rotate(-3deg);">
+        Friedman studied it for 30 years!
+      </div>
+      <div class="hand-note cyan" id="hn5_2" style="top: 1110px; right: 110px; transform: rotate(2deg);">
+        Even modern AI hit a wall!
+      </div>
+
+      <!-- Telemetry Card -->
+      <div class="telemetry-card" id="cardTelemetry5" style="top: 1120px; left: 70px; width: 480px;">
+        <div class="t-label">SOLVED ENCRYPTION KEYS</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="t-value red" id="valSolvedKeys">0</span>
+          <span class="t-unit">KEYS FOUND</span>
+        </div>
+      </div>
+
+      <!-- Rubber Stamp: Classified Cold Case -->
+      <div class="rubber-stamp" id="stampColdCase" style="top: 1130px; right: 80px; transform: rotate(-6deg);">
+        CLASSIFIED COLD CASE
+      </div>
+
+      <!-- Vox Headlines -->
+      <div class="vox-headline-box" id="hlBox5_1">
+        <div class="h-tag">THE CODEBREAKER FAILURE</div>
+        <div class="h-text">
+          US military cryptanalysts and <span class="hl" id="hl5_1"><i></i>modern neural networks</span> both hit a wall.
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 6: YALE BEINECKE VAULT & RESOLUTION (X = -5400)                    -->
+    <!-- ========================================================================= -->
+    <div class="scene-dossier" id="scene6">
+      <img class="scene-bg-doc" src="assets/episode8_voynich_manuscript/images/bg_beinecke_rare_book_vault.png" alt="Beinecke Rare Book Vault">
+      <div class="source-tag" style="top: 175px; left: 70px;">YALE ARCHIVE // BEINECKE RARE BOOK VAULT</div>
+      <div class="ghost" style="top: 180px; left: 70px; width: 940px;">UNSOLVED</div>
+
+      <!-- Beinecke Library Seal -->
+      <div class="specimen-sprite" id="spBeineckeSeal" style="top: 240px; left: 100px; width: 240px; height: 240px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_beinecke_library_seal.png" alt="Beinecke Seal">
+      </div>
+
+      <!-- Cardboard Archival Box -->
+      <div class="specimen-sprite" id="spArchiveBox" style="top: 230px; right: 100px; width: 340px; height: 280px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_cardboard_archival_box.png" alt="Archival Box">
+      </div>
+
+      <!-- Call Number Tag -->
+      <div class="specimen-sprite" id="spCallTag" style="top: 480px; right: 120px; width: 300px; height: 90px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_ms408_callnumber_tag.png" alt="MS 408 Tag">
+      </div>
+
+      <!-- Open Voynich Spread Hero -->
+      <div class="specimen-sprite" id="spFinalSpread" style="top: 550px; left: 80px; width: 920px; height: 580px;">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_voynich_open_spread.png" alt="Voynich Open Spread">
+      </div>
+
+      <!-- Outro Rubber Stamp Slammed on Folios -->
+      <div id="outroBigStamp">
+        <img src="assets/episode8_voynich_manuscript/images/sprite_stamp_case_unresolved.png" alt="Case Unresolved Stamp" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+
+      <!-- Handwritten Note -->
+      <div class="hand-note" id="hn6_1" style="top: 1060px; left: 90px; transform: rotate(-2deg);">
+        Vault Shelf MS 408 — Unbroken.
+      </div>
+
+      <!-- Telemetry Card -->
+      <div class="telemetry-card" id="cardTelemetry6" style="top: 1120px; right: 80px; width: 440px;">
+        <div class="t-label">DECIPHERED WORDS</div>
+        <div style="display: flex; align-items: baseline;">
+          <span class="t-value red" id="valDeciphered">0</span>
+          <span class="t-unit">TRANSLATED</span>
+        </div>
+      </div>
+
+      <!-- Vox Headlines -->
+      <div class="vox-headline-box" id="hlBox6_1">
+        <div class="h-tag">THE YALE ARCHIVE</div>
+        <div class="h-text">
+          Locked in Yale's rare book vault — <span class="hl" id="hl6_1"><i></i>a code that has defeated every mind.</span>
+        </div>
+      </div>
+
+      <div class="vox-headline-box red-border" id="hlBox6_2">
+        <div class="h-tag">FINAL VERDICT</div>
+        <div class="h-text">
+          Six centuries later, the Voynich code remains <span class="hl r" id="hl6_2"><i></i>entirely unsolved.</span>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- /#runway -->
+
+  <!-- Dynamic Spoken TikTok Caption Pill (Compact & Precise) -->
+  <div id="captionPillContainer">
+    <div id="captionPill">
+      <span id="captionWords">The Voynich Manuscript</span>
+    </div>
+  </div>
+
+</div> <!-- /#stage -->
+
+<audio id="audioTrack" src="assets/episode8_voynich_manuscript/audio/vo_voynich_cinematic.mp3" preload="auto"></audio>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+const W = 1080, H = 1920, DURATION = 152.923;
+
+/* Stage Auto-Scaler */
+function fitStage() {
+  const sx = window.innerWidth / W;
+  const sy = window.innerHeight / H;
+  const s = Math.min(sx, sy);
+  $('#stage').style.transform = `translate(-50%, -50%) scale(${s})`;
+}
+window.addEventListener('resize', fitStage);
+fitStage();
+
+/* Embedded Whisper Aligned Words */
+const ALIGNED_WORDS = [{"w":"In","s":0.0,"e":0.08,"b":1},{"w":"1912,","s":0.08,"e":0.88,"b":1},{"w":"deep","s":1.32,"e":1.62,"b":1},{"w":"inside","s":1.62,"e":2.04,"b":1},{"w":"a","s":2.04,"e":2.24,"b":1},{"w":"secluded","s":2.24,"e":2.56,"b":1},{"w":"Jesuit","s":2.56,"e":2.86,"b":1},{"w":"college","s":2.86,"e":3.38,"b":1},{"w":"near","s":3.38,"e":3.72,"b":1},{"w":"Rome,","s":3.72,"e":4.04,"b":1},{"w":"an","s":4.54,"e":4.58,"b":1},{"w":"antique","s":4.58,"e":4.84,"b":1},{"w":"book","s":4.84,"e":5.16,"b":1},{"w":"dealer","s":5.16,"e":5.34,"b":1},{"w":"named","s":5.34,"e":5.78,"b":1},{"w":"Wilfred","s":5.78,"e":6.24,"b":1},{"w":"Voynish","s":6.24,"e":6.7,"b":1},{"w":"uncovered","s":6.7,"e":7.18,"b":1},{"w":"an","s":7.18,"e":7.5,"b":1},{"w":"enigmatic","s":7.5,"e":7.7,"b":1},{"w":"manuscript","s":7.7,"e":8.58,"b":1},{"w":"bound","s":8.58,"e":9.04,"b":1},{"w":"in","s":9.04,"e":9.38,"b":1},{"w":"aged","s":9.38,"e":9.64,"b":1},{"w":"goat","s":9.64,"e":10.12,"b":1},{"w":"vellum.","s":10.12,"e":10.56,"b":1},{"w":"Inside","s":11.988,"e":12.328,"b":2},{"w":"were","s":12.328,"e":12.608,"b":2},{"w":"240","s":12.608,"e":12.848,"b":2},{"w":"illustrated","s":12.848,"e":13.888,"b":2},{"w":"pages,","s":13.888,"e":14.428,"b":2},{"w":"written","s":15.168,"e":15.228,"b":2},{"w":"in","s":15.228,"e":15.408,"b":2},{"w":"an","s":15.408,"e":15.508,"b":2},{"w":"elegant,","s":15.508,"e":15.808,"b":2},{"w":"unbroken","s":16.148,"e":16.508,"b":2},{"w":"script","s":16.508,"e":16.988,"b":2},{"w":"that","s":16.988,"e":17.248,"b":2},{"w":"no","s":17.248,"e":17.428,"b":2},{"w":"scholar","s":17.428,"e":17.808,"b":2},{"w":"historian","s":17.808,"e":18.228,"b":2},{"w":"or","s":18.228,"e":18.908,"b":2},{"w":"linguist","s":18.908,"e":19.408,"b":2},{"w":"on","s":19.408,"e":19.528,"b":2},{"w":"Earth","s":19.528,"e":19.788,"b":2},{"w":"had","s":19.788,"e":19.948,"b":2},{"w":"ever","s":19.948,"e":20.168,"b":2},{"w":"seen.","s":20.168,"e":20.488,"b":2},{"w":"Every","s":22.156,"e":22.356,"b":3},{"w":"folio","s":22.356,"e":22.816,"b":3},{"w":"was","s":22.816,"e":23.056,"b":3},{"w":"covered","s":23.056,"e":23.336,"b":3},{"w":"in","s":23.336,"e":23.576,"b":3},{"w":"hand","s":23.576,"e":23.776,"b":3},{"w":"-painted","s":23.776,"e":24.136,"b":3},{"w":"drawings","s":24.136,"e":24.496,"b":3},{"w":"of","s":24.496,"e":24.856,"b":3},{"w":"bizarre","s":24.856,"e":25.016,"b":3},{"w":"plants,","s":25.016,"e":25.676,"b":3},{"w":"impossible","s":25.976,"e":26.496,"b":3},{"w":"botanical","s":26.496,"e":27.196,"b":3},{"w":"hybrids","s":27.196,"e":27.596,"b":3},{"w":"with","s":27.596,"e":28.016,"b":3},{"w":"roots","s":28.016,"e":28.256,"b":3},{"w":"shaped","s":28.256,"e":28.656,"b":3},{"w":"like","s":28.656,"e":29.016,"b":3},{"w":"claws","s":29.016,"e":29.316,"b":3},{"w":"and","s":29.316,"e":29.696,"b":3},{"w":"leaves","s":29.696,"e":29.876,"b":3},{"w":"with","s":29.876,"e":30.256,"b":3},{"w":"unnatural","s":30.256,"e":30.616,"b":3},{"w":"vascular","s":30.616,"e":31.176,"b":3},{"w":"systems.","s":31.176,"e":31.876,"b":3},{"w":"Not","s":32.696,"e":32.736,"b":3},{"w":"a","s":32.736,"e":32.856,"b":3},{"w":"single","s":32.856,"e":33.036,"b":3},{"w":"plant","s":33.036,"e":33.476,"b":3},{"w":"exists","s":33.476,"e":33.716,"b":3},{"w":"in","s":33.716,"e":34.156,"b":3},{"w":"nature.","s":34.156,"e":34.376,"b":3},{"w":"Other","s":36.021,"e":36.221,"b":4},{"w":"fold","s":36.221,"e":36.421,"b":4},{"w":"-outs","s":36.421,"e":36.761,"b":4},{"w":"revealed","s":36.761,"e":37.101,"b":4},{"w":"cosmological","s":37.101,"e":38.041,"b":4},{"w":"star","s":38.041,"e":38.401,"b":4},{"w":"wheels,","s":38.401,"e":38.781,"b":4},{"w":"unknown","s":39.321,"e":39.621,"b":4},{"w":"zodiac","s":39.621,"e":40.441,"b":4},{"w":"constellations,","s":40.441,"e":41.281,"b":4},{"w":"and","s":41.721,"e":41.881,"b":4},{"w":"miniature","s":41.881,"e":42.121,"b":4},{"w":"figures","s":42.121,"e":42.481,"b":4},{"w":"floating","s":42.481,"e":42.901,"b":4},{"w":"through","s":42.901,"e":43.301,"b":4},{"w":"intricate","s":43.301,"e":43.641,"b":4},{"w":"labyrinths","s":43.641,"e":44.361,"b":4},{"w":"of","s":44.361,"e":44.461,"b":4},{"w":"organic","s":44.461,"e":44.741,"b":4},{"w":"plumbing","s":44.741,"e":45.281,"b":4},{"w":"tubes.","s":45.281,"e":45.561,"b":4},{"w":"For","s":47.505,"e":47.605,"b":5},{"w":"nearly","s":47.605,"e":47.765,"b":5},{"w":"a","s":47.765,"e":47.985,"b":5},{"w":"century,","s":47.985,"e":48.485,"b":5},{"w":"skeptics","s":49.085,"e":49.085,"b":5},{"w":"insisted","s":49.085,"e":49.485,"b":5},{"w":"the","s":49.485,"e":49.965,"b":5},{"w":"entire","s":49.965,"e":50.205,"b":5},{"w":"manuscript","s":50.205,"e":50.785,"b":5},{"w":"was","s":50.785,"e":51.365,"b":5},{"w":"an","s":51.365,"e":51.485,"b":5},{"w":"elaborate","s":51.485,"e":51.765,"b":5},{"w":"Renaissance","s":51.765,"e":52.245,"b":5},{"w":"hoax,","s":52.245,"e":52.805,"b":5},{"w":"forged","s":53.345,"e":53.565,"b":5},{"w":"by","s":53.565,"e":53.905,"b":5},{"w":"alchemists","s":53.905,"e":54.605,"b":5},{"w":"to","s":54.605,"e":54.805,"b":5},{"w":"swindle","s":54.805,"e":55.145,"b":5},{"w":"wealthy","s":55.145,"e":55.385,"b":5},{"w":"emperors","s":55.385,"e":56.025,"b":5},{"w":"out","s":56.025,"e":56.325,"b":5},{"w":"of","s":56.325,"e":56.445,"b":5},{"w":"gold.","s":56.445,"e":56.625,"b":5},{"w":"until","s":58.341,"e":58.561,"b":6},{"w":"2009.","s":58.561,"e":59.621,"b":6},{"w":"Physicists","s":60.241,"e":60.801,"b":6},{"w":"at","s":60.801,"e":60.921,"b":6},{"w":"the","s":60.921,"e":61.001,"b":6},{"w":"University","s":61.001,"e":61.441,"b":6},{"w":"of","s":61.441,"e":61.801,"b":6},{"w":"Arizona","s":61.801,"e":62.201,"b":6},{"w":"extracted","s":62.201,"e":62.801,"b":6},{"w":"four","s":62.801,"e":63.361,"b":6},{"w":"micro","s":63.361,"e":63.681,"b":6},{"w":"samples","s":63.681,"e":64.001,"b":6},{"w":"of","s":64.001,"e":64.401,"b":6},{"w":"the","s":64.401,"e":64.501,"b":6},{"w":"calfskin","s":64.501,"e":64.941,"b":6},{"w":"parchment","s":64.941,"e":65.201,"b":6},{"w":"for","s":65.201,"e":65.881,"b":6},{"w":"accelerator","s":65.881,"e":66.281,"b":6},{"w":"mass","s":66.281,"e":66.701,"b":6},{"w":"spectrometry","s":66.701,"e":67.581,"b":6},{"w":"radiocarbon","s":67.581,"e":68.221,"b":6},{"w":"dating.","s":68.221,"e":68.561,"b":6},{"w":"The","s":70.223,"e":70.303,"b":7},{"w":"scientific","s":70.303,"e":70.603,"b":7},{"w":"verdict","s":70.603,"e":71.063,"b":7},{"w":"was","s":71.063,"e":71.463,"b":7},{"w":"indisputable.","s":71.463,"e":72.143,"b":7},{"w":"The","s":72.763,"e":72.783,"b":7},{"w":"vellum","s":72.783,"e":73.083,"b":7},{"w":"was","s":73.083,"e":73.183,"b":7},{"w":"prepared","s":73.183,"e":73.483,"b":7},{"w":"between","s":73.483,"e":73.903,"b":7},{"w":"1","s":73.903,"e":74.243,"b":7},{"w":",404","s":74.243,"e":74.883,"b":7},{"w":"and","s":74.883,"e":75.863,"b":7},{"w":"1","s":75.863,"e":76.083,"b":7},{"w":",438.","s":76.083,"e":77.023,"b":7},{"w":"The","s":78.103,"e":78.263,"b":7},{"w":"Voynish","s":78.263,"e":78.643,"b":7},{"w":"manuscript","s":78.643,"e":78.903,"b":7},{"w":"is","s":78.903,"e":79.483,"b":7},{"w":"genuinely","s":79.483,"e":79.903,"b":7},{"w":"600","s":79.903,"e":80.343,"b":7},{"w":"years","s":80.343,"e":80.803,"b":7},{"w":"old.","s":80.803,"e":81.123,"b":7},{"w":"If","s":82.901,"e":82.961,"b":8},{"w":"it","s":82.961,"e":83.041,"b":8},{"w":"was","s":83.041,"e":83.161,"b":8},{"w":"a","s":83.161,"e":83.281,"b":8},{"w":"hoax,","s":83.281,"e":83.461,"b":8},{"w":"its","s":84.001,"e":84.141,"b":8},{"w":"author","s":84.141,"e":84.321,"b":8},{"w":"was","s":84.321,"e":84.561,"b":8},{"w":"centuries","s":84.561,"e":84.781,"b":8},{"w":"ahead","s":84.781,"e":85.321,"b":8},{"w":"of","s":85.321,"e":85.401,"b":8},{"w":"modern","s":85.401,"e":85.561,"b":8},{"w":"science.","s":85.561,"e":86.261,"b":8},{"w":"Statistical","s":86.721,"e":87.041,"b":8},{"w":"analysis","s":87.041,"e":87.721,"b":8},{"w":"proved","s":87.721,"e":88.201,"b":8},{"w":"the","s":88.201,"e":88.461,"b":8},{"w":"text","s":88.461,"e":88.661,"b":8},{"w":"strictly","s":88.661,"e":89.101,"b":8},{"w":"obeys","s":89.101,"e":89.861,"b":8},{"w":"Zipp's","s":89.861,"e":90.241,"b":8},{"w":"law,","s":90.241,"e":90.441,"b":8},{"w":"matching","s":90.941,"e":91.281,"b":8},{"w":"the","s":91.281,"e":91.461,"b":8},{"w":"exact","s":91.461,"e":91.681,"b":8},{"w":"mathematical","s":91.681,"e":92.481,"b":8},{"w":"frequency","s":92.481,"e":93.021,"b":8},{"w":"distribution","s":93.021,"e":93.721,"b":8},{"w":"of","s":93.721,"e":94.241,"b":8},{"w":"genuine","s":94.241,"e":94.581,"b":8},{"w":"spoken","s":94.581,"e":94.981,"b":8},{"w":"languages.","s":94.981,"e":95.601,"b":8},{"w":"The","s":97.279,"e":97.359,"b":9},{"w":"words","s":97.359,"e":97.519,"b":9},{"w":"follow","s":97.519,"e":97.899,"b":9},{"w":"strict","s":97.899,"e":98.279,"b":9},{"w":"grammatical","s":98.279,"e":98.939,"b":9},{"w":"rules,","s":98.939,"e":99.359,"b":9},{"w":"complete","s":99.719,"e":100.079,"b":9},{"w":"with","s":100.079,"e":100.259,"b":9},{"w":"prefixes,","s":100.259,"e":100.879,"b":9},{"w":"roots,","s":101.119,"e":101.279,"b":9},{"w":"and","s":101.619,"e":101.679,"b":9},{"w":"suffixes.","s":101.679,"e":102.259,"b":9},{"w":"Mathematically","s":102.919,"e":103.619,"b":9},{"w":"it","s":103.619,"e":103.939,"b":9},{"w":"is","s":103.939,"e":104.039,"b":9},{"w":"virtually","s":104.039,"e":104.319,"b":9},{"w":"impossible","s":104.319,"e":104.839,"b":9},{"w":"for","s":104.839,"e":105.319,"b":9},{"w":"these","s":105.319,"e":105.439,"b":9},{"w":"170","s":105.439,"e":105.779,"b":9},{"w":",000","s":105.779,"e":107.039,"b":9},{"w":"glyphs","s":107.039,"e":108.199,"b":9},{"w":"to","s":108.199,"e":108.279,"b":9},{"w":"be","s":108.279,"e":108.379,"b":9},{"w":"random","s":108.379,"e":108.719,"b":9},{"w":"medieval","s":108.719,"e":109.139,"b":9},{"w":"gibberish.","s":109.139,"e":109.899,"b":9},{"w":"During","s":111.6,"e":111.78,"b":10},{"w":"World","s":111.78,"e":111.98,"b":10},{"w":"War","s":111.98,"e":112.34,"b":10},{"w":"II,","s":112.34,"e":112.68,"b":10},{"w":"William","s":113.02,"e":113.34,"b":10},{"w":"Friedman,","s":113.34,"e":113.62,"b":10},{"w":"the","s":114.18,"e":114.3,"b":10},{"w":"legendary","s":114.3,"e":114.56,"b":10},{"w":"cryptanalyst","s":114.56,"e":115.46,"b":10},{"w":"who","s":115.46,"e":115.68,"b":10},{"w":"broke","s":115.68,"e":115.86,"b":10},{"w":"Japan's","s":115.86,"e":116.46,"b":10},{"w":"purple","s":116.46,"e":116.64,"b":10},{"w":"cipher,","s":116.64,"e":117.04,"b":10},{"w":"dedicated","s":117.58,"e":117.86,"b":10},{"w":"30","s":117.86,"e":118.36,"b":10},{"w":"years","s":118.36,"e":118.78,"b":10},{"w":"trying","s":118.78,"e":119.1,"b":10},{"w":"to","s":119.1,"e":119.3,"b":10},{"w":"decipher","s":119.3,"e":119.48,"b":10},{"w":"the","s":119.48,"e":119.92,"b":10},{"w":"book.","s":119.92,"e":120.06,"b":10},{"w":"He","s":120.7,"e":120.84,"b":10},{"w":"died","s":120.84,"e":121.04,"b":10},{"w":"without","s":121.04,"e":121.34,"b":10},{"w":"decoding","s":121.34,"e":121.66,"b":10},{"w":"a","s":121.66,"e":122.06,"b":10},{"w":"single","s":122.06,"e":122.22,"b":10},{"w":"word.","s":122.22,"e":122.68,"b":10},{"w":"Decades","s":124.249,"e":124.689,"b":11},{"w":"later,","s":124.689,"e":124.949,"b":11},{"w":"the","s":125.289,"e":125.429,"b":11},{"w":"National","s":125.429,"e":125.609,"b":11},{"w":"Security","s":125.609,"e":126.069,"b":11},{"w":"Agency,","s":126.069,"e":126.809,"b":11},{"w":"quantum","s":127.169,"e":127.389,"b":11},{"w":"computing","s":127.389,"e":128.009,"b":11},{"w":"clusters,","s":128.009,"e":128.329,"b":11},{"w":"and","s":128.849,"e":128.929,"b":11},{"w":"modern","s":128.929,"e":129.129,"b":11},{"w":"neural","s":129.129,"e":129.469,"b":11},{"w":"network","s":129.469,"e":129.889,"b":11},{"w":"language","s":129.889,"e":130.449,"b":11},{"w":"models","s":130.449,"e":130.809,"b":11},{"w":"were","s":130.809,"e":131.109,"b":11},{"w":"unleashed","s":131.109,"e":131.409,"b":11},{"w":"on","s":131.409,"e":131.769,"b":11},{"w":"the","s":131.769,"e":131.889,"b":11},{"w":"text.","s":131.889,"e":132.109,"b":11},{"w":"Every","s":132.889,"e":132.949,"b":11},{"w":"single","s":132.949,"e":133.249,"b":11},{"w":"model","s":133.249,"e":133.709,"b":11},{"w":"collapsed","s":133.709,"e":133.969,"b":11},{"w":"into","s":133.969,"e":134.489,"b":11},{"w":"statistical","s":134.489,"e":134.989,"b":11},{"w":"contradictions.","s":134.989,"e":135.609,"b":11},{"w":"Today,","s":137.675,"e":137.895,"b":12},{"w":"cataloged","s":138.295,"e":139.015,"b":12},{"w":"as","s":139.015,"e":139.135,"b":12},{"w":"MS","s":139.135,"e":139.275,"b":12},{"w":"-408,","s":139.275,"e":139.915,"b":12},{"w":"it","s":140.455,"e":140.655,"b":12},{"w":"rests","s":140.655,"e":140.835,"b":12},{"w":"locked","s":140.835,"e":141.255,"b":12},{"w":"inside","s":141.255,"e":141.595,"b":12},{"w":"the","s":141.595,"e":141.895,"b":12},{"w":"climate","s":141.895,"e":142.155,"b":12},{"w":"-controlled","s":142.155,"e":142.655,"b":12},{"w":"vault","s":142.655,"e":143.075,"b":12},{"w":"of","s":143.075,"e":143.335,"b":12},{"w":"Yale","s":143.335,"e":143.495,"b":12},{"w":"University's","s":143.495,"e":144.395,"b":12},{"w":"Banach","s":144.395,"e":144.755,"b":12},{"w":"Library.","s":144.755,"e":145.115,"b":12},{"w":"Six","s":145.975,"e":146.135,"b":12},{"w":"centuries","s":146.135,"e":146.555,"b":12},{"w":"of","s":146.555,"e":146.795,"b":12},{"w":"human","s":146.795,"e":147.035,"b":12},{"w":"intelligence","s":147.035,"e":147.375,"b":12},{"w":"and","s":147.375,"e":148.135,"b":12},{"w":"the","s":148.135,"e":148.255,"b":12},{"w":"Voynish","s":148.255,"e":148.655,"b":12},{"w":"cipher","s":148.655,"e":148.855,"b":12},{"w":"remains","s":148.855,"e":149.335,"b":12},{"w":"completely","s":149.335,"e":149.935,"b":12},{"w":"unbroken.","s":149.935,"e":150.535,"b":12}];
+
+/* Group Aligned Words into 3-5 Word Phrase Chunks */
+const CHUNKS = [];
+let curChunk = [];
+let curChars = 0;
+for (const w of ALIGNED_WORDS) {
+  curChunk.push(w);
+  curChars += w.w.length + 1;
+  const isPunc = /[.!?]$/.test(w.w);
+  if (curChunk.length >= 4 || curChars >= 28 || isPunc) {
+    CHUNKS.push({
+      start: curChunk[0].s,
+      end: curChunk[curChunk.length - 1].e,
+      words: curChunk
+    });
+    curChunk = [];
+    curChars = 0;
+  }
+}
+if (curChunk.length) {
+  CHUNKS.push({
+    start: curChunk[0].s,
+    end: curChunk[curChunk.length - 1].e,
+    words: curChunk
+  });
+}
+
+/* Dynamic Caption Pill Update Engine */
+const captionPill = $('#captionPill');
+const captionWords = $('#captionWords');
+
+function updateDynamicSubtitles(t) {
+  // Find current chunk
+  const chunk = CHUNKS.find(c => t >= c.start - 0.05 && t <= c.end + 0.35);
+  if (!chunk) {
+    // If between beats, hide or dim
+    captionPill.style.opacity = '0';
+    return;
+  }
+  captionPill.style.opacity = '1';
+
+  // Build words HTML with active highlight
+  let html = '';
+  for (const w of chunk.words) {
+    const isActive = (t >= w.s && t <= w.e);
+    const isPast = (t > w.e);
+    const cls = isActive ? 'sub-word active' : (isPast ? 'sub-word past' : 'sub-word');
+    html += `<span class="${cls}">${w.w}</span> `;
+  }
+  captionWords.innerHTML = html;
+}
+
+/* GSAP Choreography Timeline */
+const tl = gsap.timeline({ paused: true });
+const runway = $('#runway');
+
+/* Camera Transition Helper */
+function glideTo(startTime, targetX, dur = 1.1) {
+  tl.to(runway, {
+    x: targetX,
+    duration: dur,
+    ease: 'power3.inOut'
+  }, startTime);
+
+  // Optical motion streak
+  tl.fromTo('#motionStreak', { opacity: 0, x: '-100%' }, { opacity: 0.65, x: '100%', duration: dur * 0.7, ease: 'power2.inOut' }, startTime + dur * 0.15);
+  tl.to('#motionStreak', { opacity: 0, duration: 0.2 }, startTime + dur * 0.85);
+}
+
+/* Headline Swap Helper */
+function showHeadline(sel, startTime, hlSel) {
+  tl.fromTo(sel, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, startTime);
+  if (hlSel) {
+    tl.fromTo(`${hlSel} i`, { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: 'power3.out' }, startTime + 0.45);
+  }
+}
+function hideHeadline(sel, startTime) {
+  tl.to(sel, { opacity: 0, y: -20, duration: 0.35, ease: 'power2.in' }, startTime);
+}
+
+/* Stamp Slam Helper */
+function slamStamp(sel, startTime) {
+  tl.fromTo(sel, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.25, ease: 'power4.in' }, startTime);
+}
+
+/* --------------------------------------------------------------------------
+   BUILD MASTER CHOREOGRAPHY (152.92s)
+   -------------------------------------------------------------------------- */
+
+// =========================================================================
+// 0. INTRO CONFIDENTIAL DOSSIER UNSEALING (0.0s - 1.6s)
+// =========================================================================
+tl.set("#introOverlay", { opacity: 1, display: "flex" }, 0);
+tl.to("#introTapeBar", { scaleX: 0, opacity: 0, duration: 0.65, ease: "power3.inOut" }, 0.6);
+tl.to("#introFolderCard", { scale: 1.14, opacity: 0, duration: 0.75, ease: "power2.inOut" }, 1.0);
+tl.to("#introOverlay", { opacity: 0, duration: 0.4, onComplete: () => {
+  const o = document.getElementById("introOverlay");
+  if (o) o.style.display = "none";
+} }, 1.4);
+
+// --- SCENE 1 (0.0s - 21.0s) [X = 0] ---
+tl.set(runway, { x: 0 }, 0);
+
+// Sprites Entrance (Enters cleanly and stays anchored, ZERO wobbling/shake)
+tl.fromTo('#spBook', { opacity: 0, y: 70, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' }, 1.2);
+tl.fromTo('#spWax', { opacity: 0, scale: 1.4, rotate: -15 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.7, ease: 'back.out(1.4)' }, 1.5);
+tl.fromTo('#spQuill', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, 1.8);
+tl.fromTo('#spOpenSpread1', { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, 2.0);
+tl.fromTo('#hn1_1', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 2.4);
+
+// Telemetry & Stamp
+tl.fromTo('#cardTelemetry1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 3.0);
+slamStamp('#stampArtifact', 4.5);
+
+// Beat 1 Headline (0.0s - 10.69s) - appears cleanly at 1.4s right after folder unseals
+showHeadline('#hlBox1_1', 1.4, '#hl1_1');
+hideHeadline('#hlBox1_1', 10.8);
+
+// Beat 2 Headline (11.99s - 20.76s)
+tl.fromTo('#hn1_2', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 12.4);
+showHeadline('#hlBox1_2', 12.0, '#hl1_2');
+hideHeadline('#hlBox1_2', 20.8);
+
+// --- TRANSITION TO SCENE 2 (20.8s - 22.0s) ---
+glideTo(20.8, -1080, 1.2);
+
+// --- SCENE 2 (22.0s - 46.5s) [X = -1080] ---
+tl.fromTo('#spAlienFlower', { opacity: 0, y: 80, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 1.0, ease: 'power3.out' }, 22.2);
+tl.fromTo('#spVascularLeaf', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, 22.8);
+tl.fromTo('#spMagnifier', { opacity: 0, scale: 0.7, rotate: -15 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.8, ease: 'back.out(1.4)' }, 23.4);
+tl.fromTo('#hn2_1', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 24.0);
+
+tl.fromTo('#spZodiac', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 25.0);
+tl.fromTo('#spTubes', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 25.6);
+tl.fromTo('#cardTelemetry2', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 26.5);
+
+// Beat 3 Headline (22.16s - 34.72s)
+showHeadline('#hlBox2_1', 22.4, '#hl2_1');
+hideHeadline('#hlBox2_1', 34.8);
+
+// Beat 4 Headline (36.02s - 46.00s)
+tl.fromTo('#hn2_2', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 36.6);
+showHeadline('#hlBox2_2', 36.2, '#hl2_2');
+hideHeadline('#hlBox2_2', 46.2);
+
+// --- TRANSITION TO SCENE 3 (46.2s - 47.4s) ---
+glideTo(46.2, -2160, 1.2);
+
+// --- SCENE 3 (47.4s - 81.9s) [X = -2160] ---
+tl.fromTo('#spAmsCore', { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, 47.6);
+tl.fromTo('#spRuler', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, 48.2);
+tl.fromTo('#hn3_1', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 48.8);
+
+// Beat 5 Headline (47.51s - 57.04s)
+showHeadline('#hlBox3_1', 47.6, '#hl3_1');
+hideHeadline('#hlBox3_1', 57.2);
+
+// Beat 6: AMS Test (58.34s - 68.92s)
+tl.fromTo('#spCarbonGraph', { opacity: 0, y: 60, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' }, 58.4);
+showHeadline('#hlBox3_2', 58.4, '#hl3_2');
+hideHeadline('#hlBox3_2', 69.0);
+
+// Beat 7: Indisputable 1404-1438 (70.22s - 81.40s)
+tl.fromTo('#cardTelemetry3', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 70.4);
+slamStamp('#stampDebunked', 72.0);
+tl.fromTo('#hn3_2', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 72.8);
+showHeadline('#hlBox3_3', 70.4, '#hl3_3');
+hideHeadline('#hlBox3_3', 81.5);
+
+// --- TRANSITION TO SCENE 4 (81.5s - 82.8s) ---
+glideTo(81.5, -3240, 1.3);
+
+// --- SCENE 4 (82.8s - 109.9s) [X = -3240] ---
+tl.fromTo('#spZipfCurve', { opacity: 0, y: 70, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 1.0, ease: 'power3.out' }, 83.0);
+tl.fromTo('#spAlphabet', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 84.0);
+tl.fromTo('#hn4_1', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 84.8);
+slamStamp('#stampZipf', 86.5);
+tl.fromTo('#cardTelemetry4', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 87.5);
+
+// Beat 8 Headline (82.90s - 95.98s)
+showHeadline('#hlBox4_1', 83.0, '#hl4_1');
+hideHeadline('#hlBox4_1', 96.0);
+
+// Beat 9 Headline (97.28s - 109.38s)
+tl.fromTo('#hn4_2', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 97.8);
+showHeadline('#hlBox4_2', 97.4, '#hl4_2');
+hideHeadline('#hlBox4_2', 109.5);
+
+// --- TRANSITION TO SCENE 5 (109.5s - 110.6s) ---
+glideTo(109.5, -4320, 1.1);
+
+// --- SCENE 5 (110.6s - 124.9s) [X = -4320] ---
+tl.fromTo('#spFriedman', { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, 110.8);
+tl.fromTo('#spNsaSeal', { opacity: 0, scale: 0.8, rotate: 10 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.8, ease: 'back.out(1.5)' }, 111.4);
+tl.fromTo('#spNeuralNet', { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, 112.2);
+tl.fromTo('#hn5_1', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 113.0);
+tl.fromTo('#cardTelemetry5', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 114.2);
+slamStamp('#stampColdCase', 115.5);
+tl.fromTo('#hn5_2', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 116.2);
+
+// Beat 10 Headline (110.68s - 124.50s)
+showHeadline('#hlBox5_1', 110.8, '#hl5_1');
+hideHeadline('#hlBox5_1', 124.6);
+
+// --- TRANSITION TO SCENE 6 (124.6s - 125.8s) ---
+glideTo(124.6, -5400, 1.2);
+
+// --- SCENE 6 (125.8s - 152.92s) [X = -5400] ---
+tl.fromTo('#spBeineckeSeal', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'back.out' }, 126.0);
+tl.fromTo('#spArchiveBox', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 126.6);
+tl.fromTo('#spCallTag', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 127.2);
+tl.fromTo('#spFinalSpread', { opacity: 0, y: 80, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 1.0, ease: 'power3.out' }, 127.8);
+tl.fromTo('#cardTelemetry6', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 129.0);
+tl.fromTo('#hn6_1', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out' }, 129.8);
+
+// Beat 11 Headline (125.80s - 138.80s)
+showHeadline('#hlBox6_1', 126.0, '#hl6_1');
+hideHeadline('#hlBox6_1', 139.0);
+
+// Beat 12 Headline & Final Stamp Slam (140.10s - 152.92s)
+showHeadline('#hlBox6_2', 140.2, '#hl6_2');
+// Climax Rubber Stamp Slam
+tl.fromTo('#outroBigStamp', { opacity: 0, scale: 2.5, rotate: -15 }, { opacity: 1, scale: 1, rotate: -6, duration: 0.28, ease: 'power4.in' }, 143.5);
+
+/* Headless Puppeteer Seek Hook */
+window.BANG_MOTION = {
+  ready: true,
+  seekFrame: function(t) {
+    tl.pause(t, false);
+    updateDynamicSubtitles(t);
+  },
+  duration: DURATION
+};
+
+/* Interactive Autoplay & Audio Sync */
+const audio = $('#audioTrack');
+let isPlaying = false;
+
+function playVideo() {
+  tl.play(0);
+  audio.currentTime = 0;
+  audio.play().then(() => isPlaying = true).catch(() => {});
+}
+
+window.addEventListener('click', () => {
+  if (!isPlaying) {
+    playVideo();
+  } else {
+    tl.paused(!tl.paused());
+    if (tl.paused()) audio.pause(); else audio.play();
+  }
+});
+
+gsap.ticker.add(() => {
+  const t = tl.time();
+  updateDynamicSubtitles(t);
+  if (isPlaying && !tl.paused()) {
+    if (Math.abs(audio.currentTime - t) > 0.15) {
+      audio.currentTime = t;
+    }
+  }
+});
+</script>
+</body>
+</html>
