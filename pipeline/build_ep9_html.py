@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""build_ep9_html.py — Build bright, warm, fun editorial documentary film for Episode 9:
+"""build_ep9_html.py — Build fun, bright, faceless Islamic editorial documentary film for Episode 9:
 The Father's Brain // Ar-Ra'i (Science & Prophetic Ethics of Active Fatherhood).
-English Edition featuring transparent AI-generated sprites, light parchment canvas,
-and crisp editorial infographics.
+English Edition featuring:
+- No subtitles (clean visual focus).
+- Faceless Islamic character art (mouth + expression only, no eyes/nose, modest Islamic attire).
+- Rich animated transparent cutout sprites (2-3 elements per scene with spring physics & float loops).
+- Bright parchment canvas, crisp cards, and bold editorial typography.
 """
 import os
 import json
@@ -12,17 +15,7 @@ def main():
     with open(aligned_path, "r", encoding="utf-8") as f:
         aligned_data = json.load(f)
 
-    words = aligned_data["words"]
-    compact_words = []
-    for w in words:
-        compact_words.append({
-            "w": w["word"],
-            "s": w["start"],
-            "e": w["end"],
-            "b": w["beat"]
-        })
-
-    words_json = json.dumps(compact_words, separators=(',', ':'))
+    total_duration = aligned_data["total_duration"]
 
     html_content = f'''<!DOCTYPE html>
 <html lang="en">
@@ -50,7 +43,8 @@ def main():
   --navy-accent: #264653;
   --border-card: rgba(24, 26, 30, 0.08);
   --card-shadow: 0 16px 40px rgba(38, 70, 83, 0.08), 0 4px 12px rgba(38, 70, 83, 0.04);
-  --sprite-shadow: drop-shadow(0 18px 32px rgba(38, 70, 83, 0.14));
+  --sprite-shadow: drop-shadow(0 20px 36px rgba(38, 70, 83, 0.16));
+  --sticker-glow: drop-shadow(0 12px 24px rgba(231, 111, 81, 0.22));
 }}
 
 * {{ box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }}
@@ -119,17 +113,17 @@ html, body {{
 /* Editorial Top Archive Runner */
 #archiveRunner {{
   position: absolute;
-  top: 54px; left: 54px;
-  width: 972px; height: 64px;
+  top: 60px; left: 60px;
+  width: 960px; height: 68px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
+  padding: 0 26px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--border-card);
-  border-radius: 12px;
+  border: 1.5px solid var(--border-card);
+  border-radius: 14px;
   box-shadow: 0 8px 24px rgba(38, 70, 83, 0.06);
   z-index: 90;
   font-family: "JetBrains Mono", monospace;
@@ -141,8 +135,8 @@ html, body {{
   background: var(--navy-accent);
   color: #FFFFFF;
   font-weight: 700;
-  padding: 5px 12px;
-  border-radius: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
   font-size: 13px;
   letter-spacing: 0.14em;
 }}
@@ -156,8 +150,8 @@ html, body {{
   letter-spacing: 0.12em;
   color: var(--navy-accent);
   background: #FFFFFF;
-  padding: 8px 18px;
-  border-left: 4px solid var(--coral-accent);
+  padding: 8px 20px;
+  border-left: 4.5px solid var(--coral-accent);
   border-radius: 6px;
   z-index: 25;
   box-shadow: 0 6px 18px rgba(38, 70, 83, 0.08);
@@ -186,9 +180,9 @@ html, body {{
 /* Crisp Specimen Pill */
 .specimen-pill {{
   position: absolute;
-  padding: 8px 18px;
+  padding: 10px 20px;
   background: #FFFFFF;
-  border: 1px solid var(--border-card);
+  border: 1.5px solid var(--border-card);
   color: var(--ink-secondary);
   font-family: "JetBrains Mono", monospace;
   font-size: 14px;
@@ -224,8 +218,8 @@ html, body {{
   position: absolute;
   background: var(--bg-card);
   border: 1.5px solid var(--border-card);
-  border-radius: 16px;
-  padding: 20px 26px;
+  border-radius: 18px;
+  padding: 22px 28px;
   box-shadow: var(--card-shadow);
   z-index: 25;
   opacity: 0;
@@ -261,8 +255,8 @@ html, body {{
   position: absolute;
   background: var(--bg-card);
   border: 1.5px solid var(--border-card);
-  border-radius: 18px;
-  padding: 24px 28px;
+  border-radius: 20px;
+  padding: 26px 30px;
   box-shadow: var(--card-shadow);
   z-index: 24;
   opacity: 0;
@@ -287,7 +281,7 @@ html, body {{
   color: var(--ink-muted);
 }}
 
-/* Prominent Editorial Transparent Sprites */
+/* Transparent AI Sprites */
 .sprite-cutout {{
   position: absolute;
   filter: var(--sprite-shadow);
@@ -296,17 +290,20 @@ html, body {{
   transform-origin: center center;
   pointer-events: none;
 }}
+.sprite-cutout.glow {{
+  filter: var(--sticker-glow);
+}}
 
 /* Bold Editorial Headline Bar */
 .editorial-headline-box {{
   position: absolute;
-  bottom: 230px; left: 60px;
+  bottom: 90px; left: 60px;
   width: 960px;
   background: #FFFFFF;
-  border-radius: 18px;
+  border-radius: 20px;
   border: 1.5px solid var(--border-card);
-  box-shadow: 0 20px 48px rgba(38, 70, 83, 0.08);
-  padding: 28px 34px;
+  box-shadow: 0 20px 48px rgba(38, 70, 83, 0.09);
+  padding: 32px 38px;
   z-index: 70;
   opacity: 0;
 }}
@@ -317,13 +314,13 @@ html, body {{
   color: var(--coral-accent);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }}
 .editorial-headline-box.emerald .h-kicker {{ color: var(--emerald-accent); }}
 .editorial-headline-box.navy .h-kicker {{ color: var(--navy-accent); }}
 .editorial-headline-box .h-text {{
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 800;
   line-height: 1.25;
   color: var(--ink-primary);
@@ -339,10 +336,10 @@ html, body {{
 .editorial-headline-box .hl.n {{ color: var(--navy-accent); }}
 .editorial-headline-box .hl i {{
   position: absolute;
-  left: 0; bottom: 2px;
-  width: 100%; height: 6px;
+  left: 0; bottom: 3px;
+  width: 100%; height: 7px;
   background: rgba(231, 111, 81, 0.28);
-  border-radius: 3px;
+  border-radius: 4px;
   transform-origin: left center;
   transform: scaleX(0);
   pointer-events: none;
@@ -350,44 +347,13 @@ html, body {{
 .editorial-headline-box .hl.g i {{ background: rgba(42, 157, 143, 0.28); }}
 .editorial-headline-box .hl.n i {{ background: rgba(38, 70, 83, 0.25); }}
 
-/* Whisper Word-Locked Subtitles Pill */
-#subtitlesContainer {{
-  position: absolute;
-  bottom: 110px; left: 90px;
-  width: 900px;
-  text-align: center;
-  pointer-events: none;
-  z-index: 95;
-}}
-#subtitlePill {{
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1.5px solid rgba(24, 26, 30, 0.10);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 14px 30px;
-  border-radius: 9999px;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.35;
-  color: var(--ink-primary);
-  box-shadow: 0 12px 32px rgba(38, 70, 83, 0.10);
-  max-width: 860px;
-}}
-#subtitlePill .hl-word {{
-  color: var(--coral-accent);
-  font-weight: 900;
-  text-shadow: 0 0 12px rgba(231, 111, 81, 0.35);
-}}
-
 /* Climax Outro Final Stamp */
 #outroFinalStamp {{
   position: absolute;
-  top: 960px; left: 90px; width: 900px; height: 240px;
-  border: 4px solid var(--emerald-accent);
+  top: 1100px; left: 80px; width: 920px; height: 230px;
+  border: 4.5px solid var(--emerald-accent);
   background: #FFFFFF;
-  border-radius: 18px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -395,13 +361,13 @@ html, body {{
   z-index: 45;
   opacity: 0;
   transform-origin: center center;
-  box-shadow: 0 16px 40px rgba(42, 157, 143, 0.15);
+  box-shadow: 0 18px 48px rgba(42, 157, 143, 0.16);
 }}
 #outroFinalStamp .stamp-main {{
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 56px;
+  font-size: 58px;
   font-weight: 900;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: var(--emerald-accent);
   text-transform: uppercase;
 }}
@@ -438,22 +404,26 @@ html, body {{
       <!-- SCENE 1: THE ATM DAD FALLACY (X = 0)                                      -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene1">
-        <div class="dossier-tag" style="top: 150px; left: 60px;">PARADIGM INQUIRY // THE FINANCIAL ILLUSION</div>
-        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">ATM DAD</div>
+        <div class="dossier-tag" style="top: 160px; left: 60px;">PARADIGM INQUIRY // THE FINANCIAL ILLUSION</div>
+        <div class="ghost-watermark" style="top: 150px; left: 60px; width: 960px;">ATM DAD</div>
 
-        <!-- Transparent AI Sprite: Stressed ATM Dad -->
-        <img class="sprite-cutout" id="spriteDadAtm" src="assets/episode9_father_parenting/sprites/sprite_dad_atm_myth.png" 
-             style="top: 260px; right: 30px; width: 500px;" alt="The ATM Dad Fallacy">
+        <!-- Faceless Islamic Father ATM Sprite -->
+        <img class="sprite-cutout" id="spriteIslamicDadAtm" src="assets/episode9_father_parenting/sprites/sprite_islamic_dad_atm_faceless.png" 
+             style="top: 280px; right: 20px; width: 560px;" alt="Faceless Islamic ATM Dad">
 
-        <div class="specimen-pill coral" id="pillMyth1" style="top: 270px; left: 70px;">COMMON TRAP: HUMAN ATM</div>
-        <div class="specimen-pill" id="pillMyth2" style="top: 330px; left: 70px;">ABSENT FATHER RISK: +80% ANXIETY</div>
+        <!-- Flying Money Fun Sprite -->
+        <img class="sprite-cutout glow" id="spriteFlyingMoney" src="assets/episode9_father_parenting/sprites/sprite_flying_money_fun.png" 
+             style="top: 260px; left: 50px; width: 440px;" alt="Flying Money Fun">
 
-        <div class="hand-note" id="hn1_1" style="top: 420px; left: 70px; transform: rotate(-2deg); max-width: 480px;">
-          Financial support cannot replace emotional presence
+        <div class="specimen-pill coral" id="pillMyth1" style="top: 730px; left: 70px;">COMMON TRAP: HUMAN ATM</div>
+        <div class="specimen-pill" id="pillMyth2" style="top: 790px; left: 70px;">ABSENT FATHER RISK: +80% ANXIETY</div>
+
+        <div class="hand-note" id="hn1_1" style="top: 865px; left: 70px; transform: rotate(-2deg); max-width: 500px;">
+          Financial transfer cannot replace emotional presence
         </div>
 
         <!-- Telemetry Panel -->
-        <div class="telemetry-panel" id="cardTelemetry1" style="top: 530px; left: 60px; width: 440px;">
+        <div class="telemetry-panel" id="cardTelemetry1" style="top: 980px; left: 60px; width: 440px;">
           <div class="p-label">EMOTIONAL DYSREGULATION RISK</div>
           <div style="display: flex; align-items: baseline;">
             <span class="p-value">+80%</span>
@@ -474,44 +444,50 @@ html, body {{
       <!-- SCENE 2: NEUROBIOLOGY & THE PATERNAL BRAIN (X = -1080)                    -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene2">
-        <div class="dossier-tag emerald" style="top: 150px; left: 60px;">NEUROSCIENCE // YALE CHILD STUDY CENTER</div>
-        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">YALE</div>
+        <div class="dossier-tag emerald" style="top: 160px; left: 60px;">NEUROSCIENCE // YALE CHILD STUDY CENTER</div>
+        <div class="ghost-watermark" style="top: 150px; left: 60px; width: 960px;">YALE</div>
 
-        <!-- Transparent AI Sprites: Loving Father Cradling Baby & Happy Brain -->
-        <img class="sprite-cutout" id="spriteBabycare" src="assets/episode9_father_parenting/sprites/sprite_father_babycare.png" 
-             style="top: 240px; left: 50px; width: 460px;" alt="Active Paternal Caregiving">
-        <img class="sprite-cutout" id="spriteBrain" src="assets/episode9_father_parenting/sprites/sprite_brain_oxytocin.png" 
-             style="top: 240px; right: 50px; width: 460px;" alt="Oxytocin Surge in Father's Brain">
+        <!-- Faceless Islamic Father Cradling Baby Sprite -->
+        <img class="sprite-cutout" id="spriteIslamicBabycare" src="assets/episode9_father_parenting/sprites/sprite_islamic_dad_babycare_faceless.png" 
+             style="top: 250px; left: 50px; width: 480px;" alt="Faceless Islamic Father Babycare">
+
+        <!-- Cute Oxytocin Brain Sprite -->
+        <img class="sprite-cutout glow" id="spriteBrain" src="assets/episode9_father_parenting/sprites/sprite_brain_oxytocin.png" 
+             style="top: 250px; right: 40px; width: 460px;" alt="Oxytocin Surge in Father's Brain">
+
+        <!-- Floating Sparkle Hearts Sprite -->
+        <img class="sprite-cutout" id="spriteFloatingHearts" src="assets/episode9_father_parenting/sprites/sprite_floating_empathy_hearts.png" 
+             style="top: 680px; right: 70px; width: 340px;" alt="Floating Empathy Hearts">
 
         <!-- Hand-Crafted Modern SVG Hormonal Shift Calibration Chart -->
-        <div class="vector-chart-panel" id="panelHormone" style="top: 750px; left: 60px; width: 960px; height: 320px;">
+        <div class="vector-chart-panel" id="panelHormone" style="top: 820px; left: 60px; width: 960px; height: 330px;">
           <div class="chart-header">
             <span class="chart-title">Paternal Hormonal Shift During Active Caregiving</span>
             <span class="chart-sub">Feldman et al. (Yale University / PNAS)</span>
           </div>
-          <svg width="900" height="220" viewBox="0 0 900 220" style="overflow: visible;">
+          <svg width="900" height="230" viewBox="0 0 900 230" style="overflow: visible;">
             <!-- Grid Lines -->
-            <line x1="60" y1="170" x2="860" y2="170" stroke="rgba(24,26,30,0.08)" stroke-width="1.5"/>
-            <line x1="60" y1="20" x2="60" y2="170" stroke="rgba(24,26,30,0.08)" stroke-width="1.5"/>
+            <line x1="60" y1="180" x2="860" y2="180" stroke="rgba(24,26,30,0.08)" stroke-width="1.5"/>
+            <line x1="60" y1="20" x2="60" y2="180" stroke="rgba(24,26,30,0.08)" stroke-width="1.5"/>
             <!-- X Axis Marks -->
-            <text x="80" y="195" fill="#848B98" font-family="JetBrains Mono" font-size="14" font-weight="600">Baseline (Passive Father)</text>
-            <text x="480" y="195" fill="#2A9D8F" font-family="JetBrains Mono" font-size="14" font-weight="700">Active Care (Bathing & Carrying)</text>
-            <!-- Oxytocin Curve (Coral/Gold Surge) -->
-            <path id="curveOxytocin" d="M 80 150 Q 320 145, 500 45 T 820 30" fill="none" stroke="#E76F51" stroke-width="5" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000"/>
-            <text x="700" y="22" fill="#E76F51" font-family="JetBrains Mono" font-weight="800" font-size="15">Oxytocin (+140%)</text>
-            <!-- Testosterone Curve (Navy/Teal Dip) -->
-            <path id="curveTesto" d="M 80 50 Q 320 55, 500 135 T 820 145" fill="none" stroke="#264653" stroke-width="3.5" stroke-dasharray="7 7"/>
-            <text x="640" y="135" fill="#264653" font-family="JetBrains Mono" font-weight="700" font-size="14">Testosterone (-32%)</text>
+            <text x="80" y="205" fill="#848B98" font-family="JetBrains Mono" font-size="14" font-weight="600">Baseline (Passive Father)</text>
+            <text x="480" y="205" fill="#2A9D8F" font-family="JetBrains Mono" font-size="14" font-weight="700">Active Care (Bathing & Carrying)</text>
+            <!-- Oxytocin Curve (Coral Surge) -->
+            <path id="curveOxytocin" d="M 80 160 Q 320 155, 500 50 T 820 35" fill="none" stroke="#E76F51" stroke-width="5.5" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+            <text x="700" y="24" fill="#E76F51" font-family="JetBrains Mono" font-weight="800" font-size="16">Oxytocin (+140%)</text>
+            <!-- Testosterone Curve (Navy Dip) -->
+            <path id="curveTesto" d="M 80 55 Q 320 60, 500 140 T 820 155" fill="none" stroke="#264653" stroke-width="3.5" stroke-dasharray="7 7"/>
+            <text x="630" y="145" fill="#264653" font-family="JetBrains Mono" font-weight="700" font-size="14">Testosterone (-32%)</text>
             <!-- Data Dots -->
-            <circle cx="820" cy="30" r="7" fill="#E76F51"/>
-            <circle cx="820" cy="145" r="6" fill="#264653"/>
+            <circle cx="820" cy="35" r="7" fill="#E76F51"/>
+            <circle cx="820" cy="155" r="6" fill="#264653"/>
           </svg>
         </div>
 
-        <div class="specimen-pill emerald" id="pillNeuro1" style="top: 1100px; left: 70px;">PREFRONTAL CORTEX: EMPATHY CIRCUITS</div>
-        <div class="specimen-pill" id="pillNeuro2" style="top: 1100px; right: 70px;">OXYTOCIN PEAK: MATCHES NEW MOTHERS</div>
+        <div class="specimen-pill emerald" id="pillNeuro1" style="top: 1200px; left: 70px;">PREFRONTAL CORTEX: EMPATHY CIRCUITS</div>
+        <div class="specimen-pill" id="pillNeuro2" style="top: 1200px; right: 70px;">OXYTOCIN PEAK: MATCHES NEW MOTHERS</div>
 
-        <div class="hand-note emerald" id="hn2_1" style="top: 1160px; left: 80px; transform: rotate(-1.5deg);">
+        <div class="hand-note emerald" id="hn2_1" style="top: 1270px; left: 80px; transform: rotate(-1.5deg);">
           A father's brain physically rewires when actively caring for his child
         </div>
 
@@ -528,15 +504,19 @@ html, body {{
       <!-- SCENE 3: ROUGH PLAY & EMOTIONAL REGULATION (X = -2160)                    -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene3">
-        <div class="dossier-tag" style="top: 150px; left: 60px;">DEVELOPMENTAL PSYCHOLOGY // HARVARD CENTER</div>
-        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">RESILIENCE</div>
+        <div class="dossier-tag" style="top: 160px; left: 60px;">DEVELOPMENTAL PSYCHOLOGY // HARVARD CENTER</div>
+        <div class="ghost-watermark" style="top: 150px; left: 60px; width: 960px;">RESILIENCE</div>
 
-        <!-- Transparent AI Sprite: Dynamic Father Tossing Kid in Air -->
-        <img class="sprite-cutout" id="spriteAirplane" src="assets/episode9_father_parenting/sprites/sprite_father_airplane.png" 
-             style="top: 220px; left: 180px; width: 720px;" alt="Rough-and-Tumble Airplane Play">
+        <!-- Faceless Islamic Father Airplane Play Sprite -->
+        <img class="sprite-cutout" id="spriteIslamicAirplane" src="assets/episode9_father_parenting/sprites/sprite_islamic_dad_airplane_faceless.png" 
+             style="top: 240px; left: 190px; width: 700px;" alt="Faceless Islamic Father Airplane Play">
+
+        <!-- Gamified Resilience 40% Badge Sprite -->
+        <img class="sprite-cutout glow" id="spriteBadge40" src="assets/episode9_father_parenting/sprites/sprite_resilience_badge_40.png" 
+             style="top: 320px; right: 40px; width: 340px;" alt="+40% Resilience Badge">
 
         <!-- Modern SVG Dual-Bar Stress Resilience Benchmark -->
-        <div class="vector-chart-panel" id="panelResilience" style="top: 860px; left: 60px; width: 960px; height: 260px;">
+        <div class="vector-chart-panel" id="panelResilience" style="top: 960px; left: 60px; width: 960px; height: 260px;">
           <div class="chart-header">
             <span class="chart-title">Rough-and-Tumble Play: Impulse Control Index</span>
             <span class="chart-sub">Childhood Stress Resilience Benchmark</span>
@@ -556,8 +536,8 @@ html, body {{
           </svg>
         </div>
 
-        <div class="specimen-pill" id="pillPlay1" style="top: 1140px; left: 70px;">NEURAL TRAINING: IMPULSE CONTROL</div>
-        <div class="specimen-pill coral" id="pillPlay2" style="top: 1140px; right: 70px;">STRESS RESILIENCE: +40% HIGHER</div>
+        <div class="specimen-pill" id="pillPlay1" style="top: 1260px; left: 70px;">NEURAL TRAINING: IMPULSE CONTROL</div>
+        <div class="specimen-pill coral" id="pillPlay2" style="top: 1260px; right: 70px;">STRESS RESILIENCE: +40% HIGHER</div>
 
         <!-- Beat 3 Headline -->
         <div class="editorial-headline-box" id="hlBox3">
@@ -572,32 +552,36 @@ html, body {{
       <!-- SCENE 4: PROPHETIC ETHICS & AR-RA'I (X = -3240)                           -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene4">
-        <div class="dossier-tag emerald" style="top: 150px; left: 60px;">PROPHETIC ETHICS // AR-RA'I & MERCY</div>
-        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">AR-RA'I</div>
+        <div class="dossier-tag emerald" style="top: 160px; left: 60px;">PROPHETIC ETHICS // AR-RA'I & MERCY</div>
+        <div class="ghost-watermark" style="top: 150px; left: 60px; width: 960px;">AR-RA'I</div>
 
-        <!-- Transparent AI Sprite: Golden Shepherd Emblem & Lantern -->
-        <img class="sprite-cutout" id="spriteEmblem" src="assets/episode9_father_parenting/sprites/sprite_prophet_sunnah_emblem.png" 
-             style="top: 220px; left: 260px; width: 560px;" alt="Ar-Rai Shepherd of Mercy Emblem">
+        <!-- Faceless Islamic Father Prayer with Child on Shoulders Sprite -->
+        <img class="sprite-cutout" id="spriteIslamicPrayer" src="assets/episode9_father_parenting/sprites/sprite_islamic_dad_prayer_faceless.png" 
+             style="top: 240px; left: 50px; width: 560px;" alt="Faceless Islamic Father with Child in Prayer">
+
+        <!-- Golden Shepherd Emblem & Lantern Sprite -->
+        <img class="sprite-cutout glow" id="spriteEmblem" src="assets/episode9_father_parenting/sprites/sprite_prophet_sunnah_emblem.png" 
+             style="top: 270px; right: 40px; width: 440px;" alt="Ar-Rai Shepherd of Mercy Emblem">
 
         <!-- Calligraphic Archival Inscription Card -->
-        <div class="vector-chart-panel" id="panelHadith" style="top: 800px; left: 60px; width: 960px; height: 310px; border-left: 6px solid var(--emerald-accent);">
+        <div class="vector-chart-panel" id="panelHadith" style="top: 920px; left: 60px; width: 960px; height: 320px; border-left: 6px solid var(--emerald-accent);">
           <div class="chart-header">
             <span class="chart-title" style="color: var(--emerald-accent);">Sahih Bukhari No. 5996 & 5997</span>
             <span class="chart-sub">Sunnah of the Prophet Muhammad ﷺ</span>
           </div>
-          <div style="font-family: 'Amiri', serif; font-size: 38px; line-height: 1.5; color: #1B5E20; text-align: right; margin-bottom: 12px;">
+          <div style="font-family: 'Amiri', serif; font-size: 40px; line-height: 1.5; color: #1B5E20; text-align: right; margin-bottom: 12px;">
             مَنْ لا يَرْحَمُ لا يُرْحَمُ
           </div>
-          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 32px; line-height: 1.35; color: var(--navy-accent);">
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 34px; line-height: 1.35; color: var(--navy-accent);">
             "Whoever does not show mercy, will not be shown mercy."
           </div>
-          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 19px; line-height: 1.5; color: var(--ink-secondary); margin-top: 10px; border-top: 1px solid var(--border-card); padding-top: 10px;">
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 19px; line-height: 1.5; color: var(--ink-secondary); margin-top: 12px; border-top: 1.5px solid var(--border-card); padding-top: 12px;">
             The Prophet ﷺ carried his grandchildren during communal prayer—shattering toxic customs that viewed fatherly affection as weakness.
           </div>
         </div>
 
-        <div class="specimen-pill emerald" id="pillIslam1" style="top: 1140px; left: 70px;">CONCEPT OF AR-RA'I: SHEPHERD OF SOULS</div>
-        <div class="specimen-pill" id="pillIslam2" style="top: 1140px; right: 70px;">SURAH LUQMAN: HEART-TO-HEART DIALOGUE</div>
+        <div class="specimen-pill emerald" id="pillIslam1" style="top: 1270px; left: 70px;">CONCEPT OF AR-RA'I: SHEPHERD OF SOULS</div>
+        <div class="specimen-pill" id="pillIslam2" style="top: 1270px; right: 70px;">SURAH LUQMAN: HEART-TO-HEART DIALOGUE</div>
 
         <!-- Beat 4 Headline -->
         <div class="editorial-headline-box emerald" id="hlBox4">
@@ -612,12 +596,16 @@ html, body {{
       <!-- SCENE 5: THE LIFETIME RECORD & CLIMAX (X = -4320)                         -->
       <!-- ========================================================================= -->
       <div class="scene-dossier" id="scene5">
-        <div class="dossier-tag" style="top: 150px; left: 60px;">FINAL VERDICT // THE LIFETIME RECORD</div>
-        <div class="ghost-watermark" style="top: 140px; left: 60px; width: 960px;">PRESENCE</div>
+        <div class="dossier-tag" style="top: 160px; left: 60px;">FINAL VERDICT // THE LIFETIME RECORD</div>
+        <div class="ghost-watermark" style="top: 150px; left: 60px; width: 960px;">PRESENCE</div>
 
-        <!-- Transparent AI Sprite: Heartwarming Father & Child Hug -->
-        <img class="sprite-cutout" id="spriteHug" src="assets/episode9_father_parenting/sprites/sprite_father_daughter_hug.png" 
-             style="top: 220px; left: 200px; width: 680px;" alt="The Power of Fatherly Presence">
+        <!-- Faceless Islamic Father Hugging Daughter in Hijab Sprite -->
+        <img class="sprite-cutout" id="spriteIslamicHug" src="assets/episode9_father_parenting/sprites/sprite_islamic_dad_hug_faceless.png" 
+             style="top: 240px; left: 60px; width: 540px;" alt="Faceless Islamic Father Daughter Hug">
+
+        <!-- Holding Hands Golden Aura Sprite -->
+        <img class="sprite-cutout glow" id="spriteHoldingHands" src="assets/episode9_father_parenting/sprites/sprite_warm_holding_hands.png" 
+             style="top: 270px; right: 50px; width: 440px;" alt="Father Holding Child's Hand">
 
         <!-- Climax Outro Final Stamp -->
         <div id="outroFinalStamp">
@@ -625,7 +613,7 @@ html, body {{
           <div class="stamp-sub">GENUINE PRESENCE OUTWEIGHS OVERTIME BANK STATEMENTS</div>
         </div>
 
-        <div class="hand-note" id="hn5_1" style="top: 1220px; left: 80px; transform: rotate(-1.5deg);">
+        <div class="hand-note" id="hn5_1" style="top: 1360px; left: 80px; transform: rotate(-1.5deg);">
           Your child won't recall your bank balance—their nervous system remembers your warm hand
         </div>
 
@@ -641,11 +629,6 @@ html, body {{
     </div>
   </div>
 
-  <!-- Whisper Word-Locked Subtitles -->
-  <div id="subtitlesContainer">
-    <div id="subtitlePill">Listening...</div>
-  </div>
-
   <audio id="audioTrack" preload="auto">
     <source src="assets/episode9_father_parenting/audio_en/vo_ep9_en_master.wav" type="audio/wav">
     <source src="assets/episode9_father_parenting/audio_en/vo_ep9_en_master.mp3" type="audio/mpeg">
@@ -656,64 +639,7 @@ html, body {{
 const $ = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
 
-const DURATION = {aligned_data["total_duration"]};
-const WORDS = {words_json};
-
-/* Dynamic English Subtitles Logic */
-function updateDynamicSubtitles(t) {{
-  let activeWord = null;
-  let activeIdx = -1;
-
-  for (let i = 0; i < WORDS.length; i++) {{
-    if (t >= WORDS[i].s && t <= WORDS[i].e) {{
-      activeWord = WORDS[i];
-      activeIdx = i;
-      break;
-    }}
-  }}
-
-  const pill = $('#subtitlePill');
-
-  if (activeWord) {{
-    const beat = activeWord.b;
-    let startIdx = Math.max(0, activeIdx - 3);
-    let endIdx = Math.min(WORDS.length - 1, activeIdx + 4);
-
-    while (startIdx > 0 && WORDS[startIdx].b === beat && (activeIdx - startIdx) < 4) {{
-      startIdx--;
-    }}
-    if (WORDS[startIdx].b !== beat) startIdx++;
-
-    while (endIdx < WORDS.length - 1 && WORDS[endIdx].b === beat && (endIdx - activeIdx) < 4) {{
-      endIdx++;
-    }}
-    if (WORDS[endIdx].b !== beat) endIdx--;
-
-    let html = '';
-    for (let k = startIdx; k <= endIdx; k++) {{
-      if (k === activeIdx) {{
-        html += `<span class="hl-word">${{WORDS[k].w}}</span> `;
-      }} else {{
-        html += `${{WORDS[k].w}} `;
-      }}
-    }}
-    pill.innerHTML = html.trim();
-    pill.style.opacity = '1';
-  }} else {{
-    let closestPrev = null;
-    for (let i = WORDS.length - 1; i >= 0; i--) {{
-      if (t >= WORDS[i].e) {{
-        closestPrev = WORDS[i];
-        break;
-      }}
-    }}
-    if (closestPrev && (t - closestPrev.e) < 0.6) {{
-      pill.style.opacity = '1';
-    }} else {{
-      pill.style.opacity = '0';
-    }}
-  }}
-}}
+const DURATION = {total_duration};
 
 /* Master GSAP Timeline */
 const tl = gsap.timeline({{ paused: true }});
@@ -741,8 +667,8 @@ function hideHeadline(boxId, time) {{
 
 function popSprite(spriteId, time, scale = 1.0) {{
   tl.fromTo(spriteId, 
-    {{ opacity: 0, scale: 0.6, y: 40 }}, 
-    {{ opacity: 1, scale: scale, y: 0, duration: 0.75, ease: 'back.out(1.8)' }}, 
+    {{ opacity: 0, scale: 0.5, y: 45 }}, 
+    {{ opacity: 1, scale: scale, y: 0, duration: 0.80, ease: 'back.out(2.0)' }}, 
     time
   );
 }}
@@ -753,10 +679,12 @@ function popSprite(spriteId, time, scale = 1.0) {{
 cameraPush(0.0, 1.03, 14.0);
 tl.to(['#scene1 .dossier-tag', '#scene1 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 0.3);
 
-popSprite('#spriteDadAtm', 0.6, 1.0);
-tl.fromTo(['#pillMyth1', '#pillMyth2'], {{ opacity: 0, x: -20 }}, {{ opacity: 1, x: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }}, 1.2);
-tl.fromTo('#hn1_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 2.0);
-tl.fromTo('#cardTelemetry1', {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }}, 3.0);
+popSprite('#spriteIslamicDadAtm', 0.5, 1.0);
+popSprite('#spriteFlyingMoney', 0.9, 1.0);
+
+tl.fromTo(['#pillMyth1', '#pillMyth2'], {{ opacity: 0, x: -25 }}, {{ opacity: 1, x: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }}, 1.4);
+tl.fromTo('#hn1_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 2.2);
+tl.fromTo('#cardTelemetry1', {{ opacity: 0, y: 24 }}, {{ opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }}, 3.2);
 
 showHeadline('#hlBox1', 1.0, '#hl1');
 hideHeadline('#hlBox1', 14.5);
@@ -770,14 +698,15 @@ glideTo(14.5, -1080, 0.90);
 // SCENE 2: YALE NEUROBIOLOGY & OXYTOCIN (15.45s - 33.45s)
 // =========================================================================
 tl.to(['#scene2 .dossier-tag', '#scene2 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 15.6);
-popSprite('#spriteBabycare', 15.8, 1.0);
+popSprite('#spriteIslamicBabycare', 15.8, 1.0);
 popSprite('#spriteBrain', 16.4, 1.0);
+popSprite('#spriteFloatingHearts', 17.0, 1.0);
 
-tl.fromTo('#panelHormone', {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }}, 17.0);
+tl.fromTo('#panelHormone', {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }}, 17.6);
 // Draw curves
-tl.fromTo('#curveOxytocin', {{ strokeDashoffset: 1000 }}, {{ strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut' }}, 18.0);
+tl.fromTo('#curveOxytocin', {{ strokeDashoffset: 1000 }}, {{ strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut' }}, 18.4);
 
-tl.fromTo(['#pillNeuro1', '#pillNeuro2'], {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }}, 20.0);
+tl.fromTo(['#pillNeuro1', '#pillNeuro2'], {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }}, 20.2);
 tl.fromTo('#hn2_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 22.0);
 
 showHeadline('#hlBox2', 16.0, '#hl2');
@@ -792,13 +721,14 @@ glideTo(33.5, -2160, 0.90);
 // SCENE 3: ROUGH PLAY & HARVARD BENCHMARK (34.4s - 49.9s)
 // =========================================================================
 tl.to(['#scene3 .dossier-tag', '#scene3 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 34.6);
-popSprite('#spriteAirplane', 34.8, 1.0);
+popSprite('#spriteIslamicAirplane', 34.8, 1.0);
+popSprite('#spriteBadge40', 35.4, 1.0);
 
-tl.fromTo('#panelResilience', {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }}, 36.0);
-tl.to('#barActive', {{ width: 560, duration: 1.2, ease: 'power2.out' }}, 37.0);
-tl.to('#barPassive', {{ width: 280, duration: 1.0, ease: 'power2.out' }}, 37.6);
+tl.fromTo('#panelResilience', {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' }}, 36.2);
+tl.to('#barActive', {{ width: 560, duration: 1.2, ease: 'power2.out' }}, 37.2);
+tl.to('#barPassive', {{ width: 280, duration: 1.0, ease: 'power2.out' }}, 37.8);
 
-tl.fromTo(['#pillPlay1', '#pillPlay2'], {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }}, 39.0);
+tl.fromTo(['#pillPlay1', '#pillPlay2'], {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }}, 39.2);
 
 showHeadline('#hlBox3', 35.0, '#hl3');
 hideHeadline('#hlBox3', 49.9);
@@ -812,10 +742,11 @@ glideTo(49.9, -3240, 0.95);
 // SCENE 4: ISLAMIC ETHICS & SUNNAH (50.85s - 69.91s)
 // =========================================================================
 tl.to(['#scene4 .dossier-tag', '#scene4 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 51.0);
-popSprite('#spriteEmblem', 51.2, 1.0);
+popSprite('#spriteIslamicPrayer', 51.2, 1.0);
+popSprite('#spriteEmblem', 51.8, 1.0);
 
-tl.fromTo('#panelHadith', {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.70, ease: 'power3.out' }}, 53.0);
-tl.fromTo(['#pillIslam1', '#pillIslam2'], {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }}, 55.5);
+tl.fromTo('#panelHadith', {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.70, ease: 'power3.out' }}, 53.2);
+tl.fromTo(['#pillIslam1', '#pillIslam2'], {{ opacity: 0, y: 15 }}, {{ opacity: 1, y: 0, duration: 0.50, stagger: 0.15, ease: 'power3.out' }}, 55.8);
 
 showHeadline('#hlBox4', 51.5, '#hl4');
 hideHeadline('#hlBox4', 69.9);
@@ -829,14 +760,15 @@ glideTo(69.9, -4320, 0.95);
 // SCENE 5: OUTRO & FINAL VERDICT (70.86s - 85.16s)
 // =========================================================================
 tl.to(['#scene5 .dossier-tag', '#scene5 .ghost-watermark'], {{ opacity: 1, duration: 0.6, ease: 'power2.out' }}, 71.0);
-popSprite('#spriteHug', 71.2, 1.0);
+popSprite('#spriteIslamicHug', 71.2, 1.0);
+popSprite('#spriteHoldingHands', 71.8, 1.0);
 
 tl.fromTo('#outroFinalStamp', 
   {{ opacity: 0, scale: 2.2, rotate: -8 }}, 
   {{ opacity: 1, scale: 1, rotate: 0, duration: 0.40, ease: 'power4.in' }}, 
-  73.0
+  73.2
 );
-tl.fromTo('#hn5_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 74.5);
+tl.fromTo('#hn5_1', {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.50, ease: 'back.out' }}, 74.8);
 
 showHeadline('#hlBox5', 72.0, '#hl5');
 
@@ -847,7 +779,6 @@ window.BANG_MOTION = {{
   ready: true,
   seekFrame: function(t) {{
     tl.pause(t, false);
-    updateDynamicSubtitles(t);
   }},
   duration: DURATION
 }};
@@ -873,7 +804,7 @@ window.addEventListener('click', () => {{
     with open(out_file, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"[OK] index_ep9.html successfully generated for English edition! ({len(html_content)} bytes)")
+    print(f"[OK] index_ep9.html updated with Faceless Islamic sprites and clean no-subtitle layout! ({len(html_content)} bytes)")
 
 if __name__ == "__main__":
     main()
