@@ -288,3 +288,44 @@ Previous completed sessions covered:
 - 9Router generator remains the canonical reproducible path when port `20128` is available; the delivered EP5 sprites were generated through the permitted GPT Image fallback because 9Router was offline.
 
 Good luck. The engine is solid — focus on nailing the Vox visual design language.
+
+---
+
+## 12. PERMANENT PIPELINE STANDARDS (EP10+ PAKEM)
+
+**MANDATORY RULES ENFORCED FOR ALL SUBSEQUENT EPISODES:**
+
+1. **ZERO CAMERA SHAKE / ZERO AGGRESSIVE SLAMS (ANTI-PUSING)**:
+   - **NEVER** use camera shake, screen rotation tilts (`rotate: -8`), stamp slams (`power4.in`), or aggressive overshoot bounces (`back.out(2.0)`).
+   - Default motion must be **ALUS** (smooth, gentle, dignified, cinematic):
+     - Transitions: Smooth cross-dissolves (`opacity: 1 -> 0 / 0 -> 1` with `sine.inOut` over 0.85s) and gentle vertical drifts.
+     - Sprites: Soft float entrances (`y: 24 -> 0`, `scale: 0.94 -> 1.0`, `power2.out`, 0.9s).
+     - Camera: Slow, continuous, subtle breathing zoom (`scale: 1.0 -> 1.025` over each beat).
+     - Floating loops: Sub-pixel vertical breath only (`translateY: -7px`), zero rotational jitter.
+
+2. **BACKGROUND STYLING (NO COLD ENGINEERING GRIDS)**:
+   - **NEVER** use mathematical/cold engineering grid lines (`.grid-overlay` with 36px squares).
+   - Use **context-relatable ornamental watermark patterns**:
+     - Islamic/Family/Spiritual topics: Islamic geometric rosette watermark (Girih / Khatam 8-point star lattice) + arch border vignette.
+     - Science/Astronomy: Subtle constellation/starlight field.
+     - Biology/Nature: Organic leaf/cellular microscopy watermarks.
+     - Warm tactile parchment canvas (`#FAF8F4`) with 5% fine paper grain.
+
+3. **CLEAN SUBTITLE-FREE LAYOUT**:
+   - Do **NOT** put subtitles or CC text boxes on the canvas by default.
+   - Large bold editorial headline box at the bottom with gold underline highlight provides sufficient textual anchoring while keeping the video uncluttered.
+
+4. **FACELESS CHARACTER ART (ISLAMIC ETHICAL STANDARD)**:
+   - All human and biological characters must be **strictly faceless**:
+     - Completely smooth blank face, **NO eyes, NO nose**.
+     - Only sweet/peaceful **smiling mouth expressions**.
+     - Modest clothing (koko, thobe, kufi, hijab).
+     - Clean vector sticker cutout on transparent alpha background.
+
+5. **MANDATORY DELIVERABLES PER EPISODE**:
+   - `index_ep{N}.html` (Web stage with deterministic `window.BANG_MOTION.seekFrame(t)`).
+   - `output/episode{N}_{slug}/episode{N}_{slug}_en.mp4` (1080×1920 @ 30 FPS).
+   - `output/episode{N}_{slug}/snapshots/` (6+ keyframe QC screenshots).
+   - `assets/episode{N}_{slug}/carousel/` (5 high-res 4:5 portrait carousel slides 1080×1350 via 9Router).
+   - `output/episode{N}_{slug}/tiktok_caption.md` (Viral hooks, bilingual body, hashtags, pinned comments).
+
