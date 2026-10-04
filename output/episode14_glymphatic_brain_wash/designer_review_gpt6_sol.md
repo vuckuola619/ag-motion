@@ -1,0 +1,21 @@
+# Senior Creative Director Audit (cx/gpt-6-sol)
+**Episode 14**: The Glymphatic Brain Wash
+**Model Reviewer**: `cx/gpt-6-sol` via 9Router
+
+The carousel has a strong visual identity: electric cyan carries the “flushing” idea through the first three slides, and gold gives the closing slides a warmer, restorative feel. The native text is unusually legible for image-generated typography, with no obvious spelling errors. The main weakness is not polish; it is scientific certainty. Several precise or absolute claims make the work less trustworthy than its editorial design suggests.
+
+| Slide | Score | Expert critique |
+|---|---:|---|
+| **1 — Hook** | **7.5/10** | The luminous sagittal brain is an effective scroll-stopper, and the white-to-cyan headline has clear hierarchy. But “glial cells physically contract by sixty percent” misstates the commonly cited mouse finding: the reported change concerned *interstitial space*, not measured glial-cell contraction of that magnitude. “Pressurized cerebral fluid tide” adds drama without explaining the mechanism. The headline is strong; let it carry the slide without a questionable statistic. |
+| **2 — Mechanism** | **7/10** | The astrocyte and vessel create a compelling close-up, but the red blood cells can make it look as though cleansing fluid flows *inside* the vessel; perivascular flow is the distinction the illustration needs to teach. Aquaporin-4 is associated with astrocyte endfeet, not simply a set of channels that “open” during deep sleep. “Elevating fluid flow by two hundred percent” needs a specific source, measured quantity, and species—or removal. The small top citation and label will be hard to read at phone size. |
+| **3 — Stakes** | **6/10** | Red aggregates against the cyan current deliver the series’ strongest visual conflict. The headline is also its biggest liability: “The Alzheimer’s Toxic Purge” implies a demonstrated disease-prevention effect. “Vacuum away,” “toxic Beta-Amyloid and Tau,” and “before they can solidify into permanent plaques” turn a complex, still-studied clearance process into an overcertain causal story. The top label is effectively flush with the edge, while the headline is so large that its letterforms feel crowded. |
+| **4 — Consequence** | **5.5/10** | The sleeping figure and waveforms are attractive, but the ring reads more like a clock-themed poster than an explanation of sleep architecture; nothing distinguishes early and later cycles. The abrupt switch to a heavy sans-serif headline feels like a different campaign. More importantly, “you cannot catch up” and “binging later offers zero cleansing” are indefensible absolutes. Slow-wave sleep is concentrated earlier in a typical night, not confined to initial cycles, and recovery sleep is not biologically worthless. |
+| **5 — Protocol** | **6.5/10** | The gold-and-cyan finish provides emotional release, and the large headline remains readable. But it promises a “protocol” without giving one: “protect your eight hours” is an aspiration, not an actionable routine, and eight hours is not a universal requirement. “Divine self-cleaning ritual” and “temple” shift the voice from neuroscience to spiritual wellness. The long body copy and low CTA are vulnerable to mobile UI overlap. |
+
+**Whole carousel: 6.5/10.** Visually, it is closer to an 8; as publishable science communication, it falls substantially lower. The arc—hook → astrocytes → waste → sleep timing → action—is sound, but slide 4 breaks credibility and slide 5 does not pay off the promised action.
+
+**Highest-impact revisions**
+- Replace the unsupported percentages and absolutes first. Attribute findings to mice where applicable, and distinguish observed associations from proven human outcomes.
+- Make slide 2’s illustration explicitly show fluid moving *around* the vessel. On slide 4, label the waveforms or simplify them so the diagram teaches rather than decorates.
+- Give every slide a more generous top and bottom text margin, especially slides 2–3 and the slide 5 CTA; check the exports at actual feed size and with app UI overlaid.
+- Keep the dramatic headlines, but make the supporting lines precise. A stronger final payoff would offer two or three concrete sleep-consistency habits rather than promise that exactly eight hours “protects” the brain.

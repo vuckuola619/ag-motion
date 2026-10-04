@@ -1,0 +1,1064 @@
+{
+  "total_duration": 83.81,
+  "beats": [
+    {
+      "index": 1,
+      "id": "hook_nocturnal_secret",
+      "act": 1,
+      "title": "The Nocturnal Secret",
+      "text": "Every single night, while you are unconscious, your brain performs an astonishing act of physical hygiene. It physically contracts by sixty percent... and washes itself with pressurized spinal fluid.",
+      "audio_file": "vo_ep14_beat_1_hook_nocturnal_secret.mp3",
+      "start": 0.0,
+      "end": 13.34,
+      "duration": 13.34
+    },
+    {
+      "index": 2,
+      "id": "act1_astrocytic_highway",
+      "act": 2,
+      "title": "The Astrocytic Highway",
+      "text": "In 2013, neuroscientist Maiken Nedergaard discovered the Glymphatic System. During waking hours, your brain is too busy processing reality to clean house. But the moment you enter deep slow-wave sleep, specialized star-shaped astrocytes open microscopic floodgates.",
+      "audio_file": "vo_ep14_beat_2_act1_astrocytic_highway.mp3",
+      "start": 14.74,
+      "end": 33.6,
+      "duration": 18.86
+    },
+    {
+      "index": 3,
+      "id": "act2_alzheimer_flush",
+      "act": 3,
+      "title": "The Alzheimer's Flush",
+      "text": "A tidal wave of cerebrospinal fluid surges through your cerebral tissue, vacuuming away toxic metabolic debris \u2014 specifically Beta-Amyloid and Tau proteins. Skipping deep sleep doesn't just make you tired; it leaves toxic waste baked into your synapses.",
+      "audio_file": "vo_ep14_beat_3_act2_alzheimer_flush.mp3",
+      "start": 35.0,
+      "end": 51.9,
+      "duration": 16.9
+    },
+    {
+      "index": 4,
+      "id": "act3_sleep_debt_myth",
+      "act": 4,
+      "title": "The Sleep Debt Myth",
+      "text": "You cannot simply 'catch up' on sleep over the weekend. Glymphatic cleansing requires consistent, synchronized Slow-Wave Delta sleep, which only occurs in your initial nocturnal cycles. Chronic deprivation is biological self-sabotage.",
+      "audio_file": "vo_ep14_beat_4_act3_sleep_debt_myth.mp3",
+      "start": 53.3,
+      "end": 69.84,
+      "duration": 16.54
+    },
+    {
+      "index": 5,
+      "id": "outro_clean_temple",
+      "act": 5,
+      "title": "The Protocol & Temple",
+      "text": "Sleep is not a passive pause button. It is the most advanced neurological detox protocol on Earth. Protect your eight hours. Let your brain clean its temple.",
+      "audio_file": "vo_ep14_beat_5_outro_clean_temple.mp3",
+      "start": 71.24,
+      "end": 83.67,
+      "duration": 12.43
+    }
+  ],
+  "words": [
+    {
+      "word": "Every",
+      "start": 0.0,
+      "end": 0.34,
+      "probability": 0.81
+    },
+    {
+      "word": "single",
+      "start": 0.34,
+      "end": 0.6,
+      "probability": 0.98
+    },
+    {
+      "word": "night,",
+      "start": 0.6,
+      "end": 1.02,
+      "probability": 0.99
+    },
+    {
+      "word": "while",
+      "start": 1.26,
+      "end": 1.5,
+      "probability": 1.0
+    },
+    {
+      "word": "you",
+      "start": 1.5,
+      "end": 1.66,
+      "probability": 1.0
+    },
+    {
+      "word": "are",
+      "start": 1.66,
+      "end": 1.8,
+      "probability": 0.99
+    },
+    {
+      "word": "unconscious,",
+      "start": 1.8,
+      "end": 2.18,
+      "probability": 0.99
+    },
+    {
+      "word": "your",
+      "start": 2.84,
+      "end": 2.96,
+      "probability": 0.99
+    },
+    {
+      "word": "brain",
+      "start": 2.96,
+      "end": 3.24,
+      "probability": 1.0
+    },
+    {
+      "word": "performs",
+      "start": 3.24,
+      "end": 3.7,
+      "probability": 1.0
+    },
+    {
+      "word": "an",
+      "start": 3.7,
+      "end": 3.94,
+      "probability": 0.99
+    },
+    {
+      "word": "astonishing",
+      "start": 3.94,
+      "end": 4.22,
+      "probability": 0.99
+    },
+    {
+      "word": "act",
+      "start": 4.22,
+      "end": 4.78,
+      "probability": 1.0
+    },
+    {
+      "word": "of",
+      "start": 4.78,
+      "end": 4.96,
+      "probability": 1.0
+    },
+    {
+      "word": "physical",
+      "start": 4.96,
+      "end": 5.2,
+      "probability": 0.99
+    },
+    {
+      "word": "hygiene.",
+      "start": 5.2,
+      "end": 5.56,
+      "probability": 0.99
+    },
+    {
+      "word": "It",
+      "start": 6.86,
+      "end": 7.0,
+      "probability": 0.99
+    },
+    {
+      "word": "physically",
+      "start": 7.0,
+      "end": 7.28,
+      "probability": 0.99
+    },
+    {
+      "word": "contracts",
+      "start": 7.28,
+      "end": 7.78,
+      "probability": 0.99
+    },
+    {
+      "word": "by",
+      "start": 7.78,
+      "end": 8.26,
+      "probability": 1.0
+    },
+    {
+      "word": "60",
+      "start": 8.26,
+      "end": 8.58,
+      "probability": 0.98
+    },
+    {
+      "word": "%",
+      "start": 8.58,
+      "end": 9.1,
+      "probability": 0.53
+    },
+    {
+      "word": "and",
+      "start": 9.1,
+      "end": 9.66,
+      "probability": 0.98
+    },
+    {
+      "word": "washes",
+      "start": 9.66,
+      "end": 10.12,
+      "probability": 0.99
+    },
+    {
+      "word": "itself",
+      "start": 10.12,
+      "end": 10.52,
+      "probability": 0.99
+    },
+    {
+      "word": "with",
+      "start": 10.52,
+      "end": 10.76,
+      "probability": 1.0
+    },
+    {
+      "word": "pressurized",
+      "start": 10.76,
+      "end": 11.38,
+      "probability": 0.96
+    },
+    {
+      "word": "spinal",
+      "start": 11.38,
+      "end": 11.7,
+      "probability": 0.98
+    },
+    {
+      "word": "fluid.",
+      "start": 11.7,
+      "end": 12.16,
+      "probability": 1.0
+    },
+    {
+      "word": "In",
+      "start": 14.56,
+      "end": 15.28,
+      "probability": 0.89
+    },
+    {
+      "word": "2013,",
+      "start": 15.28,
+      "end": 16.0,
+      "probability": 0.99
+    },
+    {
+      "word": "neuroscientist",
+      "start": 16.0,
+      "end": 17.3,
+      "probability": 0.97
+    },
+    {
+      "word": "Mike",
+      "start": 17.3,
+      "end": 17.44,
+      "probability": 0.63
+    },
+    {
+      "word": "N.",
+      "start": 17.44,
+      "end": 17.74,
+      "probability": 0.5
+    },
+    {
+      "word": "Nedergaard",
+      "start": 17.82,
+      "end": 18.2,
+      "probability": 0.54
+    },
+    {
+      "word": "discovered",
+      "start": 18.2,
+      "end": 18.7,
+      "probability": 0.99
+    },
+    {
+      "word": "the",
+      "start": 18.7,
+      "end": 18.9,
+      "probability": 1.0
+    },
+    {
+      "word": "glymphatic",
+      "start": 18.9,
+      "end": 19.36,
+      "probability": 0.56
+    },
+    {
+      "word": "system.",
+      "start": 19.36,
+      "end": 19.82,
+      "probability": 1.0
+    },
+    {
+      "word": "During",
+      "start": 20.84,
+      "end": 21.08,
+      "probability": 0.97
+    },
+    {
+      "word": "waking",
+      "start": 21.08,
+      "end": 21.32,
+      "probability": 0.99
+    },
+    {
+      "word": "hours,",
+      "start": 21.32,
+      "end": 21.8,
+      "probability": 1.0
+    },
+    {
+      "word": "your",
+      "start": 21.8,
+      "end": 22.26,
+      "probability": 1.0
+    },
+    {
+      "word": "brain",
+      "start": 22.26,
+      "end": 22.56,
+      "probability": 1.0
+    },
+    {
+      "word": "is",
+      "start": 22.56,
+      "end": 22.8,
+      "probability": 1.0
+    },
+    {
+      "word": "too",
+      "start": 22.8,
+      "end": 23.0,
+      "probability": 0.99
+    },
+    {
+      "word": "busy",
+      "start": 23.0,
+      "end": 23.26,
+      "probability": 1.0
+    },
+    {
+      "word": "processing",
+      "start": 23.26,
+      "end": 23.82,
+      "probability": 1.0
+    },
+    {
+      "word": "reality",
+      "start": 23.82,
+      "end": 24.28,
+      "probability": 1.0
+    },
+    {
+      "word": "to",
+      "start": 24.28,
+      "end": 24.68,
+      "probability": 1.0
+    },
+    {
+      "word": "clean",
+      "start": 24.68,
+      "end": 24.86,
+      "probability": 0.98
+    },
+    {
+      "word": "house.",
+      "start": 24.86,
+      "end": 25.2,
+      "probability": 0.94
+    },
+    {
+      "word": "But",
+      "start": 26.15,
+      "end": 26.5,
+      "probability": 0.26
+    },
+    {
+      "word": "the",
+      "start": 26.5,
+      "end": 26.64,
+      "probability": 0.95
+    },
+    {
+      "word": "moment",
+      "start": 26.64,
+      "end": 26.88,
+      "probability": 1.0
+    },
+    {
+      "word": "you",
+      "start": 26.88,
+      "end": 27.1,
+      "probability": 1.0
+    },
+    {
+      "word": "enter",
+      "start": 27.1,
+      "end": 27.34,
+      "probability": 0.99
+    },
+    {
+      "word": "deep",
+      "start": 27.34,
+      "end": 27.56,
+      "probability": 0.98
+    },
+    {
+      "word": "slow",
+      "start": 27.56,
+      "end": 27.86,
+      "probability": 0.59
+    },
+    {
+      "word": "-wave",
+      "start": 27.86,
+      "end": 28.18,
+      "probability": 0.74
+    },
+    {
+      "word": "sleep,",
+      "start": 28.18,
+      "end": 28.44,
+      "probability": 0.91
+    },
+    {
+      "word": "specialized",
+      "start": 28.88,
+      "end": 29.4,
+      "probability": 0.59
+    },
+    {
+      "word": "star",
+      "start": 29.4,
+      "end": 29.86,
+      "probability": 0.79
+    },
+    {
+      "word": "-shaped",
+      "start": 29.86,
+      "end": 30.22,
+      "probability": 0.96
+    },
+    {
+      "word": "astrocytes",
+      "start": 30.22,
+      "end": 30.96,
+      "probability": 0.97
+    },
+    {
+      "word": "open",
+      "start": 30.96,
+      "end": 31.14,
+      "probability": 0.98
+    },
+    {
+      "word": "microscopic",
+      "start": 31.14,
+      "end": 31.5,
+      "probability": 0.98
+    },
+    {
+      "word": "floodgates.",
+      "start": 31.5,
+      "end": 32.58,
+      "probability": 0.98
+    },
+    {
+      "word": "A",
+      "start": 35.18,
+      "end": 35.3,
+      "probability": 0.95
+    },
+    {
+      "word": "tidal",
+      "start": 35.3,
+      "end": 35.54,
+      "probability": 1.0
+    },
+    {
+      "word": "wave",
+      "start": 35.54,
+      "end": 35.94,
+      "probability": 1.0
+    },
+    {
+      "word": "of",
+      "start": 35.94,
+      "end": 36.1,
+      "probability": 1.0
+    },
+    {
+      "word": "cerebrospinal",
+      "start": 36.1,
+      "end": 37.0,
+      "probability": 0.94
+    },
+    {
+      "word": "fluid",
+      "start": 37.0,
+      "end": 37.32,
+      "probability": 0.99
+    },
+    {
+      "word": "surges",
+      "start": 37.32,
+      "end": 37.86,
+      "probability": 1.0
+    },
+    {
+      "word": "through",
+      "start": 37.86,
+      "end": 38.1,
+      "probability": 1.0
+    },
+    {
+      "word": "your",
+      "start": 38.1,
+      "end": 38.24,
+      "probability": 1.0
+    },
+    {
+      "word": "cerebral",
+      "start": 38.24,
+      "end": 38.52,
+      "probability": 0.75
+    },
+    {
+      "word": "tissue,",
+      "start": 38.52,
+      "end": 39.04,
+      "probability": 1.0
+    },
+    {
+      "word": "vacuuming",
+      "start": 39.04,
+      "end": 40.02,
+      "probability": 0.97
+    },
+    {
+      "word": "away",
+      "start": 40.02,
+      "end": 40.18,
+      "probability": 0.96
+    },
+    {
+      "word": "toxic",
+      "start": 40.18,
+      "end": 40.58,
+      "probability": 0.98
+    },
+    {
+      "word": "metabolic",
+      "start": 40.58,
+      "end": 41.1,
+      "probability": 1.0
+    },
+    {
+      "word": "debris,",
+      "start": 41.1,
+      "end": 41.66,
+      "probability": 1.0
+    },
+    {
+      "word": "specifically",
+      "start": 42.22,
+      "end": 42.68,
+      "probability": 0.99
+    },
+    {
+      "word": "beta",
+      "start": 42.68,
+      "end": 43.02,
+      "probability": 0.9
+    },
+    {
+      "word": "-amyloid",
+      "start": 43.02,
+      "end": 43.62,
+      "probability": 0.82
+    },
+    {
+      "word": "and",
+      "start": 43.62,
+      "end": 43.78,
+      "probability": 0.96
+    },
+    {
+      "word": "tau",
+      "start": 43.78,
+      "end": 44.02,
+      "probability": 0.81
+    },
+    {
+      "word": "proteins.",
+      "start": 44.02,
+      "end": 44.42,
+      "probability": 0.98
+    },
+    {
+      "word": "Skipping",
+      "start": 45.46,
+      "end": 46.1,
+      "probability": 0.91
+    },
+    {
+      "word": "deep",
+      "start": 46.1,
+      "end": 46.36,
+      "probability": 0.99
+    },
+    {
+      "word": "sleep",
+      "start": 46.36,
+      "end": 46.72,
+      "probability": 0.95
+    },
+    {
+      "word": "doesn't",
+      "start": 46.72,
+      "end": 47.16,
+      "probability": 1.0
+    },
+    {
+      "word": "just",
+      "start": 47.16,
+      "end": 47.32,
+      "probability": 1.0
+    },
+    {
+      "word": "make",
+      "start": 47.32,
+      "end": 47.5,
+      "probability": 1.0
+    },
+    {
+      "word": "you",
+      "start": 47.5,
+      "end": 47.68,
+      "probability": 1.0
+    },
+    {
+      "word": "tired,",
+      "start": 47.68,
+      "end": 47.96,
+      "probability": 1.0
+    },
+    {
+      "word": "it",
+      "start": 48.44,
+      "end": 48.58,
+      "probability": 0.99
+    },
+    {
+      "word": "leaves",
+      "start": 48.58,
+      "end": 48.74,
+      "probability": 0.93
+    },
+    {
+      "word": "toxic",
+      "start": 48.74,
+      "end": 49.12,
+      "probability": 1.0
+    },
+    {
+      "word": "waste",
+      "start": 49.12,
+      "end": 49.5,
+      "probability": 1.0
+    },
+    {
+      "word": "baked",
+      "start": 49.5,
+      "end": 49.8,
+      "probability": 0.99
+    },
+    {
+      "word": "into",
+      "start": 49.8,
+      "end": 50.1,
+      "probability": 0.99
+    },
+    {
+      "word": "your",
+      "start": 50.1,
+      "end": 50.26,
+      "probability": 1.0
+    },
+    {
+      "word": "synapses.",
+      "start": 50.26,
+      "end": 50.76,
+      "probability": 0.95
+    },
+    {
+      "word": "You",
+      "start": 52.88,
+      "end": 53.64,
+      "probability": 0.23
+    },
+    {
+      "word": "cannot",
+      "start": 53.64,
+      "end": 53.88,
+      "probability": 0.95
+    },
+    {
+      "word": "simply",
+      "start": 53.88,
+      "end": 54.28,
+      "probability": 1.0
+    },
+    {
+      "word": "catch",
+      "start": 54.28,
+      "end": 54.82,
+      "probability": 0.51
+    },
+    {
+      "word": "up",
+      "start": 54.82,
+      "end": 55.06,
+      "probability": 0.97
+    },
+    {
+      "word": "on",
+      "start": 55.06,
+      "end": 55.4,
+      "probability": 0.99
+    },
+    {
+      "word": "sleep",
+      "start": 55.4,
+      "end": 55.7,
+      "probability": 0.96
+    },
+    {
+      "word": "over",
+      "start": 55.7,
+      "end": 55.96,
+      "probability": 1.0
+    },
+    {
+      "word": "the",
+      "start": 55.96,
+      "end": 56.14,
+      "probability": 1.0
+    },
+    {
+      "word": "weekend.",
+      "start": 56.14,
+      "end": 56.5,
+      "probability": 1.0
+    },
+    {
+      "word": "Gl",
+      "start": 57.58,
+      "end": 57.72,
+      "probability": 0.69
+    },
+    {
+      "word": "lymphatic",
+      "start": 57.72,
+      "end": 58.14,
+      "probability": 0.54
+    },
+    {
+      "word": "cleansing",
+      "start": 58.14,
+      "end": 58.38,
+      "probability": 1.0
+    },
+    {
+      "word": "requires",
+      "start": 58.38,
+      "end": 58.98,
+      "probability": 1.0
+    },
+    {
+      "word": "consistent,",
+      "start": 58.98,
+      "end": 59.56,
+      "probability": 0.98
+    },
+    {
+      "word": "synchronized",
+      "start": 60.22,
+      "end": 60.5,
+      "probability": 0.98
+    },
+    {
+      "word": "slow",
+      "start": 60.5,
+      "end": 60.98,
+      "probability": 0.79
+    },
+    {
+      "word": "-wave",
+      "start": 60.98,
+      "end": 61.28,
+      "probability": 0.87
+    },
+    {
+      "word": "delta",
+      "start": 61.28,
+      "end": 61.5,
+      "probability": 0.76
+    },
+    {
+      "word": "sleep,",
+      "start": 61.5,
+      "end": 61.9,
+      "probability": 0.93
+    },
+    {
+      "word": "which",
+      "start": 62.28,
+      "end": 62.48,
+      "probability": 1.0
+    },
+    {
+      "word": "only",
+      "start": 62.48,
+      "end": 62.7,
+      "probability": 1.0
+    },
+    {
+      "word": "occurs",
+      "start": 62.7,
+      "end": 63.1,
+      "probability": 1.0
+    },
+    {
+      "word": "in",
+      "start": 63.1,
+      "end": 63.4,
+      "probability": 1.0
+    },
+    {
+      "word": "your",
+      "start": 63.4,
+      "end": 63.54,
+      "probability": 1.0
+    },
+    {
+      "word": "initial",
+      "start": 63.54,
+      "end": 63.86,
+      "probability": 0.99
+    },
+    {
+      "word": "nocturnal",
+      "start": 63.86,
+      "end": 64.34,
+      "probability": 0.96
+    },
+    {
+      "word": "cycles.",
+      "start": 64.34,
+      "end": 65.04,
+      "probability": 1.0
+    },
+    {
+      "word": "Chronic",
+      "start": 66.34,
+      "end": 66.34,
+      "probability": 0.97
+    },
+    {
+      "word": "deprivation",
+      "start": 66.34,
+      "end": 66.68,
+      "probability": 0.91
+    },
+    {
+      "word": "is",
+      "start": 66.68,
+      "end": 67.22,
+      "probability": 1.0
+    },
+    {
+      "word": "biological",
+      "start": 67.22,
+      "end": 67.6,
+      "probability": 0.97
+    },
+    {
+      "word": "self",
+      "start": 67.6,
+      "end": 68.16,
+      "probability": 0.99
+    },
+    {
+      "word": "-sabotage.",
+      "start": 68.16,
+      "end": 69.04,
+      "probability": 0.97
+    },
+    {
+      "word": "Sleep",
+      "start": 71.04,
+      "end": 71.8,
+      "probability": 0.94
+    },
+    {
+      "word": "is",
+      "start": 71.8,
+      "end": 72.06,
+      "probability": 0.99
+    },
+    {
+      "word": "not",
+      "start": 72.06,
+      "end": 72.28,
+      "probability": 0.99
+    },
+    {
+      "word": "a",
+      "start": 72.28,
+      "end": 72.4,
+      "probability": 1.0
+    },
+    {
+      "word": "passive",
+      "start": 72.4,
+      "end": 72.72,
+      "probability": 0.99
+    },
+    {
+      "word": "pause",
+      "start": 72.72,
+      "end": 73.06,
+      "probability": 0.91
+    },
+    {
+      "word": "button.",
+      "start": 73.06,
+      "end": 73.52,
+      "probability": 0.99
+    },
+    {
+      "word": "It",
+      "start": 74.54,
+      "end": 74.68,
+      "probability": 1.0
+    },
+    {
+      "word": "is",
+      "start": 74.68,
+      "end": 74.78,
+      "probability": 1.0
+    },
+    {
+      "word": "the",
+      "start": 74.78,
+      "end": 74.9,
+      "probability": 1.0
+    },
+    {
+      "word": "most",
+      "start": 74.9,
+      "end": 75.08,
+      "probability": 1.0
+    },
+    {
+      "word": "advanced",
+      "start": 75.08,
+      "end": 75.52,
+      "probability": 0.99
+    },
+    {
+      "word": "neurological",
+      "start": 75.52,
+      "end": 76.02,
+      "probability": 0.98
+    },
+    {
+      "word": "detox",
+      "start": 76.02,
+      "end": 76.58,
+      "probability": 1.0
+    },
+    {
+      "word": "protocol",
+      "start": 76.58,
+      "end": 77.08,
+      "probability": 1.0
+    },
+    {
+      "word": "on",
+      "start": 77.08,
+      "end": 77.64,
+      "probability": 1.0
+    },
+    {
+      "word": "earth.",
+      "start": 77.64,
+      "end": 77.86,
+      "probability": 0.4
+    },
+    {
+      "word": "Protect",
+      "start": 78.6,
+      "end": 79.2,
+      "probability": 0.22
+    },
+    {
+      "word": "your",
+      "start": 79.2,
+      "end": 79.5,
+      "probability": 0.97
+    },
+    {
+      "word": "eight",
+      "start": 79.5,
+      "end": 79.7,
+      "probability": 0.4
+    },
+    {
+      "word": "hours.",
+      "start": 79.7,
+      "end": 80.08,
+      "probability": 0.95
+    },
+    {
+      "word": "Let",
+      "start": 81.1,
+      "end": 81.36,
+      "probability": 0.98
+    },
+    {
+      "word": "your",
+      "start": 81.36,
+      "end": 81.52,
+      "probability": 1.0
+    },
+    {
+      "word": "brain",
+      "start": 81.52,
+      "end": 81.82,
+      "probability": 1.0
+    },
+    {
+      "word": "clean",
+      "start": 81.82,
+      "end": 82.12,
+      "probability": 1.0
+    },
+    {
+      "word": "its",
+      "start": 82.12,
+      "end": 82.38,
+      "probability": 0.9
+    },
+    {
+      "word": "temple.",
+      "start": 82.38,
+      "end": 82.76,
+      "probability": 0.97
+    }
+  ]
+}

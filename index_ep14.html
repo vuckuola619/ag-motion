@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>The Glymphatic Brain Wash — Editorial Documentary Film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #040711;
+  --bg-mid: #091326;
+  --bg-card: rgba(13, 24, 48, 0.72);
+  --bg-card-border: rgba(56, 189, 248, 0.16);
+  --ink-primary: #F0F6FC;
+  --ink-secondary: #94A3B8;
+  --ink-muted: #64748B;
+  --cyan-accent: #38BDF8;
+  --cyan-soft: rgba(56, 189, 248, 0.12);
+  --cyan-glow: 0 0 32px rgba(56, 189, 248, 0.35);
+  --aquamarine-accent: #2DD4BF;
+  --coral-alert: #F87171;
+  --coral-soft: rgba(248, 113, 113, 0.14);
+  --gold-accent: #FBBF24;
+  --gold-soft: rgba(251, 191, 36, 0.14);
+  --card-shadow: 0 24px 60px rgba(2, 6, 23, 0.8), 0 0 1px rgba(56, 189, 248, 0.3);
+  --sprite-shadow: drop-shadow(0 24px 44px rgba(56, 189, 248, 0.22));
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+html, body {
+  width: 100%; height: 100%;
+  background: #020408;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: var(--ink-primary);
+}
+
+/* 1080x1920 Stage Canvas */
+#stage {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 1080px; height: 1920px;
+  background: radial-gradient(ellipse at 50% 38%, #0C1A38 0%, #060B18 60%, #020409 100%);
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  box-shadow: 0 0 140px rgba(0, 0, 0, 0.85);
+}
+
+/* Background Synaptic Constellation Watermark (Subtle biological ornament) */
+.ornament-overlay {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-size: 160px 160px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%2338BDF8' stroke-width='0.8' opacity='0.04'%3E%3Ccircle cx='80' cy='80' r='3.5' fill='%2338BDF8'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%2338BDF8'/%3E%3Ccircle cx='140' cy='140' r='2' fill='%2338BDF8'/%3E%3Cpath d='M20 20 Q 50 60 80 80 T 140 140' stroke-dasharray='3 5'/%3E%3Cpath d='M140 20 Q 110 50 80 80 T 20 140' stroke-dasharray='3 5'/%3E%3Ccircle cx='80' cy='80' r='48' stroke-dasharray='2 6'/%3E%3C/g%3E%3C/svg%3E");
+  z-index: 2;
+}
+
+/* Atmospheric Volumetric Spotlight */
+.volumetric-glow {
+  position: absolute;
+  left: 50%; top: 35%;
+  width: 900px; height: 900px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(45, 212, 191, 0.03) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Tactile Soft Grain */
+.grain-overlay {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: screen;
+  z-index: 4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Bioluminescent Particle Canvas */
+#particleCanvas {
+  position: absolute; inset: 0;
+  width: 1080px; height: 1920px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Camera Rig */
+#cameraRig {
+  position: absolute; inset: 0;
+  will-change: transform;
+  z-index: 10;
+}
+
+/* Scene Container */
+.scene {
+  position: absolute; inset: 0;
+  width: 1080px; height: 1920px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+.scene.active { pointer-events: auto; }
+
+/* Cinematic Telemetry Tag */
+.telemetry-tag {
+  position: absolute;
+  top: 100px; left: 80px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--cyan-accent);
+  background: rgba(12, 24, 48, 0.85);
+  padding: 10px 24px;
+  border-left: 4px solid var(--cyan-accent);
+  border-radius: 6px;
+  border: 1px solid var(--bg-card-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  z-index: 25;
+  opacity: 0;
+}
+.telemetry-tag.coral { border-left-color: var(--coral-alert); color: var(--coral-alert); }
+.telemetry-tag.gold { border-left-color: var(--gold-accent); color: var(--gold-accent); }
+
+/* Episode Folio Counter */
+.episode-folio {
+  position: absolute;
+  top: 106px; right: 80px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-secondary);
+  z-index: 25;
+}
+
+/* Large Editorial Headline */
+.editorial-title {
+  position: absolute;
+  top: 180px; left: 80px; right: 80px;
+  font-family: "Instrument Serif", serif;
+  font-size: 64px;
+  line-height: 1.08;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  z-index: 25;
+  opacity: 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+.editorial-title em {
+  font-style: italic;
+  color: var(--cyan-accent);
+}
+
+/* Secondary Narrative Line */
+.editorial-subtitle {
+  position: absolute;
+  top: 340px; left: 80px; right: 120px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink-secondary);
+  z-index: 25;
+  opacity: 0;
+}
+
+/* Central Hero Visual Container */
+.hero-stage {
+  position: absolute;
+  top: 480px; left: 80px; right: 80px;
+  height: 880px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+/* Sprite Image Styling */
+.hero-sprite {
+  max-width: 780px;
+  max-height: 780px;
+  object-fit: contain;
+  filter: var(--sprite-shadow);
+  will-change: transform, opacity;
+  opacity: 0;
+}
+
+/* Data Metric Cards */
+.data-card {
+  position: absolute;
+  bottom: 240px; left: 80px; right: 80px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: 20px;
+  padding: 32px 36px;
+  box-shadow: var(--card-shadow);
+  z-index: 25;
+  opacity: 0;
+}
+.data-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.metric-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.metric-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+.metric-value {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+.metric-value.cyan { color: var(--cyan-accent); text-shadow: var(--cyan-glow); }
+.metric-value.coral { color: var(--coral-alert); }
+.metric-value.gold { color: var(--gold-accent); }
+.metric-desc {
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--ink-secondary);
+}
+
+/* Fluid Wave Simulation Overlay */
+.fluid-wave-svg {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 1080px; height: 400px;
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 6;
+}
+
+/* Bottom Safe Zone Watermark */
+.bottom-branding {
+  position: absolute;
+  bottom: 80px; left: 80px; right: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  z-index: 25;
+}
+.bottom-branding .brand-pill {
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+}
+
+/* Scrub Debug UI */
+#debugPanel {
+  position: absolute;
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #38BDF8;
+  border-radius: 8px;
+  padding: 10px 20px;
+  display: none;
+  gap: 15px;
+  align-items: center;
+  z-index: 1000;
+  color: #FFF;
+  font-family: monospace;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+<div id="stage">
+  <!-- Layered Background Systems -->
+  <div class="ornament-overlay"></div>
+  <div class="volumetric-glow"></div>
+  <div class="grain-overlay"></div>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Fluid Tidal SVG Wave -->
+  <svg class="fluid-wave-svg" viewBox="0 0 1080 400" preserveAspectRatio="none">
+    <path id="wavePath1" fill="url(#cyanFluidGrad)" opacity="0.4" d="M0 200 Q 270 120 540 200 T 1080 200 L 1080 400 L 0 400 Z" />
+    <path id="wavePath2" fill="url(#aquamarineFluidGrad)" opacity="0.25" d="M0 240 Q 270 300 540 240 T 1080 240 L 1080 400 L 0 400 Z" />
+    <defs>
+      <linearGradient id="cyanFluidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#0284C7" stop-opacity="0.0"/>
+      </linearGradient>
+      <linearGradient id="aquamarineFluidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#0F766E" stop-opacity="0.0"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div id="cameraRig">
+
+    <!-- ================= SCENE 1: THE NOCTURNAL SECRET ================= -->
+    <div id="scene1" class="scene active">
+      <div class="telemetry-tag" id="s1_tag">SCIENCE • NOCTURNAL BIOLOGY</div>
+      <div class="episode-folio">EP. 14 / ACT I</div>
+      <h1 class="editorial-title" id="s1_title">While you sleep,<br>your brain <em>washes itself.</em></h1>
+      <p class="editorial-subtitle" id="s1_sub">Every night during deep slow-wave unconsciousness, glial cells contract by sixty percent to unleash a pressurized cerebral fluid tide.</p>
+      
+      <div class="hero-stage">
+        <img id="s1_sprite" class="hero-sprite" src="assets/episode14_glymphatic_brain_wash/sprites/sprite_bioluminescent_brain.png" alt="Brain Sagittal Section" />
+      </div>
+
+      <div class="data-card" id="s1_card">
+        <div class="data-card-grid">
+          <div class="metric-box">
+            <span class="metric-label">Glial Interstitial Space</span>
+            <span class="metric-value cyan">+60%</span>
+            <span class="metric-desc">Physical expansion during Slow-Wave NREM</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-label">Brainwave State</span>
+            <span class="metric-value">0.5–4.0 Hz</span>
+            <span class="metric-desc">Synchronized Delta frequency oscillations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SCENE 2: THE ASTROCYTIC HIGHWAY ================= -->
+    <div id="scene2" class="scene">
+      <div class="telemetry-tag" id="s2_tag">NEDERGAARD LAB 2013 • SCIENCE</div>
+      <div class="episode-folio">EP. 14 / ACT II</div>
+      <h1 class="editorial-title" id="s2_title">The Astrocytic<br><em>Microscopic Highway.</em></h1>
+      <p class="editorial-subtitle" id="s2_sub">Star-shaped astrocytes wrap around cerebral blood vessels, opening microscopic Aquaporin-4 water channels to flush the interstitial space.</p>
+      
+      <div class="hero-stage">
+        <img id="s2_sprite" class="hero-sprite" src="assets/episode14_glymphatic_brain_wash/sprites/sprite_star_astrocyte_aquaporin.png" alt="Astrocyte Network" />
+      </div>
+
+      <div class="data-card" id="s2_card">
+        <div class="data-card-grid">
+          <div class="metric-box">
+            <span class="metric-label">Aquaporin-4 Channels</span>
+            <span class="metric-value cyan">OPEN</span>
+            <span class="metric-desc">High-speed pressurized fluid conductivity</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-label">Cerebrospinal Surge</span>
+            <span class="metric-value">2.4×</span>
+            <span class="metric-desc">Elevated volumetric flush over waking state</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SCENE 3: THE ALZHEIMER'S FLUSH ================= -->
+    <div id="scene3" class="scene">
+      <div class="telemetry-tag coral" id="s3_tag">NEUROLOGICAL DETOX • WASTE CLEARANCE</div>
+      <div class="episode-folio">EP. 14 / ACT III</div>
+      <h1 class="editorial-title" id="s3_title">The Alzheimer’s<br><em>Toxic Purge.</em></h1>
+      <p class="editorial-subtitle" id="s3_sub">Skipping deep sleep doesn't just make you exhausted; it leaves neurotoxic Beta-Amyloid and Tau proteins baked into your neural synapses.</p>
+      
+      <div class="hero-stage">
+        <img id="s3_sprite" class="hero-sprite" src="assets/episode14_glymphatic_brain_wash/sprites/sprite_toxic_amyloid_clusters.png" alt="Amyloid Beta Clearance" />
+      </div>
+
+      <div class="data-card" id="s3_card">
+        <div class="data-card-grid">
+          <div class="metric-box">
+            <span class="metric-label">Beta-Amyloid Clearance</span>
+            <span class="metric-value coral">+250%</span>
+            <span class="metric-desc">Plaque removal rate during deep sleep</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-label">Hyperphosphorylated Tau</span>
+            <span class="metric-value">PURGED</span>
+            <span class="metric-desc">Preventative defense against neurodegeneration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SCENE 4: THE SLEEP DEBT MYTH ================= -->
+    <div id="scene4" class="scene">
+      <div class="telemetry-tag gold" id="s4_tag">CHRONOBIOLOGY • ARCHITECTURE INTEGRITY</div>
+      <div class="episode-folio">EP. 14 / ACT IV</div>
+      <h1 class="editorial-title" id="s4_title">You cannot “catch up”<br><em>on Sunday afternoon.</em></h1>
+      <p class="editorial-subtitle" id="s4_sub">Glymphatic cleansing relies on synchronized Slow-Wave Delta cycles that only occur during initial nocturnal sleep architecture.</p>
+      
+      <div class="hero-stage">
+        <img id="s4_sprite" class="hero-sprite" src="assets/episode14_glymphatic_brain_wash/sprites/sprite_sleep_delta_gauge.png" alt="Delta Sleep Architecture" />
+      </div>
+
+      <div class="data-card" id="s4_card">
+        <div class="data-card-grid">
+          <div class="metric-box">
+            <span class="metric-label">Cleansing Peak Window</span>
+            <span class="metric-value gold">11 PM – 3 AM</span>
+            <span class="metric-desc">High-amplitude synchronized Delta surges</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-label">Irregular Sleep Cost</span>
+            <span class="metric-value coral">FRAGMENTED</span>
+            <span class="metric-desc">Zero compensatory glymphatic recovery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SCENE 5: THE PROTOCOL & TEMPLE ================= -->
+    <div id="scene5" class="scene">
+      <div class="telemetry-tag" id="s5_tag">BIOLOGICAL MANDATE • EPISODE 14</div>
+      <div class="episode-folio">EP. 14 / FINALE</div>
+      <h1 class="editorial-title" id="s5_title">Protect your 8 hours.<br><em>Cleanse the temple.</em></h1>
+      <p class="editorial-subtitle" id="s5_sub">Sleep is not a passive pause button. It is the most sophisticated neurological detox protocol on Earth. Prioritize your biological renewal.</p>
+      
+      <div class="hero-stage">
+        <img id="s5_sprite" class="hero-sprite" src="assets/episode14_glymphatic_brain_wash/sprites/sprite_bioluminescent_brain.png" alt="Clean Cerebrum" />
+      </div>
+
+      <div class="data-card" id="s5_card">
+        <div class="data-card-grid">
+          <div class="metric-box">
+            <span class="metric-label">The Golden Standard</span>
+            <span class="metric-value cyan">7.5 – 8.0 HRS</span>
+            <span class="metric-desc">Consistent nocturnal timing schedule</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-label">Lifelong Neuroprotection</span>
+            <span class="metric-value">OPTIMAL</span>
+            <span class="metric-desc">Active preservation of synaptic clarity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- /cameraRig -->
+
+  <!-- Bottom Branding Banner -->
+  <div class="bottom-branding">
+    <span>AG-BANG NEUROSCIENCE</span>
+    <span class="brand-pill">NEDERGAARD LAB 2013</span>
+    <span>THE GLYMPHATIC ENGINE</span>
+  </div>
+</div> <!-- /stage -->
+
+<!-- Hidden Audio Player -->
+<audio id="masterAudio" src="assets/episode14_glymphatic_brain_wash/audio_en/vo_ep14_en_master.wav" preload="auto"></audio>
+
+<!-- Debug Panel -->
+<div id="debugPanel">
+  <button id="btnPlay">Play/Pause</button>
+  <span id="txtTime">00.00 / 83.81</span>
+  <input type="range" id="rngTime" min="0" max="83.81" step="0.1" value="0" style="width: 250px;">
+</div>
+
+<script>
+// --- BIOLUMINESCENT PARTICLE ENGINE ---
+const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = 1080;
+canvas.height = 1920;
+
+const PARTICLES = [];
+const PARTICLE_COUNT = 55;
+
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  PARTICLES.push({
+    x: Math.random() * 1080,
+    y: Math.random() * 1920,
+    radius: Math.random() * 2.8 + 1.0,
+    vy: -(Math.random() * 0.45 + 0.15),
+    vx: (Math.random() - 0.5) * 0.25,
+    alpha: Math.random() * 0.6 + 0.2,
+    baseAlpha: Math.random() * 0.6 + 0.2,
+    pulseSpeed: Math.random() * 0.03 + 0.015,
+    hue: Math.random() > 0.4 ? 198 : 170 // Cyan / Aquamarine
+  });
+}
+
+function renderParticles(time) {
+  ctx.clearRect(0, 0, 1080, 1920);
+  for (let p of PARTICLES) {
+    p.y += p.vy;
+    p.x += p.vx;
+    if (p.y < -10) p.y = 1930;
+    if (p.x < -10) p.x = 1090;
+    if (p.x > 1090) p.x = -10;
+
+    const alpha = p.baseAlpha + Math.sin(time * p.pulseSpeed * 60) * 0.2;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `hsla(${p.hue}, 90%, 65%, ${Math.max(0.05, Math.min(0.85, alpha))})`;
+    ctx.shadowColor = `hsl(${p.hue}, 90%, 65%)`;
+    ctx.shadowBlur = 8;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+}
+
+// Wave Animation Function
+const wave1 = document.getElementById('wavePath1');
+const wave2 = document.getElementById('wavePath2');
+function updateWaves(t) {
+  const yOff1 = Math.sin(t * 1.2) * 25;
+  const yOff2 = Math.cos(t * 1.5) * 20;
+  wave1.setAttribute('d', `M0 ${200 + yOff1} Q 270 ${120 - yOff1} 540 ${200 + yOff1} T 1080 ${200 + yOff1} L 1080 400 L 0 400 Z`);
+  wave2.setAttribute('d', `M0 ${240 + yOff2} Q 270 ${300 - yOff2} 540 ${240 + yOff2} T 1080 ${240 + yOff2} L 1080 400 L 0 400 Z`);
+}
+
+// --- MASTER GSAP TIMELINE & MOTION CHOREOGRAPHY ---
+const TOTAL_DUR = 83.81;
+const masterAudio = document.getElementById('masterAudio');
+const masterTl = gsap.timeline({ paused: true });
+
+// Setup Initial Element States
+gsap.set(['.editorial-title', '.editorial-subtitle', '.telemetry-tag', '.data-card', '.hero-sprite'], {
+  opacity: 0,
+  y: 28
+});
+gsap.set('#scene1', { opacity: 1 });
+
+// Helper for Alus Scene In/Out
+function buildSceneMotion(tl, { sceneId, start, end, tag, title, sub, sprite, card }) {
+  const dur = end - start;
+  
+  // Fade in Scene container
+  tl.to(sceneId, { opacity: 1, duration: 0.9, ease: "power2.out" }, start);
+
+  // Staggered reveal of textual & data elements
+  tl.to(tag, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, start + 0.2);
+  tl.to(title, { opacity: 1, y: 0, duration: 0.85, ease: "power2.out" }, start + 0.4);
+  tl.to(sub, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, start + 0.7);
+  tl.to(sprite, { opacity: 1, y: 0, scale: 1.0, duration: 1.1, ease: "power2.out" }, start + 0.5);
+  tl.to(card, { opacity: 1, y: 0, duration: 0.85, ease: "power2.out" }, start + 1.1);
+
+  // Subtle floating levitation on sprite during entire scene (Alus motion)
+  tl.to(sprite, { y: -16, duration: dur * 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, start + 1.0);
+
+  // Fade out before next scene starts
+  if (end < TOTAL_DUR - 0.2) {
+    tl.to([tag, title, sub, card, sprite], {
+      opacity: 0,
+      y: -20,
+      duration: 0.75,
+      ease: "power2.in"
+    }, end - 0.85);
+    tl.to(sceneId, { opacity: 0, duration: 0.7, ease: "power2.in" }, end - 0.75);
+  }
+}
+
+// Build Scene 1 (0.0s – 14.5s)
+buildSceneMotion(masterTl, {
+  sceneId: '#scene1',
+  start: 0.0,
+  end: 14.5,
+  tag: '#s1_tag',
+  title: '#s1_title',
+  sub: '#s1_sub',
+  sprite: '#s1_sprite',
+  card: '#s1_card'
+});
+
+// Build Scene 2 (14.5s – 34.5s)
+buildSceneMotion(masterTl, {
+  sceneId: '#scene2',
+  start: 14.5,
+  end: 34.5,
+  tag: '#s2_tag',
+  title: '#s2_title',
+  sub: '#s2_sub',
+  sprite: '#s2_sprite',
+  card: '#s2_card'
+});
+
+// Build Scene 3 (34.5s – 52.5s)
+buildSceneMotion(masterTl, {
+  sceneId: '#scene3',
+  start: 34.5,
+  end: 52.5,
+  tag: '#s3_tag',
+  title: '#s3_title',
+  sub: '#s3_sub',
+  sprite: '#s3_sprite',
+  card: '#s3_card'
+});
+
+// Build Scene 4 (52.5s – 70.5s)
+buildSceneMotion(masterTl, {
+  sceneId: '#scene4',
+  start: 52.5,
+  end: 70.5,
+  tag: '#s4_tag',
+  title: '#s4_title',
+  sub: '#s4_sub',
+  sprite: '#s4_sprite',
+  card: '#s4_card'
+});
+
+// Build Scene 5 (70.5s – 83.81s)
+buildSceneMotion(masterTl, {
+  sceneId: '#scene5',
+  start: 70.5,
+  end: 83.81,
+  tag: '#s5_tag',
+  title: '#s5_title',
+  sub: '#s5_sub',
+  sprite: '#s5_sprite',
+  card: '#s5_card'
+});
+
+// Camera Continuous Z-Space Dolly In (Pure Alus, No Shake)
+masterTl.to('#cameraRig', {
+  scale: 1.045,
+  y: -24,
+  duration: TOTAL_DUR,
+  ease: "sine.inOut"
+}, 0);
+
+// Animation Loop for Canvas and Waves
+let animFrameId = null;
+function tick() {
+  const currentTime = masterTl.time();
+  renderParticles(currentTime);
+  updateWaves(currentTime);
+  animFrameId = requestAnimationFrame(tick);
+}
+animFrameId = requestAnimationFrame(tick);
+
+// --- DETERMINISTIC HEADLESS INTERFACE (PUPPETEER READY) ---
+window.BANG_MOTION = {
+  duration: TOTAL_DUR,
+  ready: false,
+  seek: function(timeInSeconds) {
+    masterTl.seek(timeInSeconds, false);
+    renderParticles(timeInSeconds);
+    updateWaves(timeInSeconds);
+  },
+  play: function() {
+    masterAudio.play().catch(() => {});
+    masterTl.play();
+  },
+  pause: function() {
+    masterAudio.pause();
+    masterTl.pause();
+  }
+};
+
+// Check query flags
+const urlParams = new URLSearchParams(window.location.search);
+const isClean = urlParams.has('clean');
+const isDebug = urlParams.has('debug');
+
+if (isDebug) {
+  const debugPanel = document.getElementById('debugPanel');
+  debugPanel.style.display = 'flex';
+  const txtTime = document.getElementById('txtTime');
+  const rngTime = document.getElementById('rngTime');
+  const btnPlay = document.getElementById('btnPlay');
+
+  btnPlay.addEventListener('click', () => {
+    if (masterTl.paused()) {
+      window.BANG_MOTION.play();
+    } else {
+      window.BANG_MOTION.pause();
+    }
+  });
+
+  rngTime.addEventListener('input', (e) => {
+    window.BANG_MOTION.seek(parseFloat(e.target.value));
+  });
+
+  masterTl.eventCallback('onUpdate', () => {
+    txtTime.innerText = `${masterTl.time().toFixed(2)} / ${TOTAL_DUR}`;
+    rngTime.value = masterTl.time();
+  });
+}
+
+// Fallback images if sprites not ready or for broken image events
+document.querySelectorAll('img.hero-sprite').forEach(img => {
+  img.addEventListener('error', () => {
+    console.warn(`[Image Fallback] ${img.src} not found.`);
+  });
+});
+
+window.addEventListener('load', () => {
+  document.fonts.ready.then(() => {
+    window.BANG_MOTION.ready = true;
+    console.log('[BANG_MOTION] Ready for deterministic playback.');
+
+    if (!isClean) {
+      window.BANG_MOTION.play();
+    }
+  });
+});
+</script>
+</body>
+</html>
