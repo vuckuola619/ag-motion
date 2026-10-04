@@ -1,0 +1,1025 @@
+{
+  "title": "Episode 10 (English Edition): The Mother's Microchimerism // Cellular Epigenetics",
+  "language": "en",
+  "voice": "en-US-ChristopherNeural",
+  "total_duration": 76.61,
+  "beats": [
+    {
+      "index": 1,
+      "id": "hook_invisible_passenger",
+      "act": 1,
+      "title": "The Invisible Passenger",
+      "text": "When you left your mother's womb, you didn't leave her empty. Decades after birth, your cells are still alive... inside her heart and brain.",
+      "audio_file": "vo_ep10_beat_1_hook_invisible_passenger.mp3",
+      "start": 0.0,
+      "end": 9.48,
+      "duration": 9.48
+    },
+    {
+      "index": 2,
+      "id": "act1_cardiac_repair",
+      "act": 2,
+      "title": "Maternal Heart Regeneration",
+      "text": "In 2011, researchers at Mount Sinai discovered something extraordinary: when a pregnant mother suffers heart injury, fetal stem cells travel across the placenta, transforming directly into beating cardiomyocytes to repair her heart tissue.",
+      "audio_file": "vo_ep10_beat_2_act1_cardiac_repair.mp3",
+      "start": 10.43,
+      "end": 25.17,
+      "duration": 14.74
+    },
+    {
+      "index": 3,
+      "id": "act2_brain_longevity",
+      "act": 3,
+      "title": "The 94-Year Legacy",
+      "text": "And it doesn't stop there. In 2012, the Fred Hutchinson Center discovered male fetal DNA inside the brains of women up to age ninety-four. For nearly a century, children leave an indelible biological mark in their mother's memory centers.",
+      "audio_file": "vo_ep10_beat_3_act2_brain_longevity.mp3",
+      "start": 26.12,
+      "end": 42.8,
+      "duration": 16.68
+    },
+    {
+      "index": 4,
+      "id": "act3_prophetic_hadith",
+      "act": 4,
+      "title": "Prophetic Covenant: 3 to 1 Priority",
+      "text": "Fourteen centuries ago, a man asked Prophet Muhammad ﷺ: 'Who deserves my finest companionship?' The Prophet answered: 'Your mother.' The man asked: 'Then who?' 'Your mother.' 'Then who?' 'Your mother.' Only on the fourth time did he say: 'Your father.'",
+      "audio_file": "vo_ep10_beat_4_act3_prophetic_hadith.mp3",
+      "start": 43.75,
+      "end": 63.96,
+      "duration": 20.21
+    },
+    {
+      "index": 5,
+      "id": "outro_presence",
+      "act": 5,
+      "title": "Stitched Together Forever",
+      "text": "You are not just a chapter in her life. Biologically, genetically, and spiritually... you are stitched into her living organs forever. Call your mother today.",
+      "audio_file": "vo_ep10_beat_5_outro_presence.mp3",
+      "start": 64.91,
+      "end": 76.45,
+      "duration": 11.54
+    }
+  ],
+  "words": [
+    {
+      "word": "When",
+      "start": 0.0,
+      "end": 0.22,
+      "beat": 1
+    },
+    {
+      "word": "you",
+      "start": 0.22,
+      "end": 0.34,
+      "beat": 1
+    },
+    {
+      "word": "left",
+      "start": 0.34,
+      "end": 0.54,
+      "beat": 1
+    },
+    {
+      "word": "your",
+      "start": 0.54,
+      "end": 0.74,
+      "beat": 1
+    },
+    {
+      "word": "mother's",
+      "start": 0.74,
+      "end": 1.16,
+      "beat": 1
+    },
+    {
+      "word": "womb,",
+      "start": 1.16,
+      "end": 1.38,
+      "beat": 1
+    },
+    {
+      "word": "you",
+      "start": 1.72,
+      "end": 1.84,
+      "beat": 1
+    },
+    {
+      "word": "didn't",
+      "start": 1.84,
+      "end": 2.1,
+      "beat": 1
+    },
+    {
+      "word": "leave",
+      "start": 2.1,
+      "end": 2.28,
+      "beat": 1
+    },
+    {
+      "word": "her",
+      "start": 2.28,
+      "end": 2.42,
+      "beat": 1
+    },
+    {
+      "word": "empty.",
+      "start": 2.42,
+      "end": 2.74,
+      "beat": 1
+    },
+    {
+      "word": "Decades",
+      "start": 3.82,
+      "end": 4.3,
+      "beat": 1
+    },
+    {
+      "word": "after",
+      "start": 4.3,
+      "end": 4.5,
+      "beat": 1
+    },
+    {
+      "word": "birth,",
+      "start": 4.5,
+      "end": 4.88,
+      "beat": 1
+    },
+    {
+      "word": "your",
+      "start": 5.2,
+      "end": 5.32,
+      "beat": 1
+    },
+    {
+      "word": "cells",
+      "start": 5.32,
+      "end": 5.56,
+      "beat": 1
+    },
+    {
+      "word": "are",
+      "start": 5.56,
+      "end": 5.88,
+      "beat": 1
+    },
+    {
+      "word": "still",
+      "start": 5.88,
+      "end": 6.12,
+      "beat": 1
+    },
+    {
+      "word": "alive,",
+      "start": 6.12,
+      "end": 6.52,
+      "beat": 1
+    },
+    {
+      "word": "inside",
+      "start": 6.98,
+      "end": 7.2,
+      "beat": 1
+    },
+    {
+      "word": "her",
+      "start": 7.2,
+      "end": 7.64,
+      "beat": 1
+    },
+    {
+      "word": "heart",
+      "start": 7.64,
+      "end": 7.88,
+      "beat": 1
+    },
+    {
+      "word": "and",
+      "start": 7.88,
+      "end": 8.06,
+      "beat": 1
+    },
+    {
+      "word": "brain.",
+      "start": 8.06,
+      "end": 8.34,
+      "beat": 1
+    },
+    {
+      "word": "In",
+      "start": 10.18,
+      "end": 10.82,
+      "beat": 2
+    },
+    {
+      "word": "2011,",
+      "start": 10.82,
+      "end": 11.46,
+      "beat": 2
+    },
+    {
+      "word": "researchers",
+      "start": 11.46,
+      "end": 12.3,
+      "beat": 2
+    },
+    {
+      "word": "at",
+      "start": 12.3,
+      "end": 12.68,
+      "beat": 2
+    },
+    {
+      "word": "Mount",
+      "start": 12.68,
+      "end": 12.82,
+      "beat": 2
+    },
+    {
+      "word": "Sinai",
+      "start": 12.82,
+      "end": 13.2,
+      "beat": 2
+    },
+    {
+      "word": "discovered",
+      "start": 13.2,
+      "end": 13.7,
+      "beat": 2
+    },
+    {
+      "word": "something",
+      "start": 13.7,
+      "end": 14.14,
+      "beat": 2
+    },
+    {
+      "word": "extraordinary,",
+      "start": 14.14,
+      "end": 14.62,
+      "beat": 2
+    },
+    {
+      "word": "when",
+      "start": 15.08,
+      "end": 15.4,
+      "beat": 2
+    },
+    {
+      "word": "a",
+      "start": 15.4,
+      "end": 15.48,
+      "beat": 2
+    },
+    {
+      "word": "pregnant",
+      "start": 15.48,
+      "end": 15.72,
+      "beat": 2
+    },
+    {
+      "word": "mother",
+      "start": 15.72,
+      "end": 16.08,
+      "beat": 2
+    },
+    {
+      "word": "suffers",
+      "start": 16.08,
+      "end": 16.56,
+      "beat": 2
+    },
+    {
+      "word": "heart",
+      "start": 16.56,
+      "end": 16.74,
+      "beat": 2
+    },
+    {
+      "word": "injury,",
+      "start": 16.74,
+      "end": 17.14,
+      "beat": 2
+    },
+    {
+      "word": "fetal",
+      "start": 17.66,
+      "end": 17.84,
+      "beat": 2
+    },
+    {
+      "word": "stem",
+      "start": 17.84,
+      "end": 18.16,
+      "beat": 2
+    },
+    {
+      "word": "cells",
+      "start": 18.16,
+      "end": 18.62,
+      "beat": 2
+    },
+    {
+      "word": "travel",
+      "start": 18.62,
+      "end": 18.82,
+      "beat": 2
+    },
+    {
+      "word": "across",
+      "start": 18.82,
+      "end": 19.26,
+      "beat": 2
+    },
+    {
+      "word": "the",
+      "start": 19.26,
+      "end": 19.48,
+      "beat": 2
+    },
+    {
+      "word": "placenta,",
+      "start": 19.48,
+      "end": 20.0,
+      "beat": 2
+    },
+    {
+      "word": "transforming",
+      "start": 20.18,
+      "end": 20.72,
+      "beat": 2
+    },
+    {
+      "word": "directly",
+      "start": 20.72,
+      "end": 21.14,
+      "beat": 2
+    },
+    {
+      "word": "into",
+      "start": 21.14,
+      "end": 21.52,
+      "beat": 2
+    },
+    {
+      "word": "beating",
+      "start": 21.52,
+      "end": 21.8,
+      "beat": 2
+    },
+    {
+      "word": "cardiomyocytes",
+      "start": 21.8,
+      "end": 22.66,
+      "beat": 2
+    },
+    {
+      "word": "to",
+      "start": 22.66,
+      "end": 23.04,
+      "beat": 2
+    },
+    {
+      "word": "repair",
+      "start": 23.04,
+      "end": 23.2,
+      "beat": 2
+    },
+    {
+      "word": "her",
+      "start": 23.2,
+      "end": 23.54,
+      "beat": 2
+    },
+    {
+      "word": "heart",
+      "start": 23.54,
+      "end": 23.78,
+      "beat": 2
+    },
+    {
+      "word": "tissue.",
+      "start": 23.78,
+      "end": 24.06,
+      "beat": 2
+    },
+    {
+      "word": "And",
+      "start": 25.8,
+      "end": 26.44,
+      "beat": 2
+    },
+    {
+      "word": "it",
+      "start": 26.44,
+      "end": 26.54,
+      "beat": 3
+    },
+    {
+      "word": "doesn't",
+      "start": 26.54,
+      "end": 26.88,
+      "beat": 3
+    },
+    {
+      "word": "stop",
+      "start": 26.88,
+      "end": 27.12,
+      "beat": 3
+    },
+    {
+      "word": "there.",
+      "start": 27.12,
+      "end": 27.42,
+      "beat": 3
+    },
+    {
+      "word": "In",
+      "start": 28.26,
+      "end": 28.6,
+      "beat": 3
+    },
+    {
+      "word": "2012,",
+      "start": 28.6,
+      "end": 29.46,
+      "beat": 3
+    },
+    {
+      "word": "the",
+      "start": 29.94,
+      "end": 30.02,
+      "beat": 3
+    },
+    {
+      "word": "Fred",
+      "start": 30.02,
+      "end": 30.24,
+      "beat": 3
+    },
+    {
+      "word": "Hutchinson",
+      "start": 30.24,
+      "end": 30.6,
+      "beat": 3
+    },
+    {
+      "word": "Center",
+      "start": 30.6,
+      "end": 31.1,
+      "beat": 3
+    },
+    {
+      "word": "discovered",
+      "start": 31.1,
+      "end": 31.5,
+      "beat": 3
+    },
+    {
+      "word": "male",
+      "start": 31.5,
+      "end": 31.8,
+      "beat": 3
+    },
+    {
+      "word": "fetal",
+      "start": 31.8,
+      "end": 32.18,
+      "beat": 3
+    },
+    {
+      "word": "DNA",
+      "start": 32.18,
+      "end": 32.66,
+      "beat": 3
+    },
+    {
+      "word": "inside",
+      "start": 32.66,
+      "end": 33.18,
+      "beat": 3
+    },
+    {
+      "word": "the",
+      "start": 33.18,
+      "end": 33.5,
+      "beat": 3
+    },
+    {
+      "word": "brains",
+      "start": 33.5,
+      "end": 33.72,
+      "beat": 3
+    },
+    {
+      "word": "of",
+      "start": 33.72,
+      "end": 34.0,
+      "beat": 3
+    },
+    {
+      "word": "women",
+      "start": 34.0,
+      "end": 34.26,
+      "beat": 3
+    },
+    {
+      "word": "up",
+      "start": 34.26,
+      "end": 34.46,
+      "beat": 3
+    },
+    {
+      "word": "to",
+      "start": 34.46,
+      "end": 34.62,
+      "beat": 3
+    },
+    {
+      "word": "age",
+      "start": 34.62,
+      "end": 34.82,
+      "beat": 3
+    },
+    {
+      "word": "94.",
+      "start": 34.82,
+      "end": 35.22,
+      "beat": 3
+    },
+    {
+      "word": "For",
+      "start": 36.6,
+      "end": 36.76,
+      "beat": 3
+    },
+    {
+      "word": "nearly",
+      "start": 36.76,
+      "end": 36.96,
+      "beat": 3
+    },
+    {
+      "word": "a",
+      "start": 36.96,
+      "end": 37.22,
+      "beat": 3
+    },
+    {
+      "word": "century,",
+      "start": 37.22,
+      "end": 37.6,
+      "beat": 3
+    },
+    {
+      "word": "children",
+      "start": 38.02,
+      "end": 38.24,
+      "beat": 3
+    },
+    {
+      "word": "leave",
+      "start": 38.24,
+      "end": 38.58,
+      "beat": 3
+    },
+    {
+      "word": "an",
+      "start": 38.58,
+      "end": 38.76,
+      "beat": 3
+    },
+    {
+      "word": "indelible",
+      "start": 38.76,
+      "end": 39.22,
+      "beat": 3
+    },
+    {
+      "word": "biological",
+      "start": 39.22,
+      "end": 39.66,
+      "beat": 3
+    },
+    {
+      "word": "mark",
+      "start": 39.66,
+      "end": 40.24,
+      "beat": 3
+    },
+    {
+      "word": "in",
+      "start": 40.24,
+      "end": 40.5,
+      "beat": 3
+    },
+    {
+      "word": "their",
+      "start": 40.5,
+      "end": 40.6,
+      "beat": 3
+    },
+    {
+      "word": "mother's",
+      "start": 40.6,
+      "end": 41.0,
+      "beat": 3
+    },
+    {
+      "word": "memory",
+      "start": 41.0,
+      "end": 41.18,
+      "beat": 3
+    },
+    {
+      "word": "centers.",
+      "start": 41.18,
+      "end": 41.7,
+      "beat": 3
+    },
+    {
+      "word": "14",
+      "start": 43.54,
+      "end": 44.22,
+      "beat": 4
+    },
+    {
+      "word": "centuries",
+      "start": 44.22,
+      "end": 44.88,
+      "beat": 4
+    },
+    {
+      "word": "ago,",
+      "start": 44.88,
+      "end": 45.28,
+      "beat": 4
+    },
+    {
+      "word": "a",
+      "start": 45.66,
+      "end": 45.76,
+      "beat": 4
+    },
+    {
+      "word": "man",
+      "start": 45.76,
+      "end": 45.96,
+      "beat": 4
+    },
+    {
+      "word": "asked",
+      "start": 45.96,
+      "end": 46.3,
+      "beat": 4
+    },
+    {
+      "word": "Prophet",
+      "start": 46.3,
+      "end": 46.64,
+      "beat": 4
+    },
+    {
+      "word": "Muhammad,",
+      "start": 46.64,
+      "end": 46.92,
+      "beat": 4
+    },
+    {
+      "word": "who",
+      "start": 47.52,
+      "end": 47.72,
+      "beat": 4
+    },
+    {
+      "word": "deserves",
+      "start": 47.72,
+      "end": 47.96,
+      "beat": 4
+    },
+    {
+      "word": "my",
+      "start": 47.96,
+      "end": 48.3,
+      "beat": 4
+    },
+    {
+      "word": "finest",
+      "start": 48.3,
+      "end": 48.64,
+      "beat": 4
+    },
+    {
+      "word": "companionship.",
+      "start": 48.64,
+      "end": 49.46,
+      "beat": 4
+    },
+    {
+      "word": "The",
+      "start": 50.28,
+      "end": 50.6,
+      "beat": 4
+    },
+    {
+      "word": "Prophet",
+      "start": 50.6,
+      "end": 50.92,
+      "beat": 4
+    },
+    {
+      "word": "answered,",
+      "start": 50.92,
+      "end": 51.36,
+      "beat": 4
+    },
+    {
+      "word": "your",
+      "start": 51.8,
+      "end": 51.92,
+      "beat": 4
+    },
+    {
+      "word": "mother.",
+      "start": 51.92,
+      "end": 52.2,
+      "beat": 4
+    },
+    {
+      "word": "The",
+      "start": 53.18,
+      "end": 53.38,
+      "beat": 4
+    },
+    {
+      "word": "man",
+      "start": 53.38,
+      "end": 53.56,
+      "beat": 4
+    },
+    {
+      "word": "asked,",
+      "start": 53.56,
+      "end": 54.04,
+      "beat": 4
+    },
+    {
+      "word": "then",
+      "start": 54.36,
+      "end": 54.52,
+      "beat": 4
+    },
+    {
+      "word": "who?",
+      "start": 54.52,
+      "end": 54.74,
+      "beat": 4
+    },
+    {
+      "word": "Your",
+      "start": 55.56,
+      "end": 55.94,
+      "beat": 4
+    },
+    {
+      "word": "mother.",
+      "start": 55.94,
+      "end": 56.28,
+      "beat": 4
+    },
+    {
+      "word": "Then",
+      "start": 57.22,
+      "end": 57.5,
+      "beat": 4
+    },
+    {
+      "word": "who?",
+      "start": 57.5,
+      "end": 57.78,
+      "beat": 4
+    },
+    {
+      "word": "Your",
+      "start": 58.62,
+      "end": 58.98,
+      "beat": 4
+    },
+    {
+      "word": "mother.",
+      "start": 58.98,
+      "end": 59.34,
+      "beat": 4
+    },
+    {
+      "word": "Only",
+      "start": 60.12,
+      "end": 60.52,
+      "beat": 4
+    },
+    {
+      "word": "on",
+      "start": 60.52,
+      "end": 60.82,
+      "beat": 4
+    },
+    {
+      "word": "the",
+      "start": 60.82,
+      "end": 60.96,
+      "beat": 4
+    },
+    {
+      "word": "fourth",
+      "start": 60.96,
+      "end": 61.16,
+      "beat": 4
+    },
+    {
+      "word": "time",
+      "start": 61.16,
+      "end": 61.56,
+      "beat": 4
+    },
+    {
+      "word": "did",
+      "start": 61.56,
+      "end": 61.76,
+      "beat": 4
+    },
+    {
+      "word": "he",
+      "start": 61.76,
+      "end": 61.88,
+      "beat": 4
+    },
+    {
+      "word": "say,",
+      "start": 61.88,
+      "end": 62.1,
+      "beat": 4
+    },
+    {
+      "word": "your",
+      "start": 62.5,
+      "end": 62.64,
+      "beat": 4
+    },
+    {
+      "word": "father.",
+      "start": 62.64,
+      "end": 63.02,
+      "beat": 4
+    },
+    {
+      "word": "You",
+      "start": 64.72,
+      "end": 65.36,
+      "beat": 5
+    },
+    {
+      "word": "are",
+      "start": 65.36,
+      "end": 65.48,
+      "beat": 5
+    },
+    {
+      "word": "not",
+      "start": 65.48,
+      "end": 65.68,
+      "beat": 5
+    },
+    {
+      "word": "just",
+      "start": 65.68,
+      "end": 65.94,
+      "beat": 5
+    },
+    {
+      "word": "a",
+      "start": 65.94,
+      "end": 66.08,
+      "beat": 5
+    },
+    {
+      "word": "chapter",
+      "start": 66.08,
+      "end": 66.4,
+      "beat": 5
+    },
+    {
+      "word": "in",
+      "start": 66.4,
+      "end": 66.66,
+      "beat": 5
+    },
+    {
+      "word": "her",
+      "start": 66.66,
+      "end": 66.78,
+      "beat": 5
+    },
+    {
+      "word": "life.",
+      "start": 66.78,
+      "end": 67.06,
+      "beat": 5
+    },
+    {
+      "word": "Biologically,",
+      "start": 68.2,
+      "end": 68.76,
+      "beat": 5
+    },
+    {
+      "word": "genetically,",
+      "start": 69.34,
+      "end": 69.46,
+      "beat": 5
+    },
+    {
+      "word": "and",
+      "start": 70.14,
+      "end": 70.24,
+      "beat": 5
+    },
+    {
+      "word": "spiritually,",
+      "start": 70.24,
+      "end": 70.64,
+      "beat": 5
+    },
+    {
+      "word": "you",
+      "start": 71.22,
+      "end": 71.38,
+      "beat": 5
+    },
+    {
+      "word": "are",
+      "start": 71.38,
+      "end": 71.52,
+      "beat": 5
+    },
+    {
+      "word": "stitched",
+      "start": 71.52,
+      "end": 71.92,
+      "beat": 5
+    },
+    {
+      "word": "into",
+      "start": 71.92,
+      "end": 72.12,
+      "beat": 5
+    },
+    {
+      "word": "her",
+      "start": 72.12,
+      "end": 72.32,
+      "beat": 5
+    },
+    {
+      "word": "living",
+      "start": 72.32,
+      "end": 72.56,
+      "beat": 5
+    },
+    {
+      "word": "organs",
+      "start": 72.56,
+      "end": 72.92,
+      "beat": 5
+    },
+    {
+      "word": "forever.",
+      "start": 72.92,
+      "end": 73.22,
+      "beat": 5
+    },
+    {
+      "word": "Call",
+      "start": 74.02,
+      "end": 74.74,
+      "beat": 5
+    },
+    {
+      "word": "your",
+      "start": 74.74,
+      "end": 74.92,
+      "beat": 5
+    },
+    {
+      "word": "mother",
+      "start": 74.92,
+      "end": 75.2,
+      "beat": 5
+    },
+    {
+      "word": "today.",
+      "start": 75.2,
+      "end": 75.56,
+      "beat": 5
+    }
+  ]
+}
